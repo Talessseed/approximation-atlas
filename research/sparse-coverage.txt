@@ -1,0 +1,43 @@
+Sparse-graph catalog coverage audit — 15 November 2026
+
+42 bibliography records represent all 42 sections of Feuilloley, arXiv:2001.08510v4. 53 result rows from 32 of those sections were checked against primary-paper abstracts, theorem statements, or the authors’ conference abstract. This is not an exhaustive theorem extraction, nor a complete or current literature review.
+
+Conventions: LOCAL is a conservative model assignment when stronger bounded-message support was not checked. Anonymous rows describe ID-free algorithms and preserve message assumptions in text. Maximal independent set subroutines are not misclassified as maximum-independent-set approximations. The k-tuple papers use outside-D domination, which differs from closed-neighborhood k-tuple domination. Fractional results explicitly say so. Publication year follows the cited version; preprint years are used when recorded, but early versions are not exhaustively resolved.
+
+Entries with no result row:
+Section 15: Tight approximation bounds for dominating set on graphs of bounded arboricity. Centralized LP rounding result. The distributed consequence needs an additional distributed LP algorithm; not indexed as a standalone distributed algorithm.
+Section 22: Brief announcement: a local approximation algorithm for MDS problem in anonymous planar networks. Represented by the 2015 journal result; do not merge the differing numerical guarantees.
+Section 24: Minimum Dominating Set Approximation in Graphs of Bounded Arboricity. Results are indexed under the 2013 consolidated journal paper.
+Section 25: Sublogarithmic distributed MIS algorithm for sparse graphs using Nash-Williams decomposition. Supporting exact symmetry-breaking result; maximal independent set is not maximum independent set.
+Section 26: An optimal maximal independent set algorithm for bounded-independence graphs. Supporting MIS subroutine; not indexed as a maximum-independent-set approximation.
+Section 28: What can be approximated locally? Case study: dominating sets in planar graphs. Use the corrected 2013 journal analysis for numerical guarantees.
+Section 29: A log-star distributed maximal independent set algorithm for growth-bounded graphs. Supporting exact MIS subroutine; journal version is listed separately.
+Section 32: A randomized distributed algorithm for the maximal independent set problem in growth-bounded graphs. Supporting exact MIS subroutine, not an approximation entry.
+Section 34: Distributed Approximations for Packing in Unit-Disk Graphs. Packing algorithm verified at abstract level; precise ratio omitted pending theorem audit.
+Section 39: Fast Deterministic Distributed Maximal Independent Set Computation on Growth-Bounded Graphs. Supporting exact maximal independent set algorithm.
+
+Additional unextracted results and deliberate limits:
+- Section 4: randomized α(1+o(1)) weighted domination requires a probability/parameter audit before indexing.
+- Section 5: deterministic independent-set variant and correlation clustering omitted pending theorem extraction.
+- Section 20: the 5−ε lower bound in the abstract is restricted to degree-and-neighbor-degree algorithms; it is not asserted here as an unrestricted anonymous LOCAL lower bound.
+- Section 23: more detailed arboricity tradeoffs are not exhaustively expanded.
+- Section 30: randomized constant-time variants and exact approximation-dependent deterministic lower bounds remain to be extracted.
+- Section 33: weighted matching and the quantitative weighted connected-domination lower bound remain to be extracted.
+- Section 34: the packing ratio and connected-pattern assumptions require a primary theorem read. The bibliography entry is retained.
+- Section 36: the dominating-set theorem has extra graph restrictions that require checking; only matching is indexed.
+- Section 37: weighted tree matching remains to be extracted.
+- Section 40: runtime is kept as O(T_MIS + ε^−O(1) log* n), not silently collapsed to log* n using a later subroutine.
+- Section 41: fractional domination requires geometric distances to neighbors. General local LP and network decomposition corollaries are not fully expanded.
+
+Primary checks that refine the informal survey:
+- 2018 K_h-minor domination paper also gives constant approximation for excluded topological K_h and a (1+ε) scheme for excluded K_h minors.
+- Distance domination on bounded expansion works in broadcast CONGEST, with O(r² log n) rounds.
+- Dory–Ghaffari–Ilchi weighted domination is CONGEST and assumes polynomially bounded positive integer weights.
+- Alipour–Futuhi–Karimi’s theorem uses m=0 and random tie-breaking; no isolated vertices. It gives 32 for MDS and 16 for total domination.
+- Alipour–Jafari conference abstract states planar graphs without 4-cycles (not necessarily triangle-free), and randomization.
+- Anonymous planar domination differs by version: journal guarantee is 694; older references quote 636.
+- Minimum domination schemes use a factor at least 1; survey notation 1−1/polylog n cannot be reused literally for minimization.
+
+Newer leads passed to the main agent:
+- arXiv:2610.09618, Almost Optimal Constant-Round Approximation of Dominating Set in Graph Classes with Excluded Minors.
+- DOI 10.1145/3816782.3819190, Distributed Dominating Set With Optimal Rounds and Message Size in Bounded Arboricity Graphs (SPAA 2026).

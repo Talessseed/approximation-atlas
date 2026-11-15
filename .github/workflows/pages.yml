@@ -1,0 +1,44 @@
+name: Deploy static atlas to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v6
+      - name: Validate and build the static catalog
+        run: npm run check
+      - name: Check interactions at a GitHub Pages subpath
+        run: |
+          npm install --prefix "$RUNNER_TEMP/atlas-qa" --no-save --ignore-scripts jsdom@26
+          ATLAS_JSDOM="$RUNNER_TEMP/atlas-qa/node_modules/jsdom" \
+          ATLAS_TEST_URL="https://example.github.io/atlas/" \
+          node scripts/dom-smoke.cjs
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Upload static files
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

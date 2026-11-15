@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A source-linked atlas of distributed approximation: LOCAL, CONGEST, anonymous and SUPPORTED models, with constant and log-star rounds first.">
+  <meta name="theme-color" content="#141e2d">
+  <title>Atlas of Distributed Approximation</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="data/catalog.js" defer></script>
+  <script src="core.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to results</a>
+  <header class="site-header">
+    <a class="brand" href="#catalog" aria-label="Distributed approximation atlas home">
+      <svg viewBox="0 0 42 42" aria-hidden="true"><path d="m6 33 15-25 15 25M12 23h18"/><circle cx="21" cy="8" r="4"/><circle cx="6" cy="33" r="4"/><circle cx="36" cy="33" r="4"/></svg>
+      <span>Distributed<br><strong>approximation atlas</strong></span>
+    </a>
+    <nav class="primary-nav" aria-label="Main navigation">
+      <a href="#catalog" data-view="catalog" aria-current="page"><span aria-hidden="true">≡</span> Reference</a>
+      <a href="#explorer" data-view="explorer"><span aria-hidden="true">⌘</span> Explorer</a>
+      <a href="#bibliography" data-view="bibliography"><span aria-hidden="true">▤</span> Bibliography</a>
+      <a href="#about" data-view="about"><span aria-hidden="true">i</span> Reading the atlas</a>
+    </nav>
+    <a class="home-link" href="https://talessseed.github.io/" target="_blank" rel="noopener">Timothé Picavet ↗</a>
+  </header>
+
+  <section class="intro" aria-labelledby="page-title">
+    <div>
+      <div class="eyebrow"><span class="status-dot"></span> A reference for distributed graph algorithms</div>
+      <h1 id="page-title">How much can we approximate <span>locally?</span></h1>
+      <p>Algorithms and lower bounds, from constant to polylogarithmic rounds.<br class="desktop-break"> Find a result by problem, model, graph class, or approximation guarantee.</p>
+      <div id="catalog-stats" class="stats" aria-label="Catalog coverage"></div>
+    </div>
+    <svg class="header-graph" viewBox="0 0 260 130" aria-hidden="true">
+      <defs><pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#536171"/></pattern></defs>
+      <rect x="0" y="0" width="260" height="130" fill="url(#dots)" opacity=".45"/>
+      <g fill="none" stroke="#59717c" stroke-width="1.3"><path d="M33 74 76 31 125 58 166 22 218 48 221 101 169 103 125 58 80 110 33 74 125 58M76 31 80 110M166 22 169 103 218 48M221 101 125 58"/></g>
+      <path d="M33 74 76 31M125 58 80 110M166 22 218 48M169 103 221 101" stroke="#06d6a0" stroke-width="3"/>
+      <g fill="#141e2d" stroke="#06d6a0" stroke-width="2"><circle cx="33" cy="74" r="6"/><circle cx="76" cy="31" r="6"/><circle cx="80" cy="110" r="6"/><circle cx="169" cy="103" r="6"/><circle cx="218" cy="48" r="6"/><circle cx="221" cy="101" r="6"/></g>
+      <g fill="#ffd166"><circle cx="125" cy="58" r="7"/><circle cx="166" cy="22" r="6"/></g>
+    </svg>
+  </section>
+
+  <main id="main" tabindex="-1">
+    <div id="catalog-view" class="view">
+      <div class="catalog-layout">
+        <aside class="filters" aria-label="Filter results">
+          <div class="filter-heading"><h2>Refine the atlas</h2><button id="reset" class="text-button">Reset</button></div>
+          <div class="filter-block"><h3>Problem</h3><div id="problem-filters" class="problem-filters"></div></div>
+          <div class="filter-block">
+            <label for="model">Distributed model</label>
+            <select id="model" data-filter="model"><option value="">All models</option><option>LOCAL</option><option>CONGEST</option><option>Anonymous</option><option>SUPPORTED</option></select>
+            <label class="checkbox-label"><input type="checkbox" id="transfer" data-filter="transfer"> Include model implications</label>
+            <p class="hint">Upper: CONGEST → LOCAL.<br>Lower: LOCAL → CONGEST.</p>
+          </div>
+          <div class="filter-block"><label for="graph">Graph class</label><select id="graph" data-filter="graph"><option value="">All graph classes</option></select><p class="hint">Groups classes named in each result. Check the exact assumptions.</p></div>
+          <div class="filter-block"><label for="randomization">Algorithm type</label><select id="randomization" data-filter="randomization"><option value="">All types</option><option>Deterministic</option><option>Randomized</option><option>Unspecified</option></select></div>
+          <div class="filter-block"><label for="bound">Result type</label><select id="bound" data-filter="bound"><option value="">Algorithms & lower bounds</option><option value="upper">Algorithms only</option><option value="lower">Lower bounds only</option></select></div>
+          <div class="sidebar-note"><span aria-hidden="true">↳</span><p>Fixed parameters matter.<br><a href="#about">A guide to the notation</a></p></div>
+        </aside>
+        <section class="results-section" aria-label="Research results">
+          <div class="search-row"><label class="search-box"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5"/></svg><input id="search" type="search" placeholder="Search problems, authors, bounds…" aria-label="Search results"><kbd>/</kbd></label><button id="share" class="button subtle" title="Copy a link to these filters">Copy view link</button></div>
+          <div id="round-filters" class="round-filters" aria-label="Round complexity"></div>
+          <div class="result-toolbar"><p id="result-count" aria-live="polite"></p><div class="toolbar-controls"><label for="sort" class="sr-only">Sort results</label><select id="sort" data-filter="sort"><option value="rounds">Round regime first</option><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="problem">Problem first</option></select><button id="export" class="text-button">Export CSV ↓</button></div></div>
+          <p class="table-note"><span class="tiny-square"></span> Constant and log* <i>n</i> first. Degree-dependent bounds follow. Open a result for its fixed parameters and source.</p>
+          <div id="active-filters" class="active-filters"></div>
+          <div class="table-scroll" tabindex="0" aria-label="Results table, scroll horizontally on small screens"><table class="results-table"><caption class="sr-only">Distributed approximation results</caption><thead><tr><th class="selection-col"><span class="sr-only">Compare</span></th><th>Problem / graph class</th><th>Approximation</th><th>Rounds</th><th>Model / type</th><th>Reference</th><th><span class="sr-only">Details</span></th></tr></thead><tbody id="results-body"></tbody></table></div>
+          <div id="empty" class="empty" hidden><span aria-hidden="true">∅</span><h2>No matching results</h2><p>Try a broader graph class, model, or search term.</p><button id="empty-reset" class="button">Clear all filters</button></div>
+          <div class="coverage-note"><strong>A growing research reference.</strong> Coverage is curated, not exhaustive. Historical results and recent preprints are included; source checks do not constitute proof verification. <a href="#about">Coverage & conventions →</a></div>
+        </section>
+      </div>
+    </div>
+    <section id="explorer-view" class="view" hidden aria-labelledby="explorer-heading"><div class="section-heading"><div><p class="eyebrow">A second way in</p><h2 id="explorer-heading">Explore the landscape</h2><p>Select a cell to open its results in the reference table.</p></div><label for="explorer-bound">Result type <select id="explorer-bound"><option value="upper">Algorithms</option><option value="lower">Lower bounds</option><option value="">Both</option></select></label></div><div id="matrix" class="matrix-wrap"></div><p class="hint">Cell counts describe catalog coverage, not relative algorithm quality. Degree, approximation and graph assumptions can differ within a cell.</p><div class="section-heading graph-heading"><div><p class="eyebrow">Structural assumptions</p><h2>Browse graph classes</h2><p>The arrows below indicate inclusion of fixed-parameter graph families.</p></div></div><div id="class-chain" class="class-chain"></div><div id="class-cards" class="class-cards"></div><p class="hint">A class button finds entries naming that family (including outerplanar entries under planar). It does not automatically transfer all algorithms or lower bounds along the inclusions.</p></section>
+    <section id="bibliography-view" class="view narrow-view" hidden aria-labelledby="bibliography-heading"><div class="section-heading"><div><p class="eyebrow">The sources behind the bounds</p><h2 id="bibliography-heading">Bibliography</h2><p id="bibliography-count"></p></div><button id="bib-export" class="button subtle">Download BibTeX ↓</button></div><label class="search-box"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5"/></svg><input type="search" id="bib-search" placeholder="Search titles, authors, venues…" aria-label="Search bibliography"></label><div id="bibliography-list"></div></section>
+    <section id="about-view" class="view prose narrow-view" hidden aria-labelledby="about-heading"><p class="eyebrow">Scope, notation & provenance</p><h2 id="about-heading">Reading the atlas</h2><p>This atlas collects constructive distributed approximation algorithms and impossibility results. Its default ordering puts constant and iterated logarithmic round regimes first, followed by explicit degree dependencies and slower bounds.</p>
+      <h3>What “constant” means</h3><p><i>n</i> is the number of vertices, Δ the maximum degree, α the arboricity, <i>g</i> the genus, and ε an accuracy parameter. A bound independent of <i>n</i> can depend strongly on these other parameters. Each result records the parameters that must be fixed. A bound such as O(log Δ / ε) is shown separately from a uniform O(1) bound. Likewise, O(f(Δ, ε) + log* <i>n</i>) is only O(log* <i>n</i>) when the other parameters are fixed.</p>
+      <h3>Approximation conventions</h3><p>For minimization, a factor ρ means cost at most ρ·OPT. For maximization, a factor written as 1 − ε denotes value at least (1 − ε)·OPT. A maximization factor written as 2 or 2 + ε uses the reciprocal convention, OPT / value. The result details specify the applicable convention. Lower-bound entries describe an impossible guarantee; their labels are not achievable approximation factors.</p>
+      <h3>Models and implications</h3><dl><dt>LOCAL</dt><dd>Synchronous communication along graph edges, without a message-size restriction. The standard setting gives unique node identifiers.</dd><dt>CONGEST</dt><dd>Typically O(log <i>n</i>) bits per edge per round. Additional restrictions, including broadcast or smaller messages, appear in the assumptions.</dd><dt>Anonymous</dt><dd>No unique identifiers; port-numbering, orientation and any initial coloring must be checked in the individual result.</dd><dt>SUPPORTED</dt><dd>Preprocessing on a support graph is allowed. These bounds are kept separate from ordinary LOCAL algorithms.</dd></dl><p>The optional model-implication filter includes CONGEST and anonymous upper bounds under LOCAL, and LOCAL lower bounds under CONGEST. It does not convert SUPPORTED results or infer implications between deterministic and randomized settings.</p>
+      <h3>Source checks and coverage</h3><p>The initial literature map follows Laurent Feuilloley’s <a href="https://arxiv.org/abs/2001.08510" target="_blank" rel="noopener">Bibliography of distributed approximation beyond bounded degree</a> (v4, November 2023), supplemented by foundational bounded-degree and general-graph results, and selected 2024–2026 work. Every recorded bound links to a source and indicates the location checked. “Primary source checked” means the claim was located in a paper’s abstract or theorem, not that its proof was independently reviewed.</p><p>The bibliography also retains supporting exact algorithms, earlier versions, and papers whose bounds have not yet been extracted. Exact symmetry-breaking subroutines are not automatically treated as approximation algorithms. This catalog is not exhaustive: coverage of set cover and packing/covering LPs is selective, and the complete locality lower-bound landscape and some historical or randomized improvements still need expansion. Conference and journal versions can coexist; a paper count is a count of records, not distinct research contributions.</p><p>Published claims with subsequently reported proof issues carry a visible source caveat, including inherited dependencies when identified. No automatic “state of the art” label is assigned. Comparing two rows requires compatible objectives, guarantees, graph classes, parameter ranges, randomness, and models. The comparison view preserves those differences.</p>
+      <h3>Data and contributions</h3><p>The catalog is stored in structured JSON and can be extended with new papers and bounds. <a href="data/catalog.json" download="distributed-approximation-catalog.json">Download the full dataset</a>, or export a filtered CSV from the reference view. Select up to four rows to compare their assumptions. Bibliography entries can be exported as BibTeX.</p><p>To propose a correction, open a result and choose <em>Download correction template</em>. This prepares a local text file with the exact record and source; it does not submit anything. The project README explains the data fields and validation command.</p>
+      <h3>Acknowledgments</h3><p>The reference structure is inspired by Florian Schager’s <a href="https://github.com/florian-schager/atlas" target="_blank" rel="noopener">Atlas of Distributed Algorithms</a>. The navy, green, yellow, and pink palette and graph motif draw inspiration from <a href="https://github.com/Talessseed/talessseed.github.io" target="_blank" rel="noopener">Timothé Picavet’s academic homepage</a>. This is a separate implementation.</p>
+    </section>
+  </main>
+  <footer class="site-footer"><p><span class="status-dot"></span> Distributed approximation atlas <span class="footer-divider">/</span> Literature checked 15 November 2026</p><a href="data/catalog.json" download>Open data ↓</a><a href="#about">Scope & sources</a></footer>
+  <div id="compare-bar" class="compare-bar" hidden><span id="compare-count"></span><button id="compare-open" class="button">Compare selected →</button><button id="compare-clear" class="text-button">Clear</button></div>
+  <dialog id="detail-dialog" aria-labelledby="dialog-title"><button id="dialog-close" class="dialog-close" aria-label="Close details">×</button><div id="dialog-content"></div></dialog>
+  <div id="toast" role="status" class="toast" hidden></div>
+  <noscript><p class="noscript">Enable JavaScript to browse the interactive catalog. The <a href="data/catalog.json">full JSON dataset</a> is also available.</p></noscript>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "distributed-approximation-atlas",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A source-linked reference for distributed approximation algorithms.",
+  "scripts": {
+    "build": "python3 scripts/build.py",
+    "test": "node scripts/catalog.test.cjs",
+    "check": "node --check dist/core.js && node --check dist/app.js && python3 scripts/build.py && python3 scripts/check_site.py && node scripts/catalog.test.cjs",
+    "dev": "python3 -m http.server 8765 --directory dist",
+    "start": "python3 -m http.server 8765 --directory dist"
+  }
+}

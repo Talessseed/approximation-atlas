@@ -1,0 +1,71 @@
+PICAVET HOMEPAGE AND CITATION-TRAIL EXPANSION
+Checked 2026-11-15. Adds 9 paper records and 29 result records in dist/data/picavet.json.
+All records link to primary papers or their publisher abstracts. This is a bounded expansion of the atlas, not a completeness claim.
+
+STARTING POINT
+GitHub connector read Talessseed/talessseed.github.io/publications.html, default branch, SHA 5296fc976dd148d0ce1cb902c0bc5880661b1755:
+https://github.com/Talessseed/talessseed.github.io/blob/main/publications.html
+The homepage explicitly says its DBLP refresh can miss recent arXiv entries.
+
+DIRECTLY RELEVANT HOMEPAGE PAPERS
+1. Local Constant Approximation for Dominating Set on Graphs Excluding Large Minors, PODC 2025.
+https://arxiv.org/html/2504.01091v2
+Added domination and vertex-cover statements from Theorems 4.1 and 4.4 and the stated vertex-cover extension. Used 2t−1 from Theorem 4.4, rather than the inconsistent 2t+1 introductory bullet. The theorem-level record takes precedence over that bullet.
+
+2. Distributed Approximation Algorithms for Minimum Dominating Set in Locally Nice Graphs, July 2025 preprint.
+https://arxiv.org/html/2507.04960v1
+Added the planar uniform algorithm and Theorem 8. The 34+epsilon genus statement is already represented by the later cuttable paper in general.json, so it is not duplicated here. This v1 contains apparent arithmetic inconsistencies in informal intermediate discussion; no new row was derived from those intermediate calculations. The separate 906 statement was left out.
+
+3. Meta-Theorems for Cuttable Distributed Problems, PODC 2026.
+https://jukkasuomela.fi/doc/cuttable-distributed-problems.pdf
+https://arxiv.org/abs/2605.19157
+Read the introduction, applications, and bibliography. General-catalog agent owns the paper and its result rows, including new applications. Sent it the apex, local-genus, k-tuple, and connected-domination priorities.
+
+4. Almost tight distributed approximation for domination in sparse graph classes, October 2026 preprint.
+https://arxiv.org/pdf/2610.31203
+Read the introduction and bibliography to trace predecessors. Main results are owned by general.json and are not repeated here.
+
+OTHER HOMEPAGE ITEMS
+The 2026 tree knowledge landscape, pathwidth, and H-freeness articles, and the 2025 induced paths, Turan, and geometric knapsack articles were not converted into approximation rows: their advertised contributions are outside the atlas's distributed optimization scope. No negative claim about every theorem in those papers is intended.
+
+CITATION TRAIL AND NEW COVERAGE
+Locally-nice / cuttable bibliography -> Czygrinow et al., TCS 2019 broadcast-CONGEST domination:
+https://www.sciencedirect.com/science/article/pii/S0304397518304894
+Publisher abstract and indexed Lemma 10 specify the model and ten-round implementation. Exact ratio was not reconstructed from the publisher's broken mathematical rendering; the row says O_g(1). Genus is orientable, not arbitrary Euler genus. The later 91+epsilon conversion uses additional LOCAL processing and is not relabeled as a short-message result.
+
+Cited domination authors -> Marcin Witkowski's research list -> ICTCS 2017 / TCS 2020 k-domination:
+https://mw.web.amu.edu.pl/research.html
+https://ceur-ws.org/Vol-1949/ICTCSpaper05.pdf
+https://doi.org/10.1016/j.tcs.2019.12.027
+The accessible conference version supplies exact locators and years. The extended journal version is recorded in paper metadata but not treated as independently checked. Convention: only vertices outside the chosen set require k neighbors in it. This is not closed-neighborhood k-tuple domination.
+
+Same author trail -> distance domination in K2,t-minor-free graphs:
+https://arxiv.org/pdf/2203.03229
+Added Theorems 15, 18, 19. Preserved the connectedness/diameter assumptions of the first two theorem statements. Did not silently insert an extra small-diameter brute-force reduction. Theorem 19's inequality is gamma_1 <= C gamma_k; introductory prose has the inequality in the unhelpful reverse direction.
+
+Distance-domination related work -> Amiri and Wiederhake 2019 preprint / 2022 journal:
+https://arxiv.org/pdf/1910.02794
+https://www.sciencedirect.com/science/article/pii/S0304397522000081
+https://publikationen.sulb.uni-saarland.de/bitstream/20.500.11880/34562/1/1-s2.0-S0304397522000081-main.pdf
+The original preprint supplies precise upper/lower records. The journal abstract expands to four covering problems and uses girth 4r+2 rather than the preprint's 4r+3. The institutional journal PDF failed to open, so journal records are expressly abstract-level, leave the factor unspecified beyond constant, and use Unspecified randomization. These are version-specific records, not an assertion that the preprint is the final journal text. Algorithm-specific worst cases were not misclassified as general lower bounds.
+
+High-girth citation neighborhood -> Lenzen and Wenning, SSS 2024:
+https://arxiv.org/html/2408.12998v1
+Added parameter-sensitive upper bounds and deterministic lower bounds. Anonymous upper bounds mean the port-numbering model; the paper states the lower bounds extend to identifiers. Bibliographic year is the 2024 conference/preprint, with 2025 proceedings publication noted. More specialized non-tree k−1 / k−2 tradeoffs are not yet separate rows.
+
+Witkowski research list -> ISAAC 2021 capacitated matching:
+https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ISAAC.2021.59
+Theorem 7 and Theorem 17 are separate f-matching / b-matching rows. The latter's Lipschitz capacity condition is retained. Capacitated variants do not replace ordinary maximum matching rows.
+
+Locally-nice / cuttable citations -> existing Amiri–Schmid–Siebertz record:
+https://schmiste.github.io/talg19ds.pdf
+Added two 2019 journal-version results using existing paper ID amiri-beyond-2017. The log-star refinement requires an input constant approximation. The unconditional bound explicitly stated with the earlier seed construction is logarithmic. A modern composition with a later constant-round seed was not attributed retroactively to this paper.
+
+REMAINING PRIORITIES
+- Boppana–Halldorsson, Approximating Independent Sets in Constant Distributed Rounds (SIROCCO 2025), DOI 10.1007/978-3-031-91736-3_9: sent to general-catalog agent; exact parameter tradeoffs were not recovered from an accessible full theorem.
+- The 2024 f-matching journal article from Witkowski's list is a plausible further extension; not opened and not indexed here.
+- A full journal-text audit could sharpen the four 2022 high-girth covering rows and the 2019 genus broadcast factor.
+- Original sparse-coverage.txt still lists the earlier survey-specific omissions.
+
+VALIDATION
+29 unique new result IDs; 9 unique new paper IDs. Required schema fields checked. All paper references resolve against sparse.json + general.json + picavet.json, including the intentional cross-file journal-version reference. No base dataset or interface files modified by this expansion.
