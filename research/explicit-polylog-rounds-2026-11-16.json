@@ -1,0 +1,120 @@
+{
+  "checked": "2026-11-16",
+  "scope": "Primary-source checks for expanded round complexities in result details. Explicit means a stated asymptotic expression with quantified powers, not an exact numerical round count. A not-explicit entry records the most precise verified statement and does not assert that a full implementation could not be analysed further.",
+  "entries": [
+    {
+      "resultId": "planar-weighted-independent-2006",
+      "status": "explicit",
+      "formulaPlain": "O(log log n · log* n · (log n)^(d+1)), where d = log 3 / log(12/11)",
+      "tex": "O\\!\\left(\\log\\log n\\cdot\\log^* n\\cdot(\\log n)^{d+1}\\right),\\qquad d=\\frac{\\log 3}{\\log(12/11)}",
+      "basis": "stated",
+      "explanation": "Theorem 3.6 states this expression for the deterministic LOCAL weighted planar independent-set algorithm with ratio 1 − O(1/log n). Lemma 3.5 gives the same clustering complexity. Here d is a fixed numerical constant, not a graph parameter.",
+      "evidence": [{"url": "https://citeseerx.ist.psu.edu/document?doi=5393d1efac934cd32964336c9cd276b1c6b9930b&repid=rep1&type=pdf", "title": "Distributed algorithms for weighted problems in sparse graphs", "location": "Theorem 3.6; Lemmas 3.3 and 3.5 (manuscript pp. 14–16)"}],
+      "parameters": [{"symbol": "d", "description": "Fixed numerical exponent log 3 / log(12/11)", "tex": "d=\\log 3/\\log(12/11)"}, {"symbol": "n", "description": "Number of vertices", "tex": "n"}]
+    },
+    {
+      "resultId": "tree-weighted-domination-2006",
+      "status": "not-explicit",
+      "formulaPlain": "polylog n",
+      "tex": "\\operatorname{polylog} n",
+      "basis": "stated",
+      "explanation": "Theorem 2.10 states only polylogarithmic rounds. Lemma 2.4 bounds cluster diameter by O(log³ n); this diameter alone is not the total algorithm complexity. The theorem does not specify a polynomial exponent.",
+      "evidence": [{"url": "https://citeseerx.ist.psu.edu/document?doi=5393d1efac934cd32964336c9cd276b1c6b9930b&repid=rep1&type=pdf", "title": "Distributed algorithms for weighted problems in sparse graphs", "location": "Theorem 2.10; Lemma 2.4; WDSinTree procedure (manuscript pp. 7–11)"}],
+      "parameters": [{"symbol": "n", "description": "Number of vertices", "tex": "n"}]
+    },
+    {
+      "resultId": "minor-weighted-domination-2007",
+      "status": "not-explicit",
+      "formulaPlain": "polylog n, for fixed d and a fixed proper minor-closed family",
+      "tex": "\\operatorname{polylog} n",
+      "basis": "stated",
+      "explanation": "Theorem 5 states polylogarithmic rounds for ratio 1 + 1/(log n)^d. The polynomial can depend on the fixed accuracy exponent d and the minor-closed family. Corollary 3(b) also leaves its polynomial exponent unspecified.",
+      "evidence": [{"url": "https://citeseerx.ist.psu.edu/document?doi=81197b872b8589d907fbef91ebf5600dfe34c59a&repid=rep1&type=pdf", "title": "Distributed approximation algorithms for weighted problems in minor-closed families", "location": "Theorem 5; Corollary 3(b); Vertex-weight Partition and Lemma 5"}],
+      "parameters": [{"symbol": "d", "description": "Fixed positive integer controlling the inverse-polylogarithmic approximation error", "tex": "d"}, {"symbol": "n", "description": "Number of vertices", "tex": "n"}]
+    },
+    {
+      "resultId": "chang-su-matching",
+      "status": "not-explicit",
+      "formulaPlain": "ε^(−O(1)) · (log n)^(O(1)), with high probability",
+      "tex": "\\varepsilon^{-O(1)}\\log^{O(1)}n",
+      "basis": "stated",
+      "explanation": "Theorem 1.1 states this bound for randomized CONGEST maximum weighted matching on H-minor-free graphs. The multiplicative constant may depend on H; the O(1) exponents are explicitly independent of H. Their numerical values are not specified.",
+      "evidence": [{"url": "https://arxiv.org/pdf/2205.08093", "title": "Narrowing the LOCAL–CONGEST Gaps in Sparse Networks via Expander Decompositions", "location": "Theorem 1.1 and the paragraph immediately following it (PDF p. 5); matching analysis near Theorem 1.1 proof"}],
+      "parameters": [{"symbol": "ε", "description": "Approximation accuracy, 0 < ε < 1", "tex": "\\varepsilon"}, {"symbol": "H", "description": "Fixed graph excluded as a minor", "tex": "H"}, {"symbol": "n", "description": "Number of vertices", "tex": "n"}]
+    },
+    {
+      "resultId": "chang-su-independent",
+      "status": "not-explicit",
+      "formulaPlain": "ε^(−O(1)) · (log n)^(O(1)), with high probability",
+      "tex": "\\varepsilon^{-O(1)}\\log^{O(1)}n",
+      "basis": "stated",
+      "explanation": "Theorem 1.2 gives this randomized CONGEST bound. It separately gives a deterministic bound ε^(−O(1)) · 2^(O(√(log n log log n))); that deterministic statement must not replace this randomized row. No numerical polynomial exponents are stated.",
+      "evidence": [{"url": "https://arxiv.org/pdf/2205.08093", "title": "Narrowing the LOCAL–CONGEST Gaps in Sparse Networks via Expander Decompositions", "location": "Theorem 1.2 (PDF p. 5)"}],
+      "parameters": [{"symbol": "ε", "description": "Approximation accuracy, 0 < ε < 1", "tex": "\\varepsilon"}, {"symbol": "H", "description": "Fixed graph excluded as a minor", "tex": "H"}, {"symbol": "n", "description": "Number of vertices", "tex": "n"}]
+    },
+    {
+      "resultId": "gen-ffk21-vc-bip",
+      "status": "not-explicit",
+      "formulaPlain": "poly(log n / ε)",
+      "tex": "\\operatorname{poly}\\!\\left(\\frac{\\log n}{\\varepsilon}\\right)",
+      "basis": "stated",
+      "explanation": "Theorem 1.1 of the full version states this deterministic CONGEST bound for weighted bipartite vertex cover, for ε ∈ (0,1]. The theorem and diameter-reduction implementation do not supply a complete numerical polynomial exponent.",
+      "evidence": [{"url": "https://arxiv.org/html/2111.10577", "title": "Distributed CONGEST Approximation of Weighted Vertex Covers and Matchings", "location": "Theorem 1.1; Theorem 3.1; Section 4.1"}, {"url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.OPODIS.2021.17", "title": "Distributed CONGEST Approximation of Weighted Vertex Covers and Matchings (OPODIS 2021)", "location": "Theorem 1; related full-version link"}],
+      "parameters": [{"symbol": "ε", "description": "Approximation accuracy, 0 < ε ≤ 1", "tex": "\\varepsilon"}, {"symbol": "n", "description": "Number of vertices", "tex": "n"}]
+    },
+    {
+      "resultId": "gen-ffk21-mwm-det",
+      "status": "not-explicit",
+      "formulaPlain": "2^(O(1/ε)) · polylog n",
+      "tex": "2^{O(1/\\varepsilon)}\\operatorname{polylog} n",
+      "basis": "stated",
+      "explanation": "Lemma 5.8 in the full version retains an unspecified polylogarithmic factor. The more explicit expression involving Δ, W and failure probability δ in Theorem 1.4 applies to the randomized algorithm. Preserve the catalog's existing dependency caveat for the deterministic result.",
+      "evidence": [{"url": "https://arxiv.org/html/2111.10577", "title": "Distributed CONGEST Approximation of Weighted Vertex Covers and Matchings", "location": "Lemma 5.8 and proof; Theorem 1.4"}],
+      "parameters": [{"symbol": "ε", "description": "Approximation accuracy, 0 < ε ≤ 1", "tex": "\\varepsilon"}, {"symbol": "n", "description": "Number of vertices", "tex": "n"}]
+    },
+    {
+      "resultId": "gen-hs22-mwm",
+      "status": "not-explicit",
+      "formulaPlain": "poly(1/ε, log n)",
+      "tex": "\\operatorname{poly}\\!\\left(1/\\varepsilon,\\log n\\right)",
+      "basis": "stated",
+      "explanation": "Theorem 1.1 states this deterministic CONGEST bound. Theorem 5.1 and Lemma C.7 retain polynomial costs for the augmentation subroutine and its simulation. The reviewed statements do not give numerical exponents for the complete algorithm.",
+      "evidence": [{"url": "https://arxiv.org/html/2212.14425", "title": "(1−ε)-Approximate Maximum Weighted Matching in Distributed, Parallel, and Semi-Streaming Settings", "location": "Theorem 1.1; Theorem 5.1; Lemma C.7"}],
+      "parameters": [{"symbol": "ε", "description": "Approximation accuracy, 0 < ε < 1", "tex": "\\varepsilon"}, {"symbol": "n", "description": "Number of vertices", "tex": "n"}]
+    },
+    {
+      "resultId": "minor-almost-dominating",
+      "status": "not-explicit",
+      "formulaPlain": "polylog n",
+      "tex": "\\operatorname{polylog} n",
+      "basis": "stated-in-publisher-abstract",
+      "explanation": "The publisher abstract states polylogarithmic rounds for a fixed proper minor-closed family. Only the abstract was accessible in this check; no numerical exponent is verified, and no conclusion is drawn about what the full paper might permit.",
+      "evidence": [{"url": "https://link.springer.com/chapter/10.1007/11841036_24", "title": "Distributed Almost Exact Approximations for Minor-Closed Families", "location": "Publisher abstract"}],
+      "parameters": [{"symbol": "n", "description": "Number of vertices", "tex": "n"}]
+    },
+    {
+      "resultId": "minor-almost-connected",
+      "status": "not-explicit",
+      "formulaPlain": "polylog n",
+      "tex": "\\operatorname{polylog} n",
+      "basis": "stated-in-publisher-abstract",
+      "explanation": "The publisher abstract states polylogarithmic rounds for connected dominating set in a fixed proper minor-closed family. Full-text access was unavailable in this check, so no numerical exponent is verified.",
+      "evidence": [{"url": "https://link.springer.com/chapter/10.1007/11841036_24", "title": "Distributed Almost Exact Approximations for Minor-Closed Families", "location": "Publisher abstract"}],
+      "parameters": [{"symbol": "n", "description": "Number of vertices", "tex": "n"}]
+    },
+    {
+      "resultId": "planar-matching-polylog",
+      "status": "not-explicit",
+      "formulaPlain": "polylog n",
+      "tex": "\\operatorname{polylog} n",
+      "basis": "stated-in-publisher-abstract",
+      "explanation": "The publisher abstract gives deterministic polylogarithmic rounds, with approximation approaching one as n increases. Only the abstract was accessible in this check; no numerical exponent is verified.",
+      "evidence": [{"url": "https://link.springer.com/chapter/10.1007/11758471_29", "title": "Distributed Approximation Algorithms for Planar Graphs", "location": "Publisher abstract"}],
+      "parameters": [{"symbol": "n", "description": "Number of vertices", "tex": "n"}]
+    }
+  ],
+  "unresolvedAccess": [
+    {"resultIds": ["packing-planar"], "url": "https://citeseerx.ist.psu.edu/document?doi=220ce316d6c4b583c4dd44cc3a67bdbc6c735967&repid=rep1&type=pdf", "reason": "Primary PDF fetch timed out; no explicit exponent verified."},
+    {"resultIds": ["unitdisk-matching-2006", "unitdisk-connected-2006"], "url": "https://citeseerx.ist.psu.edu/document?doi=20dda508c20a6ecb0968d9df37651143c62702bc&repid=rep1&type=pdf", "reason": "Primary PDF unavailable through the browser fetch; no explicit exponent verified."}
+  ]
+}

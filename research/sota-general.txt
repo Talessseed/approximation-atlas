@@ -1,0 +1,50 @@
+SOTA audit for general.json — 15 November 2026
+
+Output: dist/data/sota-general.json, 13 annotations. No existing catalog records were edited. Every resultId exists in general.json, IDs are unique, and no claimed/caveated record was admitted. The annotation is a manually reviewed literature claim for the written setting; it must not be recomputed from filters or the catalog's current contents.
+
+Meaning and limits
+
+Ten annotations concern mathematically tight bounds or approximation-scheme families with the optimal limiting ratio. Three concern newer best-known general-graph matching/vertex-cover tradeoffs, supported by explicit comparisons in primary papers and targeted searches for later developments. A preprint's theorem remains a source claim; this audit does not independently certify its proof. The underlying bibliography visibly labels preprints.
+
+“Optimal limiting coefficient” is deliberate: planar-incidence set cover has 4+ε for every fixed ε>0 and a lower bound below 4. No exact factor-4 algorithm is asserted. Likewise the covering schemes approach ratio 1; their dependence on ε/δ is not claimed optimal. Tight log-star statements concern n with the stated fixed parameters, except the tree/path independent-set theorem which also proves the displayed 1/ε dependence in its allowed range.
+
+The broader matching/vertex-cover flags must preserve the detailed scope. Davies-Peck's matching probability is not the usual 1−n⁻c guarantee. Its n-only upper bounds improve the large-degree worst case and do not dominate degree-dependent algorithms at small Δ. Izumi–Kitamura–Yamaguchi is maximum cardinality, not maximum weight; MM(N) remains a maximal-matching subroutine. This is a fully polynomial 1/ε, polylog(n) tradeoff, not a claim of pointwise dominance over all degree-dependent algorithms or over gathering an entire graph when ε is extremely small.
+
+Primary evidence
+
+1. Amiri–Siebertz–Wawrzyniak, arXiv:2611.02057v1, 1 Nov 2026.
+   https://arxiv.org/pdf/2611.02057
+   Theorem C and Corollary 1.1/Table 1: exact planar domination coefficient 7 and triangle-free planar coefficient 5, with matching deterministic LOCAL lower bounds against integral OPT; upper bounds use fractional OPT and broadcast CONGEST.
+   Theorem E: exact 7 against integral OPT on every fixed Euler genus, no embedding required; optimal because planar graphs are included. The paper explicitly says fractional-OPT coefficient 7 is impossible on some fixed surfaces.
+   Theorem A: constant-round deterministic broadcast fractional covering scheme for fixed minor density, bounded integer costs, locally known allowed candidates.
+   Theorem D(i),(ii): always-feasible randomized expected-cost integral scheme in constant rounds; deterministic integral scheme in O(log* n) with known polynomial ID bound.
+   Proposition C.1: Ω(log* n) for deterministic (1+ε)-domination of cycles, fixed 0<ε<1/4, matching Theorem D(ii).
+   Corollary H.1(ii) / Theorem H.2: 4+ε upper bound and impossibility below 4 for planar-incidence set cover/red-blue domination; lower bound even has fractional OPT = integral OPT.
+
+2. Faour–Kuhn, arXiv:2506.10845v1; DISC 2025 brief announcement.
+   https://arxiv.org/html/2506.10845v1
+   https://drops.dagstuhl.de/storage/00lipics/lipics-vol356-disc2025/LIPIcs.DISC.2025.54/LIPIcs.DISC.2025.54.pdf
+   Theorem 1.1 explicitly proves Θ(log* n/ε) for deterministic weighted independent set on unrooted trees. Lower bound holds on unweighted oriented paths in LOCAL; ε>log(n)/n is retained in both settings.
+
+3. Davies-Peck, arXiv:2605.13264v1, 13 May 2026.
+   https://arxiv.org/html/2605.13264v1
+   Theorems 1 and 2 and Section 1.2 explicitly compare against previous best n-dependent bounds. Section 5 explicitly leaves a gap to the KMW lower bound, so the flags say best known rather than optimal. Matching success ≥1−ε^-1 exp(−Ω(log^(1−δ)n)); vertex cover succeeds w.h.p. For fixed ε the n-only bound is O(log n/log²log n).
+
+4. Izumi–Kitamura–Yamaguchi, arXiv:2511.08210v1, 11 Nov 2025.
+   https://arxiv.org/html/2511.08210v1
+   Theorem 1.2 gives O(ε^-4 MM(ε^-2 n)), deterministic with a deterministic maximal-matching subroutine. Section 1.2 explicitly improves the previous Õ(ε^-10 MM(n)) best bound. The CONGEST theorem is separate from its semi-streaming theorem.
+
+Search and exclusions
+
+Targeted 2026 searches covered LOCAL/CONGEST approximate matching and vertex cover, citations to the two 2025 papers above, local-density improvements, and sleeping domination. No later primary source improving the selected standard-model matching/vertex-cover tradeoffs was found. This is a dated selective audit, not a theorem that the literature search is complete.
+
+- Dominating set: historical factors 34+ε, 8+ε, 7+ε (planar) and 6 (triangle-free planar) were not flagged when newer exact factors in broadcast CONGEST apply. The generic rational minor-density bound is not flagged as globally optimal: Table 1 says its optimality is class-dependent. The broad Picavet shallow-minor theorem has different hypotheses from excluded-minor results and is not declared superseded. ASW Corollary E.7 also supplies triangle-free fixed-genus factor 5+ε in broadcast CONGEST, so the earlier LOCAL row is not a unique improved frontier.
+- Total domination: exact 6 is optimal on planar graphs, but the existing general.json row spans all rational minor densities; no whole-row SOTA flag is applied merely from a planar special case.
+- Independent set: the tree/path tight theorem is flagged; the broader arboricity tradeoffs are not labeled globally best over all β, ε and n without a complete tradeoff audit.
+- Weighted matching: the five AKO18/FFK21 caveated records are excluded. The coarse polynomial Huang–Su bound is not automatically flagged based on the absence of a better catalog row.
+- Covering/packing LPs: the generic Li–Ouyang–Wang Γd log Γp / ε² bound trades coefficient dependence against earlier logarithmic-Γd bounds. It is not pointwise best over all matrices. Only the separate sparse-minor constant-round covering scheme is flagged.
+- Anonymous vertex/set cover, edge domination, k-tuple/connected/distance domination: no unqualified current-best badge was inferred from older theorems without a matching current comparison. The sparse-research agent audits its separate rows.
+- Local-density estimation and sleeping dominating set: “first algorithm” alone was not treated as conclusive current SOTA across all round/awake tradeoffs.
+- arXiv:2605.21248 (Distributed Stochastic Graph Algorithms) appeared in current searches. Its known base graph, stochastic realized input, and preprocessing assumptions differ from the standard model; its fast bounds do not supersede the selected standard-model results. No catalog expansion was performed in this bounded audit.
+
+Unmarked means not endorsed by this audit, not proven obsolete. Display the setting/reason alongside the yellow indication so that a filtered row cannot imply a broader optimality claim.

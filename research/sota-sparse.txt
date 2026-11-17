@@ -1,0 +1,38 @@
+SOTA AUDIT: SPARSE AND PICAVET DATASETS
+Checked: 2026-11-15
+Output: dist/data/sota-sparse.json (six selected upper bounds)
+
+Meaning of selection
+These entries have an explicit matching impossibility result for the stated optimization axis: exact approximation coefficient, approximation order, or asymptotic dependence on n with other parameters fixed. They are tied to precise models and input promises, not selected relative to visible catalog rows. Ties are possible. Runtime-optimal entries do not claim optimal epsilon dependence or hidden constants. All factors compare with the corresponding integral optimum.
+
+Outerplanar domination
+Primary upper and lower source: https://arxiv.org/abs/2108.02697v2
+Fresh corroboration: https://arxiv.org/pdf/2611.02057, Section 3, page 15, still identifies the coefficient five as optimal. The upper algorithm is anonymous; the lower bound allows identifiers. This is a deterministic constant-round setting, not a claim against randomized expectation guarantees.
+
+Minor-free independent set
+Primary current version: https://arxiv.org/pdf/2304.04699v2
+The version was revised March 24, 2026. See Corollary 6.5 and Theorem 6.1. Restrict the highlighted optimality claim to fixed excluded nonplanar H, so paths and cycles are certainly in the input class. Arbitrary forbidden H can describe a much easier class. Epsilon is fixed between zero and one half; the known joint parameter bound is near-tight up to an additive polynomial in 1/epsilon.
+
+Bounded-arboricity matching
+Primary upper: https://link.springer.com/chapter/10.1007/978-3-642-10631-6_68
+Matching lower bound: https://arxiv.org/pdf/2304.04699v2, immediately after Theorem 6.1, page 39.
+Combining these gives optimal n-dependence for fixed arboricity and epsilon. This does not claim that the old algorithm has the best dependence on the structural parameters.
+
+High-girth distance domination
+Primary: https://arxiv.org/html/2408.12998v1, Theorems 1.5 and 1.6 and the following cycle observation.
+Fresh corroboration: https://arxiv.org/pdf/2611.02057, Section 3, page 15, explicitly describes the bounds as tight up to constants. The coefficient is not claimed exactly optimal. The lower bound is deterministic. The anonymous upper bound includes small messages.
+
+Capacitated matching
+Primary: https://drops.dagstuhl.de/storage/00lipics/lipics-vol212-isaac2021/LIPIcs.ISAAC.2021.59/LIPIcs.ISAAC.2021.59.pdf
+See abstract, Theorems 7 and 17. Fixed 0 < epsilon < 1/2 is understood for both highlighted rows. Unit capacities contain ordinary matching as a special case, providing the lower bound; this is worst-case optimality over the stated graph family, not a claim for every restrictive subclass.
+Checked the newer paper: https://www.sciencedirect.com/science/article/abs/pii/S0304397524003773 (2024). Its constant-time algorithm assumes a supplied bi-coloring and bounded arboricity, so it does not supersede the uncolored setting highlighted here.
+
+Not highlighted
+- Historical planar/genus domination factors: newer October/November 2026 results improve them. General-catalog audit handles the newest statements.
+- Locally-nice factors, abstract-only covering rows, and other entries without a verified optimality/best-known comparison.
+- Follow-up 2026-11-16: the K2,t factor-50 MDS result is now reviewed as a best-known t-independent-ratio tradeoff, explicitly scoped to t≥49 after comparison with the newer generic t+2 fractional guarantee. It is not marked Tight. See k2t-50-sota.txt.
+- The k-round high-girth pruning algorithm: its round threshold is proven optimal for some bounded factor, but this audit keeps the factor-optimal constant-time entry instead of making a broader frontier claim.
+- Planar matching/independent-set PTAS duplicates and lower-bound rows were not additionally highlighted.
+
+Scope
+This conservative selection is intentionally incomplete. Omission does not mean a bound is superseded. Searches for 2025–2026 improvements were supplemented by the March 2026 minor-free paper and November 2026 covering paper; search silence alone was not treated as proof of SOTA.

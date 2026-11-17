@@ -1,0 +1,2342 @@
+{
+  "version": 1,
+  "policy": {
+    "scope": "Definitions are attached to source result IDs; reused letters do not have global meanings.",
+    "source": "Current explicit theorem fields, named-bound metadata, and parameterized-problem definitions; a small number of technical definitions were checked in primary sources.",
+    "sourceSymbol": "An optional sourceSymbol binds an existing named-bound placeholder to the displayed mathematical symbol without altering the raw source theorem.",
+    "functions": "An expansion function f or expansion bound f(k) is distinct from the unspecified function used to summarize a parameter-dependent algorithm. The renderer should distinguish the latter if both occur.",
+    "unknowns": "No definition is fabricated for a symbol lacking a stated role. Constant-only entries may have an empty definition list."
+  },
+  "results": {
+    "sparse-expansion-constant": [
+      {
+        "symbol": "∇₁",
+        "description": "Supplied upper bound on depth-one minor density",
+        "tex": "\\nabla_1"
+      }
+    ],
+    "sparse-planar-eleven": [
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      }
+    ],
+    "chang-independent-logstar": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "H",
+        "description": "Fixed graph excluded as a minor"
+      }
+    ],
+    "supported-client-planar": [
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      }
+    ],
+    "dory-weighted-domination": [
+      {
+        "symbol": "Δ",
+        "description": "Maximum degree of the input graph",
+        "tex": "\\Delta"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "α",
+        "description": "Arboricity bound of the input graph",
+        "tex": "\\alpha"
+      },
+      {
+        "symbol": "c",
+        "description": "Fixed exponent bounding positive integer vertex weights by n^c"
+      }
+    ],
+    "dory-arboricity-lower": [
+      {
+        "symbol": "Δ",
+        "description": "Maximum degree of the input graph",
+        "tex": "\\Delta"
+      }
+    ],
+    "chang-su-matching": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "H",
+        "description": "Fixed graph excluded as a minor"
+      }
+    ],
+    "chang-su-independent": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "H",
+        "description": "Fixed graph excluded as a minor"
+      }
+    ],
+    "heydt-planar-twenty": [],
+    "morgan-arboricity": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "α",
+        "description": "Arboricity bound of the input graph",
+        "tex": "\\alpha"
+      }
+    ],
+    "outerplanar-five": [],
+    "outerplanar-five-lower": [
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      }
+    ],
+    "kublenz-expansion": [
+      {
+        "symbol": "∇₁",
+        "description": "Supplied upper bound on depth-one minor density",
+        "tex": "\\nabla_1"
+      },
+      {
+        "symbol": "t",
+        "description": "Least integer for which the complete bipartite graph K_{t,t} is absent as a subgraph; t ≤ 2∇₁+1"
+      }
+    ],
+    "amiri-locally-embeddable": [
+      {
+        "symbol": "G",
+        "description": "Input graph"
+      },
+      {
+        "symbol": "c",
+        "description": "Supplied integer upper bound on depth-one minor density ∇₁(G)"
+      },
+      {
+        "symbol": "∇₁(G)",
+        "description": "Maximum edge-to-vertex ratio over nonempty depth-one minors of G",
+        "tex": "\\nabla_1(G)"
+      },
+      {
+        "symbol": "∇₁",
+        "description": "Depth-one minor density of the input graph",
+        "tex": "\\nabla_1"
+      },
+      {
+        "symbol": "t",
+        "description": "Integer at least three such that K_{3,t} is excluded as a depth-one minor"
+      },
+      {
+        "symbol": "H",
+        "description": "A minor of the input graph; depth one in the locally embeddable result"
+      }
+    ],
+    "amiri-genus-ptas": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "g",
+        "description": "Fixed genus bound in the convention of the source"
+      }
+    ],
+    "czygrinow-topological-dom": [
+      {
+        "symbol": "h",
+        "description": "Number of vertices in the excluded complete graph K_h"
+      }
+    ],
+    "czygrinow-minor-ptas": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "H",
+        "description": "Fixed graph excluded as a minor"
+      },
+      {
+        "symbol": "h",
+        "description": "Number of vertices in the excluded complete graph K_h"
+      }
+    ],
+    "amiri-distance": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "r",
+        "description": "Maximum distance from a vertex/request to its selected covering vertex"
+      },
+      {
+        "symbol": "f",
+        "description": "Expansion function bounding shallow-minor edge densities at each radius",
+        "sourceSymbol": "class"
+      }
+    ],
+    "amiri-connected-distance": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "r",
+        "description": "Maximum distance from a vertex/request to its selected covering vertex"
+      },
+      {
+        "symbol": "f",
+        "description": "Expansion function bounding shallow-minor edge densities at each radius",
+        "sourceSymbol": "class"
+      }
+    ],
+    "amiri-planar-connected": [],
+    "planar-two-dom-six": [],
+    "amiri-genus-constant": [
+      {
+        "symbol": "g",
+        "description": "Orientable genus upper bound"
+      }
+    ],
+    "wawrzyniak-anonymous-694": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      }
+    ],
+    "wawrzyniak-planar-52": [],
+    "planar-two-dom-seven": [],
+    "planar-k-dom-trivial": [
+      {
+        "symbol": "k",
+        "description": "Required number of neighbors in the solution for each vertex outside it"
+      }
+    ],
+    "planar-two-dom-lower": [
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      }
+    ],
+    "planar-k-dom-lower": [
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "k",
+        "description": "Required number of neighbors in the solution for each vertex outside it"
+      }
+    ],
+    "planar-seven-lower": [
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      }
+    ],
+    "lenzen-planar-130": [],
+    "lenzen-unit-disk-lower": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "f",
+        "description": "Approximation-factor function of the number of vertices"
+      },
+      {
+        "symbol": "f(n)",
+        "description": "Approximation factor at input size n",
+        "tex": "f(n)"
+      },
+      {
+        "symbol": "T",
+        "description": "Round-complexity function of the number of vertices"
+      },
+      {
+        "symbol": "T(n)",
+        "description": "Number of communication rounds at input size n",
+        "tex": "T(n)"
+      }
+    ],
+    "lenzen-arboricity-random": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "α",
+        "description": "Arboricity bound of the input graph",
+        "tex": "\\alpha"
+      }
+    ],
+    "lenzen-arboricity-deterministic": [
+      {
+        "symbol": "Δ",
+        "description": "Maximum degree of the input graph",
+        "tex": "\\Delta"
+      },
+      {
+        "symbol": "α",
+        "description": "Arboricity bound of the input graph",
+        "tex": "\\alpha"
+      }
+    ],
+    "arboricity-matching-logstar": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "α",
+        "description": "Arboricity bound of the input graph",
+        "tex": "\\alpha"
+      }
+    ],
+    "planar-fast-dominating": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      }
+    ],
+    "planar-fast-matching": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      }
+    ],
+    "planar-fast-independent": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      }
+    ],
+    "packing-planar": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "H",
+        "description": "Fixed graph whose vertex-disjoint copies are packed"
+      }
+    ],
+    "minor-almost-dominating": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "H",
+        "description": "Fixed graph excluded as a minor"
+      }
+    ],
+    "minor-almost-connected": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "H",
+        "description": "Fixed graph excluded as a minor"
+      }
+    ],
+    "planar-matching-polylog": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      }
+    ],
+    "growth-local-dominating": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "T_MIS",
+        "description": "Round complexity of the maximal-independent-set subroutine",
+        "tex": "T_{\\mathrm{MIS}}"
+      }
+    ],
+    "growth-local-independent": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "T_MIS",
+        "description": "Round complexity of the maximal-independent-set subroutine",
+        "tex": "T_{\\mathrm{MIS}}"
+      }
+    ],
+    "odd-cycle-matching": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "k",
+        "description": "Integer controlling the excluded odd-cycle lengths 3,5,…,2k−1"
+      },
+      {
+        "symbol": "D(k)",
+        "description": "Fixed polynomial-in-logarithm exponent depending only on k",
+        "tex": "D(k)"
+      },
+      {
+        "symbol": "D",
+        "description": "Exponent function depending only on k"
+      }
+    ],
+    "alipour-trianglefree-32": [
+      {
+        "symbol": "m",
+        "description": "Source algorithm parameter instantiated to zero in this entry"
+      }
+    ],
+    "alipour-trianglefree-total-16": [
+      {
+        "symbol": "m",
+        "description": "Source algorithm parameter instantiated to zero in this entry"
+      }
+    ],
+    "alipour-fourcycle-18": [],
+    "unitdisk-matching-2006": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "k",
+        "description": "Fixed positive exponent controlling the inverse-polylogarithmic accuracy"
+      }
+    ],
+    "unitdisk-connected-2006": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "k",
+        "description": "Fixed positive exponent controlling the inverse-polylogarithmic accuracy"
+      }
+    ],
+    "tree-weighted-domination-2006": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      }
+    ],
+    "planar-weighted-independent-2006": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      }
+    ],
+    "minor-weighted-domination-2007": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "d",
+        "description": "Fixed positive exponent controlling the inverse-polylogarithmic accuracy"
+      },
+      {
+        "symbol": "H",
+        "description": "Fixed graph excluded as a minor"
+      }
+    ],
+    "unitdisk-fractional-domination": [],
+    "gen-ps09-vc": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "Δ",
+        "description": "Maximum degree of the input graph",
+        "tex": "\\Delta"
+      }
+    ],
+    "gen-as10-vc": [
+      {
+        "symbol": "Δ",
+        "description": "Maximum degree of the input graph",
+        "tex": "\\Delta"
+      },
+      {
+        "symbol": "W",
+        "description": "Largest positive integer input vertex weight"
+      }
+    ],
+    "gen-bcs16-vc": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "Δ",
+        "description": "Maximum degree of the input graph",
+        "tex": "\\Delta"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      }
+    ],
+    "gen-beks18-exact2": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "Δ",
+        "description": "Maximum degree of the input graph",
+        "tex": "\\Delta"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "W",
+        "description": "Upper bound on positive integer input vertex weights; polynomial in n"
+      },
+      {
+        "symbol": "B",
+        "description": "Supplied common polynomial upper bound on nW for the exact-factor integrality step"
+      }
+    ],
+    "gen-beks18-eps": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "Δ",
+        "description": "Maximum degree of the input graph",
+        "tex": "\\Delta"
+      },
+      {
+        "symbol": "c",
+        "description": "Fixed exponent at least one controlling the inverse-polylogarithmic accuracy"
+      },
+      {
+        "symbol": "W",
+        "description": "Upper bound on positive integer input vertex weights; polynomial in n"
+      }
+    ],
+    "gen-emr14-cardinality": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "Δ",
+        "description": "Maximum degree of the input graph",
+        "tex": "\\Delta"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      }
+    ],
+    "gen-emr14-weighted": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "Δ",
+        "description": "Maximum degree of the input graph",
+        "tex": "\\Delta"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "w_min",
+        "description": "Smallest normalized positive edge weight; all weights lie in [w_min,1]",
+        "tex": "w_{\\min}"
+      }
+    ],
+    "gen-bcgs17-is": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "Δ",
+        "description": "Maximum degree of the input graph",
+        "tex": "\\Delta"
+      }
+    ],
+    "gen-bcgs17-mwm": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "Δ",
+        "description": "Maximum degree of the input graph",
+        "tex": "\\Delta"
+      }
+    ],
+    "gen-bcgs17-fast-mwm": [
+      {
+        "symbol": "Δ",
+        "description": "Maximum degree of the input graph",
+        "tex": "\\Delta"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      }
+    ],
+    "gen-bcgs17-fast-mcm": [
+      {
+        "symbol": "Δ",
+        "description": "Maximum degree of the input graph",
+        "tex": "\\Delta"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      }
+    ],
+    "gen-ako18-fractional": [
+      {
+        "symbol": "Δ",
+        "description": "Maximum degree of the input graph",
+        "tex": "\\Delta"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "W",
+        "description": "Ratio of the largest to the smallest positive edge weight"
+      }
+    ],
+    "gen-ako18-bipartite": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "Δ",
+        "description": "Maximum degree of the input graph",
+        "tex": "\\Delta"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "W",
+        "description": "Ratio of the largest to the smallest positive edge weight"
+      }
+    ],
+    "gen-ako18-oddgirth": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "Δ",
+        "description": "Maximum degree of the input graph",
+        "tex": "\\Delta"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "W",
+        "description": "Ratio of the largest to the smallest positive edge weight"
+      },
+      {
+        "symbol": "g",
+        "description": "Odd girth: length of a shortest odd cycle"
+      }
+    ],
+    "gen-ffk21-vc-bip": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      }
+    ],
+    "gen-ffk21-mwm-det": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      }
+    ],
+    "gen-ffk21-mwm-rand": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "Δ",
+        "description": "Maximum degree of the input graph",
+        "tex": "\\Delta"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "δ",
+        "description": "Failure-probability upper bound; success probability is at least 1−δ",
+        "tex": "\\delta"
+      },
+      {
+        "symbol": "W",
+        "description": "Ratio of the largest to the smallest positive edge weight"
+      }
+    ],
+    "gen-ffk21-vc-lower": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "Δ",
+        "description": "Maximum degree of the input graph",
+        "tex": "\\Delta"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "ε₀",
+        "description": "Positive absolute upper threshold on the accuracy parameter",
+        "tex": "\\varepsilon_0"
+      }
+    ],
+    "gen-hs22-mwm": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      }
+    ],
+    "gen-aprsu10-matching": [
+      {
+        "symbol": "Δ",
+        "description": "Maximum degree of the input graph",
+        "tex": "\\Delta"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      }
+    ],
+    "gen-aprsu10-dom": [
+      {
+        "symbol": "Δ",
+        "description": "Maximum degree of the input graph",
+        "tex": "\\Delta"
+      }
+    ],
+    "gen-ghs12-eds": [
+      {
+        "symbol": "Δ",
+        "description": "Maximum degree of the input graph",
+        "tex": "\\Delta"
+      }
+    ],
+    "gen-w25-dom": [],
+    "gen-bdgpsw26-dom": [
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "g",
+        "description": "Euler genus bound"
+      }
+    ],
+    "gen-af26-dom": [
+      {
+        "symbol": "Δ",
+        "description": "Maximum degree of the input graph",
+        "tex": "\\Delta"
+      },
+      {
+        "symbol": "α",
+        "description": "Arboricity bound of the input graph",
+        "tex": "\\alpha"
+      }
+    ],
+    "gen-w26-planar-dom": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      }
+    ],
+    "gen-as26-planar": [
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      }
+    ],
+    "gen-as26-minor": [
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "𝒞",
+        "description": "Fixed input graph class",
+        "tex": "\\mathcal{C}"
+      },
+      {
+        "symbol": "a(𝒞)",
+        "description": "Supremum of the edge-to-vertex ratio over graphs in the fixed minor-closed class 𝒞",
+        "tex": "a(\\mathcal{C})"
+      },
+      {
+        "symbol": "a",
+        "description": "Edge-density bound of the fixed minor-closed graph class"
+      },
+      {
+        "symbol": "H",
+        "description": "Fixed graph excluded as a minor"
+      }
+    ],
+    "gen-as26-random": [
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "𝒞",
+        "description": "Fixed input graph class",
+        "tex": "\\mathcal{C}"
+      },
+      {
+        "symbol": "H",
+        "description": "Fixed graph excluded as a minor"
+      }
+    ],
+    "gen-as26-power-lower": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "r",
+        "description": "Power of the underlying path: vertices at distance at most this value are adjacent"
+      }
+    ],
+    "gen-w26-2dom": [
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "g",
+        "description": "Euler genus bound"
+      }
+    ],
+    "gen-w26-clique-dom": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      }
+    ],
+    "gen-p26-density": [
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "d",
+        "description": "Maximum average degree bound of the input graph"
+      },
+      {
+        "symbol": "∇₁",
+        "description": "Upper bound on depth-one minor density",
+        "tex": "\\nabla_1"
+      }
+    ],
+    "gen-p26-genus": [
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "g",
+        "description": "Euler genus bound"
+      }
+    ],
+    "gen-p26-trianglefree": [
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "g",
+        "description": "Euler genus bound"
+      }
+    ],
+    "gen-asw26-planar": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      }
+    ],
+    "gen-asw26-trianglefree": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      }
+    ],
+    "gen-asw26-minordensity": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "a",
+        "description": "Fixed rational upper bound on |E(H)|/|V(H)| for every minor H"
+      },
+      {
+        "symbol": "G",
+        "description": "Input graph"
+      },
+      {
+        "symbol": "H",
+        "description": "Fixed graph excluded as a minor"
+      }
+    ],
+    "gen-asw26-genus": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "g",
+        "description": "Euler genus bound"
+      }
+    ],
+    "gen-asw26-total": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "a",
+        "description": "Fixed rational upper bound on |E(H)|/|V(H)| for every minor H"
+      },
+      {
+        "symbol": "G",
+        "description": "Input graph"
+      },
+      {
+        "symbol": "H",
+        "description": "Fixed graph excluded as a minor"
+      }
+    ],
+    "gen-asw26-setcover": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "b",
+        "description": "Upper bound on the positive integer cost of each set"
+      }
+    ],
+    "gen-asw26-fractional": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "ρ",
+        "description": "Fixed rational upper bound on |E(H)|/|V(H)| for every minor H",
+        "tex": "\\rho"
+      },
+      {
+        "symbol": "b",
+        "description": "Upper bound on the positive integer cost of each candidate vertex"
+      },
+      {
+        "symbol": "G",
+        "description": "Input graph"
+      },
+      {
+        "symbol": "H",
+        "description": "Fixed graph excluded as a minor"
+      },
+      {
+        "symbol": "r",
+        "description": "Request vertex of the local covering instance"
+      },
+      {
+        "symbol": "C",
+        "description": "Locally known candidate sets for the requests"
+      },
+      {
+        "symbol": "C(r)",
+        "description": "Candidate vertices permitted to cover request r",
+        "tex": "C(r)"
+      }
+    ],
+    "gen-asw26-cover-random": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "ρ",
+        "description": "Fixed rational upper bound on |E(H)|/|V(H)| for every minor H",
+        "tex": "\\rho"
+      },
+      {
+        "symbol": "b",
+        "description": "Upper bound on the positive integer cost of each candidate vertex"
+      },
+      {
+        "symbol": "G",
+        "description": "Input graph"
+      },
+      {
+        "symbol": "H",
+        "description": "Fixed graph excluded as a minor"
+      },
+      {
+        "symbol": "r",
+        "description": "Request vertex of the local covering instance"
+      },
+      {
+        "symbol": "C",
+        "description": "Locally known candidate sets for the requests"
+      },
+      {
+        "symbol": "C(r)",
+        "description": "Candidate vertices permitted to cover request r",
+        "tex": "C(r)"
+      }
+    ],
+    "gen-asw26-cover-det": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "ρ",
+        "description": "Fixed rational upper bound on |E(H)|/|V(H)| for every minor H",
+        "tex": "\\rho"
+      },
+      {
+        "symbol": "G",
+        "description": "Input graph"
+      },
+      {
+        "symbol": "H",
+        "description": "Fixed graph excluded as a minor"
+      },
+      {
+        "symbol": "b",
+        "description": "Upper bound on the positive integer cost of each candidate vertex"
+      },
+      {
+        "symbol": "r",
+        "description": "Request vertex of the local covering instance"
+      },
+      {
+        "symbol": "C",
+        "description": "Locally known candidate sets for the requests"
+      },
+      {
+        "symbol": "C(r)",
+        "description": "Candidate vertices permitted to cover request r",
+        "tex": "C(r)"
+      }
+    ],
+    "gen-asw26-cycle-lower": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      }
+    ],
+    "gen-fk25-tree": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "Δ",
+        "description": "Maximum degree of the input graph",
+        "tex": "\\Delta"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      }
+    ],
+    "gen-fk25-path-lower": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      }
+    ],
+    "gen-fk25-arboricity-fast": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "Δ",
+        "description": "Maximum degree of the input graph",
+        "tex": "\\Delta"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "β",
+        "description": "Arboricity bound of the input graph",
+        "tex": "\\beta"
+      },
+      {
+        "symbol": "w",
+        "description": "Input vertex-weight function"
+      },
+      {
+        "symbol": "w(V)",
+        "description": "Total input vertex weight, which is at least the maximum independent-set weight",
+        "tex": "w(V)"
+      }
+    ],
+    "gen-fk25-arboricity-better": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "Δ",
+        "description": "Maximum degree of the input graph",
+        "tex": "\\Delta"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "β",
+        "description": "Arboricity bound of the input graph",
+        "tex": "\\beta"
+      },
+      {
+        "symbol": "w",
+        "description": "Input vertex-weight function"
+      },
+      {
+        "symbol": "w(V)",
+        "description": "Total input vertex weight, which is at least the maximum independent-set weight",
+        "tex": "w(V)"
+      }
+    ],
+    "gen-low24-cover": [
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "Γₚ",
+        "description": "Maximum column sum of the normalized constraint matrix A",
+        "tex": "\\Gamma_p"
+      },
+      {
+        "symbol": "Γd",
+        "description": "Maximum row sum of the normalized constraint matrix A",
+        "tex": "\\Gamma_d"
+      },
+      {
+        "symbol": "A",
+        "description": "Normalized constraint matrix, whose nonzero coefficients are at least one"
+      },
+      {
+        "symbol": "Aᵢⱼ",
+        "description": "Coefficient in row i and column j of the normalized constraint matrix",
+        "tex": "A_{ij}"
+      },
+      {
+        "symbol": "i",
+        "description": "Row index of the normalized constraint matrix"
+      },
+      {
+        "symbol": "j",
+        "description": "Column index of the normalized constraint matrix"
+      }
+    ],
+    "gen-low24-pack": [
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "Γₚ",
+        "description": "Maximum column sum of the normalized constraint matrix A",
+        "tex": "\\Gamma_p"
+      },
+      {
+        "symbol": "Γd",
+        "description": "Maximum row sum of the normalized constraint matrix A",
+        "tex": "\\Gamma_d"
+      },
+      {
+        "symbol": "A",
+        "description": "Normalized constraint matrix, whose nonzero coefficients are at least one"
+      },
+      {
+        "symbol": "Aᵢⱼ",
+        "description": "Coefficient in row i and column j of the normalized constraint matrix",
+        "tex": "A_{ij}"
+      },
+      {
+        "symbol": "i",
+        "description": "Row index of the normalized constraint matrix"
+      },
+      {
+        "symbol": "j",
+        "description": "Column index of the normalized constraint matrix"
+      }
+    ],
+    "gen-dp26-matching": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "δ",
+        "description": "Fixed constant controlling the exponent in the success-probability bound",
+        "tex": "\\delta"
+      }
+    ],
+    "gen-dp26-cover": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      }
+    ],
+    "gen-iky25-matching": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "MM",
+        "description": "Round complexity of the maximal-matching subroutine as a function of its input size",
+        "tex": "\\mathrm{MM}"
+      },
+      {
+        "symbol": "N",
+        "description": "Number of vertices in the maximal-matching subroutine instance"
+      }
+    ],
+    "gen-chr24-local": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "ρ*(v)",
+        "description": "Local density assigned to vertex v; equivalently its optimal local out-degree",
+        "tex": "\\rho^*(v)"
+      },
+      {
+        "symbol": "v",
+        "description": "Vertex whose local density is estimated"
+      }
+    ],
+    "gen-chr24-congest": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "ρ*(v)",
+        "description": "Local density assigned to vertex v; equivalently its optimal local out-degree",
+        "tex": "\\rho^*(v)"
+      },
+      {
+        "symbol": "v",
+        "description": "Vertex whose local density is estimated"
+      }
+    ],
+    "gen-jpp26-sleep": [
+      {
+        "symbol": "Δ",
+        "description": "Maximum degree of the input graph",
+        "tex": "\\Delta"
+      }
+    ],
+    "gen-as10-setcover": [
+      {
+        "symbol": "f",
+        "description": "Maximum frequency: number of sets containing an element"
+      },
+      {
+        "symbol": "k",
+        "description": "Maximum cardinality of a set"
+      },
+      {
+        "symbol": "W",
+        "description": "Upper bound on positive integer input set weights"
+      }
+    ],
+    "gen-bdgpsw26-apex": [
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "g",
+        "description": "Euler genus bound"
+      },
+      {
+        "symbol": "a",
+        "description": "Maximum number of apex vertices deleted to obtain Euler genus at most g"
+      }
+    ],
+    "gen-bdgpsw26-localgenus": [
+      {
+        "symbol": "d",
+        "description": "Asymptotic dimension bound of the graph class"
+      },
+      {
+        "symbol": "g",
+        "description": "Euler genus bound for the radius-r balls after any stated apex deletions"
+      },
+      {
+        "symbol": "r",
+        "description": "Fixed sufficiently large radius of the neighborhoods used in the local-class assumption"
+      }
+    ],
+    "gen-bdgpsw26-ktuple": [
+      {
+        "symbol": "g",
+        "description": "Euler genus bound"
+      },
+      {
+        "symbol": "k",
+        "description": "Required number of neighbors in the solution for each vertex outside it"
+      }
+    ],
+    "gen-bdgpsw26-connected": [
+      {
+        "symbol": "g",
+        "description": "Euler genus bound"
+      }
+    ],
+    "gen-beks18-full-eps": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "Δ",
+        "description": "Maximum degree of the input graph",
+        "tex": "\\Delta"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "W",
+        "description": "Upper bound on positive integer input vertex weights; polynomial in n"
+      }
+    ],
+    "gen-beks19-full-eps": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "Δ",
+        "description": "Maximum degree of the input graph",
+        "tex": "\\Delta"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "γ",
+        "description": "Fixed analysis exponent instantiated to 0.001",
+        "tex": "\\gamma"
+      },
+      {
+        "symbol": "f",
+        "description": "Rank of the simulated hypergraph instance, instantiated to two for vertex cover"
+      },
+      {
+        "symbol": "W",
+        "description": "Upper bound on positive integer input vertex weights; polynomial in n"
+      }
+    ],
+    "gen-beks19-exact2": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "Δ",
+        "description": "Maximum degree of the input graph",
+        "tex": "\\Delta"
+      },
+      {
+        "symbol": "W",
+        "description": "Upper bound on positive integer input vertex weights; polynomial in n"
+      },
+      {
+        "symbol": "B",
+        "description": "Supplied common polynomial upper bound on nW for the exact-factor integrality step"
+      }
+    ],
+    "gen-kmw16-vc-lower": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "Δ",
+        "description": "Maximum degree of the input graph",
+        "tex": "\\Delta"
+      }
+    ],
+    "gen-kmw16-mds-lower": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "Δ",
+        "description": "Maximum degree of the input graph",
+        "tex": "\\Delta"
+      }
+    ],
+    "pic-large-50-dom": [
+      {
+        "symbol": "t",
+        "description": "Size of the second bipartition class of the excluded minor K_{2,t}"
+      }
+    ],
+    "pic-large-50-vc": [
+      {
+        "symbol": "t",
+        "description": "Size of the second bipartition class of the excluded minor K_{2,t}"
+      }
+    ],
+    "pic-large-linear-dom": [
+      {
+        "symbol": "t",
+        "description": "Size of the second bipartition class of the excluded minor K_{2,t}"
+      }
+    ],
+    "pic-large-linear-vc": [
+      {
+        "symbol": "t",
+        "description": "Size of the second bipartition class of the excluded minor K_{2,t}"
+      }
+    ],
+    "pic-nice-planar-uniform": [],
+    "pic-nice-localgenus": [
+      {
+        "symbol": "d",
+        "description": "Asymptotic dimension bound of the graph class"
+      },
+      {
+        "symbol": "g",
+        "description": "Euler genus bound for the radius-r balls after any stated apex deletions"
+      },
+      {
+        "symbol": "r",
+        "description": "Fixed sufficiently large radius of the neighborhoods used in the local-class assumption"
+      }
+    ],
+    "pic-kdom-genus-constant": [
+      {
+        "symbol": "g",
+        "description": "Orientable genus upper bound",
+        "sourceSymbol": "𝗀"
+      },
+      {
+        "symbol": "k",
+        "description": "Required number of neighbors in the solution for each vertex outside it"
+      }
+    ],
+    "pic-kdom-linkless-constant": [
+      {
+        "symbol": "k",
+        "description": "Required number of neighbors in the solution for each vertex outside it"
+      }
+    ],
+    "pic-kdom-topological44": [],
+    "pic-kdom-genus-ptas": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "k",
+        "description": "Required number of neighbors in the solution for each vertex outside it"
+      },
+      {
+        "symbol": "g",
+        "description": "Orientable genus upper bound",
+        "sourceSymbol": "𝗀"
+      }
+    ],
+    "pic-kdom-linkless-ptas": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "k",
+        "description": "Required number of neighbors in the solution for each vertex outside it"
+      }
+    ],
+    "pic-genus-broadcast-historical": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "g",
+        "description": "Orientable genus upper bound",
+        "sourceSymbol": "𝗀"
+      }
+    ],
+    "pic-girth-dom-2019": [
+      {
+        "symbol": "r",
+        "description": "Maximum distance from a vertex/request to its selected covering vertex"
+      },
+      {
+        "symbol": "f",
+        "description": "Expansion function bounding edge-to-vertex ratios after bounded-radius contractions"
+      },
+      {
+        "symbol": "f(r)",
+        "description": "Upper bound on the edge-to-vertex ratio after deleting vertices and contracting disjoint subgraphs of the stated radius",
+        "tex": "f(r)"
+      }
+    ],
+    "pic-girth-cycle-lower": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "r",
+        "description": "Maximum distance from a vertex/request to its selected covering vertex"
+      }
+    ],
+    "pic-girth-cover-dom": [
+      {
+        "symbol": "r",
+        "description": "Maximum distance from a vertex/request to its selected covering vertex"
+      },
+      {
+        "symbol": "f",
+        "description": "Expansion function bounding shallow-minor edge densities at each radius",
+        "sourceSymbol": "class"
+      }
+    ],
+    "pic-girth-cover-connected-dom": [
+      {
+        "symbol": "r",
+        "description": "Maximum distance from a vertex/request to its selected covering vertex"
+      },
+      {
+        "symbol": "f",
+        "description": "Expansion function bounding shallow-minor edge densities at each radius",
+        "sourceSymbol": "class"
+      }
+    ],
+    "pic-girth-cover-vc": [
+      {
+        "symbol": "r",
+        "description": "Maximum distance from a vertex/request to its selected covering vertex"
+      },
+      {
+        "symbol": "f",
+        "description": "Expansion function bounding shallow-minor edge densities at each radius",
+        "sourceSymbol": "class"
+      }
+    ],
+    "pic-girth-cover-connected-vc": [
+      {
+        "symbol": "r",
+        "description": "Maximum distance from a vertex/request to its selected covering vertex"
+      },
+      {
+        "symbol": "f",
+        "description": "Expansion function bounding shallow-minor edge densities at each radius",
+        "sourceSymbol": "class"
+      }
+    ],
+    "pic-distance-k2t-constant": [
+      {
+        "symbol": "k",
+        "description": "Maximum distance from a vertex/request to its selected covering vertex"
+      },
+      {
+        "symbol": "t",
+        "description": "Size of the second bipartition class of the excluded minor K_{2,t}"
+      }
+    ],
+    "pic-distance-k2t-ptas": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "k",
+        "description": "Maximum distance from a vertex/request to its selected covering vertex"
+      },
+      {
+        "symbol": "t",
+        "description": "Size of the second bipartition class of the excluded minor K_{2,t}"
+      }
+    ],
+    "pic-distance-minor-ptas": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "G",
+        "description": "Input graph"
+      },
+      {
+        "symbol": "k",
+        "description": "Maximum distance from a vertex/request to its selected covering vertex"
+      },
+      {
+        "symbol": "t",
+        "description": "Number of vertices in the excluded complete minor K_t"
+      },
+      {
+        "symbol": "C",
+        "description": "Supplied positive integer comparison constant satisfying γ₁(G)≤Cγₖ(G)"
+      },
+      {
+        "symbol": "γ₁(G)",
+        "description": "Minimum cardinality of an ordinary dominating set of G",
+        "tex": "\\gamma_1(G)"
+      },
+      {
+        "symbol": "γₖ(G)",
+        "description": "Minimum cardinality of a distance-k dominating set of G",
+        "tex": "\\gamma_k(G)"
+      }
+    ],
+    "pic-girth-pruning": [
+      {
+        "symbol": "k",
+        "description": "Maximum distance from a vertex/request to its selected covering vertex"
+      },
+      {
+        "symbol": "f",
+        "description": "Expansion function bounding edge-to-vertex ratios after bounded-radius contractions"
+      },
+      {
+        "symbol": "f(k)",
+        "description": "Upper bound on the edge-to-vertex ratio after deleting vertices and contracting disjoint subgraphs of the stated radius",
+        "tex": "f(k)"
+      }
+    ],
+    "pic-girth-sublinear": [
+      {
+        "symbol": "Δ",
+        "description": "Maximum degree of the input graph",
+        "tex": "\\Delta"
+      },
+      {
+        "symbol": "k",
+        "description": "Maximum distance from a vertex/request to its selected covering vertex"
+      },
+      {
+        "symbol": "f",
+        "description": "Expansion function bounding edge-to-vertex ratios after bounded-radius contractions"
+      },
+      {
+        "symbol": "f(k)",
+        "description": "Upper bound on the edge-to-vertex ratio after deleting vertices and contracting disjoint subgraphs of the stated radius",
+        "tex": "f(k)"
+      }
+    ],
+    "pic-girth-sublinear-lower": [
+      {
+        "symbol": "k",
+        "description": "Maximum distance from a vertex/request to its selected covering vertex"
+      },
+      {
+        "symbol": "f(k)",
+        "description": "Upper bound on the edge-to-vertex ratio after deleting vertices and contracting disjoint subgraphs of the stated radius",
+        "tex": "f(k)",
+        "sourceSymbol": "class"
+      },
+      {
+        "symbol": "f",
+        "description": "Expansion function bounding edge-to-vertex ratios after bounded-radius contractions"
+      }
+    ],
+    "pic-girth-time-lower": [
+      {
+        "symbol": "Δ",
+        "description": "Maximum degree of the input graph",
+        "tex": "\\Delta"
+      },
+      {
+        "symbol": "k",
+        "description": "Maximum distance from a vertex/request to its selected covering vertex"
+      }
+    ],
+    "pic-sublog-fmatching": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "f",
+        "description": "Positive integer vertex-capacity function: a vertex v may meet at most f(v) selected edges"
+      },
+      {
+        "symbol": "g",
+        "description": "Expansion function of the fixed input graph class; g(r)=o(log r)",
+        "sourceSymbol": "𝗀"
+      },
+      {
+        "symbol": "g(r)",
+        "description": "Upper bound on the edge-to-vertex ratio of depth-r minors",
+        "tex": "g(r)"
+      },
+      {
+        "symbol": "r",
+        "description": "Radius parameter in the expansion function"
+      },
+      {
+        "symbol": "f(v)",
+        "description": "Positive integer capacity of vertex v in the f-matching problem",
+        "tex": "f(v)"
+      }
+    ],
+    "pic-sublog-bmatching": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "b",
+        "description": "Positive integer vertex-capacity function bounding incident edge multiplicities"
+      },
+      {
+        "symbol": "g",
+        "description": "Expansion function of the fixed input graph class; g(r)=o(log r)",
+        "sourceSymbol": "𝗀"
+      },
+      {
+        "symbol": "g(r)",
+        "description": "Upper bound on the edge-to-vertex ratio of depth-r minors",
+        "tex": "g(r)"
+      },
+      {
+        "symbol": "r",
+        "description": "Radius parameter in the expansion function"
+      },
+      {
+        "symbol": "b(v)",
+        "description": "Positive integer capacity of vertex v in the b-matching problem",
+        "tex": "b(v)"
+      },
+      {
+        "symbol": "L",
+        "description": "Known Lipschitz constant: |b(u)−b(v)|≤L·dist(u,v)"
+      }
+    ],
+    "pic-ass-sublog-refine": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "f",
+        "description": "Expansion function of the fixed graph class; f(r)=o(log r)"
+      },
+      {
+        "symbol": "f(r)",
+        "description": "Upper bound on the edge-to-vertex ratio of depth-r minors",
+        "tex": "f(r)"
+      },
+      {
+        "symbol": "r",
+        "description": "Radius parameter in the expansion function"
+      },
+      {
+        "symbol": "c",
+        "description": "Approximation factor of the initial dominating set supplied as input"
+      }
+    ],
+    "pic-ass-sublog-full": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "f",
+        "description": "Expansion function of the fixed graph class; f(r)=o(log r)"
+      },
+      {
+        "symbol": "f(r)",
+        "description": "Upper bound on the edge-to-vertex ratio of depth-r minors",
+        "tex": "f(r)"
+      },
+      {
+        "symbol": "r",
+        "description": "Radius parameter in the expansion function"
+      }
+    ],
+    "pic-thesis-pathwidth-lower": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "H",
+        "description": "Fixed graph excluded as a minor"
+      },
+      {
+        "symbol": "pw(H)",
+        "description": "Pathwidth of the excluded graph H",
+        "tex": "\\operatorname{pw}(H)"
+      }
+    ],
+    "pic-thesis-pathpower-lower": [
+      {
+        "symbol": "G",
+        "description": "Input graph"
+      },
+      {
+        "symbol": "t",
+        "description": "Power of the underlying path: original path vertices at distance at most t are adjacent"
+      }
+    ],
+    "pic-thesis-planar-205": [],
+    "pic-thesis-genus-616": [
+      {
+        "symbol": "g",
+        "description": "Euler genus bound"
+      }
+    ],
+    "pic-thesis-local-apex": [
+      {
+        "symbol": "d",
+        "description": "Asymptotic dimension bound of the graph class"
+      },
+      {
+        "symbol": "g",
+        "description": "Euler genus bound for the radius-r balls after any stated apex deletions"
+      },
+      {
+        "symbol": "a",
+        "description": "Maximum number of vertices deleted from each radius-r ball to obtain Euler genus at most g"
+      },
+      {
+        "symbol": "r",
+        "description": "Fixed sufficiently large radius of the neighborhoods used in the local-class assumption"
+      }
+    ],
+    "pic-thesis-pw2-dom": [
+      {
+        "symbol": "H",
+        "description": "Fixed graph excluded as a minor"
+      },
+      {
+        "symbol": "pw(H)",
+        "description": "Pathwidth of the excluded graph H",
+        "tex": "\\operatorname{pw}(H)"
+      }
+    ],
+    "pic-thesis-degeneracy-vc": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "ε",
+        "description": "Approximation accuracy or slack",
+        "tex": "\\varepsilon"
+      },
+      {
+        "symbol": "d",
+        "description": "Supplied integer upper bound on graph degeneracy"
+      }
+    ],
+    "pic-thesis-planar-distance-dom": [
+      {
+        "symbol": "k",
+        "description": "Maximum distance from a vertex/request to its selected covering vertex"
+      }
+    ],
+    "pic-thesis-genus-distance-dom": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "g",
+        "description": "Euler genus bound"
+      },
+      {
+        "symbol": "k",
+        "description": "Maximum distance from a vertex/request to its selected covering vertex"
+      }
+    ],
+    "pic-thesis-path-excluded-exact": [
+      {
+        "symbol": "t",
+        "description": "Number of vertices in the excluded path P_t"
+      },
+      {
+        "symbol": "D",
+        "description": "Vertex set selected by the algorithm"
+      },
+      {
+        "symbol": "OPT",
+        "description": "Minimum cardinality of a feasible solution",
+        "tex": "\\mathrm{OPT}"
+      }
+    ],
+    "folklore-tree-mds": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "D",
+        "description": "Vertex set selected by the algorithm"
+      },
+      {
+        "symbol": "OPT",
+        "description": "Minimum cardinality of a feasible solution",
+        "tex": "\\mathrm{OPT}"
+      }
+    ],
+    "folklore-degree-mds": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "Δ",
+        "description": "Maximum degree of the input graph",
+        "tex": "\\Delta"
+      },
+      {
+        "symbol": "D",
+        "description": "Vertex set selected by the algorithm"
+      },
+      {
+        "symbol": "OPT",
+        "description": "Minimum cardinality of a feasible solution",
+        "tex": "\\mathrm{OPT}"
+      }
+    ],
+    "folklore-star-minor-mds": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "Δ",
+        "description": "Maximum degree of the input graph",
+        "tex": "\\Delta"
+      },
+      {
+        "symbol": "t",
+        "description": "Number of leaves in the excluded star K_{1,t}"
+      },
+      {
+        "symbol": "D",
+        "description": "Vertex set selected by the algorithm"
+      },
+      {
+        "symbol": "OPT",
+        "description": "Minimum cardinality of a feasible solution",
+        "tex": "\\mathrm{OPT}"
+      }
+    ],
+    "folklore-regular-vc": [
+      {
+        "symbol": "n",
+        "description": "Number of vertices in the communication graph",
+        "tex": "n"
+      },
+      {
+        "symbol": "D",
+        "description": "Vertex set selected by the algorithm"
+      },
+      {
+        "symbol": "OPT",
+        "description": "Minimum cardinality of a feasible solution",
+        "tex": "\\mathrm{OPT}"
+      },
+      {
+        "symbol": "d",
+        "description": "Common positive degree of every vertex in the regular input graph"
+      },
+      {
+        "symbol": "p",
+        "description": "Cardinality of the comparison vertex cover in the proof"
+      }
+    ],
+    "folklore-unitdisk-vc": [
+      {
+        "symbol": "D",
+        "description": "Vertex set selected by the algorithm"
+      },
+      {
+        "symbol": "OPT",
+        "description": "Minimum cardinality of a feasible solution",
+        "tex": "\\mathrm{OPT}"
+      }
+    ]
+  }
+}

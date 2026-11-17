@@ -1,0 +1,2217 @@
+{
+  "version": 1,
+  "description": "Shared reviewed presentation facts and explicit claim restrictions. Source theorem fields and full certificate scope/evidence remain authoritative and unchanged. Exact source values may be interned; prose is never searched to infer implications.",
+  "policy": {
+    "summary": "Graph, weights and essential prerequisites appear once. Parameters and assumptions belong to details unless explicitly promoted to summary.",
+    "claims": "Every SOTA annotation, transfer and Tight application requires an explicit entry, including an empty conditionIds array. Show only claim IDs not covered by the active setting and its parameter bindings.",
+    "sourcePreservation": "Unresolved parameter and assumption paragraphs are retained intact as one interned fact each. Reviewed profiles may decompose their presentation; original source strings remain unchanged.",
+    "largeTReview": "For the factor-50 K₂,t algorithm, t≥2 is applicability and t≥49 is the conservative SOTA review scope. The broader pathwidth-two excluded-minor theorem covers that same Algorithm 5 with its O(t) schedule at H=K₂,t; generic H-dependent proof budgets are not equated by notation alone."
+  },
+  "facts": {
+    "weights-unweighted": {
+      "kind": "weights",
+      "label": "Unweighted"
+    },
+    "weights-weighted": {
+      "kind": "weights",
+      "label": "Weighted"
+    },
+    "weights-unspecified": {
+      "kind": "weights",
+      "label": "Weights unspecified in source record"
+    },
+    "weights-integer-positive": {
+      "kind": "weights",
+      "label": "Positive integer weights",
+      "implies": [
+        "weights-weighted"
+      ]
+    },
+    "weights-integer-W": {
+      "kind": "weights",
+      "label": "Positive integer weights ≤ W",
+      "implies": [
+        "weights-integer-positive"
+      ]
+    },
+    "weights-integer-polynomial": {
+      "kind": "weights",
+      "label": "Positive integer weights W ≤ n^O(1)",
+      "implies": [
+        "weights-integer-positive"
+      ]
+    },
+    "weights-normalized-positive": {
+      "kind": "weights",
+      "label": "Weights in [w_min, 1], w_min > 0",
+      "implies": [
+        "weights-weighted"
+      ]
+    },
+    "costs-integer-b": {
+      "kind": "weights",
+      "label": "Positive integer costs ≤ b",
+      "implies": [
+        "weights-integer-positive"
+      ]
+    },
+    "coefficients-normalized-positive": {
+      "kind": "weights",
+      "label": "Normalized positive LP coefficients"
+    },
+    "coefficient-encoding": {
+      "kind": "input",
+      "label": "Source CONGEST coefficient encoding"
+    },
+    "coefficients-at-least-one": {
+      "kind": "input",
+      "label": "Nonzero normalized coefficients Aᵢⱼ ≥ 1"
+    },
+    "input-positive-degree": {
+      "kind": "input",
+      "label": "Positive degree"
+    },
+    "graph-regular": {
+      "kind": "graph",
+      "label": "Regular graphs"
+    },
+    "graph-regular-positive": {
+      "kind": "graph",
+      "label": "Regular graphs, degree ≥ 1",
+      "implies": [
+        "graph-regular",
+        "input-positive-degree"
+      ]
+    },
+    "input-own-degree": {
+      "kind": "input",
+      "label": "Initial own-degree knowledge"
+    },
+    "input-incident-ports": {
+      "kind": "input",
+      "label": "Initial incident ports"
+    },
+    "input-proper-two-coloring": {
+      "kind": "input",
+      "label": "Supplied proper 2-coloring"
+    },
+    "input-weak-two-coloring": {
+      "kind": "input",
+      "label": "Supplied weak 2-coloring"
+    },
+    "input-isolate-free": {
+      "kind": "input",
+      "label": "No isolated vertices"
+    },
+    "input-weak-coloring-no-isolates": {
+      "kind": "input",
+      "label": "Supplied weak 2-coloring; no isolates",
+      "implies": [
+        "input-weak-two-coloring",
+        "input-isolate-free"
+      ]
+    },
+    "input-known-n": {
+      "kind": "input",
+      "label": "Known n"
+    },
+    "input-known-degree": {
+      "kind": "input",
+      "label": "Known Δ"
+    },
+    "input-known-n-degree": {
+      "kind": "input",
+      "label": "Known n and Δ",
+      "implies": [
+        "input-known-n",
+        "input-known-degree"
+      ]
+    },
+    "input-known-n-degree-graph": {
+      "kind": "input",
+      "label": "Known n, Δ and graph parameters",
+      "implies": [
+        "input-known-n-degree"
+      ]
+    },
+    "input-known-degree-bound": {
+      "kind": "input",
+      "label": "Known Δ or a polynomial upper bound"
+    },
+    "input-common-polynomial-id-bound": {
+      "kind": "input",
+      "label": "Known common polynomial ID bound"
+    },
+    "input-common-nW-bound": {
+      "kind": "input",
+      "label": "Common polynomial bound B ≥ nW"
+    },
+    "input-degree-and-nW-bound": {
+      "kind": "input",
+      "label": "Known Δ or a polynomial upper bound; common polynomial bound B ≥ nW",
+      "implies": [
+        "input-known-degree-bound",
+        "input-common-nW-bound"
+      ]
+    },
+    "input-geometric-distances": {
+      "kind": "input",
+      "label": "Geometric distances supplied"
+    },
+    "input-expansion-bounds": {
+      "kind": "input",
+      "label": "Expansion bounds supplied"
+    },
+    "input-lipschitz-capacity-bound": {
+      "kind": "input",
+      "label": "Known Lipschitz capacity bound"
+    },
+    "input-c-approx-seed": {
+      "kind": "input",
+      "label": "Supplied c-approximate dominating set; seed cost additional"
+    },
+    "input-connected": {
+      "kind": "input",
+      "label": "Connected input"
+    },
+    "input-diameter-four-k": {
+      "kind": "input",
+      "label": "Diameter ≥ 4k"
+    },
+    "input-connected-diameter-four-k": {
+      "kind": "input",
+      "label": "Connected; diameter ≥ 4k",
+      "implies": [
+        "input-connected",
+        "input-diameter-four-k"
+      ]
+    },
+    "input-C-k-t-domination": {
+      "kind": "input",
+      "label": "Known C, k, t; domination constraint"
+    },
+    "input-distinct-ids": {
+      "kind": "input",
+      "label": "Distinct identifiers"
+    },
+    "input-logarithmic-ids": {
+      "kind": "input",
+      "label": "Distinct O(log n)-bit identifiers",
+      "implies": [
+        "input-distinct-ids"
+      ]
+    },
+    "input-ids-one-to-n": {
+      "kind": "input",
+      "label": "Identifiers in {1,…,n}",
+      "implies": [
+        "input-logarithmic-ids"
+      ]
+    },
+    "model-port-numbering": {
+      "kind": "model",
+      "label": "Port numbering"
+    },
+    "model-anonymous-broadcast": {
+      "kind": "model",
+      "label": "Anonymous broadcast",
+      "implies": [
+        "model-port-numbering"
+      ]
+    },
+    "model-broadcast-congest": {
+      "kind": "model",
+      "label": "Broadcast CONGEST"
+    },
+    "model-supported-preprocessing": {
+      "kind": "model",
+      "label": "Support-topology preprocessing allowed"
+    },
+    "model-sleeping-congest": {
+      "kind": "model",
+      "label": "Sleeping CONGEST"
+    },
+    "strength-no-ids": {
+      "kind": "strength",
+      "label": "Identifiers unnecessary"
+    },
+    "strength-no-degree-knowledge": {
+      "kind": "strength",
+      "label": "Degree knowledge unnecessary"
+    },
+    "strength-no-communication": {
+      "kind": "strength",
+      "label": "No communication needed"
+    },
+    "strength-no-alpha-knowledge": {
+      "kind": "strength",
+      "label": "Arboricity need not be known"
+    },
+    "strength-no-embedding": {
+      "kind": "strength",
+      "label": "Embedding unnecessary"
+    },
+    "strength-empty-messages": {
+      "kind": "strength",
+      "label": "Empty messages suffice"
+    },
+    "strength-one-bit": {
+      "kind": "strength",
+      "label": "One-bit messages suffice"
+    },
+    "strength-two-bits": {
+      "kind": "strength",
+      "label": "At most two bits per message"
+    },
+    "strength-log-degree-bits": {
+      "kind": "strength",
+      "label": "Messages ≤ ⌈log Δ⌉ bits"
+    },
+    "strength-log-n-bits": {
+      "kind": "strength",
+      "label": "O(log n)-bit messages"
+    },
+    "strength-no-f-knowledge": {
+      "kind": "strength",
+      "label": "Algorithm need not know f(k)"
+    },
+    "detail-weights-one-message": {
+      "kind": "detail",
+      "label": "Node weights fit one CONGEST message"
+    },
+    "detail-red-blue-hitting-set": {
+      "kind": "detail",
+      "label": "Also red-blue domination / hitting set"
+    },
+    "detail-fractional-output": {
+      "kind": "output",
+      "label": "Fractional output"
+    },
+    "detail-integral-output": {
+      "kind": "output",
+      "label": "Integral output"
+    },
+    "detail-fractional-benchmark": {
+      "kind": "guarantee",
+      "label": "Fractional optimum benchmark"
+    },
+    "detail-integral-benchmark": {
+      "kind": "guarantee",
+      "label": "Integral optimum benchmark"
+    },
+    "detail-total-weight-benchmark": {
+      "kind": "guarantee",
+      "label": "w(V) is total input weight, hence at least OPT"
+    },
+    "detail-exact-components": {
+      "kind": "detail",
+      "label": "Exact component optimum"
+    },
+    "detail-four-uniform": {
+      "kind": "guarantee",
+      "label": "4-uniform guarantee"
+    },
+    "detail-lower-approximation-range": {
+      "kind": "guarantee",
+      "label": "Constant or polylogarithmic approximation factors"
+    },
+    "detail-per-vertex-density": {
+      "kind": "output",
+      "label": "Density estimate at each vertex"
+    },
+    "output-client-domination": {
+      "kind": "output",
+      "label": "Only designated clients must be dominated"
+    },
+    "output-outside-k": {
+      "kind": "output",
+      "label": "k neighbors required only outside the solution"
+    },
+    "output-outside-two": {
+      "kind": "output",
+      "label": "2 neighbors required only outside the solution",
+      "implies": [
+        "output-outside-k"
+      ]
+    },
+    "output-fmatching-simple": {
+      "kind": "output",
+      "label": "Integer vertex capacities; each edge used at most once"
+    },
+    "output-bmatching-multiplicity": {
+      "kind": "output",
+      "label": "Integer capacities; integer edge multiplicities"
+    },
+    "input-lipschitz-capacities": {
+      "kind": "input",
+      "label": "|b(u)−b(v)| ≤ L dist(u,v)"
+    },
+    "input-local-covering-candidates": {
+      "kind": "input",
+      "label": "Feasible locally known candidates C(r) ⊆ N[r]"
+    },
+    "input-feasible-set-cover": {
+      "kind": "input",
+      "label": "Feasible set-cover instance"
+    },
+    "strength-unbounded-set-incidence": {
+      "kind": "strength",
+      "label": "Set size and element frequency may be unbounded"
+    },
+    "detail-rank-two-simulation": {
+      "kind": "detail",
+      "label": "Rank-two incidence protocol simulated with constant overhead"
+    },
+    "strength-no-global-degree": {
+      "kind": "strength",
+      "label": "Global Δ unnecessary"
+    },
+    "detail-exact-integrality": {
+      "kind": "detail",
+      "label": "Choose internal ε < 1/B for the exact-factor integrality step; knowing n and W suffices"
+    },
+    "detail-no-nW-for-scheme": {
+      "kind": "detail",
+      "label": "A common bound on nW is needed only for exact-factor rounding"
+    },
+    "detail-unknown-degree-variants": {
+      "kind": "detail",
+      "label": "Section 4 gives separate unknown-Δ variants and parameter choices"
+    },
+    "parameter-epsilon-positive": {
+      "kind": "parameter",
+      "label": "ε > 0"
+    },
+    "parameter-epsilon-unit": {
+      "kind": "parameter",
+      "label": "0 < ε < 1",
+      "implies": [
+        "parameter-epsilon-positive"
+      ]
+    },
+    "parameter-epsilon-half": {
+      "kind": "parameter",
+      "label": "0 < ε < 1/2",
+      "implies": [
+        "parameter-epsilon-unit"
+      ]
+    },
+    "parameter-epsilon-quarter": {
+      "kind": "parameter",
+      "label": "0 < ε < 1/4",
+      "implies": [
+        "parameter-epsilon-half"
+      ]
+    },
+    "parameter-epsilon-tree-domain": {
+      "kind": "parameter",
+      "label": "log(n)/n < ε < 1",
+      "implies": [
+        "parameter-epsilon-unit"
+      ]
+    },
+    "parameter-fixed-epsilon": {
+      "kind": "parameter",
+      "label": "Fixed ε"
+    },
+    "parameter-fixed-H": {
+      "kind": "parameter",
+      "label": "Fixed excluded minor H"
+    },
+    "parameter-nonplanar-H": {
+      "kind": "parameter",
+      "label": "Nonplanar excluded minor H"
+    },
+    "parameter-fixed-alpha": {
+      "kind": "parameter",
+      "label": "Fixed arboricity α"
+    },
+    "parameter-alpha-ge1": {
+      "kind": "parameter",
+      "label": "α ≥ 1"
+    },
+    "parameter-fixed-alpha-ge2": {
+      "kind": "parameter",
+      "label": "Fixed α ≥ 2",
+      "implies": [
+        "parameter-fixed-alpha",
+        "parameter-alpha-ge1"
+      ]
+    },
+    "parameter-a-rational-ge1": {
+      "kind": "parameter",
+      "label": "Rational a ≥ 1"
+    },
+    "parameter-a-integer-ge1": {
+      "kind": "parameter",
+      "label": "Integer a ≥ 1",
+      "implies": [
+        "parameter-a-rational-ge1"
+      ]
+    },
+    "parameter-a-integer-ge2": {
+      "kind": "parameter",
+      "label": "Integer a ≥ 2",
+      "implies": [
+        "parameter-a-integer-ge1"
+      ]
+    },
+    "parameter-d-even-ge2": {
+      "kind": "parameter",
+      "label": "Even integer d ≥ 2"
+    },
+    "parameter-k-ge1": {
+      "kind": "parameter",
+      "label": "k ≥ 1"
+    },
+    "parameter-k-ge2": {
+      "kind": "parameter",
+      "label": "k ≥ 2",
+      "implies": [
+        "parameter-k-ge1"
+      ]
+    },
+    "parameter-k-ge3": {
+      "kind": "parameter",
+      "label": "k ≥ 3",
+      "implies": [
+        "parameter-k-ge2"
+      ]
+    },
+    "parameter-k-three-through-six": {
+      "kind": "parameter",
+      "label": "k ∈ {3,4,5,6}",
+      "implies": [
+        "parameter-k-ge3"
+      ]
+    },
+    "parameter-fixed-k": {
+      "kind": "parameter",
+      "label": "Fixed radius k"
+    },
+    "parameter-expansion-ge1": {
+      "kind": "parameter",
+      "label": "f(k) ≥ 1"
+    },
+    "parameter-r-integer-ge1": {
+      "kind": "parameter",
+      "label": "Integer r ≥ 1"
+    },
+    "parameter-t-integer-ge1": {
+      "kind": "parameter",
+      "label": "Integer t ≥ 1"
+    },
+    "parameter-fixed-t-ge2": {
+      "kind": "parameter",
+      "label": "Fixed integer t ≥ 2",
+      "implies": [
+        "parameter-t-integer-ge1"
+      ]
+    },
+    "claim-t-ge49": {
+      "kind": "claim",
+      "label": "t ≥ 49"
+    },
+    "parameter-f-at-most-k": {
+      "kind": "parameter",
+      "label": "f ≤ k"
+    },
+    "parameter-fixed-delta": {
+      "kind": "parameter",
+      "label": "Fixed δ > 0"
+    },
+    "parameter-beta-ge1": {
+      "kind": "parameter",
+      "label": "β ≥ 1"
+    },
+    "parameter-beta-gt1": {
+      "kind": "parameter",
+      "label": "β > 1",
+      "implies": [
+        "parameter-beta-ge1"
+      ]
+    },
+    "parameter-fixed-expansion": {
+      "kind": "parameter",
+      "label": "Fixed expansion bounds"
+    },
+    "parameter-fixed-L": {
+      "kind": "parameter",
+      "label": "Fixed Lipschitz bound L"
+    },
+    "parameter-fixed-rho-b-epsilon": {
+      "kind": "parameter",
+      "label": "Fixed rational ρ ≥ 1, integer b ≥ 1 and ε > 0",
+      "implies": [
+        "parameter-epsilon-positive",
+        "parameter-fixed-epsilon"
+      ]
+    },
+    "parameter-fixed-b-epsilon": {
+      "kind": "parameter",
+      "label": "Fixed integer b ≥ 1 and ε > 0",
+      "implies": [
+        "parameter-epsilon-positive",
+        "parameter-fixed-epsilon"
+      ]
+    },
+    "parameter-fixed-a": {
+      "kind": "parameter",
+      "label": "Fixed rational a ≥ 1",
+      "implies": [
+        "parameter-a-rational-ge1"
+      ]
+    },
+    "parameter-fixed-genus": {
+      "kind": "parameter",
+      "label": "Fixed Euler genus g"
+    },
+    "parameter-known-d-epsilon": {
+      "kind": "input",
+      "label": "Supplied integer degeneracy bound d ≥ 1 and ε > 0"
+    },
+    "parameter-degeneracy-runtime": {
+      "kind": "detail",
+      "label": "For 0 < ε ≤ 1, the round complexity is O((d/ε)²) and independent of n and maximum degree"
+    },
+    "scope-rounds-n-H-epsilon": {
+      "kind": "scope",
+      "label": "In n; fixed H, ε",
+      "implies": [
+        "parameter-fixed-H",
+        "parameter-fixed-epsilon"
+      ]
+    },
+    "scope-rounds-n-alpha-epsilon": {
+      "kind": "scope",
+      "label": "In n; fixed α, ε",
+      "implies": [
+        "parameter-fixed-alpha",
+        "parameter-fixed-epsilon"
+      ]
+    },
+    "scope-rounds-n-expansion-epsilon": {
+      "kind": "scope",
+      "label": "In n; fixed ε and expansion",
+      "implies": [
+        "parameter-fixed-epsilon",
+        "parameter-fixed-expansion"
+      ]
+    },
+    "scope-rounds-n-L-expansion-epsilon": {
+      "kind": "scope",
+      "label": "In n; fixed ε, L and expansion",
+      "implies": [
+        "parameter-fixed-epsilon",
+        "parameter-fixed-L",
+        "parameter-fixed-expansion"
+      ]
+    },
+    "scope-rounds-n-rho-b-epsilon": {
+      "kind": "scope",
+      "label": "In n; fixed ρ, b, ε",
+      "implies": [
+        "parameter-fixed-rho-b-epsilon"
+      ]
+    },
+    "scope-rounds-n-epsilon": {
+      "kind": "scope",
+      "label": "In n; fixed ε",
+      "implies": [
+        "parameter-fixed-epsilon"
+      ]
+    },
+    "scope-factor-independent-degree": {
+      "kind": "scope",
+      "label": "Approximation independent of Δ"
+    },
+    "scope-cycle-expansion-one": {
+      "kind": "parameter",
+      "label": "f(k)=1",
+      "implies": [
+        "parameter-expansion-ge1"
+      ]
+    },
+    "scope-radius-k-equals-r": {
+      "kind": "parameter",
+      "label": "k=r"
+    },
+    "scope-radius-r-sublogstar": {
+      "kind": "parameter",
+      "label": "r > 1 and r=o(log* n)"
+    },
+    "binding-a-three": {
+      "kind": "parameter",
+      "label": "a=3",
+      "implies": [
+        "parameter-a-integer-ge2"
+      ]
+    },
+    "binding-rho-three": {
+      "kind": "parameter",
+      "label": "ρ=3"
+    },
+    "binding-unit-costs": {
+      "kind": "weights",
+      "label": "Unit costs",
+      "implies": [
+        "weights-unweighted"
+      ]
+    },
+    "binding-closed-neighborhood-requests": {
+      "kind": "input",
+      "label": "Requests V with C(v)=N[v]"
+    },
+    "parameter-epsilon-unit-inclusive": {
+      "kind": "parameter",
+      "label": "0 < ε ≤ 1",
+      "implies": [
+        "parameter-epsilon-positive"
+      ]
+    },
+    "claim-source-weight-encoding": {
+      "kind": "claim",
+      "label": "Source CONGEST weight encoding"
+    },
+    "graph-variable-constraint-incidence": {
+      "kind": "graph",
+      "label": "Variable–constraint incidence graph"
+    },
+    "output-always-feasible": {
+      "kind": "output",
+      "label": "Output always feasible"
+    },
+    "parameter-depth-one-excluded-k3t": {
+      "kind": "parameter",
+      "label": "K₃,ₜ excluded as a depth-1 minor (t ≥ 3)",
+      "parts": [
+        {
+          "math": "K₃,ₜ"
+        },
+        " excluded as a depth-1 minor (",
+        {
+          "math": "t ≥ 3"
+        },
+        ")"
+      ]
+    },
+    "input-integer-depth-one-density": {
+      "kind": "input",
+      "label": "Known integer c ≥ ∇₁(G)",
+      "parts": [
+        "Known integer ",
+        {
+          "math": "c ≥ ∇₁(G)"
+        }
+      ]
+    },
+    "parameter-depth-one-density-definition": {
+      "kind": "parameter",
+      "label": "∇₁(G) is the maximum edge density |E(H)|/|V(H)| over nonempty depth-1 minors H of G",
+      "parts": [
+        {
+          "math": "∇₁(G)"
+        },
+        " is the maximum edge density ",
+        {
+          "math": "|E(H)|/|V(H)|"
+        },
+        " over nonempty depth-1 minors H of G"
+      ]
+    },
+    "detail-depth-one-integer-ceiling": {
+      "kind": "detail",
+      "label": "One may take c=⌈∇₁(G)⌉ if this value is supplied. A larger known integer upper bound is also allowed; the guarantee uses the supplied c.",
+      "parts": [
+        "One may take ",
+        {
+          "math": "c=⌈∇₁(G)⌉"
+        },
+        " if this value is supplied. A larger known integer upper bound is also allowed; the guarantee uses the supplied c."
+      ]
+    },
+    "binding-excluded-minor-k2t": {
+      "kind": "parameter",
+      "label": "H = K₂,t",
+      "parts": [
+        {
+          "math": "H = K₂,t"
+        }
+      ]
+    },
+    "graph-connected-euler": {
+      "kind": "graph",
+      "label": "Connected; Euler genus ≤ g",
+      "implies": [
+        "input-connected"
+      ]
+    }
+  },
+  "variants": [
+    {
+      "value": "Unweighted",
+      "weights": "weights-unweighted"
+    },
+    {
+      "value": "Weighted",
+      "weights": "weights-weighted"
+    },
+    {
+      "value": "",
+      "weights": "weights-unspecified"
+    },
+    {
+      "value": "Minimum client dominating set",
+      "weights": "weights-unweighted",
+      "covered": [
+        "output-client-domination"
+      ]
+    },
+    {
+      "value": "Distance r",
+      "weights": "weights-unweighted"
+    },
+    {
+      "value": "Connected distance r",
+      "weights": "weights-unweighted"
+    },
+    {
+      "value": "Distance-r connected domination",
+      "weights": "weights-unweighted"
+    },
+    {
+      "value": "2-domination of vertices outside D",
+      "weights": "weights-unweighted",
+      "covered": [
+        "output-outside-two"
+      ]
+    },
+    {
+      "value": "k-domination of vertices outside D",
+      "weights": "weights-unweighted",
+      "covered": [
+        "output-outside-k"
+      ]
+    },
+    {
+      "value": "k-domination of vertices outside the solution",
+      "weights": "weights-unweighted",
+      "covered": [
+        "output-outside-k"
+      ]
+    },
+    {
+      "value": "k neighbors required only outside the solution",
+      "weights": "weights-unweighted",
+      "covered": [
+        "output-outside-k"
+      ]
+    },
+    {
+      "value": "2-tuple domination",
+      "weights": "weights-unweighted",
+      "covered": [
+        "output-outside-two"
+      ]
+    },
+    {
+      "value": "Vertex-disjoint H-packing",
+      "weights": "weights-unweighted"
+    },
+    {
+      "value": "Total dominating set",
+      "weights": "weights-unweighted"
+    },
+    {
+      "value": "Fractional LP relaxation",
+      "weights": "weights-unweighted",
+      "covered": [
+        "detail-fractional-output"
+      ]
+    },
+    {
+      "value": "Fractional weighted",
+      "weights": "weights-weighted",
+      "covered": [
+        "detail-fractional-output"
+      ]
+    },
+    {
+      "value": "Unweighted; fractional benchmark",
+      "weights": "weights-unweighted",
+      "covered": [
+        "detail-fractional-benchmark"
+      ]
+    },
+    {
+      "value": "Unweighted; integral benchmark",
+      "weights": "weights-unweighted",
+      "covered": [
+        "detail-integral-benchmark"
+      ]
+    },
+    {
+      "value": "Bounded costs; also red-blue domination / hitting set",
+      "weights": "costs-integer-b",
+      "detail": [
+        "detail-red-blue-hitting-set"
+      ]
+    },
+    {
+      "value": "Local covering constraints; bounded costs",
+      "weights": "costs-integer-b",
+      "summary": [
+        "input-local-covering-candidates"
+      ],
+      "covered": [
+        "detail-fractional-output"
+      ]
+    },
+    {
+      "value": "Integral local cover; bounded costs",
+      "weights": "costs-integer-b",
+      "summary": [
+        "input-local-covering-candidates"
+      ],
+      "covered": [
+        "detail-integral-output"
+      ]
+    },
+    {
+      "value": "Maximum weight",
+      "weights": "weights-weighted"
+    },
+    {
+      "value": "Maximum cardinality",
+      "weights": "weights-unweighted"
+    },
+    {
+      "value": "Minimum weight",
+      "weights": "weights-weighted"
+    },
+    {
+      "value": "Fractional positive LP",
+      "weights": "coefficients-normalized-positive",
+      "summary": [
+        "coefficients-at-least-one",
+        "coefficient-encoding"
+      ],
+      "covered": [
+        "detail-fractional-output"
+      ]
+    },
+    {
+      "value": "Dual fractional positive LP",
+      "weights": "coefficients-normalized-positive",
+      "summary": [
+        "coefficients-at-least-one",
+        "coefficient-encoding"
+      ],
+      "covered": [
+        "detail-fractional-output"
+      ]
+    },
+    {
+      "value": "Per-vertex local-density estimation",
+      "weights": "weights-unweighted",
+      "covered": [
+        "detail-per-vertex-density"
+      ]
+    },
+    {
+      "value": "Unweighted; sleeping CONGEST",
+      "weights": "weights-unweighted",
+      "summary": [
+        "model-sleeping-congest"
+      ]
+    },
+    {
+      "value": "Unweighted; constant or polylogarithmic approximation",
+      "weights": "weights-unweighted",
+      "detail": [
+        "detail-lower-approximation-range"
+      ]
+    },
+    {
+      "value": "Unweighted; 4-uniform guarantee",
+      "weights": "weights-unweighted",
+      "detail": [
+        "detail-four-uniform"
+      ]
+    },
+    {
+      "value": "Maximum f-matching; edges used at most once",
+      "weights": "weights-unweighted",
+      "summary": [
+        "output-fmatching-simple"
+      ]
+    },
+    {
+      "value": "Maximum b-matching; integer edge multiplicities",
+      "weights": "weights-unweighted",
+      "summary": [
+        "output-bmatching-multiplicity"
+      ]
+    },
+    {
+      "value": "Unweighted; exact component optimum",
+      "weights": "weights-unweighted",
+      "detail": [
+        "detail-exact-components"
+      ]
+    },
+    {
+      "value": "Unweighted; non-leaf rule",
+      "weights": "weights-unweighted"
+    },
+    {
+      "value": "Unweighted; select all vertices",
+      "weights": "weights-unweighted"
+    },
+    {
+      "value": "Unweighted; select nonisolated vertices",
+      "weights": "weights-unweighted"
+    }
+  ],
+  "profiles": [
+    {
+      "resultId": "gen-aprsu10-matching",
+      "prerequisites": [
+        "input-proper-two-coloring"
+      ],
+      "assumptions": [
+        "input-proper-two-coloring"
+      ]
+    },
+    {
+      "resultId": "gen-aprsu10-dom",
+      "prerequisites": [
+        "input-weak-coloring-no-isolates"
+      ],
+      "assumptions": [
+        "input-weak-coloring-no-isolates"
+      ]
+    },
+    {
+      "resultId": "pic-sublog-bmatching",
+      "prerequisites": [
+        "input-lipschitz-capacity-bound"
+      ],
+      "summary": [
+        "input-lipschitz-capacities"
+      ],
+      "assumptions": [
+        "input-lipschitz-capacity-bound"
+      ],
+      "covered": [
+        "parameter-fixed-epsilon",
+        "parameter-fixed-L",
+        "parameter-fixed-expansion",
+        "output-bmatching-multiplicity"
+      ]
+    },
+    {
+      "resultId": "pic-ass-sublog-refine",
+      "prerequisites": [
+        "input-c-approx-seed"
+      ],
+      "assumptions": [
+        "input-c-approx-seed"
+      ]
+    },
+    {
+      "resultId": "unitdisk-fractional-domination",
+      "prerequisites": [
+        "input-geometric-distances"
+      ],
+      "assumptions": [
+        "input-geometric-distances"
+      ],
+      "covered": [
+        "detail-fractional-output"
+      ]
+    },
+    {
+      "resultId": "pic-sublog-fmatching",
+      "prerequisites": [
+        "input-expansion-bounds"
+      ],
+      "assumptions": [
+        "input-expansion-bounds"
+      ],
+      "covered": [
+        "parameter-fixed-epsilon",
+        "parameter-fixed-expansion",
+        "output-fmatching-simple"
+      ]
+    },
+    {
+      "resultId": "gen-emr14-cardinality",
+      "prerequisites": [
+        "input-known-n-degree"
+      ],
+      "assumptions": [
+        "input-logarithmic-ids",
+        "input-known-n-degree"
+      ]
+    },
+    {
+      "resultId": "gen-emr14-weighted",
+      "prerequisites": [
+        "input-known-n-degree"
+      ],
+      "weights": "weights-normalized-positive",
+      "assumptions": [
+        "input-distinct-ids",
+        "input-known-n-degree"
+      ]
+    },
+    {
+      "resultId": "gen-af26-dom",
+      "prerequisites": [
+        "input-known-degree"
+      ],
+      "assumptions": [
+        "input-known-degree"
+      ],
+      "detail": [
+        "strength-no-alpha-knowledge",
+        "strength-one-bit"
+      ]
+    },
+    {
+      "resultId": "gen-fk25-tree",
+      "prerequisites": [
+        "input-known-n-degree-graph"
+      ],
+      "assumptions": [
+        "input-known-n-degree-graph"
+      ],
+      "detail": [
+        "detail-weights-one-message"
+      ],
+      "covered": [
+        "parameter-epsilon-tree-domain",
+        "parameter-fixed-epsilon"
+      ]
+    },
+    {
+      "resultId": "gen-fk25-arboricity-fast",
+      "prerequisites": [
+        "input-known-n-degree-graph"
+      ],
+      "assumptions": [
+        "input-known-n-degree-graph"
+      ],
+      "detail": [
+        "detail-weights-one-message",
+        "detail-total-weight-benchmark"
+      ],
+      "covered": [
+        "parameter-epsilon-unit",
+        "parameter-beta-ge1"
+      ]
+    },
+    {
+      "resultId": "gen-fk25-arboricity-better",
+      "prerequisites": [
+        "input-known-n-degree-graph"
+      ],
+      "assumptions": [
+        "input-known-n-degree-graph"
+      ],
+      "detail": [
+        "detail-weights-one-message",
+        "detail-total-weight-benchmark"
+      ],
+      "covered": [
+        "parameter-epsilon-unit",
+        "parameter-beta-gt1"
+      ]
+    },
+    {
+      "resultId": "gen-asw26-cover-det",
+      "prerequisites": [
+        "input-common-polynomial-id-bound"
+      ],
+      "summary": [
+        "model-broadcast-congest"
+      ],
+      "assumptions": [
+        "input-logarithmic-ids",
+        "input-common-polynomial-id-bound"
+      ],
+      "parameters": [
+        "parameter-fixed-rho-b-epsilon"
+      ]
+    },
+    {
+      "resultId": "pic-distance-k2t-constant",
+      "prerequisites": [
+        "input-connected-diameter-four-k"
+      ],
+      "assumptions": [
+        "input-connected-diameter-four-k"
+      ]
+    },
+    {
+      "resultId": "pic-distance-k2t-ptas",
+      "prerequisites": [
+        "input-connected-diameter-four-k"
+      ],
+      "assumptions": [
+        "input-connected-diameter-four-k"
+      ]
+    },
+    {
+      "resultId": "pic-distance-minor-ptas",
+      "prerequisites": [
+        "input-C-k-t-domination"
+      ]
+    },
+    {
+      "resultId": "folklore-regular-vc",
+      "prerequisites": [
+        "input-positive-degree"
+      ],
+      "graph": "graph-regular-positive",
+      "parameters": [],
+      "assumptions": [],
+      "detail": [
+        "strength-no-ids",
+        "strength-no-degree-knowledge"
+      ],
+      "covered": [
+        "strength-no-communication"
+      ]
+    },
+    {
+      "resultId": "gen-beks18-exact2",
+      "prerequisites": [
+        "input-degree-and-nW-bound"
+      ],
+      "weights": "weights-integer-polynomial",
+      "assumptions": [
+        "input-degree-and-nW-bound"
+      ],
+      "detail": [
+        "detail-exact-integrality",
+        "strength-no-ids"
+      ]
+    },
+    {
+      "resultId": "gen-beks18-eps",
+      "prerequisites": [
+        "input-known-degree-bound"
+      ],
+      "weights": "weights-integer-polynomial",
+      "assumptions": [
+        "input-known-degree-bound"
+      ],
+      "detail": [
+        "strength-no-ids",
+        "detail-unknown-degree-variants"
+      ]
+    },
+    {
+      "resultId": "gen-beks18-full-eps",
+      "prerequisites": [
+        "input-known-degree-bound"
+      ],
+      "weights": "weights-integer-polynomial",
+      "assumptions": [
+        "input-known-degree-bound"
+      ],
+      "detail": [
+        "detail-no-nW-for-scheme"
+      ],
+      "covered": [
+        "parameter-epsilon-unit"
+      ]
+    },
+    {
+      "resultId": "gen-beks19-exact2",
+      "prerequisites": [
+        "input-common-nW-bound"
+      ],
+      "weights": "weights-integer-polynomial",
+      "parameters": [],
+      "assumptions": [
+        "input-common-nW-bound"
+      ],
+      "detail": [
+        "detail-exact-integrality",
+        "detail-rank-two-simulation",
+        "strength-no-global-degree"
+      ]
+    },
+    {
+      "resultId": "outerplanar-five",
+      "summary": [
+        "model-port-numbering",
+        "input-own-degree",
+        "input-incident-ports"
+      ],
+      "assumptions": [],
+      "detail": [
+        "strength-no-ids"
+      ]
+    },
+    {
+      "resultId": "planar-two-dom-six",
+      "summary": [
+        "model-port-numbering"
+      ],
+      "assumptions": [],
+      "covered": [
+        "output-outside-two"
+      ]
+    },
+    {
+      "resultId": "planar-two-dom-seven",
+      "summary": [
+        "model-port-numbering"
+      ],
+      "assumptions": [],
+      "detail": [
+        "strength-no-ids"
+      ],
+      "covered": [
+        "output-outside-two"
+      ]
+    },
+    {
+      "resultId": "planar-k-dom-trivial",
+      "summary": [
+        "model-port-numbering"
+      ],
+      "assumptions": [],
+      "detail": [
+        "strength-no-ids"
+      ],
+      "covered": [
+        "parameter-k-ge3"
+      ]
+    },
+    {
+      "resultId": "wawrzyniak-anonymous-694",
+      "summary": [
+        "model-port-numbering"
+      ],
+      "assumptions": [],
+      "detail": [
+        "strength-no-ids",
+        "strength-log-n-bits"
+      ]
+    },
+    {
+      "resultId": "gen-ps09-vc",
+      "summary": [
+        "model-port-numbering"
+      ],
+      "assumptions": [],
+      "detail": [
+        "strength-no-ids"
+      ]
+    },
+    {
+      "resultId": "gen-as10-vc",
+      "weights": "weights-integer-W",
+      "summary": [
+        "model-port-numbering"
+      ],
+      "assumptions": []
+    },
+    {
+      "resultId": "gen-as10-setcover",
+      "weights": "weights-integer-W",
+      "summary": [
+        "model-anonymous-broadcast"
+      ],
+      "assumptions": [],
+      "detail": [
+        "strength-no-ids"
+      ]
+    },
+    {
+      "resultId": "pic-girth-pruning",
+      "summary": [
+        "model-port-numbering"
+      ],
+      "assumptions": [],
+      "detail": [
+        "strength-empty-messages"
+      ],
+      "covered": [
+        "parameter-fixed-k",
+        "parameter-k-ge1",
+        "scope-factor-independent-degree"
+      ]
+    },
+    {
+      "resultId": "pic-girth-sublinear",
+      "summary": [
+        "model-port-numbering"
+      ],
+      "assumptions": [],
+      "detail": [
+        "strength-log-degree-bits",
+        "strength-no-f-knowledge"
+      ],
+      "covered": [
+        "parameter-k-ge1",
+        "parameter-fixed-k"
+      ],
+      "parameters": [
+        "parameter-fixed-k",
+        "parameter-k-ge1"
+      ]
+    },
+    {
+      "resultId": "pic-thesis-degeneracy-vc",
+      "summary": [
+        "model-port-numbering",
+        "input-own-degree",
+        "parameter-known-d-epsilon"
+      ],
+      "parameters": [],
+      "assumptions": [],
+      "detail": [
+        "strength-two-bits",
+        "parameter-degeneracy-runtime"
+      ]
+    },
+    {
+      "resultId": "gen-asw26-planar",
+      "summary": [
+        "model-broadcast-congest"
+      ],
+      "assumptions": [
+        "input-logarithmic-ids"
+      ]
+    },
+    {
+      "resultId": "gen-asw26-trianglefree",
+      "summary": [
+        "model-broadcast-congest"
+      ],
+      "assumptions": [
+        "input-logarithmic-ids"
+      ]
+    },
+    {
+      "resultId": "gen-asw26-minordensity",
+      "summary": [
+        "model-broadcast-congest"
+      ],
+      "assumptions": [
+        "input-logarithmic-ids"
+      ],
+      "parameters": [
+        "parameter-fixed-a"
+      ],
+      "covered": [
+        "detail-fractional-benchmark"
+      ]
+    },
+    {
+      "resultId": "gen-asw26-genus",
+      "summary": [
+        "model-broadcast-congest"
+      ],
+      "assumptions": [
+        "input-logarithmic-ids"
+      ],
+      "detail": [
+        "strength-no-embedding"
+      ],
+      "parameters": [
+        "parameter-fixed-genus"
+      ],
+      "covered": [
+        "detail-integral-benchmark"
+      ]
+    },
+    {
+      "resultId": "gen-asw26-total",
+      "summary": [
+        "model-broadcast-congest"
+      ],
+      "assumptions": [
+        "input-logarithmic-ids"
+      ],
+      "parameters": [
+        "parameter-fixed-a"
+      ],
+      "covered": [
+        "input-isolate-free",
+        "detail-fractional-benchmark"
+      ]
+    },
+    {
+      "resultId": "gen-asw26-setcover",
+      "summary": [
+        "model-broadcast-congest",
+        "input-feasible-set-cover"
+      ],
+      "assumptions": [
+        "input-logarithmic-ids"
+      ],
+      "detail": [
+        "strength-unbounded-set-incidence"
+      ],
+      "parameters": [
+        "parameter-fixed-b-epsilon"
+      ]
+    },
+    {
+      "resultId": "gen-asw26-fractional",
+      "summary": [
+        "model-broadcast-congest"
+      ],
+      "assumptions": [
+        "input-logarithmic-ids"
+      ],
+      "parameters": [
+        "parameter-fixed-rho-b-epsilon"
+      ]
+    },
+    {
+      "resultId": "gen-asw26-cover-random",
+      "summary": [
+        "model-broadcast-congest"
+      ],
+      "assumptions": [
+        "input-logarithmic-ids"
+      ],
+      "parameters": [
+        "parameter-fixed-rho-b-epsilon"
+      ],
+      "detail": [
+        "output-always-feasible"
+      ]
+    },
+    {
+      "resultId": "gen-beks19-full-eps",
+      "weights": "weights-integer-polynomial",
+      "assumptions": [],
+      "detail": [
+        "detail-rank-two-simulation",
+        "strength-no-global-degree"
+      ],
+      "covered": [
+        "parameter-epsilon-unit"
+      ]
+    },
+    {
+      "resultId": "chang-independent-logstar",
+      "covered": [
+        "parameter-fixed-H",
+        "parameter-epsilon-unit",
+        "parameter-fixed-epsilon"
+      ]
+    },
+    {
+      "resultId": "arboricity-matching-logstar",
+      "covered": [
+        "parameter-fixed-alpha",
+        "parameter-alpha-ge1",
+        "parameter-epsilon-unit",
+        "parameter-fixed-epsilon"
+      ]
+    },
+    {
+      "resultId": "gen-asw26-cycle-lower",
+      "covered": [
+        "parameter-epsilon-quarter",
+        "parameter-fixed-epsilon"
+      ]
+    },
+    {
+      "resultId": "gen-fk25-path-lower",
+      "covered": [
+        "parameter-epsilon-tree-domain",
+        "parameter-fixed-epsilon"
+      ]
+    },
+    {
+      "resultId": "gen-dp26-matching",
+      "covered": [
+        "parameter-epsilon-unit",
+        "parameter-fixed-delta"
+      ]
+    },
+    {
+      "resultId": "gen-dp26-cover",
+      "covered": [
+        "parameter-epsilon-unit"
+      ]
+    },
+    {
+      "resultId": "gen-as26-power-lower",
+      "covered": [
+        "parameter-r-integer-ge1"
+      ]
+    },
+    {
+      "resultId": "pic-thesis-pathpower-lower",
+      "covered": [
+        "parameter-t-integer-ge1",
+        "input-ids-one-to-n"
+      ]
+    },
+    {
+      "resultId": "planar-k-dom-lower",
+      "covered": [
+        "parameter-k-three-through-six"
+      ]
+    },
+    {
+      "resultId": "dory-arboricity-lower",
+      "covered": [
+        "parameter-fixed-alpha-ge2"
+      ]
+    },
+    {
+      "resultId": "pic-girth-time-lower",
+      "covered": [
+        "parameter-k-ge2",
+        "parameter-expansion-ge1",
+        "scope-factor-independent-degree"
+      ]
+    },
+    {
+      "resultId": "pic-girth-sublinear-lower",
+      "covered": [
+        "parameter-k-ge1"
+      ]
+    },
+    {
+      "resultId": "pic-girth-cycle-lower",
+      "covered": [
+        "scope-radius-r-sublogstar"
+      ]
+    },
+    {
+      "resultId": "folklore-tree-mds",
+      "summary": [
+        "input-own-degree"
+      ],
+      "assumptions": [],
+      "detail": [
+        "strength-one-bit",
+        "strength-no-ids"
+      ]
+    },
+    {
+      "resultId": "pic-large-50-dom",
+      "summary": [
+        "parameter-fixed-t-ge2"
+      ],
+      "parameters": [
+        "parameter-fixed-t-ge2"
+      ]
+    },
+    {
+      "resultId": "supported-client-planar",
+      "summary": [
+        "model-supported-preprocessing"
+      ]
+    },
+    {
+      "resultId": "derived-gen-asw26-cover-det--mds-to-local-covering",
+      "covered": [
+        "parameter-fixed-rho-b-epsilon"
+      ]
+    },
+    {
+      "resultId": "gen-low24-cover",
+      "graph": "graph-variable-constraint-incidence",
+      "assumptions": [
+        "coefficients-at-least-one",
+        "coefficient-encoding"
+      ]
+    },
+    {
+      "resultId": "gen-low24-pack",
+      "graph": "graph-variable-constraint-incidence",
+      "assumptions": [
+        "coefficients-at-least-one",
+        "coefficient-encoding"
+      ]
+    },
+    {
+      "resultId": "amiri-locally-embeddable",
+      "summary": [
+        "parameter-depth-one-excluded-k3t",
+        "input-integer-depth-one-density"
+      ],
+      "parameters": [
+        "parameter-depth-one-density-definition"
+      ],
+      "assumptions": [
+        "input-distinct-ids",
+        "strength-no-embedding"
+      ],
+      "detail": [
+        "detail-depth-one-integer-ceiling"
+      ]
+    }
+  ],
+  "sota": [
+    {
+      "resultId": "chang-independent-logstar",
+      "conditionIds": [
+        "parameter-nonplanar-H",
+        "parameter-epsilon-half"
+      ]
+    },
+    {
+      "resultId": "outerplanar-five",
+      "conditionIds": []
+    },
+    {
+      "resultId": "planar-two-dom-six",
+      "conditionIds": []
+    },
+    {
+      "resultId": "planar-k-dom-trivial",
+      "conditionIds": [
+        "parameter-k-three-through-six"
+      ]
+    },
+    {
+      "resultId": "arboricity-matching-logstar",
+      "conditionIds": [
+        "parameter-epsilon-half"
+      ]
+    },
+    {
+      "resultId": "gen-as10-vc",
+      "conditionIds": []
+    },
+    {
+      "resultId": "gen-beks18-exact2",
+      "conditionIds": []
+    },
+    {
+      "resultId": "gen-beks18-eps",
+      "conditionIds": []
+    },
+    {
+      "resultId": "gen-ffk21-vc-bip",
+      "conditionIds": [
+        "parameter-epsilon-unit-inclusive",
+        "claim-source-weight-encoding"
+      ]
+    },
+    {
+      "resultId": "gen-hs22-mwm",
+      "conditionIds": [
+        "parameter-epsilon-unit",
+        "claim-source-weight-encoding"
+      ]
+    },
+    {
+      "resultId": "gen-aprsu10-matching",
+      "conditionIds": [
+        "parameter-epsilon-positive"
+      ]
+    },
+    {
+      "resultId": "gen-ghs12-eds",
+      "conditionIds": []
+    },
+    {
+      "resultId": "gen-w26-2dom",
+      "conditionIds": []
+    },
+    {
+      "resultId": "gen-p26-density",
+      "conditionIds": [
+        "parameter-d-even-ge2"
+      ]
+    },
+    {
+      "resultId": "gen-asw26-planar",
+      "conditionIds": []
+    },
+    {
+      "resultId": "gen-asw26-trianglefree",
+      "conditionIds": []
+    },
+    {
+      "resultId": "gen-asw26-minordensity",
+      "conditionIds": [
+        "parameter-a-integer-ge2"
+      ]
+    },
+    {
+      "resultId": "gen-asw26-genus",
+      "conditionIds": []
+    },
+    {
+      "resultId": "gen-asw26-total",
+      "conditionIds": [
+        "parameter-a-integer-ge1"
+      ]
+    },
+    {
+      "resultId": "gen-asw26-setcover",
+      "conditionIds": []
+    },
+    {
+      "resultId": "gen-asw26-fractional",
+      "conditionIds": []
+    },
+    {
+      "resultId": "gen-asw26-cover-random",
+      "conditionIds": []
+    },
+    {
+      "resultId": "gen-asw26-cover-det",
+      "conditionIds": [
+        "parameter-epsilon-quarter"
+      ]
+    },
+    {
+      "resultId": "gen-asw26-cycle-lower",
+      "conditionIds": []
+    },
+    {
+      "resultId": "gen-fk25-tree",
+      "conditionIds": []
+    },
+    {
+      "resultId": "gen-fk25-path-lower",
+      "conditionIds": []
+    },
+    {
+      "resultId": "gen-fk25-arboricity-fast",
+      "conditionIds": []
+    },
+    {
+      "resultId": "gen-fk25-arboricity-better",
+      "conditionIds": []
+    },
+    {
+      "resultId": "gen-low24-cover",
+      "conditionIds": []
+    },
+    {
+      "resultId": "gen-low24-pack",
+      "conditionIds": []
+    },
+    {
+      "resultId": "gen-dp26-matching",
+      "conditionIds": [
+        "parameter-fixed-epsilon"
+      ]
+    },
+    {
+      "resultId": "gen-dp26-cover",
+      "conditionIds": [
+        "parameter-fixed-epsilon"
+      ]
+    },
+    {
+      "resultId": "gen-iky25-matching",
+      "conditionIds": []
+    },
+    {
+      "resultId": "gen-as10-setcover",
+      "conditionIds": [
+        "parameter-f-at-most-k"
+      ]
+    },
+    {
+      "resultId": "gen-beks18-full-eps",
+      "conditionIds": []
+    },
+    {
+      "resultId": "gen-beks19-full-eps",
+      "conditionIds": []
+    },
+    {
+      "resultId": "gen-beks19-exact2",
+      "conditionIds": []
+    },
+    {
+      "resultId": "pic-large-50-dom",
+      "conditionIds": [
+        "claim-t-ge49"
+      ]
+    },
+    {
+      "resultId": "pic-girth-pruning",
+      "conditionIds": [
+        "parameter-k-ge2",
+        "parameter-expansion-ge1"
+      ]
+    },
+    {
+      "resultId": "pic-girth-sublinear",
+      "conditionIds": []
+    },
+    {
+      "resultId": "pic-sublog-fmatching",
+      "conditionIds": [
+        "parameter-epsilon-half"
+      ]
+    },
+    {
+      "resultId": "pic-sublog-bmatching",
+      "conditionIds": [
+        "parameter-epsilon-half"
+      ]
+    },
+    {
+      "resultId": "pic-thesis-pw2-dom",
+      "conditionIds": []
+    },
+    {
+      "resultId": "folklore-tree-mds",
+      "conditionIds": []
+    },
+    {
+      "resultId": "folklore-regular-vc",
+      "conditionIds": []
+    },
+    {
+      "resultId": "pic-thesis-genus-distance-dom",
+      "conditionIds": []
+    }
+  ],
+  "transfers": [
+    {
+      "resultId": "gen-asw26-minordensity",
+      "graph": "planar",
+      "conditionIds": [],
+      "settingConditionIds": [
+        "binding-a-three"
+      ]
+    },
+    {
+      "resultId": "folklore-tree-mds",
+      "graph": "forest",
+      "conditionIds": [],
+      "settingConditionIds": []
+    },
+    {
+      "resultId": "gen-asw26-cover-det",
+      "graph": "planar",
+      "problem": "dominating-set",
+      "conditionIds": [
+        "parameter-epsilon-quarter"
+      ],
+      "settingConditionIds": [
+        "binding-rho-three",
+        "binding-unit-costs",
+        "binding-closed-neighborhood-requests"
+      ]
+    },
+    {
+      "resultId": "pic-thesis-pw2-dom",
+      "graph": "k2t",
+      "conditionIds": [
+        "claim-t-ge49"
+      ],
+      "settingConditionIds": [
+        "binding-excluded-minor-k2t",
+        "parameter-fixed-t-ge2"
+      ]
+    }
+  ],
+  "tight": [
+    {
+      "certificateId": "outerplanar-factor-five",
+      "applications": [
+        {
+          "resultId": "outerplanar-five",
+          "conditionIds": []
+        },
+        {
+          "resultId": "outerplanar-five-lower",
+          "conditionIds": []
+        }
+      ]
+    },
+    {
+      "certificateId": "planar-factor-seven",
+      "applications": [
+        {
+          "resultId": "gen-asw26-planar",
+          "conditionIds": []
+        },
+        {
+          "resultId": "gen-asw26-genus",
+          "conditionIds": []
+        },
+        {
+          "resultId": "planar-seven-lower",
+          "conditionIds": []
+        }
+      ]
+    },
+    {
+      "certificateId": "tree-independent-rounds",
+      "applications": [
+        {
+          "resultId": "gen-fk25-tree",
+          "conditionIds": []
+        },
+        {
+          "resultId": "gen-fk25-path-lower",
+          "conditionIds": []
+        }
+      ]
+    },
+    {
+      "certificateId": "high-girth-approximation-order",
+      "applications": [
+        {
+          "resultId": "pic-girth-sublinear",
+          "conditionIds": []
+        },
+        {
+          "resultId": "pic-girth-sublinear-lower",
+          "conditionIds": []
+        }
+      ]
+    },
+    {
+      "certificateId": "distance-k-round-threshold",
+      "applications": [
+        {
+          "resultId": "pic-girth-pruning",
+          "conditionIds": [
+            "parameter-k-ge2",
+            "parameter-expansion-ge1",
+            "scope-factor-independent-degree"
+          ]
+        },
+        {
+          "resultId": "pic-girth-time-lower",
+          "conditionIds": [
+            "parameter-k-ge2",
+            "parameter-expansion-ge1",
+            "scope-factor-independent-degree"
+          ]
+        }
+      ]
+    },
+    {
+      "certificateId": "arboricity-domination-rounds",
+      "applications": [
+        {
+          "resultId": "gen-af26-dom",
+          "conditionIds": [
+            "parameter-fixed-alpha-ge2"
+          ]
+        },
+        {
+          "resultId": "dory-arboricity-lower",
+          "conditionIds": [
+            "parameter-fixed-alpha-ge2"
+          ]
+        }
+      ]
+    },
+    {
+      "certificateId": "dominating-logstar-rounds",
+      "applications": [
+        {
+          "resultId": "gen-asw26-cover-det",
+          "conditionIds": [
+            "scope-rounds-n-rho-b-epsilon",
+            "parameter-epsilon-quarter"
+          ]
+        },
+        {
+          "resultId": "derived-gen-asw26-cover-det--mds-to-local-covering",
+          "conditionIds": [
+            "scope-rounds-n-rho-b-epsilon",
+            "parameter-epsilon-quarter"
+          ]
+        },
+        {
+          "resultId": "gen-asw26-cycle-lower",
+          "conditionIds": [
+            "scope-rounds-n-epsilon",
+            "parameter-epsilon-quarter"
+          ]
+        }
+      ]
+    },
+    {
+      "certificateId": "minor-density-factor",
+      "applications": [
+        {
+          "resultId": "gen-asw26-minordensity",
+          "conditionIds": [
+            "parameter-a-integer-ge1"
+          ]
+        },
+        {
+          "resultId": "gen-as26-power-lower",
+          "conditionIds": [
+            "parameter-r-integer-ge1"
+          ]
+        }
+      ]
+    },
+    {
+      "certificateId": "pathpower-leaves-factor",
+      "applications": [
+        {
+          "resultId": "pic-thesis-pathpower-lower",
+          "conditionIds": [
+            "parameter-t-integer-ge1",
+            "input-ids-one-to-n"
+          ]
+        }
+      ]
+    },
+    {
+      "certificateId": "trianglefree-planar-factor-five",
+      "applications": [
+        {
+          "resultId": "gen-asw26-trianglefree",
+          "conditionIds": []
+        }
+      ]
+    },
+    {
+      "certificateId": "edge-domination-factor",
+      "applications": [
+        {
+          "resultId": "gen-ghs12-eds",
+          "conditionIds": []
+        }
+      ]
+    },
+    {
+      "certificateId": "total-domination-factor",
+      "applications": [
+        {
+          "resultId": "gen-asw26-total",
+          "conditionIds": [
+            "parameter-a-integer-ge1"
+          ]
+        }
+      ]
+    },
+    {
+      "certificateId": "minor-free-independent-n-rounds",
+      "applications": [
+        {
+          "resultId": "chang-independent-logstar",
+          "conditionIds": [
+            "scope-rounds-n-H-epsilon",
+            "parameter-nonplanar-H",
+            "parameter-epsilon-half"
+          ]
+        }
+      ]
+    },
+    {
+      "certificateId": "arboricity-matching-n-rounds",
+      "applications": [
+        {
+          "resultId": "arboricity-matching-logstar",
+          "conditionIds": [
+            "scope-rounds-n-alpha-epsilon",
+            "parameter-epsilon-half"
+          ]
+        }
+      ]
+    },
+    {
+      "certificateId": "fmatching-n-rounds",
+      "applications": [
+        {
+          "resultId": "pic-sublog-fmatching",
+          "conditionIds": [
+            "scope-rounds-n-expansion-epsilon",
+            "parameter-epsilon-half"
+          ]
+        }
+      ]
+    },
+    {
+      "certificateId": "bmatching-n-rounds",
+      "applications": [
+        {
+          "resultId": "pic-sublog-bmatching",
+          "conditionIds": [
+            "scope-rounds-n-L-expansion-epsilon",
+            "parameter-epsilon-half"
+          ]
+        }
+      ]
+    },
+    {
+      "certificateId": "pseudoforest-factor-three",
+      "applications": [
+        {
+          "resultId": "folklore-tree-mds",
+          "conditionIds": []
+        }
+      ]
+    },
+    {
+      "certificateId": "anonymous-vertex-cover-factor-two",
+      "applications": [
+        {
+          "resultId": "gen-as10-vc",
+          "conditionIds": []
+        }
+      ]
+    },
+    {
+      "certificateId": "regular-vertex-cover-factor-two",
+      "applications": [
+        {
+          "resultId": "folklore-regular-vc",
+          "conditionIds": []
+        }
+      ]
+    },
+    {
+      "certificateId": "outside-k-planar-factor",
+      "applications": [
+        {
+          "resultId": "planar-k-dom-trivial",
+          "conditionIds": [
+            "parameter-k-three-through-six"
+          ]
+        },
+        {
+          "resultId": "planar-k-dom-lower",
+          "conditionIds": [
+            "parameter-k-three-through-six"
+          ]
+        }
+      ]
+    },
+    {
+      "certificateId": "long-cycle-distance-factor",
+      "applications": [
+        {
+          "resultId": "pic-girth-pruning",
+          "conditionIds": [
+            "scope-cycle-expansion-one",
+            "scope-radius-k-equals-r",
+            "scope-radius-r-sublogstar"
+          ]
+        },
+        {
+          "resultId": "pic-girth-cycle-lower",
+          "conditionIds": [
+            "scope-radius-r-sublogstar"
+          ]
+        }
+      ]
+    }
+  ]
+}

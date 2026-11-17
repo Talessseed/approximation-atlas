@@ -1,0 +1,35 @@
+{
+  "checked": "2026-11-16",
+  "resultId": "amiri-locally-embeddable",
+  "paper": "Distributed Dominating Set Approximations beyond Planar Graphs",
+  "sources": [
+    {
+      "url": "https://schmiste.github.io/talg19ds.pdf#page=5",
+      "location": "Section 2, PDF p. 5",
+      "claim": "∇₁(G) is the maximum edge density |E(H)|/|V(H)| over nonempty depth-1 minors H of G. Locally embeddable graphs exclude K₃,t as a depth-1 minor for some fixed integer t≥3."
+    },
+    {
+      "url": "https://schmiste.github.io/talg19ds.pdf#page=6",
+      "location": "Section 3, PDF pp. 6–7",
+      "claim": "The modified algorithm requires an additional supplied integer c bounding the edge density of every depth-1 minor. It uses c in the local threshold; it does not compute global density locally."
+    },
+    {
+      "url": "https://schmiste.github.io/talg19ds.pdf#page=11",
+      "location": "Lemma 3.8, PDF p. 11",
+      "claim": "Approximation factor 6c²t+(2t+5)c+4 under the density and excluded-depth-1-minor assumptions."
+    }
+  ],
+  "decision": {
+    "approximation": "Keep the source polynomial in c, because c is a supplied integer upper bound and need not equal the possibly fractional ∇₁(G).",
+    "inlineSetting": [
+      "Locally embeddable",
+      "Unweighted",
+      "K₃,ₜ excluded as a depth-1 minor (t ≥ 3)",
+      "Known integer c ≥ ∇₁(G)"
+    ],
+    "densityDefinition": "Define ∇₁(G) in the canonical parameters section.",
+    "ceilingChoice": "c=⌈∇₁(G)⌉ is valid when supplied; a larger known integer upper bound is also allowed, with the guarantee evaluated at the supplied c.",
+    "rounds": "The existing ≤6 communication-round phase audit is unchanged; c and t influence local thresholds or analysis.",
+    "provenance": "Original polynomial, source theorem and raw source fields remain accessible. Canonical fact IDs prevent repeated conditions."
+  }
+}

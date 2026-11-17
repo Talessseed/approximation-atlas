@@ -1,0 +1,53 @@
+{
+  "checked": "2026-11-16",
+  "scope": "Mathematical parameter symbols and result-specific hover definitions; no approximation, round-complexity or dominance changes.",
+  "counts": {
+    "sourceProfiles": 164,
+    "sourceDefinitions": 436,
+    "compiledResults": 191,
+    "compiledDefinitions": 698,
+    "recipeProfiles": 14,
+    "namedRoundFunctions": 42,
+    "namedApproximationFunctions": 11
+  },
+  "displayPolicy": {
+    "namedBounds": "Always show mathematical symbols, independently of whether they occurred earlier in a row. Keep introduction metadata separate.",
+    "sourceExpansionFunctions": "Use an unspecified outer F when a source parameter is f or f(k), avoiding f(r,f).",
+    "definitions": "Context belongs to the result: d, g, f, W and other reused symbols retain their own source meaning.",
+    "density": "Preserve the supplied integer c≥∇₁(G); do not equate it to fractional density.",
+    "accessibility": "Hover, keyboard focus and touch expose the same definitions; enriched formulas retain their mathematical labels and use informational term targets.",
+    "sources": "Original formula strings, raw source fields and exact reduction substitutions remain available. CSV includes definitions; descriptive-name search remains supported."
+  },
+  "sourceChecks": [
+    {
+      "resultIds": [
+        "pic-sublog-fmatching",
+        "pic-sublog-bmatching"
+      ],
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol212-isaac2021/LIPIcs.ISAAC.2021.59/LIPIcs.ISAAC.2021.59.pdf",
+      "claim": "The source expansion function g is distinct from genus or odd girth; f and b denote vertex capacities in their respective matching problems."
+    },
+    {
+      "resultIds": [
+        "pic-distance-minor-ptas"
+      ],
+      "url": "https://arxiv.org/pdf/2203.03229#page=13",
+      "claim": "Theorem 19 uses positive integer C in γ₁(G)≤Cγₖ(G). Corrected the lower-case c round-subscript transcription to C."
+    },
+    {
+      "resultIds": [
+        "amiri-locally-embeddable"
+      ],
+      "url": "https://schmiste.github.io/talg19ds.pdf#page=6",
+      "claim": "c is a supplied integer density bound; ∇₁(G) is the exact depth-one minor density."
+    }
+  ],
+  "derivedInstances": "Target communication-graph variables n,m,Δ and line-graph variables Δ_L,m_L have explicit instance meanings; recipe T and α describe the algorithm used on the transformed instance.",
+  "checks": {
+    "semanticTests": 159,
+    "mathExpressions": 353,
+    "nativeBrowserGroups": 21,
+    "nativeBrowserAccessibilityAudits": 20,
+    "overflowContexts": 83
+  }
+}

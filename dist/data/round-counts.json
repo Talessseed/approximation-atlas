@@ -1,0 +1,302 @@
+{
+  "checked": "2026-11-16",
+  "description": "Audited communication-round counts for universal constant-round algorithms. A number is a source-stated schedule or the unchanged schedule of a reanalyzed algorithm. The ≤ sign marks a conservative implementation bound reconstructed from the source. Unspecified totals and inaccessible full algorithms retain Constant. Counts do not assert minimum possible round complexity; initial-information conventions are recorded in the evidence.",
+  "entries": [
+    {
+      "resultIds": [
+        "lenzen-planar-130"
+      ],
+      "basis": "stated",
+      "explanation": "Lemma 6.1 explicitly states six rounds and gives the schedule: rounds 1–2 learn identifiers within distance two; round 3 announces membership in D; rounds 4–5 compute and exchange residual degrees; round 6 notifies chosen dominators. The algorithm uses unique identifiers and unrestricted LOCAL messages, without a supplied embedding or degree bound.",
+      "evidence": [
+        {
+          "url": "https://people.csail.mit.edu/clenzen/pubs/LPW12distributed.pdf#page=14",
+          "title": "Primary source for the algorithm",
+          "location": "PDF page 14 (round count), page 19 (130 factor)"
+        }
+      ],
+      "rounds": "6"
+    },
+    {
+      "resultIds": [
+        "wawrzyniak-planar-52"
+      ],
+      "basis": "same-algorithm",
+      "explanation": "The 2014 paper proves factor 52 for the unchanged Lenzen–Pignolet–Wattenhofer algorithm. Its six-round schedule therefore remains valid. The count follows from the original Lemma 6.1; the accessible 2014 abstract does not state a separate total. Both results use the same identifiers and initial-information convention.",
+      "evidence": [
+        {
+          "url": "https://www.sciencedirect.com/science/article/abs/pii/S0020019013002767",
+          "title": "Primary source for the algorithm",
+          "location": "Publisher abstract and section snippet; LPW PDF page 14"
+        },
+        {
+          "url": "https://people.csail.mit.edu/clenzen/pubs/LPW12distributed.pdf#page=14",
+          "title": "Lenzen–Pignolet–Wattenhofer, six-round schedule",
+          "location": "Lemma 6.1"
+        }
+      ],
+      "rounds": "6"
+    },
+    {
+      "resultIds": [
+        "amiri-planar-connected"
+      ],
+      "basis": "phase-count",
+      "explanation": "The connecting procedure takes 3r + 1 rounds. With r = 1, this adds four rounds to the six-round planar dominating-set algorithm explicitly used in the paper, giving at most ten rounds in total. This is an upper bound for that composition, not a minimum-round claim. Inputs are connected, unweighted planar graphs with distinct identifiers.",
+      "evidence": [
+        {
+          "url": "https://arxiv.org/html/1702.02848v2#S5",
+          "title": "Primary source for the algorithm",
+          "location": "Section 5 Connected Dominating Sets; LPW PDF page 14"
+        },
+        {
+          "url": "https://people.csail.mit.edu/clenzen/pubs/LPW12distributed.pdf#page=14",
+          "title": "Lenzen–Pignolet–Wattenhofer, six-round schedule",
+          "location": "Lemma 6.1"
+        }
+      ],
+      "rounds": "≤ 10"
+    },
+    {
+      "resultIds": [
+        "outerplanar-five"
+      ],
+      "basis": "stated",
+      "explanation": "Algorithm 1 explicitly uses the first round to exchange local degrees. Each vertex then selects itself if its degree is at least four or if it has no neighbor of degree at least four. The source assumes incident ports and local degree are initially available. Neither identifiers nor an embedding are needed.",
+      "evidence": [
+        {
+          "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol209-disc2021/LIPIcs.DISC.2021.13/LIPIcs.DISC.2021.13.pdf#page=2",
+          "title": "Primary source communication schedule",
+          "location": "Theorem 1; Algorithm 1, PDF p. 2 (printed 13:2)"
+        }
+      ],
+      "rounds": "1"
+    },
+    {
+      "resultIds": [
+        "alipour-trianglefree-32"
+      ],
+      "basis": "stated",
+      "explanation": "In round 1, vertices broadcast their degree and random tie-breaking value. In round 2, each vertex marks a neighbor of maximum weight. The repeat loop is absent when m = 0. The selected vertices give total domination and hence ordinary domination. Vertices initially know their neighbors; the source excludes isolated vertices.",
+      "evidence": [
+        {
+          "url": "https://arxiv.org/pdf/2012.04883v2#page=3",
+          "title": "Primary source communication schedule",
+          "location": "Algorithm 1 lines 1–2 and Theorem 2.1; arXiv v2 PDF p. 3"
+        }
+      ],
+      "rounds": "2"
+    },
+    {
+      "resultIds": [
+        "alipour-trianglefree-total-16"
+      ],
+      "basis": "stated",
+      "explanation": "The same m = 0 algorithm uses two rounds: broadcast weights, then mark a maximum-weight neighbor. Theorem 2.1 gives factor 16 against the total-domination optimum. Vertices initially know their neighbors, and isolated vertices are excluded.",
+      "evidence": [
+        {
+          "url": "https://arxiv.org/pdf/2012.04883v2#page=3",
+          "title": "Primary source communication schedule",
+          "location": "Algorithm 1 lines 1–2 and Theorem 2.1; arXiv v2 PDF p. 3"
+        }
+      ],
+      "rounds": "2"
+    },
+    {
+      "resultIds": [
+        "kublenz-expansion"
+      ],
+      "basis": "phase-count",
+      "explanation": "A conservative sequential count is 3 + 7 + 1 = 11: two rounds to inspect radius-two neighborhoods and one to mark neighbors of D1; then two neighborhood exchanges, two rounds to compute sequences, two to report their endpoints, and one to mark neighbors of D2; finally, the source includes a last selection step. This includes that final step conservatively and does not claim an optimized schedule. The algorithm uses distinct identifiers and a supplied upper bound on depth-one density.",
+      "evidence": [
+        {
+          "url": "https://arxiv.org/pdf/2012.02701v3#page=15",
+          "title": "Primary source communication schedule",
+          "location": "Section 2, PDF pp. 6–7; Section 6, PDF p. 15; corrected arXiv v3"
+        }
+      ],
+      "rounds": "≤ 11"
+    },
+    {
+      "resultIds": [
+        "amiri-locally-embeddable"
+      ],
+      "basis": "phase-count",
+      "explanation": "Rounds 1–2: exchange identifiers then neighbor lists; decide phase-one set D using adjacencies from N(v) to candidate vertices in N²(v). Round 3: broadcast D membership; each vertex knows whether it lies in N[D]. Round 4: broadcast uncovered flags; each vertex computes residual closed-neighborhood degree. Round 5: broadcast residual degrees; each uncovered vertex chooses its dominator. Round 6: notify selected neighbors; all vertices know final membership. The source initially gives only each vertex its own ID. Unbounded LOCAL messages permit the lists. Auxiliary density c and excluded-depth-one-minor t affect local computation/analysis, not communication phases.",
+      "evidence": [
+        {
+          "url": "https://schmiste.github.io/talg19ds.pdf#page=7",
+          "title": "Primary source algorithm",
+          "location": "Algorithm 1, PDF pp. 6–7; modified density threshold; Lemma 3.8"
+        }
+      ],
+      "rounds": "≤ 6"
+    },
+    {
+      "resultIds": [
+        "planar-two-dom-six"
+      ],
+      "basis": "stated",
+      "explanation": "First round selects vertices of degree at least six. Second round adds vertices outside the first set that are not yet 2-dominated. Source also allows one round to obtain own degree. A conservative two-round implementation obtains degree by dummy messages in round 1, then exchanges high-degree flags in round 2 and decides output. Messages are one bit.",
+      "evidence": [
+        {
+          "url": "https://www.sciencedirect.com/science/article/pii/S0304397516307071",
+          "title": "Primary source algorithm",
+          "location": "Section 2, Algorithm 1, first explanatory paragraph"
+        }
+      ],
+      "rounds": "2"
+    },
+    {
+      "resultIds": [
+        "pic-kdom-topological44"
+      ],
+      "basis": "phase-count",
+      "explanation": "Rounds 1–2 obtain neighbor lists and decide D1 by radius-two information. Round 3 broadcasts D1; compute two-domination flags Z. Round 4 broadcasts Z; compute residual open-neighborhood degrees. Round 5 broadcasts these degrees; vertices outside Z choose one or two neighbors as prescribed. Round 6 notifies the chosen neighbors. Distinct IDs in the source LOCAL model; unbounded messages. All thresholds are fixed numerical constants for excluded TK4,4.",
+      "evidence": [
+        {
+          "url": "https://ceur-ws.org/Vol-1949/ICTCSpaper05.pdf#page=6",
+          "title": "Primary source algorithm",
+          "location": "Procedure 2 PDF p. 6; radius-two remark p. 7; Theorem 7 p. 8"
+        }
+      ],
+      "rounds": "≤ 6"
+    },
+    {
+      "resultIds": [
+        "pic-kdom-genus-constant"
+      ],
+      "basis": "phase-count",
+      "explanation": "Round 1 obtains the local degree if necessary and tests the threshold L. Round 2 exchanges threshold-membership flags; every unselected vertex with fewer than k selected neighbors then selects itself. The fixed parameters g and k determine L through local computation. The approximation factor depends on them, while this communication bound does not.",
+      "evidence": [
+        {
+          "url": "https://ceur-ws.org/Vol-1949/ICTCSpaper05.pdf#page=5",
+          "title": "Primary source algorithm",
+          "location": "Procedure 1 PDF p. 5; Corollary 3 p. 6"
+        }
+      ],
+      "rounds": "≤ 2"
+    },
+    {
+      "resultIds": [
+        "pic-kdom-linkless-constant"
+      ],
+      "basis": "phase-count",
+      "explanation": "The same threshold procedure uses at most two rounds: obtain the local degree if necessary, then exchange selection flags and add vertices with fewer than k selected neighbors. The source uses fixed k ≥ 3 and h = 4. These parameters affect the local threshold and approximation factor, not the number of rounds.",
+      "evidence": [
+        {
+          "url": "https://ceur-ws.org/Vol-1949/ICTCSpaper05.pdf#page=5",
+          "title": "Primary source algorithm",
+          "location": "Procedure 1 PDF p. 5; Corollary 2 p. 6"
+        }
+      ],
+      "rounds": "≤ 2"
+    },
+    {
+      "resultIds": [
+        "gen-w25-dom"
+      ],
+      "basis": "phase-count",
+      "explanation": "The paper gives two phases without a total round count. A conservative implementation floods identifiers and neighbor lists for six rounds, then uses one round to notify selected neighbors. The first six rounds reveal degrees through distance five, sufficient to reconstruct the first selection and uncovered vertices within distance two. Every replacement candidate covers the selecting vertex, so it lies in its closed neighborhood. This is an implementation upper bound, not a source-stated or optimal count.",
+      "evidence": [
+        {
+          "url": "https://mdpi-res.com/d_attachment/algorithms/algorithms-18-00280/article_deploy/algorithms-18-00280.pdf#page=9",
+          "title": "Wawrzyniak, local six-approximation on triangle-free planar graphs",
+          "location": "Section 3, pseudocode, PDF pp. 9–10"
+        }
+      ],
+      "rounds": "≤ 7"
+    },
+    {
+      "resultIds": [
+        "heydt-planar-twenty"
+      ],
+      "basis": "not-specified",
+      "explanation": "The paper gives two rounds for D1 and two further rounds for D2, and mentions thirty greedy iterations. These are not a complete communication count: the residual-degree updates and selection notifications also require communication. The available description does not give a verified total for the full algorithm.",
+      "evidence": [
+        {
+          "url": "https://arxiv.org/pdf/2111.14506v1",
+          "title": "Primary source reviewed",
+          "location": "Section 3 PDF p. 4; Section 4 PDF p. 5; Section 5 PDF p. 7; introduction PDF p. 2"
+        }
+      ]
+    },
+    {
+      "resultIds": [
+        "alipour-fourcycle-18"
+      ],
+      "basis": "unavailable",
+      "explanation": "The primary author abstract confirms the approximation result but does not give a total round count. The full SPAA paper could not be accessed to verify its schedule. The count is not inferred from the separate triangle-free paper.",
+      "evidence": [
+        {
+          "url": "https://papertalk.org/papertalks/24941",
+          "title": "Primary source reviewed",
+          "location": "Primary author abstract; full paper unavailable"
+        }
+      ]
+    },
+    {
+      "resultIds": [
+        "wawrzyniak-anonymous-694"
+      ],
+      "basis": "unavailable",
+      "explanation": "The journal abstract gives factor 694 and constant round complexity with short messages, but the full algorithm was unavailable. The public arXiv:1303.2514v2 preprint proves the earlier factor 636; without confirming that the corrected journal algorithm has the same schedule, it does not certify a count for the factor-694 entry.",
+      "evidence": [
+        {
+          "url": "https://link.springer.com/article/10.1007/s00446-015-0247-6",
+          "title": "Primary source reviewed",
+          "location": "Journal abstract; full algorithm unavailable"
+        }
+      ]
+    },
+    {
+      "resultIds": [
+        "planar-two-dom-seven"
+      ],
+      "basis": "unavailable",
+      "explanation": "The available primary material states a constant number of rounds but omits the algorithm. Full PDF redirects to subscription content. The author homepage that advertises a PDF is currently accessible only within the AMU network/VPN. The later 2017 primary paper describes a small modification but does not establish the original exact schedule; do not infer the old count from the new one.",
+      "evidence": [
+        {
+          "url": "https://link.springer.com/chapter/10.1007/978-3-319-14472-6_4",
+          "title": "Primary source reviewed",
+          "location": "Primary Springer abstract and two-page preview"
+        }
+      ]
+    },
+    {
+      "resultIds": [
+        "gen-asw26-planar",
+        "gen-asw26-trianglefree"
+      ],
+      "basis": "not-specified",
+      "explanation": "Theorem C and Corollary 1.1 give universal constant-round algorithms for these fixed graph classes. Section 6.5, Theorem 6.13, bounds the fractional algorithm by fixed parameters, but gives no end-to-end numerical total. The partition in Lemma 6.9 also uses parameter-dependent constants without numerical instantiation. The three broadcasts after the fractional stage in Section 5.4 are only the final stage, not the total round count.",
+      "evidence": [
+        {
+          "url": "https://arxiv.org/pdf/2611.02057#page=24",
+          "title": "Amiri–Siebertz–Wawrzyniak, implementation",
+          "location": "Section 5.4, final implementation paragraph"
+        },
+        {
+          "url": "https://arxiv.org/pdf/2611.02057#page=35",
+          "title": "Partition and fractional algorithm",
+          "location": "Lemma 6.9 and Theorem 6.13, PDF pp. 35 and 40"
+        }
+      ]
+    },
+    {
+      "resultIds": [
+        "gen-aprsu10-dom"
+      ],
+      "rounds": "≤ 4",
+      "basis": "phase-count",
+      "explanation": "The supplied weak two-colouring permits the Section 4 star-forest construction in an absolute constant number of rounds. The four-round schedule below computes exactly its final star centres without communicating the final edge orientations. Every black vertex with white children becomes a centre. An original white root remains a centre exactly when at least one of its black children has no white children. A white vertex that proposed to a black vertex is a leaf. In the all-depth-two case a root chooses one child for edge reversal, but the choice does not affect the set of centres, so the dominating-set output needs no extra round. This is an implementation upper bound derived from the paper, not a printed exact runtime or a claim of round optimality. Δ occurs in the approximation guarantee, not in the communication radius. The catalogue’s f(Δ) classification can be strengthened to constant. Schedule: (1) exchange weak-colouring bits; (2) black vertices propose to white parents; (3) white vertices without black children propose to black parents; (4) black vertices report whether they acquired white children. The selected set is the final star centres.",
+      "evidence": [
+        {
+          "url": "https://jukkasuomela.fi/doc/weakly-coloured.pdf#page=8",
+          "title": "Local algorithms in (weakly) coloured graphs",
+          "location": "Section 4 star-forest construction and Theorem 6"
+        }
+      ]
+    }
+  ]
+}

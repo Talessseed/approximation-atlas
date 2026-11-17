@@ -5,9 +5,23 @@
   "description": "A source-linked reference for distributed approximation algorithms.",
   "scripts": {
     "build": "python3 scripts/build.py",
-    "test": "node scripts/catalog.test.cjs",
-    "check": "node --check dist/core.js && node --check dist/app.js && python3 scripts/build.py && python3 scripts/check_site.py && node scripts/catalog.test.cjs",
+    "test": "node scripts/bundle.test.cjs && node scripts/graph-text.test.cjs && node scripts/catalog.test.cjs && node scripts/problem-network.test.cjs && node scripts/network-layout.test.cjs && node scripts/folklore.test.cjs && node scripts/sota-frontier.test.cjs && node scripts/tight-bounds.test.cjs && node scripts/reductions.test.cjs && python3 scripts/test_derive.py && python3 scripts/test_constant_policy.py && python3 scripts/test_conditions.py && python3 scripts/test_parameters.py && python3 scripts/test_graph_notation.py && python3 scripts/test_round_details.py",
+    "check": "node --check dist/math.js && node --check dist/math-select.js && node --check dist/core.js && node --check dist/reductions.js && node --check dist/network-layout.js && node --check dist/network.js && node --check dist/app.js && python3 scripts/build.py && python3 scripts/check_site.py && npm test",
     "dev": "python3 -m http.server 8765 --directory dist",
-    "start": "python3 -m http.server 8765 --directory dist"
+    "start": "python3 -m http.server 8765 --directory dist",
+    "test:dom": "node scripts/dom-smoke.cjs",
+    "test:math": "node scripts/math-smoke.cjs",
+    "test:browser": "node scripts/browser-qa.cjs",
+    "test:settings": "node scripts/setting-browser-qa.cjs",
+    "test:networks": "node scripts/network-browser-qa.cjs",
+    "test:scale": "node scripts/scale-browser-qa.cjs",
+    "test:overflow": "node scripts/overflow-qa.cjs",
+    "test:parameters": "node scripts/parameter-browser-qa.cjs",
+    "test:round-details": "node scripts/round-details-browser-qa.cjs",
+    "test:compact": "node scripts/compact-browser-qa.cjs",
+    "test:tight-filter": "node scripts/tight-filter-browser-qa.cjs",
+    "test:graph-specializations": "node scripts/graph-specialization-browser-qa.cjs",
+    "test:network-edges": "node scripts/network-edge-browser-qa.cjs",
+    "test:performance": "node scripts/performance-browser-qa.cjs"
   }
 }

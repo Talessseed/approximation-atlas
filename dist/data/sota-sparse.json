@@ -1,0 +1,41 @@
+{
+  "checked": "2026-11-16",
+  "entries": [
+    {
+      "resultId": "outerplanar-five",
+      "setting": "Unweighted MDS on outerplanar graphs; deterministic one-round LOCAL algorithm; integral optimum. The round count uses the source convention that local degree and incident ports are initially available.",
+      "reason": "Theorem 1 gives factor 5, with the one-round implementation stated in Algorithm 1. Its matching lower bound rules out every smaller factor even with an arbitrary constant number of LOCAL rounds. The algorithm does not require identifiers or an embedding; no claim that one round is necessary is made.",
+      "evidenceUrl": "https://arxiv.org/abs/2108.02697v2"
+    },
+    {
+      "resultId": "chang-independent-logstar",
+      "setting": "Unweighted maximum independent set; deterministic CONGEST; fixed nonplanar excluded minor H and fixed 0 < ε < 1/2; (1−ε) times the integral optimum.",
+      "reason": "Optimal Θ(log* n) dependence on n for fixed H and ε. The March 2026 version gives the upper bound and a matching LOCAL lower bound on paths and cycles. This does not certify optimal dependence on H or ε.",
+      "evidenceUrl": "https://arxiv.org/pdf/2304.04699v2"
+    },
+    {
+      "resultId": "arboricity-matching-logstar",
+      "setting": "Unweighted maximum matching; deterministic LOCAL; arboricity at most fixed α ≥ 1; fixed 0 < ε < 1/2; (1−ε) times the integral optimum.",
+      "reason": "Optimal Θ(log* n) dependence on n for fixed α and ε: the matching lower bound already holds on paths. This does not certify optimal dependence on α or ε.",
+      "evidenceUrl": "https://arxiv.org/pdf/2304.04699v2"
+    },
+    {
+      "resultId": "pic-girth-sublinear",
+      "setting": "Unweighted distance-k domination; connected graphs with girth ≥ 4k+3 and k-hop expansion at most f(k); deterministic anonymous port numbering in exactly 3k rounds; k ≥ 1; integral optimum.",
+      "reason": "Optimal factor up to constants: O(k+f(k)^(k/(k+1))) in 3k anonymous rounds matches the deterministic LOCAL lower bound.",
+      "evidenceUrl": "https://arxiv.org/html/2408.12998v1"
+    },
+    {
+      "resultId": "pic-sublog-fmatching",
+      "setting": "Maximum f-matching with integer vertex capacities and each edge used at most once; deterministic LOCAL; sub-logarithmic expansion; fixed 0 < ε < 1/2 and expansion bounds; no supplied coloring.",
+      "reason": "For a (1−ε) guarantee, Θ(log* n) dependence on n is optimal in the worst case for fixed ε and expansion bounds, already for unit capacities on paths. This does not certify optimal dependence on ε or the expansion function.",
+      "evidenceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol212-isaac2021/LIPIcs.ISAAC.2021.59/LIPIcs.ISAAC.2021.59.pdf"
+    },
+    {
+      "resultId": "pic-sublog-bmatching",
+      "setting": "Maximum b-matching with integer edge multiplicities; deterministic LOCAL; sub-logarithmic expansion and known L-Lipschitz capacities; fixed 0 < ε < 1/2, L, and expansion bounds; no supplied coloring.",
+      "reason": "For a (1−ε) guarantee, Θ(log* n) dependence on n is optimal in the worst case for fixed ε, L and expansion bounds; unit capacities satisfy the Lipschitz condition. This does not certify optimal dependence on ε, L or the expansion function.",
+      "evidenceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol212-isaac2021/LIPIcs.ISAAC.2021.59/LIPIcs.ISAAC.2021.59.pdf"
+    }
+  ]
+}

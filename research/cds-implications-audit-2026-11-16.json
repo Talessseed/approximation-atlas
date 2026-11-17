@@ -1,0 +1,144 @@
+{
+  "checked": "2026-11-16",
+  "scope": "Research audit only; no production data or implementation edited by this agent.",
+  "conclusions": [
+    "The missing relation needs quantitative reduction recipes rather than equal-ratio instance-specialization flags.",
+    "On connected unweighted inputs, an alpha-approximate connected dominating set is a 3alpha-approximate ordinary dominating set in the same rounds.",
+    "The four-round LOCAL connector has a directly checked conservative multiplier 1+2d when all depth-one minors have edge density at most d.",
+    "The published 2d size lemma has a path counterexample; this alone does not refute the published 2dalpha approximation theorem, whose benchmark is the connected optimum."
+  ],
+  "sources": {
+    "cwy": {
+      "title": "Caro, West and Yuster, Connected Domination and Spanning Trees with Many Leaves",
+      "url": "https://math.haifa.ac.il/raphy/papers/conndom.pdf#page=4",
+      "location": "Lemma 2.1, PDF page 4",
+      "verified": "For connected G and dominating X with t induced components, gamma_c(G) <= |X|+2t-2. Consequently gamma <= gamma_c <= 3gamma-2."
+    },
+    "amiri2018": {
+      "title": "Amiri, Ossona de Mendez, Rabinovich and Siebertz, Distributed Domination on Graph Classes of Bounded Expansion",
+      "url": "https://arxiv.org/html/1702.02848v2#S5",
+      "pdf": "https://arxiv.org/pdf/1702.02848#page=13",
+      "location": "Section 5, Lemmas 14-16 and Theorem 17; conference numbering cited as Theorem 5.8",
+      "publishedClaims": {
+        "size": "2r d |D|",
+        "rounds": "3r+1 additional LOCAL rounds",
+        "approximation": "2r alpha f(r), compared with the connected distance-r optimum"
+      },
+      "model": "Unweighted, connected input, unique identifiers, LOCAL. The small-round connector does not establish the same CONGEST or anonymous result."
+    },
+    "user2026": {
+      "title": "Bonamy, Das, Gavoille, Picavet, Suomela and Wesolek, Meta-Theorems for Cuttable Distributed Problems",
+      "url": "https://jukkasuomela.fi/doc/cuttable-distributed-problems.pdf#page=10",
+      "location": "Section 4, paragraph after Corollary 4.5",
+      "verified": "The connected-domination application invokes the 2018 connector and states a multiplier 2 nabla_1. It inherits the source issue described below."
+    },
+    "dkm2019": {
+      "title": "Deurer, Kuhn and Maus, Deterministic Distributed Dominating Set Approximation in the CONGEST Model",
+      "url": "https://arxiv.org/html/1905.10775v2#S4",
+      "location": "Section 4, Claim 4.1 and algorithm outline; Theorem 1.4",
+      "verified": "The distance-three auxiliary graph on a dominating set is connected exactly when the original graph is. A spanning tree yields size below 3|D| but diameter-dependent rounds. A deterministic sparse-skeleton construction gives O(|D|) output with subpolynomial, rather than constant, CONGEST overhead."
+    },
+    "gha2014": {
+      "title": "Ghaffari, Near-Optimal Distributed Approximation of Minimum-Weight Connected Dominating Set",
+      "url": "https://arxiv.org/pdf/1404.7559#page=3",
+      "appendix": "https://arxiv.org/pdf/1404.7559#page=17",
+      "location": "Section 1.4 and Appendix A",
+      "verified": "Weighted connected domination has global dependence. The unweighted case admits polylogarithmic CONGEST approximation by combining domination with a sparse skeleton; this does not justify a four-round CONGEST connector."
+    }
+  },
+  "recipes": [
+    {
+      "name": "Forget the connectivity constraint",
+      "sourceProblem": "connected-dominating-set",
+      "targetProblem": "dominating-set",
+      "guarantee": "alpha -> 3alpha",
+      "rounds": "T -> T",
+      "proof": "The returned set is feasible for domination; |C| <= alpha gamma_c <= alpha(3gamma-2) <= 3alpha gamma.",
+      "restrictions": [
+        "Nonempty connected graph",
+        "Unweighted/cardinality objective",
+        "Source model, randomness, IDs, preprocessing and initial knowledge are retained without extra requirements",
+        "Use integral connected OPT; no fractional-domination benchmark is inferred."
+      ]
+    },
+    {
+      "name": "Connect a dominating set through depth-one clusters",
+      "sourceProblem": "dominating-set",
+      "targetProblem": "connected-dominating-set",
+      "guarantee": "alpha -> (1+2d)alpha",
+      "rounds": "T -> T+4",
+      "proofSteps": [
+        "In three LOCAL rounds learn radius-three neighborhoods, including seed-membership flags and unique IDs.",
+        "Assign each vertex to its nearest seed, breaking ties consistently by IDs. Radius-one clusters contract to a connected depth-one minor H with |D| vertices.",
+        "Choose one canonical center-to-center path of length at most three for every H-edge. In one further round its endpoints notify the internal vertices.",
+        "Retain D and all notified vertices. The output is connected and dominating, with size at most |D|+2|E(H)| <= (1+2d)|D|."
+      ],
+      "restrictions": [
+        "Nonempty connected graph and unweighted seed output",
+        "LOCAL with unique IDs; no four-round CONGEST or anonymous claim",
+        "d is any nonnegative valid depth-one minor edge-density bound and need not be known initially",
+        "Singletons work without a special density floor",
+        "Seed fractional-domination guarantees may be weakened to integral connected OPT; preserve the original benchmark only as source provenance."
+      ],
+      "safeExamples": {
+        "forestsOrPseudoforests": "d=1, multiplier 3",
+        "planar": "d=3, multiplier 7"
+      },
+      "classification": "Independently counted conservative consequence of the cited construction, not the source-stated 2d multiplier."
+    }
+  ],
+  "sizeLemmaIssue": {
+    "preciseScope": "The counterexample below refutes the source-stated size bound. It does not by itself refute its approximation theorem, because OPT_CDS can be larger than OPT_DS.",
+    "counterexample": {
+      "graph": "Path P9, vertices 1 through 9",
+      "seed": [
+        2,
+        5,
+        8
+      ],
+      "validDensityBound": 1,
+      "claimedSizeLimit": 6,
+      "computed": {
+        "minimumDominatingCost": 3,
+        "minimumConnectedDominatingCost": 7,
+        "dominatingWitness": [
+          2,
+          5,
+          8
+        ],
+        "connectedWitness": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      },
+      "reason": "Every connected dominating set on a path contains all internal vertices 2 through 8."
+    },
+    "proofGap": "A path with at most 2r+1 edges can have 2r internal vertices. The source proof counts at most 2r-1. Its 2d size claim is therefore not established by the presented counting argument.",
+    "forestApproximationNuance": "Although 2|D| can fail as a size bound, a 2alpha approximation relative to connected OPT can have a separate proof on forests: the hull of D contains the mandatory internal vertices and adds at most |D| selected leaves. Do not conflate this with the false size inequality.",
+    "recommendation": "Use the independently checked 1+2d recipe until an applicable corrected proof or author clarification supports a stronger multiplier; keep published source claims distinct."
+  },
+  "weightedCounterexample": {
+    "graph": "P3 with vertex weights (1,M,1), M>2",
+    "dominatingOptimum": 2,
+    "connectedDominatingOptimum": "M",
+    "ratio": "M/2, unbounded",
+    "computedAtM100": {
+      "minimumDominatingCost": 2,
+      "minimumConnectedDominatingCost": 100,
+      "dominatingWitness": [
+        1,
+        3
+      ],
+      "connectedWitness": [
+        2
+      ]
+    }
+  },
+  "disconnectedInputs": "A globally connected dominating set is infeasible on a disconnected nonempty graph with multiple components. Componentwise CDS is a different output convention. Applying a connected-input algorithm componentwise also requires checking its global-parameter inputs, so the reduction must retain connected input explicitly.",
+  "lowerBoundCaution": "The boolean same-factor problem-inclusion engine must not directly inherit these quantitative transfers. CDS alpha in T implies DS 3alpha in T; the reverse conservative recipe changes both factor and rounds. Any lower-bound conversion must invert these losses and retain all graph/model/domain restrictions."
+}

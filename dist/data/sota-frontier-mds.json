@@ -1,0 +1,75 @@
+{
+  "checked": "2026-11-16",
+  "entries": [
+    {
+      "resultId": "gen-p26-density",
+      "scopeLabel": "Even integer d ≥ 2",
+      "setting": "Unweighted MDS; deterministic LOCAL in f(d, depth-one density, ε) rounds; maximum-average-degree bound d and a fixed depth-one density bound; integral OPT; ε > 0. Optimal-coefficient certification is restricted to even integer d ≥ 2.",
+      "reason": "Corollary 1.1 gives d+1+ε on the broader bounded-depth-one-density setting, with polynomial dependence on accuracy and polynomial local computation for fixed parameters. Section 3.9 supplies a matching d+1 limiting lower bound for even integer d. This certifies the limiting coefficient, not optimal dependence on every parameter, an exact d+1 algorithm or a fractional benchmark.",
+      "evidenceUrl": "https://arxiv.org/pdf/2610.31203#page=21"
+    },
+    {
+      "resultId": "gen-asw26-minordensity",
+      "scopeLabel": "Integer a ≥ 2",
+      "setting": "Unweighted MDS; deterministic broadcast CONGEST in f(a) rounds; every minor has edge-to-vertex density at most integer a ≥ 2; integral output measured against fractional OPT.",
+      "reason": "Theorem C gives the exact coefficient 2a+1 with round complexity depending on a. Treewidth-a path-power witnesses show that this coefficient cannot be improved, even against integral OPT in LOCAL. Certification here is limited to integer a; the paper gives improved coefficients on some noninteger parameter ranges. Optimal dependence on a is not claimed. The a=1 pseudoforest case has the sharper explicit one-round folklore implementation recorded separately.",
+      "evidenceUrl": "https://arxiv.org/pdf/2611.02057#page=66"
+    },
+    {
+      "resultId": "gen-asw26-total",
+      "scopeLabel": "Integer a ≥ 1; fractional benchmark",
+      "setting": "Unweighted total domination; isolate-free graphs whose every minor has density at most integer a ≥ 1; deterministic broadcast CONGEST in f(a) rounds; integral output against fractional total-domination OPT.",
+      "reason": "Theorem F.1 gives exact coefficient 2a with round complexity depending on a. Proposition F.13 proves the matching coefficient lower bound in LOCAL on treewidth-a graphs against the fractional benchmark. For a=1 it also holds against integral OPT. Optimal dependence on a, noninteger a and stronger integral-benchmark optimality are not certified by this annotation.",
+      "evidenceUrl": "https://arxiv.org/pdf/2611.02057#page=88"
+    },
+    {
+      "resultId": "planar-k-dom-trivial",
+      "scopeLabel": "Zero rounds; k ∈ {3,4,5,6}",
+      "setting": "Unweighted outside-k domination on planar graphs; deterministic anonymous zero rounds by selecting every vertex; integral OPT; certification restricted to k = 3, 4, 5, or 6.",
+      "reason": "The select-all factor k/(k−2) is matched by a lower bound that permits unique identifiers for these four values of k. The construction uses no communication, as explicitly recalled in the 2017 follow-up paper. The original guarantee applies to larger k too, but this annotation does not extend the optimality claim to that range.",
+      "evidenceUrl": "https://link.springer.com/chapter/10.1007/978-3-319-14472-6_4"
+    },
+    {
+      "resultId": "planar-two-dom-six",
+      "scopeLabel": "Anonymous planar; constant rounds",
+      "setting": "Unweighted outside-2 domination on planar graphs; deterministic port numbering without identifiers; two rounds and one-bit messages; integral OPT.",
+      "reason": "Theorem 1 gives factor 6. The October 2026 transfer paper still uses this as its planar source. Its broader-genus 6+ε result has an additive loss and more rounds, so it does not dominate this point. No exact optimality claim is made: the anonymous lower-bound gap remains.",
+      "evidenceUrl": "https://arxiv.org/html/2610.15596v1#S8"
+    },
+    {
+      "resultId": "gen-w26-2dom",
+      "scopeLabel": "Euler genus ≤ g; fixed ε > 0",
+      "setting": "Unweighted outside-2 domination on graphs of Euler genus at most g; deterministic LOCAL in f(g, ε) rounds with arbitrary distinct numerical identifiers; integral OPT; ε > 0.",
+      "reason": "The almost-lossless transfer gives 6+ε on every fixed Euler-genus class, improving the previous coefficient 19. Its round complexity depends on g and ε. The exact planar coefficient 6 applies to a smaller class and does not dominate it. This is a checked best-known tradeoff; optimal parameter dependence, a matching lower bound and an exact factor-6 algorithm are not claimed.",
+      "evidenceUrl": "https://arxiv.org/html/2610.15596v1#S8"
+    },
+    {
+      "resultId": "folklore-tree-mds",
+      "scopeLabel": "One round; pseudoforests",
+      "setting": "Unweighted MDS on pseudoforests, hence also forests; deterministic one-round CONGEST with initial local degree knowledge; no identifiers; integral OPT. The pseudoforest scope is an explicitly derived extension of the documented forest rule.",
+      "reason": "The one-bit non-leaf construction and the star-assignment proof in the entry give factor 3 on the strictly larger pseudoforest class. The treewidth-one lower bound in Corollary 1.1 excludes every factor below 3 already on paths, even for constant-round LOCAL algorithms. Generic constant-round protocols are not assumed to run in one round.",
+      "evidenceUrl": "https://arxiv.org/pdf/2611.02057#page=66"
+    },
+    {
+      "resultId": "pic-girth-pruning",
+      "scopeLabel": "Exact k rounds; k ≥ 2",
+      "setting": "Unweighted distance-k MDS; k≥2 and fixed expansion bound f(k)≥1; connected graphs of girth at least 4k+3 and k-hop expansion at most f(k). Deterministic anonymous port numbering, exactly k rounds with empty messages, integral OPT.",
+      "reason": "Theorem 1.1 is the published exact-k-round point with factor 2kf(k)+1. Theorem 1.2 proves that k−1 rounds cannot give any factor independent of Δ even on trees. The 3k-round improved-factor algorithm does not dominate this faster point. This certifies the minimum round budget and the documented tradeoff, not optimality of the coefficient for every k and f(k).",
+      "evidenceUrl": "https://arxiv.org/html/2408.12998v1#S1"
+    },
+    {
+      "resultId": "pic-large-50-dom",
+      "scopeLabel": "Ratio independent of t; t ≥ 49",
+      "setting": "Unweighted minimum dominating set on K₂,t-minor-free graphs; deterministic LOCAL; factor 50 against the integral optimum; round complexity O(t) independent of n for fixed t. The approximation ratio is independent of t.",
+      "reason": "The original factor-50 Algorithm 5 applies for all fixed t≥2 and has O(t) rounds by the thesis’s explicit runtime analysis on PDF p. 125. Its historical SOTA review concerns t≥49, where the newer t+2 factor exceeds 50. It is now covered by the broader pathwidth-two excluded-minor theorem, using the certified identical H=K₂,t configuration and runtime. Smaller-t tradeoffs and original source provenance remain available.",
+      "evidenceUrl": "https://arxiv.org/html/2504.01091v2"
+    },
+    {
+      "resultId": "pic-thesis-pw2-dom",
+      "scopeLabel": "pw(H) ≤ 2; ratio independent of H",
+      "setting": "Unweighted minimum dominating set; deterministic LOCAL; every fixed excluded minor H with pw(H) ≤ 2; factor 50 against the integral optimum in f(H) rounds independent of n.",
+      "reason": "Theorem VIII.1.1 extends the same Algorithm 5 to every fixed excluded minor H with pw(H)≤2, retaining factor 50 independent of H. For H=K₂,t the family uses the original control function and cut radii, so the original O(t) implementation is retained. This covers the original K₂,t theorem by strict extension of the family of excluded-minor settings; it does not claim faster rounds. The generic H-dependent bound remains f(H), and particular H can have better specialized algorithms.",
+      "evidenceUrl": "https://timothepicavet.fr/others/thesis.pdf#page=204"
+    }
+  ]
+}

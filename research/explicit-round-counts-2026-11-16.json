@@ -1,0 +1,279 @@
+{
+  "constant-recent-counts": {
+    "checked": "2026-11-16",
+    "proposals": [
+      {
+        "resultId": "outerplanar-five",
+        "newrounds": "1",
+        "kind": "source-stated",
+        "communicationRounds": 1,
+        "exactVersusAtMost": "One-round implementation; not a claim that every algorithm requires one round.",
+        "theorem": "Theorem1; Algorithm1, PDFp2 (printed13:2)",
+        "evidenceUrl": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol209-disc2021/LIPIcs.DISC.2021.13/LIPIcs.DISC.2021.13.pdf#page=2",
+        "phaseEvidence": "Algorithm1 explicitly says that in the first round every vertex computes its degree and sends it to its neighbors, then selects degree≥4 vertices and vertices with no degree≥4 neighbor. No identifiers or large messages are needed.",
+        "initialInformation": "Each vertex knows its incident ports/own degree, as assumed by the one-round degree exchange.",
+        "caveats": [
+          "Do not replace outerplanar-five-lower universal-constant budget by1: the lower theorem quantifies over all constant round budgets."
+        ]
+      },
+      {
+        "resultId": "alipour-trianglefree-32",
+        "newrounds": "2",
+        "kind": "source-stated",
+        "communicationRounds": 2,
+        "exactVersusAtMost": "Two explicitly named communication rounds with m=0.",
+        "theorem": "Algorithm1 lines1–2 and Theorem2.1; arXivv2 PDFp3",
+        "evidenceUrl": "https://arxiv.org/html/2012.04883v2#S2.SS1",
+        "pdfUrl": "https://arxiv.org/pdf/2012.04883v2#page=3",
+        "phaseEvidence": "Round1 broadcasts degree plus tie-breaking random value; round2 each vertex marks a neighbor of maximal weight. The m-round repeat loop is absent when m=0. Marked vertices form total domination and hence ordinary domination.",
+        "initialInformation": "Vertices initially know their neighbors, as stated in model paragraph; no isolated vertices.",
+        "caveats": [
+          "No extra random-repeat rounds are part of the ratio32 theorem: it is specifically m=0.",
+          "Keep current LOCAL/randomized attribution; literal real-valued tie-breaking message encoding is not a verified CONGEST protocol."
+        ]
+      },
+      {
+        "resultId": "alipour-trianglefree-total-16",
+        "newrounds": "2",
+        "kind": "source-stated",
+        "communicationRounds": 2,
+        "exactVersusAtMost": "Same two-round m=0 implementation as ordinary dominating-set result.",
+        "theorem": "Algorithm1 lines1–2 and Theorem2.1; arXivv2 PDFp3",
+        "evidenceUrl": "https://arxiv.org/html/2012.04883v2#S2.SS1",
+        "pdfUrl": "https://arxiv.org/pdf/2012.04883v2#page=3",
+        "phaseEvidence": "Round1 broadcasts weights, round2 marks a maximum-weight neighbor; no repeat loop at m=0. Theorem2.1 gives16 against the total-domination optimum.",
+        "initialInformation": "Vertices initially know neighbors; isolated vertices excluded.",
+        "caveats": []
+      },
+      {
+        "resultId": "kublenz-expansion",
+        "newrounds": "11",
+        "kind": "reconstructed-upper",
+        "communicationRounds": 11,
+        "exactVersusAtMost": "Safe sequential upper bound from the source phase accounting, not a source-stated total or optimized exact count.",
+        "theorem": "Section2, PDFpp6–7; Section6, PDFp15; corrected arXivv3",
+        "evidenceUrl": "https://arxiv.org/html/2012.02701v3#S6",
+        "pdfUrl": "https://arxiv.org/pdf/2012.02701v3#page=15",
+        "phaseEvidence": "Preprocessing:2 rounds to inspect radius2 plus1 to mark D1-neighbors (explicit in Section2). D2 step:2 to learn radius2,2 additional to compute sequences,2 additional to report endpoints,1 to mark D2-neighbors (Section6). The source calls D3 selection a finalround. Sequential total3+7+1=11.",
+        "initialInformation": "Unique identifiers and supplied depth-one-density upper bound.",
+        "caveats": [
+          "If final local output is not counted as a communication round, the literal phase schedule uses10 communication rounds.",
+          "Source does NOT state that total is7. Seven can potentially be certified by dependency compression: original-radius4 suffices to compute D1-labeled residual radius2/sequence outputs,2 more reports endpoints,1 more marks neighbors. This is an inferred optimized implementation, not printed phase total.",
+          "Do not present11 as minimal/exact optimized round complexity. If display policy allows only source-stated totals, retain Constant and add this evidence in details instead."
+        ]
+      }
+    ],
+    "unresolved": [
+      {
+        "resultId": "heydt-planar-twenty",
+        "evidenceUrl": "https://arxiv.org/html/2111.14506v1",
+        "pdfUrl": "https://arxiv.org/pdf/2111.14506v1",
+        "locations": "Section3 PDFp4; Section4 PDFp5; Section5 PDFp7; introduction PDFp2",
+        "finding": "The paper explicitly gives2 rounds for D1 and2 further rounds for D2, plus30 greedy steps in the introduction. However no full end-to-end communication count is stated; update of red/residual-degree labels and marking notifications is not separately budgeted. Section5 loops30≥i≥0, then says finalself-selection, while displayedD3union omitsi0.",
+        "recommendation": "Retain Constant unless an implementation schedule is explicitly reconstructed and reviewed. Do not label the whole algorithm30 rounds; that is only the greedy stage. Do not automatically call total34 because state updates/notifications and the i=0 output step require clarification."
+      },
+      {
+        "resultId": "alipour-fourcycle-18",
+        "evidenceUrl": "https://papertalk.org/papertalks/24941",
+        "paperUrl": "https://doi.org/10.1145/3350755.3400217",
+        "finding": "The primary author-talk abstract confirms randomized18/9 factors but no round total. SPAA brief-announcement PDF endpoint returned403; author homepage/CV lists the paper without a downloadable PDF. No publicprimary fulltext was located.",
+        "recommendation": "Retain Constant; do not infer2 from the related three-author triangle-free paper, as they are distinct source records."
+      }
+    ],
+    "files": [
+      "/tmp/constant-outerplanar.pdf",
+      "/tmp/constant-alipour.pdf",
+      "/tmp/constant-kublenz.pdf",
+      "/tmp/constant-heydt.pdf"
+    ],
+    "visualChecks": [
+      "OuterplanarPDFp2: one-roundAlgorithm1",
+      "Alipourv2PDFp3: first/secondrounds and m=0 theorem",
+      "Kublenzv3PDFp15: phase2 exchanges and finalround"
+    ]
+  },
+  "constant-historical-counts": {
+    "checked": "2026-11-16",
+    "proposals": [
+      {
+        "resultId": "lenzen-planar-130",
+        "rounds": "6",
+        "classification": "source-stated communication schedule",
+        "sourceUrl": "https://people.csail.mit.edu/clenzen/pubs/LPW12distributed.pdf#page=14",
+        "theorem": "Lemma 6.1; Theorem 6.8",
+        "location": "PDF page 14 (round count), page 19 (130 factor)",
+        "evidence": "Lemma 6.1 explicitly states six rounds and its proof itemizes: rounds1–2 learn neighbor-neighbor identifiers; round3 communicates D membership; rounds4–5 compute and exchange residual degree; round6 elects/notifies chosen dominators.",
+        "assumptions": "Unique identifiers and unrestricted LOCAL messages; no embedding or degree bound supplied.",
+        "sotaImplication": "Existing universal-constant dominance by gen-asw26-planar cannot be retained as an exact-round comparison unless the latter is certified at most six rounds."
+      },
+      {
+        "resultId": "wawrzyniak-planar-52",
+        "rounds": "6",
+        "classification": "same-protocol transfer from a primary-source six-round schedule",
+        "sourceUrl": "https://www.sciencedirect.com/science/article/abs/pii/S0020019013002767",
+        "theorem": "Abstract; Section Analysis of the algorithm from paper [4]; original algorithm Lemma 6.1",
+        "location": "Publisher abstract and section snippet; LPW PDFpage14",
+        "evidence": "The publisher abstract explicitly says the Lenzen et al. algorithm outputs52; the section introduces an improved analysis and recalls the same pseudocode. Thus its six-round schedule is unchanged. This is a two-primary-source inference, not a number separately printed in the accessible 2014 abstract.",
+        "supportingSources": [
+          {
+            "url": "https://people.csail.mit.edu/clenzen/pubs/LPW12distributed.pdf#page=14",
+            "location": "Lemma6.1"
+          }
+        ],
+        "assumptions": "Same distinct-identifier LOCAL protocol and initial-information convention as LPW.",
+        "sotaImplication": "Do not allow unknown universal Constant to dominate explicit6 solely from asymptotic equality."
+      },
+      {
+        "resultId": "amiri-planar-connected",
+        "rounds": "10",
+        "classification": "certified upper bound from explicitly stated composition",
+        "sourceUrl": "https://arxiv.org/html/1702.02848v2#S5",
+        "theorem": "Lemma 16 and following planar application (v2); LPW Lemma6.1",
+        "location": "Section5 Connected Dominating Sets; LPW PDFpage14",
+        "evidence": "The connector costs3r+1 rounds; r=1 gives4. The paragraph after the theorem explicitly composes it with Lenzen et al. planar MDS. Its six-round schedule plus four connector rounds gives at most10 total. Do not describe10 as a proved optimal or necessarily minimal schedule.",
+        "supportingSources": [
+          {
+            "url": "https://people.csail.mit.edu/clenzen/pubs/LPW12distributed.pdf#page=14",
+            "location": "Lemma6.1"
+          }
+        ],
+        "assumptions": "Connected planar input; unweighted; distinct identifiers; use original Lenzen dominating-set algorithm as seed.",
+        "optionalApproximation": "Original cited seed130 × planar connector6 yields factor780. A six-round52 reanalysis yields312 with the same protocol, but user only asked round counts; no need change ratio here."
+      }
+    ],
+    "unresolved": [
+      {
+        "resultId": "wawrzyniak-anonymous-694",
+        "status": "leave Constant until matching journal pseudocode is accessible",
+        "sourceUrl": "https://link.springer.com/article/10.1007/s00446-015-0247-6",
+        "reason": "Accessible original publisher abstract states only local/constant and factor694, with short messages. Full journal PDF redirects to subscription preview. Public arXiv1303.2514v2 is an earlier version claiming636, not694, and its text only says a constant number of rounds; it cannot certify the unchanged implementation of the corrected journal694 record.",
+        "relatedPrimarySource": "https://arxiv.org/html/1303.2514v2",
+        "note": "The preprint has two Hop2Dominate calls plus a final residual-degree selection. A phase-by-phase schedule could be reconstructed for that older636 algorithm, but attributing it to the journal694 theorem without full-text identity evidence would be unsupported."
+      }
+    ]
+  },
+  "constant-domination-counts": {
+    "checked": "2026-11-16",
+    "scope": "Explicit round counts for four assigned sources, plus two dependent entries using the same audited procedure.",
+    "proposals": [
+      {
+        "resultId": "amiri-locally-embeddable",
+        "rounds": "≤ 6",
+        "count": 6,
+        "kind": "reconstructed certified upper bound",
+        "evidenceUrl": "https://schmiste.github.io/talg19ds.pdf#page=7",
+        "location": "Algorithm 1, PDF pp.6–7; modified density threshold; Lemma3.8",
+        "sourceStatesNumericCount": false,
+        "schedule": [
+          "Rounds1–2: exchange identifiers then neighbor lists; decide phase-one set D using adjacencies from N(v) to candidate vertices in N²(v).",
+          "Round3: broadcast D membership; each vertex knows whether it lies in N[D].",
+          "Round4: broadcast uncovered flags; each vertex computes residual closed-neighborhood degree.",
+          "Round5: broadcast residual degrees; each uncovered vertex chooses its dominator.",
+          "Round6: notify selected neighbors; all vertices know final membership."
+        ],
+        "assumptions": "The source initially gives only each vertex its own ID. Unbounded LOCAL messages permit the lists. Auxiliary density c and excluded-depth-one-minor t affect local computation/analysis, not communication phases.",
+        "localPdf": "/tmp/constant-amiri-talg.pdf",
+        "visualCheck": "Algorithm1 on PDFp7 rendered and checked."
+      },
+      {
+        "resultId": "planar-two-dom-six",
+        "rounds": "2",
+        "count": 2,
+        "kind": "source-stated schedule",
+        "evidenceUrl": "https://www.sciencedirect.com/science/article/pii/S0304397516307071",
+        "alternateEvidenceUrl": "https://doi.org/10.1016/j.tcs.2016.12.001",
+        "location": "Section2, Algorithm1, first explanatory paragraph",
+        "sourceStatesNumericCount": true,
+        "schedule": [
+          "First round selects vertices of degree at least six.",
+          "Second round adds vertices outside the first set that are not yet 2-dominated."
+        ],
+        "assumptions": "Source also allows one round to obtain own degree. A conservative two-round implementation obtains degree by dummy messages in round1, then exchanges high-degree flags in round2 and decides output. Messages are one bit.",
+        "notes": "Do not silently replace the source schedule by a one-round optimization based on initially supplied degree knowledge."
+      },
+      {
+        "resultId": "pic-kdom-topological44",
+        "rounds": "≤ 6",
+        "count": 6,
+        "kind": "reconstructed certified upper bound",
+        "evidenceUrl": "https://ceur-ws.org/Vol-1949/ICTCSpaper05.pdf#page=6",
+        "location": "Procedure2 PDFp6; radius-two remark p7; Theorem7 p8",
+        "sourceStatesNumericCount": false,
+        "schedule": [
+          "Rounds1–2 obtain neighbor lists and decide D1 by radius-two information.",
+          "Round3 broadcasts D1; compute two-domination flags Z.",
+          "Round4 broadcasts Z; compute residual open-neighborhood degrees.",
+          "Round5 broadcasts these degrees; vertices outside Z choose one or two neighbors as prescribed.",
+          "Round6 notifies the chosen neighbors."
+        ],
+        "assumptions": "Distinct IDs in the source LOCAL model; unbounded messages. All thresholds are fixed numerical constants for excluded TK4,4.",
+        "localPdf": "/tmp/constant-ictcs-kdom.pdf",
+        "visualCheck": "Procedure2 on PDFp6 rendered and checked."
+      },
+      {
+        "resultId": "pic-kdom-genus-constant",
+        "rounds": "≤ 2",
+        "count": 2,
+        "kind": "additional runtime-dependence correction; reconstructed certified upper bound",
+        "evidenceUrl": "https://ceur-ws.org/Vol-1949/ICTCSpaper05.pdf#page=5",
+        "location": "Procedure1 PDFp5; Corollary3 p6",
+        "sourceStatesNumericCount": false,
+        "schedule": [
+          "Round1 obtains own degree if necessary, then decides whether it reaches threshold L.",
+          "Round2 broadcasts threshold-membership flags; a vertex not selected adds itself if it has fewer than k selected neighbors."
+        ],
+        "assumptions": "The supplied fixed g,k determine L only as a local threshold. Communication count is independent of both parameters. Preserve approximation dependence on g,k.",
+        "currentProblem": "The existing f(g,k) runtime is unnecessarily parameter-dependent for this procedure."
+      },
+      {
+        "resultId": "pic-kdom-linkless-constant",
+        "rounds": "≤ 2",
+        "count": 2,
+        "kind": "additional runtime-dependence correction; reconstructed certified upper bound",
+        "evidenceUrl": "https://ceur-ws.org/Vol-1949/ICTCSpaper05.pdf#page=5",
+        "location": "Procedure1 PDFp5; Corollary2 p6",
+        "sourceStatesNumericCount": false,
+        "sameScheduleAs": "pic-kdom-genus-constant",
+        "assumptions": "Fixed k≥3; h=4. k affects the local threshold L and approximation, not the two communication rounds.",
+        "currentProblem": "The existing f(k) runtime is unnecessarily parameter-dependent for this procedure."
+      }
+    ],
+    "unresolved": [
+      {
+        "resultId": "planar-two-dom-seven",
+        "retain": "Constant",
+        "evidenceUrl": "https://link.springer.com/chapter/10.1007/978-3-319-14472-6_4",
+        "location": "Primary Springer abstract and two-page preview",
+        "reason": "The available primary material states a constant number of rounds but omits the algorithm. Full PDF redirects to subscription content. The author homepage that advertises a PDF is currently accessible only within the AMU network/VPN. The later 2017 primary paper describes a small modification but does not establish the original exact schedule; do not infer the old count from the new one.",
+        "previewUrl": "https://page-one.springer.com/pdf/preview/10.1007/978-3-319-14472-6_4"
+      }
+    ],
+    "policy": "These are upper-bound implementation schedules, not minimum possible or round-tightness claims. Lower-bound universal constant budgets remain unaltered. No repository files edited."
+  },
+  "checked": "2026-11-16",
+  "registry": "dist/data/round-counts.json",
+  "additionalAudit": {
+    "gen-w25-dom": {
+      "rounds": "≤ 7",
+      "basis": "phase-count",
+      "source": "https://mdpi-res.com/d_attachment/algorithms/algorithms-18-00280/article_deploy/algorithms-18-00280.pdf#page=9",
+      "proof": "Six LOCAL flooding rounds reveal neighbor lists and degrees through distance five. They determine phase-one membership through distance three and uncovered status through distance two around a selecting vertex v. Every candidate replacing beta(v) must cover v, since v belongs to the required uncovered neighborhood; hence that candidate lies in N[v]. One final notification round determines output membership. This is a conservative upper bound, not a printed or optimal count.",
+      "review": "Independently checked by two agents against the pseudocode; no initial degree knowledge is needed."
+    },
+    "gen-asw26-planar / trianglefree": {
+      "rounds": "Constant",
+      "basis": "not-specified",
+      "source": "https://arxiv.org/pdf/2611.02057",
+      "locations": "Section 5.4 final implementation paragraph, Lemma 6.9 and Theorem 6.13, actual PDF pp. 24, 35 and 40",
+      "finding": "The paper provides fixed-parameter bounds and a bounded partition schedule, but no complete numerical total. Three final broadcasts are not the total. Do not report a fabricated universal count."
+    }
+  },
+  "implementationNotes": [
+    "Audited all seventeen previously generic Constant upper bounds and two related parameter-classified k-domination entries using the same procedure. Thirteen now have numerical counts or conservative upper bounds; six retain Constant with explicit evidence for why no count is supplied.",
+    "Original rounds fields remain unchanged. The checked registry controls roundsDisplay and adds roundCountEvidence before derivation. Counts and basis are included in CSV.",
+    "The genus/linkless outside-k-domination procedures use universal two-round communication; parameters affect local thresholds and approximation factors. Moved their named dependencies from runtime to approximation metadata.",
+    "Removed ASW-planar domination over the explicit six-round 130 and 52 points. Added the same-algorithm 52-over-130 comparison and the six-round 52-over-205 comparison. No new SOTA annotation was inferred solely from the absence of a dominator.",
+    "A build guard rejects domination of a fixed numerical budget by an unknown or larger budget. Parameter functions and unknown constants are not newly ordered.",
+    "Lower-bound quantifiers over all constant-round algorithms are unchanged. Do not assign one round to the outerplanar lower bound merely because its matching algorithm takes one round."
+  ]
+}

@@ -1,0 +1,547 @@
+{
+  "checked": "2026-11-16",
+  "source": "https://timothepicavet.fr/others/thesis.pdf",
+  "sha256": "fcc14b2d5d1a88c63e25b151836e26a5f836e1538421e6eab8efee1d36396f48",
+  "pdfPages": 252,
+  "addedSourceIds": [
+    "pic-thesis-planar-205",
+    "pic-thesis-genus-616",
+    "pic-thesis-local-apex",
+    "pic-thesis-pw2-dom",
+    "pic-thesis-degeneracy-vc",
+    "pic-thesis-planar-distance-dom",
+    "pic-thesis-genus-distance-dom",
+    "pic-thesis-path-excluded-exact",
+    "gen-kmw16-vc-lower",
+    "gen-kmw16-mds-lower"
+  ],
+  "implementationNotes": [
+    "The three Chapter III additions also occur in the published PODC 2026 paper. They are indexed once under gen-bdgpsw26, with source links to published PDF pages 5, 6 and 10 and thesis theorem references.",
+    "The genus distance-k bound is an explicit thesis consequence: Meta-Theorem I gives 3α(k)+1 with α(k)=k^{O(k)}, hence k^{O(k)}, with parameter-dependent rounds f(g,k).",
+    "The path-excluded exact algorithm is attributed as folklore, with a componentwise construction and proof. No round-tightness claim is made.",
+    "The broader factor-50 point has its own excluded-H-uniform SOTA annotation. It does not automatically remove the K2t point or inherit its restricted t-domain SOTA certificate; full runtime functions remain uncompared.",
+    "Chapter IX remains work in progress; conjectures and the ambiguous X.2.2/X.2.3 statements are not indexed as proved bounds. Author clarification was requested for the latter.",
+    "The adaptive IV.3.3 statement has an apparent c(1) versus c(d) inconsistency and input-dependent minor parameter. It was not added as a universal 50 or a universal constant-round bound.",
+    "The LW24 cited result was already indexed in its full distance-k form; no duplicate article-specific k=1 row was added.",
+    "New sourced graph inclusions are used by the existing generic query engine. No paper IDs were hard-coded into filtering or derivation."
+  ],
+  "audits": {
+    "chapterIII": {
+      "checked": "2026-11-16",
+      "source": "https://timothepicavet.fr/others/thesis.pdf",
+      "actualPDFPages": 252,
+      "proposedResults": [
+        {
+          "paperId": "pic-thesis-2026",
+          "problem": "Dominating set",
+          "objective": "min",
+          "model": "LOCAL",
+          "randomization": "Deterministic",
+          "bound": "upper",
+          "verification": "primary",
+          "year": 2026,
+          "id": "pic-thesis-planar-205",
+          "variant": "Unweighted",
+          "graphClass": "Planar",
+          "approximation": "205",
+          "rounds": "6",
+          "roundClass": "constant",
+          "parameters": "",
+          "assumptions": "Distinct identifiers; the algorithm uses local computation without a time bound.",
+          "theorem": "Chapter III, Proposition III.3.1 (PDF p. 82; proof pp. 93–95)",
+          "summary": "The local optimum-based Algorithm 1 has an explicit six-round schedule.",
+          "sourceUrl": "https://timothepicavet.fr/others/thesis.pdf#page=82"
+        },
+        {
+          "paperId": "pic-thesis-2026",
+          "problem": "Dominating set",
+          "objective": "min",
+          "model": "LOCAL",
+          "randomization": "Deterministic",
+          "bound": "upper",
+          "verification": "primary",
+          "year": 2026,
+          "id": "pic-thesis-genus-616",
+          "variant": "Unweighted",
+          "graphClass": "Euler genus ≤ g",
+          "approximation": "616",
+          "rounds": "C(g)",
+          "roundClass": "constant",
+          "parameters": "Fixed Euler genus bound g; the approximation ratio is independent of g.",
+          "assumptions": "Distinct identifiers; the class-dependent control function and genus bound determine the number of rounds.",
+          "theorem": "Chapter III, Theorem III.3.2 (PDF pp. 82–83)",
+          "summary": "An introductory genus-transfer algorithm with ratio independent of g; the round complexity depends on g.",
+          "sourceUrl": "https://timothepicavet.fr/others/thesis.pdf#page=82"
+        },
+        {
+          "paperId": "pic-thesis-2026",
+          "problem": "Dominating set",
+          "objective": "min",
+          "model": "LOCAL",
+          "randomization": "Deterministic",
+          "bound": "upper",
+          "verification": "primary",
+          "year": 2026,
+          "id": "pic-thesis-local-apex",
+          "variant": "Unweighted",
+          "graphClass": "Asymptotic dimension d; radius-r balls of Euler genus ≤ g with at most a apices",
+          "approximation": "34.01(d + 1)",
+          "rounds": "C(d,g,a,r)",
+          "roundClass": "constant",
+          "parameters": "Fixed d, g, a and sufficiently large fixed radius r, together with a fixed dimensional control function.",
+          "assumptions": "For every vertex, its induced radius-r ball becomes a graph of Euler genus at most g after deleting at most a vertices. The bound is for a class of asymptotic dimension at most d; its control function is fixed.",
+          "theorem": "Chapter III, Corollary III.4.4 and following apex extension (PDF p. 88)",
+          "summary": "The text explicitly extends the local-genus corollary to the a-apex version, preserving its ratio while allowing a-dependent round complexity.",
+          "sourceUrl": "https://timothepicavet.fr/others/thesis.pdf#page=88"
+        }
+      ],
+      "duplicateResults": [
+        {
+          "theorem": "III.4.3",
+          "PDFPage": 88,
+          "existingId": "gen-bdgpsw26-dom"
+        },
+        {
+          "theorem": "III.4.3 apex extension",
+          "PDFPage": 88,
+          "existingId": "gen-bdgpsw26-apex"
+        },
+        {
+          "theorem": "III.4.4 (without apices)",
+          "PDFPage": 88,
+          "existingId": "gen-bdgpsw26-localgenus"
+        },
+        {
+          "theorem": "III.4.5",
+          "PDFPage": 89,
+          "existingId": "gen-bdgpsw26-ktuple"
+        },
+        {
+          "theorem": "Connected domination discussion following III.4.5",
+          "PDFPage": 89,
+          "existingId": "gen-bdgpsw26-connected"
+        }
+      ],
+      "conditionalTransfers": [
+        {
+          "theorem": "III.4.2 / Meta-Theorem I",
+          "PDFPage": 86,
+          "factor": "α(d+1)+1",
+          "rounds": "T+δ+2",
+          "T": "f(2k+2ρ)+max{k+ρ,r}",
+          "prerequisites": [
+            "k-uniform α-approximation on hereditary C closed under disjoint union",
+            "arbitrary numerical identifiers (no polynomial-ID prerequisite)",
+            "additive ρ-local problem",
+            "D asymptotic dimension d with fixed control function f",
+            "D T-locally δ-nice with respect to C and the problem"
+          ],
+          "emptyErrorImprovement": "For T-locally-C, factor α(d+1) and additivity is unnecessary."
+        },
+        {
+          "theorem": "III.5.1 / Meta-Theorem II",
+          "PDFPage": 90,
+          "factor": "α(d+1)",
+          "rounds": "r (same source algorithm)",
+          "T": "f(6k+6ρ)+4k+4ρ+max{k+ρ,r}",
+          "prerequisites": [
+            "1/(d+1)-weakly k-uniform source algorithm",
+            "ρ-local problem, hereditary C closed under disjoint union",
+            "D asymptotic dimension d and T-locally-C with fixed control function f"
+          ],
+          "note": "Allows polynomial identifiers; no locally-nice errors."
+        },
+        {
+          "theorem": "III.7.13 / Meta-Theorem III",
+          "PDFPage": 106,
+          "factor": "α(d+1)+1+η",
+          "rounds": "max{T+δ+2,g(η)}",
+          "T": "f(2k+2ρ)+max{k+ρ,r}",
+          "prerequisites": [
+            "weakly k-uniform source",
+            "additive ρ-local problem",
+            "C hereditary, disjoint-union closed and ω-paddable",
+            "problem dense in D",
+            "D asymptotic dimension d with fixed control function, T-locally δ-nice"
+          ],
+          "note": "The theorem uses η as an approximation accuracy; use ε in atlas after avoiding collision with weak uniformity accuracy."
+        }
+      ],
+      "otherReusableLemma": {
+        "theorem": "III.8.2",
+        "PDFPages": [
+          110,
+          111
+        ],
+        "statement": "An r-round MDS algorithm with multiplicative α and additive β can be converted to a pure (α+ε)-approximation in r+O(β/ε) rounds.",
+        "note": "Requires connected-component handling as in proof; suitable as a conditional recipe if additive-error source metadata is introduced."
+      },
+      "importantCorrection": {
+        "theorem": "III.4.1 footnote17",
+        "PDFPage": 85,
+        "statement": "The thesis corrects the local radius in BGPW25 Proposition3.1: use f(2k+2)+r, rather than f(2k+1). Thesis says concrete applications are unaffected."
+      }
+    },
+    "laterChapters": {
+      "results": [
+        {
+          "idSuggestion": "pic-thesis-pw2-dom",
+          "theorem": "Theorem VIII.1.1",
+          "pdfPage": 204,
+          "proofEndPdfPage": 218,
+          "problem": "Dominating set",
+          "graphClass": "H-minor-free; pw(H) ≤ 2",
+          "model": "LOCAL",
+          "randomization": "Deterministic",
+          "bound": "upper",
+          "approximation": "50",
+          "roundsDisplay": "f(H)",
+          "roundClass": "parameter",
+          "parameters": "Fixed excluded graph H with pathwidth at most 2.",
+          "assumptions": "Unique identifiers; unbounded LOCAL messages. Same Algorithm 5 as K₂,t-minor-free case, with a new structural diameter analysis.",
+          "sourceUrl": "https://timothepicavet.fr/others/thesis.pdf#page=204",
+          "status": "proved in unpublished thesis chapter",
+          "duplicateComparison": "Not in catalog. Strictly generalizes the graph-class family of pic-large-50-dom, but full f(H) versus f(t) functions are not certified comparable; do not automatically prune old row.",
+          "notes": "H is excluded minor, not input graph. No matching lower bound for factor50, no Tight claim."
+        },
+        {
+          "idSuggestion": "pic-thesis-degeneracy-vc",
+          "theorem": "Theorem X.1.3; Algorithm 7",
+          "pdfPage": 235,
+          "proofEndPdfPage": 236,
+          "problem": "Vertex cover",
+          "graphClass": "Degeneracy ≤ d",
+          "model": "Anonymous",
+          "randomization": "Deterministic",
+          "bound": "upper",
+          "approximation": "2 + ε",
+          "rounds": "((1 + 1/ε)d + 1)² + 1",
+          "roundsTheorem": "O((d/ε)²)",
+          "roundClass": "parameter",
+          "parameters": "Degeneracy bound d; ε > 0.",
+          "assumptions": "Anonymous port-numbering network; each node knows its own degree. Only 2-bit messages.",
+          "sourceUrl": "https://timothepicavet.fr/others/thesis.pdf#page=235",
+          "status": "proved in unpublished thesis chapter",
+          "duplicateComparison": "No degenerate-graph VC source row. Existing gen-as10-vc is degree-dependent, so does not cover this runtime independent of Δ.",
+          "notes": "Explicit formula is proof bound; includes 1 preprocessing round. Big-O shorthand requires usual ε≤1 regime; using explicit bound avoids ambiguity for ε>1. High-degree selection threshold D=(1+1/ε)d, then Åstrand et al. 2009 exact2 approximation on residual max-degree<D."
+        },
+        {
+          "idSuggestion": "pic-thesis-planar-distance-dom",
+          "theorem": "Theorem X.2.5; Algorithm 8",
+          "pdfPage": 237,
+          "algorithmPdfPage": 238,
+          "proofEndPdfPage": 246,
+          "problem": "Distance-k dominating set",
+          "graphClass": "Planar",
+          "model": "LOCAL",
+          "randomization": "Deterministic",
+          "bound": "upper",
+          "approximation": "k^{O(k)}",
+          "rounds": "O(k)",
+          "roundClass": "parameter",
+          "parameters": "Fixed integer k ≥ 1.",
+          "assumptions": "Distinct identifiers; unbounded messages/local computation. Algorithm gathers each (5k+1)-neighborhood and computes local optimal sets with a common deterministic lexicographic tie-break. No girth requirement.",
+          "sourceUrl": "https://timothepicavet.fr/others/thesis.pdf#page=237",
+          "status": "proved in unpublished thesis chapter",
+          "duplicateComparison": "Missing in catalog. Existing k2t or high-girth distance domination results have stricter class assumptions.",
+          "notes": "Source uses r in algorithm and k in theorem; uniformly k is justified. Corollaries on bounded genus and locally nice classes are asserted after theorem by Meta-Theorem I + PropIII.7.6; communicate with ChapterIII auditor for exact transfer coefficient."
+        },
+        {
+          "idSuggestion": "pic-thesis-genus-distance-dom",
+          "theorem": "Theorem X.2.5 and following paragraph; Meta-Theorem I",
+          "pdfPage": 237,
+          "continuedPdfPage": 238,
+          "supportingPages": {
+            "metaTheoremI": 86,
+            "cuttableParameter1": 100,
+            "uniformization": 101,
+            "EulerGenusLocalNiceness": 102
+          },
+          "problem": "Distance-k dominating set",
+          "graphClass": "Euler genus ≤ g",
+          "model": "LOCAL",
+          "randomization": "Deterministic",
+          "bound": "upper",
+          "approximation": "k^{O(k)}",
+          "roundsDisplay": "f(g, k)",
+          "roundClass": "parameter",
+          "parameters": "Fixed integer k ≥ 1; Euler genus bound g ≥ 0.",
+          "assumptions": "Distinct identifiers with arbitrary magnitude; only their order is used by Algorithm 8. No knowledge of n, girth restriction, embedding, bounded degree or polynomial identifier magnitude required. Unbounded LOCAL messages and local computation.",
+          "sourceUrl": "https://timothepicavet.fr/others/thesis.pdf#page=237",
+          "status": "explicit proved consequence in thesis prose",
+          "duplicateComparison": "Not in catalog; planar source is separate and faster in O(k) rounds.",
+          "reason": "Distance-k DS is additive, k-local and cuttableβ=1 (PropIII.7.6). PropIII.7.7 makes original r-round order-invariant algorithm (r+1)-uniform at samefactor. Planar class is hereditary and disjoint-union closed; Euler-genus≤g class has asymptotic dimension2 and local-niceness boundδ<g(2T+4k+1). MetaI gives3α(k)+1=k^{O(k)} and roundsT+δ+2=f(g,k). Source followingX.2.5 explicitly states this extension, so record as direct primary-source consequence, not invented conditional or unsupported engine-derived metadata."
+        }
+      ],
+      "excluded": [
+        {
+          "location": "Chapter IX, pp223–231",
+          "reason": "Tentative proof pipeline, conjectures and explicit work-in-progress conclusion; no new proved distributed approximation theorem."
+        },
+        {
+          "location": "Corollaries X.2.2 and X.2.3, PDFp237",
+          "reason": "Source prints ordinary MDS but introduces k-dependent ratios; surrounding section/ObservationX.2.1 is distance-k DS. Ambiguous/typographical formulation; do not silently index as ordinary MDS. Needs author confirmation or explicit source-caveat handling."
+        },
+        {
+          "location": "Conjecture V.1.2 / X.2.4 / X.3.1",
+          "reason": "Conjectures, not results; preserve as research notes only if needed."
+        }
+      ]
+    },
+    "remainingChapters": {
+      "checked": "2026-11-16",
+      "source": "https://timothepicavet.fr/others/thesis.pdf",
+      "localPdf": "/tmp/atlas-thesis-audit.pdf",
+      "pages": 252,
+      "chaptersAudited": [
+        "I",
+        "II",
+        "IV",
+        "V",
+        "VI",
+        "VII",
+        "XI"
+      ],
+      "additions": [
+        {
+          "suggestedId": "pic-thesis-path-excluded-exact",
+          "problem": "Dominating set",
+          "graphClass": "P_t-minor-free",
+          "model": "LOCAL",
+          "randomization": "Deterministic",
+          "bound": "upper",
+          "approximation": "1",
+          "rounds": "t − 1",
+          "roundClass": "parameter",
+          "parameters": "Fixed integer t ≥ 2.",
+          "sourceLocation": "Chapter IV, Section IV.1 (unnumbered observation)",
+          "pdfPage": 120,
+          "sourceUrl": "https://timothepicavet.fr/others/thesis.pdf#page=120",
+          "summary": "Every connected component has bounded diameter; gather its topology and compute an exact optimum deterministically. Source states t−1 rounds.",
+          "classification": "folklore / elementary baseline explicitly recalled in thesis",
+          "notes": "Same argument works for any excluded H that is a subgraph of P_t; P_t-minor-free is a clean canonical special case. Avoid claiming tight rounds."
+        }
+      ],
+      "newGeneralizationsRequiringCare": [
+        {
+          "theorem": "IV.3.3",
+          "pdfPage": 126,
+          "contextPage": 125,
+          "problem": "Dominating set; extension to Vertex cover stated immediately below theorem",
+          "graphClass": "Asymptotic dimension at most d with given control function f",
+          "approximationIntended": "c_IV.2.1(d)+c_IV.2.2(d)+1 = 25(d+1)+1",
+          "rounds": "Depends on d, control function f and largest K2,t minor present in input; t not known beforehand",
+          "status": "Printed theorem has apparent notational inconsistency: c(1)+c(1)+1 is printed, whereas preceding paragraph explicitly states c(d)+c(d)+1. Do not index as universal50 on bounded-asdim graphs. Also the parameter t is input-dependent and can grow with n.",
+          "evidence": [
+            "Lemma IV.2.1 proof p126: c1(d)=3(d+1)",
+            "Lemma IV.2.2 proof p133: c2(d)=22(d+1)"
+          ]
+        }
+      ],
+      "existingTheoremMappings": [
+        {
+          "theorem": "IV.3.1",
+          "pdfPage": 125,
+          "ids": [
+            "pic-large-50-dom",
+            "pic-large-50-vc"
+          ],
+          "notes": "The thesis additionally explicitly asserts linear-in-t runtime using f(r)=(5r+18)t and linear g(t); formal theorem still O_t(1). Existing f(t) display is safe."
+        },
+        {
+          "theorem": "IV.3.4",
+          "pdfPage": 126,
+          "ids": [
+            "pic-large-linear-dom",
+            "pic-large-linear-vc"
+          ],
+          "notes": "Exactly3 rounds; MDS2t−1, VCt."
+        },
+        {
+          "theorem": "V.1.1",
+          "pdfPage": 146,
+          "ids": [
+            "pic-thesis-pathwidth-lower"
+          ],
+          "notes": "Corollary specializations available via pathwidth substitution, but should not duplicate general theorem without class-parameter reasoning."
+        },
+        {
+          "theorem": "V.2.1",
+          "pdfPage": 148,
+          "ids": [
+            "pic-thesis-pathpower-lower"
+          ],
+          "notes": "Proof p149–150. Endpoint-leaf augmentation permits dense identifier universe {1,...,N}."
+        }
+      ],
+      "safeLowerBoundSpecializations": [
+        {
+          "class": "K_s,t-minor-free, 2 ≤ s ≤ t",
+          "ratioThreshold": "2s − 1",
+          "roundBudgetExcluded": "f(s,t)",
+          "evidence": "V.1.1 p146 plus pw(K_s,t)=s stated p146."
+        },
+        {
+          "class": "K_t-minor-free, t ≥ 3",
+          "ratioThreshold": "2t − 3",
+          "roundBudgetExcluded": "f(t)",
+          "evidence": "V.1.1 plus pw(K_t)=t−1, explicit p148."
+        },
+        {
+          "class": "T_t-minor-free for depth-t complete binary tree",
+          "ratioThreshold": "2ceil(t/2) − 1",
+          "roundBudgetExcluded": "f(t)",
+          "evidence": "V.1.1 plus pw(T_t)=ceil(t/2), explicit p148; less useful because no existing class."
+        }
+      ],
+      "citedHistoricalRefinements": [
+        {
+          "pdfPages": [
+            119,
+            120
+          ],
+          "reference": "KSV21",
+          "ratio": "depth-one-density ^ O(t * depth-one-density)",
+          "rounds": "7",
+          "class": "K_t-minor-free",
+          "notes": "Original atlas O(1)-reviewed KSV row exists; thesis table explicitly7. Verify primary paper before refining source row."
+        },
+        {
+          "pdfPages": [
+            119,
+            120
+          ],
+          "reference": "HKO+25",
+          "ratio": "(2+epsilon)(t+4)",
+          "rounds": "f(t,epsilon)",
+          "class": "K_3,t-minor-free",
+          "notes": "Derived substitution depth-one-density≤(t+3)/2. Broader HKO+25 row exists but not this concrete specialization."
+        },
+        {
+          "pdfPage": 119,
+          "reference": "LW24",
+          "ratio": "O(sqrt(depth-one-density))",
+          "rounds": "3",
+          "class": "Girth at least7 with bounded depth-one density",
+          "notes": "No LW24 source record. Should verify primary paper; thesis references may identify it."
+        }
+      ],
+      "exclusions": [
+        "ChapterII gives exact binary labeling/LCL feasibility classifications on2-colored trees, not approximation bounds for an optimization objective. Its bipartite matching is a prescribed internal-node coverage task, not a maximum-matching approximation.",
+        "ChaptersVI–VII are structural pathwidth/shortestpath cover theorems. Algorithmic discussion onp165 is centralized routing/optimization background, not distributed approximation.",
+        "ConjecturesV.1.2 andV.1.3 are not algorithms.",
+        "Conclusion restatesIII/V/VIII/X; no additional proven bound beyond chapters."
+      ]
+    },
+    "citedSources": {
+      "checked": "2026-11-16",
+      "paper": {
+        "id": "gen-kmw16",
+        "title": "Local Computation: Lower and Upper Bounds",
+        "authors": "Fabian Kuhn; Thomas Moscibroda; Roger Wattenhofer",
+        "year": 2016,
+        "venue": "Journal of the ACM 63(2), Article 17, pp. 1–44",
+        "url": "https://arxiv.org/abs/1011.5470v2",
+        "doi": "10.1145/2742012",
+        "notes": "Checked against arXiv v2 (31 March 2016); the primary preprint has 48 PDF pages. Lower bounds allow randomized algorithms and apply to expected approximation for a fixed round budget. References in Picavet thesis, Chapters I and IV."
+      },
+      "suggestedResults": [
+        {
+          "paperId": "gen-kmw16",
+          "variant": "Unweighted; constant or polylogarithmic approximation",
+          "objective": "min",
+          "graphClass": "General",
+          "model": "LOCAL",
+          "randomization": "Randomized",
+          "bound": "lower",
+          "approximation": "Constant or polylogarithmic factor",
+          "rounds": "Ω(min{√(log n / log log n), log Δ / log log Δ})",
+          "roundClass": "other",
+          "parameters": "n is the number of vertices; Δ is the maximum degree. Polynomial-logarithmic exponents are fixed.",
+          "assumptions": "Also applies to deterministic algorithms. Randomized lower bound concerns expected approximation with a fixed worst-case round budget. There are hard graph families; n and Δ are coupled by the construction, so this is not a guarantee for every independently prescribed pair (n, Δ).",
+          "verification": "primary",
+          "year": 2016,
+          "id": "gen-kmw16-vc-lower",
+          "problem": "Vertex cover",
+          "theorem": "Theorems 13 and 14 (arXiv v2, PDF pp.20–21)",
+          "summary": "The primary result bounds the achievable expected ratio in r rounds by Ω(n^((1−o(1))/(4r²))/r) and Ω(Δ^(1/(r+1))/r). The combined n/Δ summary uses the minimum; no universal lower bound for each arbitrary independent parameter pair is inferred. Identifiers may be 1,…,n and nodes may know n, Δ and the unlabelled network topology.",
+          "sourceUrl": "https://arxiv.org/pdf/1011.5470v2#page=21"
+        },
+        {
+          "paperId": "gen-kmw16",
+          "variant": "Unweighted; constant or polylogarithmic approximation",
+          "objective": "min",
+          "graphClass": "General",
+          "model": "LOCAL",
+          "randomization": "Randomized",
+          "bound": "lower",
+          "approximation": "Constant or polylogarithmic factor",
+          "rounds": "Ω(min{√(log n / log log n), log Δ / log log Δ})",
+          "roundClass": "other",
+          "parameters": "n is the number of vertices; Δ is the maximum degree. Polynomial-logarithmic exponents are fixed.",
+          "assumptions": "Also applies to deterministic algorithms. Randomized lower bound concerns expected approximation with a fixed worst-case round budget. There are hard graph families; n and Δ are coupled by the construction, so this is not a guarantee for every independently prescribed pair (n, Δ).",
+          "verification": "primary",
+          "year": 2016,
+          "id": "gen-kmw16-mds-lower",
+          "problem": "Dominating set",
+          "theorem": "Theorem 15 and Corollary 16 (arXiv v2, PDF pp.21–23)",
+          "summary": "The minimum-dominating-set lower bound follows via a locality-preserving line-graph reduction from vertex cover. The primary r-round ratio tradeoff is Ω(n^((1−o(1))/(4r²))/r) and Ω(Δ^(1/(r+1))/r). The following remark explicitly extends this hardness to fractional MDS; that extension should use its own verified problem scope rather than ordinary integral-to-fractional inference.",
+          "sourceUrl": "https://arxiv.org/pdf/1011.5470v2#page=22"
+        },
+        {
+          "id": "pic-lw-girth-mds-three",
+          "paperId": "pic-lw-girth-2024",
+          "problem": "Dominating set",
+          "variant": "Unweighted; explicit k = 1 specialization",
+          "objective": "min",
+          "graphClass": "Connected; depth-one density ≤ ρ; girth ≥ 7",
+          "model": "Anonymous",
+          "randomization": "Deterministic",
+          "bound": "upper",
+          "approximation": "O(1 + √ρ)",
+          "rounds": "3",
+          "roundClass": "constant",
+          "parameters": "Fixed depth-one density bound ρ ≥ 1. The algorithm need not know ρ.",
+          "assumptions": "Port numbering; each node initially knows its incident ports. Messages have at most ⌈log Δ⌉ bits. This is the k=1 specialization of the already indexed distance-k algorithm, not a new theorem.",
+          "theorem": "Theorem 1.5, k = 1",
+          "summary": "Substituting k=1 and f(1)=ρ gives O(1+√ρ) for ordinary MDS in exactly three rounds. Depth-one density is the largest edge-to-vertex ratio of a depth-one minor. Connected components may alternatively be processed independently if connectivity is dropped explicitly after review.",
+          "verification": "primary",
+          "sourceUrl": "https://arxiv.org/html/2408.12998v1#S1",
+          "year": 2024,
+          "relatedResults": [
+            "pic-girth-sublinear"
+          ]
+        }
+      ],
+      "priority": "Add the two missing foundational KMW lower bounds. LW24 already has a general source row; add the MDS specialization only if useful for ordinary-MDS discovery or implement an explicit parameter specialization in the reductions engine.",
+      "notation": {
+        "Ω(min{√(log n / log log n), log Δ / log log Δ})": "\\Omega\\!\\left(\\min\\!\\left\\{\\sqrt{\\frac{\\log n}{\\log\\log n}},\\frac{\\log\\Delta}{\\log\\log\\Delta}\\right\\}\\right)",
+        "O(1 + √ρ)": "O(1+\\sqrt{\\rho})"
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/pdf/1011.5470v2",
+          "verified": "Theorem13 PDFp20; Theorem14p21; Theorem15pp21–22; Corollary16pp22–23; proofp21 explicitly says expected ratio for possibly randomized algorithm."
+        },
+        {
+          "url": "https://arxiv.org/html/2408.12998v1",
+          "verified": "DetailedContribution supplies connectedness, girth4k+3, k-hopdensity definition, deterministicportnumbering, initiallyknownincidentports; Theorem1.5 supplies exact3krounds, ceil(logΔ)-bitmessages, O(k+f(k)^(k/(k+1))) ratio."
+        }
+      ],
+      "notAdded": [
+        {
+          "claim": "LW24 O(sqrt(depth-one-density)) in3 rounds for ordinaryMDS",
+          "reason": "Already included parametrically in pic-girth-sublinear; the exact nonasymptotic dependency is O(1+sqrtρ) at k=1. A dedicated row is a specialization rather than independent result."
+        },
+        {
+          "claim": "KMW16 MDS lower bound as two universally simultaneous n-only and Δ-only statements for arbitrary independent parameter pairs",
+          "reason": "Use a joint minimum summary or separate carefully scoped hard-family statements. The construction couples n andΔ."
+        },
+        {
+          "claim": "New KMW SOTA/Tight badge",
+          "reason": "This audit verifies the historical theorem, not current optimality. Do not automatically label either."
+        }
+      ]
+    }
+  }
+}

@@ -69,3 +69,41 @@ REMAINING PRIORITIES
 
 VALIDATION
 29 unique new result IDs; 9 unique new paper IDs. Required schema fields checked. All paper references resolve against sparse.json + general.json + picavet.json, including the intentional cross-file journal-version reference. No base dataset or interface files modified by this expansion.
+
+
+Thesis lower-bound attribution (checked 2026-11-15)
+https://timothepicavet.fr/others/thesis.pdf
+Chapter V, Theorem V.1.1 at PDF page146: fixed-H deterministic LOCAL lower bound 2pw(H)-1-epsilon on H-minor-free graphs. Lemma V.2.1 at PDFpage148, proofpage149: threshold2t+1 on t-th path powers with degree-one vertices attached at one endpoint, distinct identifiers in1..|V|, rounds arbitraryf(t).
+Chapter acknowledgement at PDFpage145 credits work with Bonamy, Gavoille, Tim Planken and Wesolek. Bibliographic author remains Picavet; that collaboration credit is in the paper note. The contents page offsets are stale, so records use theorem IDs and verified PDF anchors.
+Added two distinct records; cross-linked them with Amiri--Siebertz Theorem8.7, arXivv2, https://arxiv.org/html/2610.09618v2#S8.SS4 . The latter uses pure path powers and explicitly permits knowledge of n. No independence or upload-history priority claim is inferred from the current manuscript.
+
+
+Full thesis audit (checked 2026-11-16)
+Downloaded the current 252-page thesis; SHA-256
+fcc14b2d5d1a88c63e25b151836e26a5f836e1538421e6eab8efee1d36396f48.
+Audited all chapters and compared concrete distributed approximation statements
+against the existing source catalog. Added eight missing thesis-discovered
+statements and two primary-checked KMW16 lower bounds from its citations.
+The three Chapter III additions also appear in the PODC 2026 paper and are
+indexed only once, under that paper. See thesis-coverage-2026-11-16.json for
+source locations, exact formulas, duplicate mappings and exclusions.
+
+New statements: planar MDS205 in6 rounds; Euler-genus-g MDS616 in f(g);
+local apex-genus MDS34.01(d+1) in f(d,g,a,r); H-minor-free MDS50 for
+pw(H)≤2 in f(H); d-degenerate anonymous VC2+epsilon with proof round bound
+((1+1/epsilon)d+1)^2+1 and two-bit messages; planar distance-k MDS k^{O(k)}
+in O(k); its explicit Euler-genus extension in f(g,k); and exact MDS on
+P_t-minor-free graphs in t-1 rounds, attributed as an elementary baseline.
+
+Graph queries now use nodes for excluded-H pathwidth≤2, excluded paths,
+and local apex-genus, with six sourced inclusion edges and fixed-parameter
+qualifications. These do not identify the pathwidth of the excluded minor with
+that of the input graph, or infer a global minor exclusion from local apices.
+The broader factor50 theorem retains the existing K2t runtime tradeoff; no
+unsupported full-function dominance or Tight claim is introduced.
+
+Pending clarification: Corollaries X.2.2 and X.2.3 print ordinary MDS while
+introducing a distance parameter k. They were not silently reinterpreted.
+The adaptive IV.3.3 statement and Chapter IX future work were not promoted
+into unqualified proved bounds. Structural results and exact feasibility
+classifications in Chapters II and VI–VII lie outside this approximation catalog.

@@ -1,0 +1,309 @@
+{
+  "checked": "2026-11-16",
+  "scope": "Primary-source audit of the parameter dependence hidden by f(parameters). An explicit bound may retain absolute big-O constants. A composition involving an unspecified dimensional control function is recorded as a partial expansion, not as a closed formula in the parameters displayed in the atlas.",
+  "entries": [
+    {
+      "resultId": "gen-aprsu10-matching",
+      "status": "explicit",
+      "formulaPlain": "O(Δ Σ_{i=1}^{K} (2i−1)(Δ−1)^{i−1}) for Δ ≥ 2, where K = ceil(1/ε); constant for Δ ≤ 1",
+      "tex": "O\\!\\left(\\Delta\\sum_{i=1}^{K}(2i-1)(\\Delta-1)^{i-1}\\right)\\ (\\Delta\\ge 2),\\qquad K=\\lceil 1/\\varepsilon\\rceil",
+      "kind": "derived-phase-bound",
+      "explanation": "Section 6 runs stages i=1,...,K. Stage i removes augmenting paths of length h=2i−1 using at most t_i=Δ(Δ−1)^{i−1} invocations. Each invocation consists of flooding, proposals, and augmentation along paths of length h, and therefore costs O(h) rounds. Summing gives this explicit parameter dependence. The paper does not state an exact integer total. For Δ≤1, taking all edges gives an exact matching after at most one round; this avoids a 0^0 convention in the displayed sum. The supplied proper two-colouring is essential.",
+      "parameters": [
+        {
+          "symbol": "Δ",
+          "description": "Maximum degree"
+        },
+        {
+          "symbol": "ε",
+          "description": "Positive accuracy parameter"
+        },
+        {
+          "symbol": "K",
+          "description": "Number of augmenting-path-length stages, ceil(1/ε)"
+        }
+      ],
+      "evidence": [
+        {
+          "url": "https://jukkasuomela.fi/doc/weakly-coloured.pdf#page=11",
+          "title": "Local algorithms in (weakly) coloured graphs",
+          "location": "Section 6, augmenting-path algorithm and t_i bound immediately before Theorem 9"
+        }
+      ]
+    },
+    {
+      "resultId": "gen-aprsu10-dom",
+      "status": "explicit",
+      "formulaPlain": "At most 4 rounds (derived phase upper bound, independent of Δ)",
+      "tex": "\\leq 4",
+      "kind": "derived-phase-bound",
+      "explanation": "The supplied weak two-colouring permits the Section 4 star-forest construction in an absolute constant number of rounds. The four-round schedule below computes exactly its final star centres without communicating the final edge orientations. Every black vertex with white children becomes a centre. An original white root remains a centre exactly when at least one of its black children has no white children. A white vertex that proposed to a black vertex is a leaf. In the all-depth-two case a root chooses one child for edge reversal, but the choice does not affect the set of centres, so the dominating-set output needs no extra round. This is an implementation upper bound derived from the paper, not a printed exact runtime or a claim of round optimality. Δ occurs in the approximation guarantee, not in the communication radius. The catalogue’s f(Δ) classification can be strengthened to constant.",
+      "evidence": [
+        {
+          "url": "https://jukkasuomela.fi/doc/weakly-coloured.pdf#page=8",
+          "title": "Local algorithms in (weakly) coloured graphs",
+          "location": "Section 4 star-forest construction and Theorem 6"
+        }
+      ],
+      "phases": [
+        {
+          "round": 1,
+          "action": "Exchange the supplied weak-colouring bits with all neighbours."
+        },
+        {
+          "round": 2,
+          "action": "Each black vertex proposes to a white neighbour, its parent in the initial forest."
+        },
+        {
+          "round": 3,
+          "action": "Each white vertex that received no black proposal proposes to a black neighbour."
+        },
+        {
+          "round": 4,
+          "action": "Each black vertex tells its white parent whether it received any white proposals. Vertices can now decide whether they are final star centres."
+        }
+      ]
+    },
+    {
+      "resultId": "gen-bdgpsw26-dom",
+      "status": "not-explicit",
+      "formulaPlain": "C(g, ε); no closed dependence on g and ε is stated",
+      "tex": "C(g,\\varepsilon)",
+      "kind": "unspecified-parameter-function",
+      "explanation": "Corollary 4.3 states a parameter-dependent constant C(ε,g). Meta-Theorem I gives a transparent composition of the base algorithm, a dimensional control function, and an error-component diameter bound, but this does not compute a closed function of g and ε. In particular the runtime of the planar (11+ε)-approximation and the control-function constants are not expanded here.",
+      "partialExpansion": {
+        "formulaPlain": "T + δ + 2, where T = F(2u+2ρ) + max{u+ρ, b}",
+        "tex": "T+\\delta+2,\\qquad T=F(2u+2\\rho)+\\max\\{u+\\rho,b\\}",
+        "kind": "stated-composition",
+        "parameters": "F is the target class's dimensional control function; u is the base algorithm's uniformity radius; ρ is the problem's verification radius; b is the base algorithm's round complexity; δ bounds weak diameters of the error components. The source uses k and r for u and b; these are renamed to avoid collision with distance/local-radius parameters."
+      },
+      "evidence": [
+        {
+          "url": "https://jukkasuomela.fi/doc/cuttable-distributed-problems.pdf",
+          "title": "Meta-Theorems for Cuttable Distributed Problems",
+          "location": "Theorem 4.2 (Meta-Theorem I); Corollary 4.3; proof of Meta-Theorem I"
+        }
+      ]
+    },
+    {
+      "resultId": "gen-bdgpsw26-apex",
+      "status": "not-explicit",
+      "formulaPlain": "C(g, a, ε); no closed parameter dependence is stated",
+      "tex": "C(g,a,\\varepsilon)",
+      "kind": "unspecified-parameter-function",
+      "explanation": "The text after Corollary 4.3 extends the genus approximation to graphs with at most a apices. It explains the structural changes (including shortcuts through at most a apices), but does not give a closed round-complexity formula in g,a,ε. The meta-theorem composition still requires the appropriate class control function and local-error diameter threshold.",
+      "evidence": [
+        {
+          "url": "https://jukkasuomela.fi/doc/cuttable-distributed-problems.pdf",
+          "title": "Meta-Theorems for Cuttable Distributed Problems",
+          "location": "Corollary 4.3 and subsequent apex extension; Theorem 4.2"
+        }
+      ]
+    },
+    {
+      "resultId": "gen-bdgpsw26-localgenus",
+      "status": "not-explicit",
+      "formulaPlain": "C(d, g, r), with a fixed class control function; no closed dependence is stated",
+      "tex": "C(d,g,r)",
+      "kind": "unspecified-parameter-function",
+      "explanation": "Corollary 4.4 fixes the dimensional control function and a sufficiently large local radius. These are substantive prerequisites: d,g,r alone do not specify the numerical control-function values used by the proof. Do not describe its runtime as an absolute constant independent of the graph-class parameters.",
+      "evidence": [
+        {
+          "url": "https://jukkasuomela.fi/doc/cuttable-distributed-problems.pdf",
+          "title": "Meta-Theorems for Cuttable Distributed Problems",
+          "location": "Corollary 4.4, its application of Meta-Theorem I, and the definition of the dimensional control function"
+        }
+      ]
+    },
+    {
+      "resultId": "gen-bdgpsw26-ktuple",
+      "status": "not-explicit",
+      "formulaPlain": "C₂(g, k); no closed dependence on g and k is stated",
+      "tex": "C_2(g,k)",
+      "kind": "unspecified-parameter-function",
+      "explanation": "Corollary 4.5 quantifies the genus and k-tuple parameters using functions C₁ and C₂. Its proof invokes the genus-transfer meta-theorem and a planar algorithm; a closed runtime in g,k is not printed. The general T+δ+2 composition is available but does not eliminate the unspecified control function.",
+      "evidence": [
+        {
+          "url": "https://jukkasuomela.fi/doc/cuttable-distributed-problems.pdf",
+          "title": "Meta-Theorems for Cuttable Distributed Problems",
+          "location": "Corollary 4.5 and Theorem 4.2"
+        }
+      ]
+    },
+    {
+      "resultId": "gen-bdgpsw26-connected",
+      "status": "not-explicit",
+      "formulaPlain": "A genus-dependent constant; no closed runtime is stated in this extension",
+      "tex": "C(g)",
+      "kind": "unspecified-parameter-function",
+      "explanation": "The connected dominating set paragraph derives its approximation guarantee using the cited connected-domination reduction, but does not expand the round complexity of the composition as a formula in g. Its explicit O(sqrt(g)) approximation factor is not a runtime formula.",
+      "evidence": [
+        {
+          "url": "https://jukkasuomela.fi/doc/cuttable-distributed-problems.pdf",
+          "title": "Meta-Theorems for Cuttable Distributed Problems",
+          "location": "Section 4, connected dominating set application following Corollary 4.5"
+        }
+      ]
+    },
+    {
+      "resultId": "pic-nice-localgenus",
+      "status": "not-explicit",
+      "formulaPlain": "C(d, g, r), for a fixed dimensional control function",
+      "tex": "C(d,g,r)",
+      "kind": "unspecified-parameter-function",
+      "explanation": "Theorem 8 gives a class-dependent constant and applies Proposition 2 to Theorem 7. Proposition 3 does give a precise generic composition, but the dimensional control function and the genus base runtime are not reduced to closed expressions in the displayed parameters. The local-genus row therefore has no computed full formula to substitute for f(d,g,r).",
+      "partialExpansion": {
+        "formulaPlain": "T + δ + 2, where T = F(2u+2) + max{u+1, b}",
+        "tex": "T+\\delta+2,\\qquad T=F(2u+2)+\\max\\{u+1,b\\}",
+        "kind": "stated-composition",
+        "parameters": "F is the dimensional control function, u the base algorithm's uniformity radius, b its round complexity, and δ the error-component weak-diameter bound. This is Proposition 3's generic formula, not an explicit formula in d,g,r for Theorem 8."
+      },
+      "evidence": [
+        {
+          "url": "https://arxiv.org/html/2507.04960v1",
+          "title": "Approximation Algorithms for Dominating Set on Locally Nice Graph Classes",
+          "location": "Proposition 3; Theorems 7 and 8; Claim 4"
+        }
+      ]
+    },
+    {
+      "resultId": "pic-large-50-dom",
+      "status": "explicit",
+      "formulaPlain": "O(t)",
+      "tex": "O(t)",
+      "kind": "stated",
+      "explanation": "The original paper states Oₜ(1), while the thesis explicitly analyzes the same Algorithm 5 in O(t) rounds. It chooses the class control function F_t(r)=(5r+18)t; the remaining residual-diameter term is linear in t. The printed composition is 3 max{F_t(5)+2,F_t(11)+5}+g(t)+3, with g linear. This is an asymptotic bound, not a fully specified exact round count.",
+      "evidence": [
+        {
+          "url": "https://timothepicavet.fr/others/thesis.pdf#page=125",
+          "title": "Timothé Picavet’s doctoral thesis",
+          "location": "Chapter IV, Theorem IV.3.1 and following explicit linear-in-t runtime analysis (PDF p. 125)"
+        },
+        {
+          "url": "https://arxiv.org/html/2504.01091v2",
+          "title": "Local Constant Approximation for Dominating Set on Graphs Excluding Large Minors",
+          "location": "Theorem 4.1, Lemma 4.2 and following runtime composition"
+        }
+      ],
+      "previousConclusion": "not-explicit",
+      "correctedBy": "k2t-pw2-sota-2026-11-16.json",
+      "parameters": [
+        {
+          "symbol": "t",
+          "description": "Size of the second bipartition class of the excluded minor K₂,t; fixed integer t≥2",
+          "tex": "t"
+        }
+      ]
+    },
+    {
+      "resultId": "pic-large-50-vc",
+      "status": "explicit",
+      "formulaPlain": "O(t)",
+      "tex": "O(t)",
+      "kind": "derived-from-stated-extension",
+      "explanation": "The vertex-cover extension keeps the same local-cut radius, replacing interesting local 2-cuts by all local 2-cuts. Combining this unchanged radius and residual exploration with the thesis’s linear-in-t analysis gives O(t) rounds. This is derived from the stated extension; no exact integer total is claimed.",
+      "evidence": [
+        {
+          "url": "https://timothepicavet.fr/others/thesis.pdf#page=125",
+          "title": "Timothé Picavet’s doctoral thesis",
+          "location": "Chapter IV, Theorem IV.3.1 and following explicit linear-in-t runtime analysis (PDF p. 125)"
+        },
+        {
+          "url": "https://arxiv.org/html/2504.01091v2",
+          "title": "Local Constant Approximation for Dominating Set on Graphs Excluding Large Minors",
+          "location": "Extension after Theorem 4.3; same local-cut radius"
+        },
+        {
+          "url": "https://timothepicavet.fr/others/thesis.pdf#page=126",
+          "title": "Timothé Picavet’s doctoral thesis",
+          "location": "Vertex-cover extension following Theorem IV.3.3 (PDF p. 126)"
+        }
+      ],
+      "previousConclusion": "not-explicit",
+      "correctedBy": "k2t-pw2-sota-2026-11-16.json",
+      "parameters": [
+        {
+          "symbol": "t",
+          "description": "Size of the second bipartition class of the excluded minor K₂,t; fixed integer t≥2",
+          "tex": "t"
+        }
+      ]
+    },
+    {
+      "resultId": "pic-thesis-genus-616",
+      "status": "not-explicit",
+      "formulaPlain": "C(g); the proof gives a bound in terms of a dimensional control function",
+      "tex": "C(g)",
+      "kind": "unspecified-parameter-function",
+      "explanation": "Theorem 3.2 states C(g). Algorithm 2 inspects radius F_g(10)+5, and Claim 3.3 bounds the residual two-hop components' weak diameters by less than 2(F_g(10)+6)g. Gathering the necessary bounded-radius views and applying the constant-round planar algorithm therefore gives the partial asymptotic expansion below. The proof does not compute F_g(10) as a closed function of g; do not label this an elementary explicit dependence on g or an exact integer runtime.",
+      "partialExpansion": {
+        "formulaPlain": "O((g+1)(F_g(10)+6))",
+        "tex": "O\\!\\left((g+1)(F_g(10)+6)\\right)",
+        "kind": "derived-phase-bound",
+        "parameters": "F_g is a fixed 2-dimensional control function for the Euler-genus-at-most-g class."
+      },
+      "evidence": [
+        {
+          "url": "https://jukkasuomela.fi/doc/cuttable-distributed-problems.pdf",
+          "title": "Meta-Theorems for Cuttable Distributed Problems",
+          "location": "Theorem 3.2, Algorithm 2, Claim 3.3"
+        },
+        {
+          "url": "https://timothepicavet.fr/others/thesis.pdf#page=82",
+          "title": "Timothé Picavet's doctoral thesis",
+          "location": "Theorem III.3.2, PDF pp. 82–83"
+        }
+      ]
+    },
+    {
+      "resultId": "pic-thesis-local-apex",
+      "status": "not-explicit",
+      "formulaPlain": "C(d, g, a, r), with a fixed dimensional control function",
+      "tex": "C(d,g,a,r)",
+      "kind": "unspecified-parameter-function",
+      "explanation": "The local-apex extension preserves the approximation ratio while allowing the number of rounds to depend on the apex count and the other fixed class parameters. The corollary and the following extension do not calculate a closed round formula; the transfer still uses the class's control function.",
+      "evidence": [
+        {
+          "url": "https://jukkasuomela.fi/doc/cuttable-distributed-problems.pdf",
+          "title": "Meta-Theorems for Cuttable Distributed Problems",
+          "location": "Corollary 4.4 and apex extension"
+        },
+        {
+          "url": "https://timothepicavet.fr/others/thesis.pdf#page=88",
+          "title": "Timothé Picavet's doctoral thesis",
+          "location": "Corollary III.4.4 and its apex extension, PDF p. 88"
+        }
+      ]
+    },
+    {
+      "resultId": "pic-thesis-pw2-dom",
+      "status": "not-explicit",
+      "formulaPlain": "O_H(1); no closed round formula in H is stated",
+      "tex": "O_H(1)",
+      "kind": "unspecified-parameter-function",
+      "explanation": "Theorem VIII.1.1 reuses Algorithm 5 with a new structural diameter analysis. The proof still chooses local-cut radii via the dimensional control function and H-dependent structural thresholds. The final residual weak-diameter estimate is D+4 in terms of a prior structural bound D; it does not by itself produce a closed communication bound in the excluded graph H.",
+      "evidence": [
+        {
+          "url": "https://timothepicavet.fr/others/thesis.pdf#page=204",
+          "title": "Timothé Picavet's doctoral thesis",
+          "location": "Theorem VIII.1.1, PDF p. 204; proof of Theorem VIII.5.1 and conclusion of Chapter VIII, PDF pp. 217–218"
+        }
+      ]
+    },
+    {
+      "resultId": "pic-thesis-genus-distance-dom",
+      "status": "not-explicit",
+      "formulaPlain": "C(g, k); no closed dependence on g and k is calculated for the transferred algorithm",
+      "tex": "C(g,k)",
+      "kind": "unspecified-parameter-function",
+      "explanation": "The paragraph following Theorem X.2.5 explicitly obtains the genus extension by Meta-Theorem I and Proposition III.7.6. Algorithm 8 gives a radius-5k+1 neighbourhood inspection for the planar base algorithm, but this is not the runtime of its genus transfer. The transfer additionally depends on the uniformity transformation, the genus class's dimensional control function, and error-component diameter bounds. No complete g,k formula is calculated in this passage.",
+      "evidence": [
+        {
+          "url": "https://timothepicavet.fr/others/thesis.pdf#page=237",
+          "title": "Timothé Picavet's doctoral thesis",
+          "location": "Theorem X.2.5, Algorithm 8 and the subsequent genus-extension paragraph, PDF pp. 237–238; Meta-Theorem I and Proposition III.7.6"
+        }
+      ]
+    }
+  ]
+}

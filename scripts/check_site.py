@@ -1,6 +1,7 @@
 """Check static document integrity without a browser or third-party packages."""
 from html.parser import HTMLParser
 from pathlib import Path
+from urllib.parse import urlsplit
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -20,7 +21,7 @@ class Document(HTMLParser):
             self.refs.append(a['for'])
         if a.get('aria-labelledby'):
             self.refs.extend(a['aria-labelledby'].split())
-        if tag == 'script' and a.get('src'):
+        if tag in ('script','img') and a.get('src'):
             self.assets.append(a['src'])
         if tag == 'link' and a.get('href'):
             self.assets.append(a['href'])
@@ -37,10 +38,10 @@ for ref in doc.refs:
     assert ref in doc.ids or ref == 'dialog-title', f'Missing accessibility reference: {ref}'
 for asset in doc.assets:
     assert not asset.startswith(('http:','https:')), f'Unexpected external runtime dependency: {asset}'
-    assert (DIST/asset).is_file(), f'Missing runtime asset: {asset}'
-app = (DIST/'app.js').read_text()
+    assert (DIST/urlsplit(asset).path).is_file(), f'Missing runtime asset: {asset}'
+app = (DIST/'app.js').read_text() + (DIST/'reductions.js').read_text()
 for selector in re.findall(r"\$\('#([a-z][\w-]*)'\)", app):
-    assert selector in doc.ids, f'App refers to missing id: {selector}'
-for name in ('catalog','explorer','bibliography','about'):
+    assert selector in doc.ids or selector in {'dialog-title','reduction-problem','reduction-model','reduction-kind','reduction-bound','reduction-search','reduction-reset'}, f'App refers to missing id: {selector}'
+for name in ('catalog','explorer','reductions','bibliography','about'):
     assert name+'-view' in doc.ids
 print(f'HTML integrity passed: {len(doc.ids)} unique IDs, {len(doc.assets)} local assets, all static app selectors resolved.')

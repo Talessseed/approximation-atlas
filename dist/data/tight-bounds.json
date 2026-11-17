@@ -1,0 +1,1054 @@
+{
+  "checked": "2026-11-16",
+  "description": "Reviewed matching upper and lower bounds. Each certificate identifies the tight quantity, its parameter domain, primary sources and explicit graph/problem/model applications. Tightness is independent of SOTA ranking. It is not inferred from the current catalog, from a shared round regime, from approximation-scheme limits, or automatically through reductions and graph inclusions. Exact coefficients, asymptotic orders and minimum-round thresholds remain distinct.",
+  "certificates": [
+    {
+      "id": "outerplanar-factor-five",
+      "axis": "ratio",
+      "precision": "exact",
+      "scopeLabel": "Ratio 5 · deterministic local",
+      "parameterDomain": "Deterministic n-independent locality; integral optimum.",
+      "statement": "The approximation ratio is exactly tight; the absolute round count is not certified.",
+      "upper": {
+        "resultIds": [
+          "outerplanar-five"
+        ],
+        "url": "https://arxiv.org/abs/2108.02697v2",
+        "title": "Bonamy–Cook–Groenland–Wesolek",
+        "location": "Main theorem",
+        "statement": "Ratio 5 is achieved in universally constant anonymous rounds."
+      },
+      "lower": {
+        "resultIds": [
+          "outerplanar-five-lower"
+        ],
+        "url": "https://arxiv.org/abs/2108.02697v2",
+        "title": "Bonamy–Cook–Groenland–Wesolek",
+        "location": "Matching lower bound",
+        "statement": "Every ratio below 5 is impossible in deterministic LOCAL with n-independent locality."
+      },
+      "applications": [
+        {
+          "resultId": "outerplanar-five",
+          "graphs": [
+            "outerplanar"
+          ],
+          "problems": [
+            "dominating-set"
+          ],
+          "models": [
+            "Anonymous",
+            "CONGEST",
+            "LOCAL"
+          ]
+        },
+        {
+          "resultId": "outerplanar-five-lower",
+          "graphs": [
+            "outerplanar"
+          ],
+          "problems": [
+            "dominating-set"
+          ],
+          "models": [
+            "LOCAL",
+            "CONGEST"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "planar-factor-seven",
+      "axis": "ratio",
+      "precision": "exact",
+      "scopeLabel": "Ratio 7 · n-independent locality",
+      "parameterDomain": "Integral benchmark; fixed genus when relevant.",
+      "statement": "Ratio 7 is tight, including the stated fixed-surface upper bound.",
+      "upper": {
+        "resultIds": [
+          "gen-asw26-planar",
+          "gen-asw26-genus"
+        ],
+        "url": "https://arxiv.org/pdf/2611.02057",
+        "title": "ASW26",
+        "location": "Theorem C(i); Theorem E",
+        "statement": "Ratio 7: universal rounds on planar graphs; genus-dependent rounds on fixed surfaces."
+      },
+      "lower": {
+        "resultIds": [
+          "planar-seven-lower"
+        ],
+        "url": "https://arxiv.org/abs/1402.2549",
+        "title": "Hilke–Lenzen–Suomela",
+        "location": "Main theorem",
+        "statement": "Deterministic local planar approximation below 7 is impossible."
+      },
+      "applications": [
+        {
+          "resultId": "gen-asw26-planar",
+          "graphs": [
+            "planar"
+          ],
+          "problems": [
+            "dominating-set"
+          ],
+          "models": [
+            "CONGEST",
+            "LOCAL"
+          ]
+        },
+        {
+          "resultId": "gen-asw26-genus",
+          "graphs": [
+            "euler",
+            "orientable",
+            "planar"
+          ],
+          "problems": [
+            "dominating-set"
+          ],
+          "models": [
+            "CONGEST",
+            "LOCAL"
+          ]
+        },
+        {
+          "resultId": "planar-seven-lower",
+          "graphs": [
+            "planar",
+            "euler",
+            "orientable"
+          ],
+          "problems": [
+            "dominating-set"
+          ],
+          "models": [
+            "LOCAL",
+            "CONGEST"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tree-independent-rounds",
+      "axis": "rounds",
+      "precision": "asymptotic",
+      "scopeLabel": "Rounds · joint n and ε dependence",
+      "parameterDomain": "log(n)/n < ε < 1; deterministic algorithms.",
+      "statement": "The round complexity is Θ(log* n / ε).",
+      "upper": {
+        "resultIds": [
+          "gen-fk25-tree"
+        ],
+        "url": "https://arxiv.org/html/2506.10845v1",
+        "title": "Faour–Kuhn",
+        "location": "Theorem 1.1",
+        "statement": "The upper bound holds for maximum-weight independent set on unrooted trees in CONGEST."
+      },
+      "lower": {
+        "resultIds": [
+          "gen-fk25-path-lower"
+        ],
+        "url": "https://arxiv.org/html/2506.10845v1",
+        "title": "Faour–Kuhn",
+        "location": "Theorem 1.1; Section 2.2",
+        "statement": "The matching lower bound holds for unweighted oriented paths even in LOCAL."
+      },
+      "applications": [
+        {
+          "resultId": "gen-fk25-tree",
+          "graphs": [
+            "forest",
+            "path",
+            "oriented-path"
+          ],
+          "problems": [
+            "independent-set"
+          ],
+          "models": [
+            "CONGEST",
+            "LOCAL"
+          ]
+        },
+        {
+          "resultId": "gen-fk25-path-lower",
+          "graphs": [
+            "oriented-path",
+            "path",
+            "forest"
+          ],
+          "problems": [
+            "independent-set"
+          ],
+          "models": [
+            "LOCAL",
+            "CONGEST"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "high-girth-approximation-order",
+      "axis": "approximation-order",
+      "precision": "asymptotic",
+      "scopeLabel": "Approximation order · deterministic",
+      "parameterDomain": "k ≥ 1; fixed k-hop expansion bound and girth ≥ 4k+3; connected input.",
+      "statement": "The dependence k + f(k)^(k/(k+1)) is tight up to multiplicative constants.",
+      "upper": {
+        "resultIds": [
+          "pic-girth-sublinear"
+        ],
+        "url": "https://arxiv.org/html/2408.12998v1",
+        "title": "Lenzen–Wenning",
+        "location": "Theorem 1.5",
+        "statement": "This approximation order is achieved in 3k rounds with small anonymous messages."
+      },
+      "lower": {
+        "resultIds": [
+          "pic-girth-sublinear-lower"
+        ],
+        "url": "https://arxiv.org/html/2408.12998v1",
+        "title": "Lenzen–Wenning",
+        "location": "Theorem 1.6; Corollary 6; cycle observation",
+        "statement": "No deterministic n-independent algorithm improves the approximation order, even with identifiers."
+      },
+      "applications": [
+        {
+          "resultId": "pic-girth-sublinear",
+          "graphs": [
+            "girth-hop"
+          ],
+          "problems": [
+            "distance-dominating-set"
+          ],
+          "models": [
+            "Anonymous",
+            "CONGEST",
+            "LOCAL"
+          ]
+        },
+        {
+          "resultId": "pic-girth-sublinear-lower",
+          "graphs": [
+            "girth-hop"
+          ],
+          "problems": [
+            "distance-dominating-set"
+          ],
+          "models": [
+            "LOCAL",
+            "CONGEST"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "distance-k-round-threshold",
+      "axis": "rounds",
+      "precision": "threshold",
+      "scopeLabel": "Minimum k rounds · factor independent of Δ",
+      "parameterDomain": "k ≥ 2; fixed expansion bound at least 1; classes include trees of arbitrarily large degree.",
+      "statement": "Exactly k rounds are sufficient and necessary for a factor independent of Δ; the upper coefficient is not certified optimal.",
+      "upper": {
+        "resultIds": [
+          "pic-girth-pruning"
+        ],
+        "url": "https://arxiv.org/html/2408.12998v1",
+        "title": "Lenzen–Wenning",
+        "location": "Theorem 1.1",
+        "statement": "A factor 2k f(k)+1 is achieved in exactly k rounds."
+      },
+      "lower": {
+        "resultIds": [
+          "pic-girth-time-lower"
+        ],
+        "url": "https://arxiv.org/html/2408.12998v1",
+        "title": "Lenzen–Wenning",
+        "location": "Theorem 1.2; Corollary 1",
+        "statement": "At k−1 rounds a factor smaller than Δ is impossible already on trees."
+      },
+      "applications": [
+        {
+          "resultId": "pic-girth-pruning",
+          "graphs": [
+            "girth-hop",
+            "forest",
+            "degree-forest"
+          ],
+          "problems": [
+            "distance-dominating-set"
+          ],
+          "models": [
+            "Anonymous",
+            "CONGEST",
+            "LOCAL"
+          ]
+        },
+        {
+          "resultId": "pic-girth-time-lower",
+          "graphs": [
+            "degree-forest",
+            "forest",
+            "girth-hop"
+          ],
+          "problems": [
+            "distance-dominating-set"
+          ],
+          "models": [
+            "LOCAL",
+            "CONGEST"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arboricity-domination-rounds",
+      "axis": "rounds",
+      "precision": "asymptotic",
+      "scopeLabel": "Rounds · fixed arboricity α ≥ 2",
+      "parameterDomain": "Fixed α ≥ 2; known Δ for the upper; polylogarithmic approximation factors in Δ.",
+      "statement": "The degree-dependent round order is Θ(log Δ / log log Δ), not the approximation coefficient.",
+      "upper": {
+        "resultIds": [
+          "gen-af26-dom"
+        ],
+        "url": "https://arxiv.org/abs/2606.15411",
+        "title": "Alipour–Farokhnejad",
+        "location": "Abstract; main theorem",
+        "statement": "A deterministic CONGEST upper bound attains this round order with O(α log Δ / log log Δ) approximation and one-bit messages."
+      },
+      "lower": {
+        "resultIds": [
+          "dory-arboricity-lower"
+        ],
+        "url": "https://arxiv.org/pdf/2206.05174#page=3",
+        "title": "Dory–Ghaffari–Ilchi",
+        "location": "Theorem 1.4",
+        "statement": "The matching lower bound for constant or polylogarithmic approximation already holds at arboricity 2, even in LOCAL."
+      },
+      "applications": [
+        {
+          "resultId": "gen-af26-dom",
+          "graphs": [
+            "density",
+            "arboricity-two"
+          ],
+          "problems": [
+            "dominating-set"
+          ],
+          "models": [
+            "CONGEST",
+            "LOCAL"
+          ]
+        },
+        {
+          "resultId": "dory-arboricity-lower",
+          "graphs": [
+            "arboricity-two",
+            "density"
+          ],
+          "problems": [
+            "dominating-set"
+          ],
+          "models": [
+            "LOCAL",
+            "CONGEST"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dominating-logstar-rounds",
+      "axis": "rounds",
+      "precision": "asymptotic",
+      "scopeLabel": "Rounds in n · fixed ρ, b, ε",
+      "parameterDomain": "ρ ≥ 1; fixed positive integer b; fixed 0 < ε < 1/4; unit costs for MDS.",
+      "statement": "The n-dependence is Θ(log* n); parameter dependence is not certified.",
+      "upper": {
+        "resultIds": [
+          "gen-asw26-cover-det",
+          "derived-gen-asw26-cover-det--mds-to-local-covering"
+        ],
+        "url": "https://arxiv.org/pdf/2611.02057",
+        "title": "ASW26",
+        "location": "Theorem D(ii)",
+        "statement": "Integral local covering admits the upper bound; unit-cost MDS is a special case."
+      },
+      "lower": {
+        "resultIds": [
+          "gen-asw26-cycle-lower"
+        ],
+        "url": "https://arxiv.org/pdf/2611.02057",
+        "title": "ASW26",
+        "location": "Proposition C.1",
+        "statement": "The lower bound already holds for deterministic MDS on cycles."
+      },
+      "applications": [
+        {
+          "resultId": "gen-asw26-cover-det",
+          "graphs": [
+            "minor"
+          ],
+          "problems": [
+            "local-covering"
+          ],
+          "models": [
+            "CONGEST",
+            "LOCAL"
+          ]
+        },
+        {
+          "resultId": "derived-gen-asw26-cover-det--mds-to-local-covering",
+          "graphs": [
+            "minor",
+            "planar",
+            "outerplanar",
+            "euler",
+            "orientable",
+            "cycle"
+          ],
+          "problems": [
+            "dominating-set"
+          ],
+          "models": [
+            "CONGEST",
+            "LOCAL"
+          ]
+        },
+        {
+          "resultId": "gen-asw26-cycle-lower",
+          "graphs": [
+            "cycle",
+            "planar",
+            "outerplanar",
+            "euler",
+            "orientable"
+          ],
+          "problems": [
+            "dominating-set"
+          ],
+          "models": [
+            "LOCAL",
+            "CONGEST"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "minor-density-factor",
+      "axis": "ratio",
+      "precision": "exact",
+      "scopeLabel": "Ratio 2a+1 · integer a ≥ 1",
+      "parameterDomain": "Integer a ≥ 1; every minor has density at most a; lower path-power radius r=a.",
+      "statement": "The coefficient is tight on these density classes; round dependence on a is not certified.",
+      "upper": {
+        "resultIds": [
+          "gen-asw26-minordensity"
+        ],
+        "url": "https://arxiv.org/pdf/2611.02057",
+        "title": "ASW26",
+        "location": "Theorem C(i); Corollary 1.1",
+        "statement": "The upper coefficient is 2a+1 against fractional OPT."
+      },
+      "lower": {
+        "resultIds": [
+          "gen-as26-power-lower"
+        ],
+        "url": "https://arxiv.org/html/2610.09618v2#S8.SS4",
+        "title": "Amiri–Siebertz",
+        "location": "Theorem 8.7",
+        "statement": "Path powers of radius r have minor density at most r and exclude every coefficient below 2r+1."
+      },
+      "applications": [
+        {
+          "resultId": "gen-asw26-minordensity",
+          "graphs": [
+            "minor"
+          ],
+          "problems": [
+            "dominating-set"
+          ],
+          "models": [
+            "CONGEST",
+            "LOCAL"
+          ]
+        },
+        {
+          "resultId": "gen-as26-power-lower",
+          "graphs": [
+            "path-powers",
+            "treewidth",
+            "pathwidth"
+          ],
+          "problems": [
+            "dominating-set"
+          ],
+          "models": [
+            "LOCAL",
+            "CONGEST"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pathpower-leaves-factor",
+      "axis": "ratio",
+      "precision": "exact",
+      "scopeLabel": "Ratio 2t+1 · endpoint-leaf path powers",
+      "parameterDomain": "Integer t ≥ 1; identifiers in {1,…,n}; use a=t in the minor-density upper bound.",
+      "statement": "The endpoint-leaf lower bound is matched by the density-class upper bound.",
+      "upper": {
+        "resultIds": [
+          "gen-asw26-minordensity"
+        ],
+        "url": "https://arxiv.org/pdf/2611.02057",
+        "title": "ASW26",
+        "location": "Theorem C(i)",
+        "statement": "At a=t the upper coefficient is 2t+1."
+      },
+      "lower": {
+        "resultIds": [
+          "pic-thesis-pathpower-lower"
+        ],
+        "url": "https://timothepicavet.fr/others/thesis.pdf#page=148",
+        "title": "Picavet thesis",
+        "location": "Lemma V.2.1",
+        "statement": "For identifiers in {1,…,n} and every function f, an f(t)-round deterministic algorithm cannot beat 2t+1 on the stated path-power family."
+      },
+      "applications": [
+        {
+          "resultId": "pic-thesis-pathpower-lower",
+          "graphs": [
+            "path-powers-leaves"
+          ],
+          "problems": [
+            "dominating-set"
+          ],
+          "models": [
+            "LOCAL",
+            "CONGEST"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trianglefree-planar-factor-five",
+      "axis": "ratio",
+      "precision": "exact",
+      "scopeLabel": "Ratio 5 · triangle-free planar",
+      "parameterDomain": "Deterministic n-independent locality; integral benchmark.",
+      "statement": "The coefficient 5 is tight; runtime constants are not certified.",
+      "upper": {
+        "resultIds": [
+          "gen-asw26-trianglefree"
+        ],
+        "url": "https://arxiv.org/pdf/2611.02057",
+        "title": "ASW26",
+        "location": "Theorem C(iii)",
+        "statement": "Ratio 5 is achieved against fractional OPT."
+      },
+      "lower": {
+        "resultIds": [],
+        "url": "https://arxiv.org/pdf/2611.02057",
+        "title": "ASW26",
+        "location": "Proposition B.2; Corollary 1.1",
+        "statement": "Square-grid witnesses exclude every ratio below 5, even against integral OPT."
+      },
+      "applications": [
+        {
+          "resultId": "gen-asw26-trianglefree",
+          "graphs": [
+            "triangle-planar"
+          ],
+          "problems": [
+            "dominating-set"
+          ],
+          "models": [
+            "CONGEST",
+            "LOCAL"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "edge-domination-factor",
+      "axis": "ratio",
+      "precision": "exact",
+      "scopeLabel": "Ratio 4−1/⌊Δ/2⌋ · local algorithms",
+      "parameterDomain": "Δ ≥ 2; deterministic locality may depend on Δ but is independent of n.",
+      "statement": "The degree-dependent approximation coefficient is exactly tight; runtime dependence on Δ is not certified.",
+      "upper": {
+        "resultIds": [],
+        "url": "https://jukkasuomela.fi/doc/linear-order.pdf",
+        "title": "Göös–Hirvonen–Suomela",
+        "location": "Theorem 1.6",
+        "statement": "The theorem explicitly states a matching deterministic local upper bound."
+      },
+      "lower": {
+        "resultIds": [
+          "gen-ghs12-eds"
+        ],
+        "url": "https://jukkasuomela.fi/doc/linear-order.pdf",
+        "title": "Göös–Hirvonen–Suomela",
+        "location": "Theorem 1.6",
+        "statement": "The same coefficient is necessary on connected maximum-degree-Δ graphs, including algorithms with identifiers."
+      },
+      "applications": [
+        {
+          "resultId": "gen-ghs12-eds",
+          "graphs": [
+            "degree"
+          ],
+          "problems": [
+            "edge-dominating-set"
+          ],
+          "models": [
+            "LOCAL"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "total-domination-factor",
+      "axis": "ratio",
+      "precision": "exact",
+      "scopeLabel": "Ratio 2a · integer a ≥ 1 · fractional OPT",
+      "parameterDomain": "Integer a ≥ 1; isolate-free inputs; fractional total-domination benchmark.",
+      "statement": "Coefficient 2a is tight against fractional OPT; neither integral-benchmark tightness for a>1 nor optimal runtime is claimed.",
+      "upper": {
+        "resultIds": [
+          "gen-asw26-total"
+        ],
+        "url": "https://arxiv.org/pdf/2611.02057",
+        "title": "ASW26",
+        "location": "Theorem F.1(i)",
+        "statement": "The upper coefficient is 2a."
+      },
+      "lower": {
+        "resultIds": [],
+        "url": "https://arxiv.org/pdf/2611.02057",
+        "title": "ASW26",
+        "location": "Proposition F.13",
+        "statement": "Treewidth-a witnesses force coefficient 2a against fractional OPT."
+      },
+      "applications": [
+        {
+          "resultId": "gen-asw26-total",
+          "graphs": [
+            "minor"
+          ],
+          "problems": [
+            "total-dominating-set"
+          ],
+          "models": [
+            "CONGEST",
+            "LOCAL"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "minor-free-independent-n-rounds",
+      "axis": "rounds",
+      "precision": "asymptotic",
+      "scopeLabel": "Rounds in n · fixed nonplanar H, ε",
+      "parameterDomain": "Fixed nonplanar excluded minor H and fixed 0 < ε < 1/2.",
+      "statement": "The n-dependence is Θ(log* n); the additive inverse-accuracy term is not certified tight.",
+      "upper": {
+        "resultIds": [
+          "chang-independent-logstar"
+        ],
+        "url": "https://arxiv.org/pdf/2304.04699v2",
+        "title": "Chang",
+        "location": "Corollary 6.5",
+        "statement": "A deterministic CONGEST upper bound gives this n-dependence."
+      },
+      "lower": {
+        "resultIds": [],
+        "url": "https://arxiv.org/pdf/2304.04699v2",
+        "title": "Chang",
+        "location": "Theorem 6.1 and following lower-bound discussion",
+        "statement": "Paths and cycles require Ω(log* n) for fixed ε, already in LOCAL."
+      },
+      "applications": [
+        {
+          "resultId": "chang-independent-logstar",
+          "graphs": [
+            "minor",
+            "planar",
+            "outerplanar",
+            "forest",
+            "path",
+            "oriented-path",
+            "cycle"
+          ],
+          "problems": [
+            "independent-set"
+          ],
+          "models": [
+            "CONGEST",
+            "LOCAL"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arboricity-matching-n-rounds",
+      "axis": "rounds",
+      "precision": "asymptotic",
+      "scopeLabel": "Rounds in n · fixed α and ε",
+      "parameterDomain": "Fixed α ≥ 1 and fixed 0 < ε < 1/2.",
+      "statement": "The n-dependence is Θ(log* n); joint α and ε dependence is not certified.",
+      "upper": {
+        "resultIds": [
+          "arboricity-matching-logstar"
+        ],
+        "url": "https://link.springer.com/chapter/10.1007/978-3-642-10631-6_68",
+        "title": "Czygrinow–Hańćkowiak–Wawrzyniak",
+        "location": "Main approximation theorem",
+        "statement": "For fixed arboricity and accuracy, the deterministic LOCAL scheme uses O(log* n) rounds."
+      },
+      "lower": {
+        "resultIds": [],
+        "url": "https://arxiv.org/pdf/2304.04699v2",
+        "title": "Chang",
+        "location": "Theorem 6.1 and following reduction",
+        "statement": "The matching problem inherits the Ω(log* n) lower bound on paths and cycles."
+      },
+      "applications": [
+        {
+          "resultId": "arboricity-matching-logstar",
+          "graphs": [
+            "density",
+            "arboricity-two",
+            "forest",
+            "path",
+            "oriented-path",
+            "cycle"
+          ],
+          "problems": [
+            "maximum-matching"
+          ],
+          "models": [
+            "LOCAL"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fmatching-n-rounds",
+      "axis": "rounds",
+      "precision": "asymptotic",
+      "scopeLabel": "Rounds in n · fixed ε and expansion",
+      "parameterDomain": "Fixed 0 < ε < 1/2 and sub-logarithmic expansion bounds; unit capacities are allowed.",
+      "statement": "The worst-case n-dependence is Θ(log* n); accuracy, expansion and capacity dependence are not certified.",
+      "upper": {
+        "resultIds": [
+          "pic-sublog-fmatching"
+        ],
+        "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol212-isaac2021/LIPIcs.ISAAC.2021.59/LIPIcs.ISAAC.2021.59.pdf",
+        "title": "Czygrinow–Hańćkowiak–Witkowski",
+        "location": "Theorem 7",
+        "statement": "The f-matching scheme uses O(log* n) rounds for fixed parameters."
+      },
+      "lower": {
+        "resultIds": [],
+        "url": "https://arxiv.org/pdf/2304.04699v2",
+        "title": "Chang",
+        "location": "Theorem 6.1 and matching reduction",
+        "statement": "Unit capacities recover ordinary matching, whose path and cycle lower bound is Ω(log* n)."
+      },
+      "applications": [
+        {
+          "resultId": "pic-sublog-fmatching",
+          "graphs": [
+            "sublog",
+            "forest",
+            "path",
+            "oriented-path",
+            "cycle"
+          ],
+          "problems": [
+            "f-matching"
+          ],
+          "models": [
+            "LOCAL"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bmatching-n-rounds",
+      "axis": "rounds",
+      "precision": "asymptotic",
+      "scopeLabel": "Rounds in n · fixed ε, L and expansion",
+      "parameterDomain": "Fixed 0 < ε < 1/2, Lipschitz bound L and sub-logarithmic expansion bounds; unit capacities are allowed.",
+      "statement": "The worst-case n-dependence is Θ(log* n); the other parameter dependencies are not certified.",
+      "upper": {
+        "resultIds": [
+          "pic-sublog-bmatching"
+        ],
+        "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol212-isaac2021/LIPIcs.ISAAC.2021.59/LIPIcs.ISAAC.2021.59.pdf",
+        "title": "Czygrinow–Hańćkowiak–Witkowski",
+        "location": "Theorem 17",
+        "statement": "The b-matching scheme uses O(log* n) rounds for fixed parameters."
+      },
+      "lower": {
+        "resultIds": [],
+        "url": "https://arxiv.org/pdf/2304.04699v2",
+        "title": "Chang",
+        "location": "Theorem 6.1 and matching reduction",
+        "statement": "The unit-capacity case is ordinary matching and satisfies the Lipschitz promise; its path and cycle lower bound applies."
+      },
+      "applications": [
+        {
+          "resultId": "pic-sublog-bmatching",
+          "graphs": [
+            "sublog",
+            "forest",
+            "path",
+            "oriented-path",
+            "cycle"
+          ],
+          "problems": [
+            "b-matching"
+          ],
+          "models": [
+            "LOCAL"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pseudoforest-factor-three",
+      "axis": "ratio",
+      "precision": "exact",
+      "scopeLabel": "Ratio 3 · pseudoforests and forests",
+      "parameterDomain": "Unweighted inputs; initial own-degree knowledge for the one-round construction.",
+      "statement": "Ratio 3 is tight; this does not certify that all optimal-ratio algorithms need one round.",
+      "upper": {
+        "resultIds": [
+          "folklore-tree-mds"
+        ],
+        "url": "https://arxiv.org/pdf/2206.05174#page=17",
+        "title": "Dory–Ghaffari–Ilchi",
+        "location": "Appendix A, Observation A.1; elementary extension in the atlas",
+        "statement": "The documented forest rule has ratio 3. The explicit atlas proof extends it to pseudoforests."
+      },
+      "lower": {
+        "resultIds": [],
+        "url": "https://arxiv.org/pdf/2611.02057",
+        "title": "ASW26",
+        "location": "Corollary 1.1; Proposition B.2 with r=1",
+        "statement": "Paths rule out every coefficient below 3."
+      },
+      "applications": [
+        {
+          "resultId": "folklore-tree-mds",
+          "graphs": [
+            "pseudoforest",
+            "forest",
+            "degree-forest",
+            "path",
+            "oriented-path"
+          ],
+          "problems": [
+            "dominating-set"
+          ],
+          "models": [
+            "CONGEST",
+            "LOCAL"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "anonymous-vertex-cover-factor-two",
+      "axis": "ratio",
+      "precision": "exact",
+      "scopeLabel": "Ratio 2 · anonymous port numbering",
+      "parameterDomain": "Deterministic anonymous port numbering; positive integer weights; fixed degree and weight range for locality.",
+      "statement": "The approximation ratio is exactly tight in this reviewed anonymous setting; runtime dependence on Δ and W is not certified.",
+      "upper": {
+        "resultIds": [
+          "gen-as10-vc"
+        ],
+        "url": "https://jukkasuomela.fi/doc/vc-sc.pdf",
+        "title": "Åstrand–Suomela",
+        "location": "Theorem 1 and vertex-cover reduction",
+        "statement": "The algorithm gives a weighted vertex cover of factor 2."
+      },
+      "lower": {
+        "resultIds": [],
+        "url": "https://jukkasuomela.fi/doc/linear-order.pdf",
+        "title": "Göös–Hirvonen–Suomela",
+        "location": "Section 1.4, vertex-cover approximability",
+        "statement": "No deterministic local algorithm improves factor 2, even with identifiers; this includes the anonymous model."
+      },
+      "applications": [
+        {
+          "resultId": "gen-as10-vc",
+          "graphs": [
+            "general"
+          ],
+          "problems": [
+            "vertex-cover"
+          ],
+          "models": [
+            "Anonymous"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "regular-vertex-cover-factor-two",
+      "axis": "ratio",
+      "precision": "exact",
+      "scopeLabel": "Ratio 2 · positive-degree regular graphs",
+      "parameterDomain": "Unweighted regular graphs of positive degree; zero-round algorithm.",
+      "statement": "Ratio 2 is tight over this family, using the cycle subclass as a lower-bound witness.",
+      "upper": {
+        "resultIds": [
+          "folklore-regular-vc"
+        ],
+        "url": "https://dept-info.labri.fr/~gavoille/article/BGPW25.pdf#page=2",
+        "title": "Bonamy–Gavoille–Picavet–Wesolek",
+        "location": "Introduction, footnote 1; elementary edge-count proof",
+        "statement": "Selecting every vertex gives factor 2 without communication."
+      },
+      "lower": {
+        "resultIds": [],
+        "url": "https://jukkasuomela.fi/doc/linear-order.pdf",
+        "title": "Göös–Hirvonen–Suomela",
+        "location": "Section 1.4, vertex-cover approximability and cycle lower bound",
+        "statement": "A factor below 2 on cycles would yield a nontrivial independent set in constant time; cycles are regular."
+      },
+      "applications": [
+        {
+          "resultId": "folklore-regular-vc",
+          "graphs": [
+            "regular",
+            "cycle"
+          ],
+          "problems": [
+            "vertex-cover"
+          ],
+          "models": [
+            "CONGEST",
+            "LOCAL"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "outside-k-planar-factor",
+      "axis": "ratio",
+      "precision": "exact",
+      "scopeLabel": "Ratio k/(k−2) · k ∈ {3,4,5,6}",
+      "parameterDomain": "k ∈ {3,4,5,6}; outside-solution k-domination on planar graphs; deterministic n-independent locality.",
+      "statement": "For these four values of k, the zero-round approximation coefficient is exactly tight.",
+      "upper": {
+        "resultIds": [
+          "planar-k-dom-trivial"
+        ],
+        "url": "https://link.springer.com/chapter/10.1007/978-3-319-14472-6_4",
+        "title": "Czygrinow–Hańćkowiak–Szymańska–Wawrzyniak–Witkowski",
+        "location": "Abstract; trivial algorithm",
+        "statement": "Selecting all vertices without communication gives ratio k/(k−2)."
+      },
+      "lower": {
+        "resultIds": [
+          "planar-k-dom-lower"
+        ],
+        "url": "https://link.springer.com/chapter/10.1007/978-3-319-14472-6_4",
+        "title": "Czygrinow–Hańćkowiak–Szymańska–Wawrzyniak–Witkowski",
+        "location": "Abstract; matching lower bound",
+        "statement": "The matching lower bound allows identifiers and certifies k=3,4,5,6 only."
+      },
+      "applications": [
+        {
+          "resultId": "planar-k-dom-trivial",
+          "graphs": [
+            "planar"
+          ],
+          "problems": [
+            "outside-k-domination"
+          ],
+          "models": [
+            "Anonymous",
+            "CONGEST",
+            "LOCAL"
+          ]
+        },
+        {
+          "resultId": "planar-k-dom-lower",
+          "graphs": [
+            "planar"
+          ],
+          "problems": [
+            "outside-k-domination"
+          ],
+          "models": [
+            "LOCAL",
+            "CONGEST"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "long-cycle-distance-factor",
+      "axis": "ratio",
+      "precision": "exact",
+      "scopeLabel": "Cycles, f(k)=1 · k=r>1, r=o(log* n)",
+      "parameterDomain": "k=r>1, r=o(log* n), fixed accuracy gap ε>0; cycles of length at least 4r+3; O(r) rounds.",
+      "statement": "On this cycle specialization the coefficient 2r+1 is tight within O(r) rounds.",
+      "upper": {
+        "resultIds": [
+          "pic-girth-pruning"
+        ],
+        "url": "https://arxiv.org/html/2408.12998v1#S1",
+        "title": "Lenzen–Wenning",
+        "location": "Theorem 1.1 specialized to cycles",
+        "statement": "Every cycle has k-hop expansion bound 1; the k-round ratio 2k f(k)+1 specializes to 2r+1."
+      },
+      "lower": {
+        "resultIds": [
+          "pic-girth-cycle-lower"
+        ],
+        "url": "https://arxiv.org/pdf/1910.02794#page=5",
+        "title": "Amiri–Wiederhake",
+        "location": "Theorem 2",
+        "statement": "In O(r) deterministic LOCAL rounds, ratio 2r+1−ε is impossible for the stated r and cycle lengths."
+      },
+      "applications": [
+        {
+          "resultId": "pic-girth-pruning",
+          "graphs": [
+            "long-cycle"
+          ],
+          "problems": [
+            "distance-dominating-set"
+          ],
+          "models": [
+            "Anonymous",
+            "CONGEST",
+            "LOCAL"
+          ]
+        },
+        {
+          "resultId": "pic-girth-cycle-lower",
+          "graphs": [
+            "long-cycle"
+          ],
+          "problems": [
+            "distance-dominating-set"
+          ],
+          "models": [
+            "LOCAL",
+            "CONGEST"
+          ]
+        }
+      ]
+    }
+  ]
+}

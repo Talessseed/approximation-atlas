@@ -1,0 +1,46 @@
+{
+  "checked": "2026-11-17",
+  "resultId": "pic-thesis-genus-distance-dom",
+  "finding": "Missing literature-review annotation, with no certified dominator. Add SOTA in the source setting for the general distance-k guarantee.",
+  "setting": {
+    "problem": "Distance-k dominating set",
+    "graphClass": "Euler genus ≤ g",
+    "variant": "Unweighted",
+    "model": "Deterministic LOCAL",
+    "approximation": "k^{O(k)}",
+    "rounds": "f(g,k)",
+    "noGirthRestriction": true
+  },
+  "evidence": [
+    {
+      "url": "https://timothepicavet.fr/others/thesis.pdf#page=238",
+      "location": "Theorem X.2.5 and following paragraph; Meta-Theorem I; Proposition III.7.6",
+      "conclusion": "The explicit genus transfer yields 3α(k)+1=k^{O(k)} from the planar distance-k algorithm; the ratio is independent of genus, while the rounds may depend on g and k."
+    }
+  ],
+  "comparisons": [
+    {
+      "url": "https://arxiv.org/abs/1702.02848",
+      "conclusion": "Bounded-expansion distance-r domination uses O(r² log n) rounds and does not dominate rounds independent of n."
+    },
+    {
+      "url": "https://arxiv.org/html/2408.12998v1",
+      "conclusion": "The k- and 3k-round points require girth at least 4k+3, a restriction absent from the full bounded-genus class."
+    },
+    {
+      "url": "https://arxiv.org/abs/2203.03229",
+      "conclusion": "The parameter-round distance algorithm requires K₂,t minor exclusion; the approximation scheme has log-star dependence on n."
+    },
+    {
+      "url": "https://arxiv.org/abs/2610.31203",
+      "conclusion": "Ordinary MDS results do not dominate a theorem for general distance k."
+    }
+  ],
+  "limits": [
+    "No tightness or optimal g,k round dependence is certified.",
+    "Special parameter values, including ordinary MDS at k=1, can have better numerical ratios.",
+    "The ratio depends on k, so the constant-approximation-ratio filter must still exclude it.",
+    "Applicability on subclasses does not automatically confer SOTA there."
+  ],
+  "presentation": "Certificate conditions reference the existing source setting; no additional narrower badge qualifier or repeated setting facts."
+}

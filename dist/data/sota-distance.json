@@ -1,0 +1,12 @@
+{
+  "checked": "2026-11-17",
+  "entries": [
+    {
+      "resultId": "pic-thesis-genus-distance-dom",
+      "scopeLabel": "General distance-k guarantee; ratio independent of g",
+      "setting": "Unweighted distance-k dominating set on graphs of Euler genus at most g; fixed integer k ≥ 1 and genus bound g ≥ 0; deterministic LOCAL with distinct identifiers, unrestricted messages and local computation; approximation k^{O(k)}, independent of g, in f(g,k) rounds independent of n. No girth restriction.",
+      "reason": "The paragraph following Theorem X.2.5 explicitly extends the planar algorithm using Meta-Theorem I and Proposition III.7.6. Its approximation ratio depends only on the distance parameter, while its round complexity may depend on both distance and genus. Faster planar and high-girth results require smaller graph classes; schemes with log-star or logarithmic dependence on n do not dominate this round complexity independent of n. This certifies the general distance-k tradeoff, without claiming the best coefficient at every special value of k, tightness or optimal parameter dependence.",
+      "evidenceUrl": "https://timothepicavet.fr/others/thesis.pdf#page=238"
+    }
+  ]
+}

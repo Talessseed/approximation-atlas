@@ -1,0 +1,1124 @@
+{
+  "version": 1,
+  "checked": "2026-11-16",
+  "description": "A→B means that an algorithm for B can solve A under the stated construction and assumptions. T is the source runtime on the displayed virtual instance; α is its approximation guarantee in the stated minimization or maximization convention. Exact schedules are shown only when the construction certifies them. Conditional simulations require matching the source graph class, coefficients, costs and initial information. LP relaxation alone gives no integral solution.",
+  "notation": {
+    "T": "T",
+    "T + 1": "T+1",
+    "2T": "2T",
+    "O(T + 1)": "O(T+1)",
+    "α → α": "\\alpha\\longmapsto\\alpha",
+    "α → 2α": "\\alpha\\longmapsto2\\alpha",
+    "G": "G",
+    "n": "n",
+    "Δ": "\\Delta",
+    "2n": "2n",
+    "Δ + 1": "\\Delta+1",
+    "n + m": "n+m",
+    "max{Δ,2}": "\\max\\{\\Delta,2\\}",
+    "m ≤ nΔ/2": "m\\le n\\Delta/2",
+    "2Δ − 2": "2\\Delta-2",
+    "Inc(N[G])": "\\operatorname{Inc}(N[G])",
+    "Inc(E,V)": "\\operatorname{Inc}(E,V)",
+    "L(G)": "L(G)",
+    "Rounding required": "\\text{Rounding required}",
+    "No integral guarantee": "\\text{No integral guarantee}",
+    "m": "m",
+    "Δ_L": "\\Delta_L",
+    "n + 2m": "n+2m",
+    "n+2m": "n+2m",
+    "2m": "2m",
+    "m_L": "m_L",
+    "m_L = Σ_v binom(deg(v),2)": "m_L=\\sum_{v\\in V(G)}\\binom{\\deg(v)}{2}",
+    "T + 4": "T+4",
+    "α → 3α": "\\alpha\\mapsto3\\alpha",
+    "α → (1 + 2∇₁)α": "\\alpha\\mapsto(1+2\\nabla_1)\\alpha",
+    "1 + 2∇₁": "1+2\\nabla_1"
+  },
+  "entries": [
+    {
+      "id": "mds-to-local-covering",
+      "title": "Closed-neighborhood requests",
+      "from": "dominating-set",
+      "to": "local-covering",
+      "kind": "specialization",
+      "status": "automatic",
+      "runtime": "T",
+      "guarantee": "α → α",
+      "instance": {
+        "graph": "G",
+        "vertices": "n",
+        "degree": "Δ",
+        "description": "The original communication graph and its structural parameters are unchanged."
+      },
+      "models": [
+        "LOCAL",
+        "CONGEST",
+        "Anonymous",
+        "SUPPORTED"
+      ],
+      "conditions": [
+        "Make every vertex a request and put C(v)=N[v]. Both endpoints know every physical incidence, and a vertex knows its self-incidence; no communication is needed to construct these flags.",
+        "Set all costs to one for unweighted MDS; weighted MDS retains the chosen algorithm’s cost bounds. The optimum and output vertex set are preserved.",
+        "The algorithm’s graph promise, randomness, weight encoding, identifiers and any global parameter knowledge remain required.",
+        "T denotes the source algorithm’s round complexity on the displayed instance, with all of its parameters instantiated."
+      ],
+      "summary": "A local-covering algorithm directly solves ordinary domination on the same graph.",
+      "source": {
+        "title": "Amiri, Siebertz and Wawrzyniak, Paying for Fractional Error",
+        "url": "https://arxiv.org/pdf/2611.02057#page=43",
+        "location": "Section 6.6; Appendix D"
+      },
+      "automatic": {
+        "upper": true,
+        "lower": true,
+        "sourceProblem": "local-covering",
+        "targetProblem": "dominating-set"
+      },
+      "relation": {
+        "special": "dominating-set",
+        "general": "local-covering"
+      },
+      "examples": [
+        {
+          "resultId": "gen-asw26-cover-det",
+          "notes": "Unit costs give a deterministic dominating-set scheme; the source ID-bound assumption remains."
+        },
+        {
+          "resultId": "gen-asw26-cover-random",
+          "notes": "Unit costs preserve feasibility and the source expected-cost guarantee."
+        }
+      ],
+      "engine": {
+        "mode": "identity",
+        "sourceScopes": [
+          "local-covering"
+        ],
+        "graphMap": "same",
+        "substitutions": {},
+        "cost": "T",
+        "factor": "identity",
+        "targetVariant": "preserve",
+        "upper": true,
+        "lower": true,
+        "assumptions": [
+          "Instantiate requests V and candidate sets C(v)=N[v]; unit costs give unweighted domination."
+        ]
+      }
+    },
+    {
+      "id": "total-domination-to-local-covering",
+      "title": "Open-neighborhood requests",
+      "from": "total-dominating-set",
+      "to": "local-covering",
+      "kind": "specialization",
+      "status": "automatic",
+      "runtime": "T",
+      "guarantee": "α → α",
+      "instance": {
+        "graph": "G",
+        "vertices": "n",
+        "degree": "Δ",
+        "description": "The original communication graph and its structural parameters are unchanged."
+      },
+      "models": [
+        "LOCAL",
+        "CONGEST",
+        "Anonymous",
+        "SUPPORTED"
+      ],
+      "conditions": [
+        "Make every vertex a request and put C(v)=N(v), excluding self-coverage. These incidence flags are locally known from the input edges.",
+        "The input must have no isolated vertices. Use unit costs for the unweighted problem; retain cost restrictions in weighted instances.",
+        "The algorithm’s graph promise, randomness, weight encoding, identifiers and any global parameter knowledge remain required.",
+        "T denotes the source algorithm’s round complexity on the displayed instance, with all of its parameters instantiated."
+      ],
+      "summary": "Replacing closed by open neighborhoods gives total domination without altering the graph.",
+      "source": {
+        "title": "Amiri, Siebertz and Wawrzyniak, Paying for Fractional Error",
+        "url": "https://arxiv.org/pdf/2611.02057#page=43",
+        "location": "Section 6.6; Appendix D"
+      },
+      "automatic": {
+        "upper": true,
+        "lower": true,
+        "sourceProblem": "local-covering",
+        "targetProblem": "total-dominating-set"
+      },
+      "relation": {
+        "special": "total-dominating-set",
+        "general": "local-covering"
+      },
+      "examples": [
+        {
+          "resultId": "gen-asw26-cover-det",
+          "notes": "Instantiate open neighborhoods on an isolate-free graph."
+        },
+        {
+          "resultId": "gen-asw26-cover-random",
+          "notes": "The always-feasible expected-cost scheme retains its original probability convention."
+        }
+      ],
+      "engine": {
+        "mode": "identity",
+        "sourceScopes": [
+          "local-covering"
+        ],
+        "graphMap": "same",
+        "substitutions": {},
+        "cost": "T",
+        "factor": "identity",
+        "targetVariant": "preserve",
+        "upper": true,
+        "lower": true,
+        "assumptions": [
+          "Instantiate requests V and candidate sets C(v)=N(v); the input has no isolated vertices."
+        ]
+      }
+    },
+    {
+      "id": "client-domination-to-local-covering",
+      "title": "Prescribed client requests",
+      "from": "client-dominating-set",
+      "to": "local-covering",
+      "kind": "specialization",
+      "status": "automatic",
+      "runtime": "T + 1",
+      "guarantee": "α → α",
+      "instance": {
+        "graph": "G",
+        "vertices": "n",
+        "degree": "Δ",
+        "description": "The original communication graph and its structural parameters are unchanged."
+      },
+      "models": [
+        "LOCAL",
+        "CONGEST",
+        "Anonymous",
+        "SUPPORTED"
+      ],
+      "conditions": [
+        "Use the client set R as the requests and put C(r)=N[r]. Each client initially knows its own membership in R.",
+        "One setup round broadcasts client membership so both endpoints know request–candidate incidences. If these incidence flags are already supplied, the setup round can be omitted.",
+        "Preserve any preprocessing allowed by SUPPORTED and every other source input convention.",
+        "Upper-bound examples include this one-round setup. A client lower bound would shift by one round under this convention; unchanged exact lower-bound import is therefore disabled.",
+        "The algorithm’s graph promise, randomness, weight encoding, identifiers and any global parameter knowledge remain required.",
+        "T denotes the source algorithm’s round complexity on the displayed instance, with all of its parameters instantiated."
+      ],
+      "summary": "Designated-client domination is local covering, with an explicit setup cost for its labels.",
+      "source": {
+        "title": "Amiri, Siebertz and Wawrzyniak, Paying for Fractional Error",
+        "url": "https://arxiv.org/pdf/2611.02057#page=43",
+        "location": "Section 6.6; Appendix D"
+      },
+      "automatic": {
+        "upper": true,
+        "lower": false,
+        "sourceProblem": "local-covering",
+        "targetProblem": "client-dominating-set"
+      },
+      "relation": {
+        "special": "client-dominating-set",
+        "general": "local-covering"
+      },
+      "examples": [
+        {
+          "resultId": "gen-asw26-cover-det",
+          "notes": "Add one client-label broadcast unless incidence flags are already known."
+        }
+      ],
+      "engine": {
+        "mode": "identity",
+        "sourceScopes": [
+          "local-covering"
+        ],
+        "graphMap": "same",
+        "substitutions": {},
+        "cost": "T+1",
+        "factor": "identity",
+        "targetVariant": "preserve",
+        "upper": true,
+        "lower": false,
+        "assumptions": [
+          "Instantiate the client requests R and C(r)=N[r]. One setup round advertises membership in R, unless those incidence flags are initially supplied."
+        ]
+      }
+    },
+    {
+      "id": "fractional-domination-to-local-covering",
+      "title": "Fractional closed neighborhoods",
+      "from": "fractional-dominating-set",
+      "to": "fractional-local-covering",
+      "kind": "specialization",
+      "status": "automatic",
+      "runtime": "T",
+      "guarantee": "α → α",
+      "instance": {
+        "graph": "G",
+        "vertices": "n",
+        "degree": "Δ",
+        "description": "The original communication graph and its structural parameters are unchanged."
+      },
+      "models": [
+        "LOCAL",
+        "CONGEST",
+        "Anonymous",
+        "SUPPORTED"
+      ],
+      "conditions": [
+        "Use requests V, candidates C(v)=N[v], and the same nonnegative vertex variables. These flags are locally constructible.",
+        "The fractional feasible region and objective are identical. Use unit costs for the unweighted relaxation; a weighted algorithm must accept the supplied costs.",
+        "This produces fractional vertex values, not an integral dominating set.",
+        "The algorithm’s graph promise, randomness, weight encoding, identifiers and any global parameter knowledge remain required.",
+        "T denotes the source algorithm’s round complexity on the displayed instance, with all of its parameters instantiated."
+      ],
+      "summary": "Fractional domination is an exact same-graph instance of fractional local covering.",
+      "source": {
+        "title": "Amiri, Siebertz and Wawrzyniak, Paying for Fractional Error",
+        "url": "https://arxiv.org/pdf/2611.02057#page=43",
+        "location": "Section 6.6; Appendix D"
+      },
+      "automatic": {
+        "upper": true,
+        "lower": true,
+        "sourceProblem": "fractional-local-covering",
+        "targetProblem": "fractional-dominating-set"
+      },
+      "relation": {
+        "special": "fractional-dominating-set",
+        "general": "fractional-local-covering"
+      },
+      "examples": [
+        {
+          "resultId": "gen-asw26-fractional",
+          "notes": "Unit costs and closed neighborhoods give a fractional dominating-set scheme."
+        }
+      ],
+      "engine": {
+        "mode": "identity",
+        "sourceScopes": [
+          "fractional-local-covering"
+        ],
+        "graphMap": "same",
+        "substitutions": {},
+        "cost": "T",
+        "factor": "identity",
+        "targetVariant": "preserve",
+        "upper": true,
+        "lower": true,
+        "assumptions": [
+          "Instantiate requests V and candidate sets C(v)=N[v]; retain fractional output."
+        ]
+      }
+    },
+    {
+      "id": "mds-to-set-cover",
+      "title": "Neighborhood set cover",
+      "from": "dominating-set",
+      "to": "set-cover",
+      "kind": "simulation",
+      "status": "conditional",
+      "runtime": "2T",
+      "guarantee": "α → α",
+      "instance": {
+        "graph": "Inc(N[G])",
+        "vertices": "2n",
+        "degree": "Δ + 1",
+        "description": "One variable/set copy and one request/element copy per vertex, with a virtual edge for membership in a closed neighborhood. Self-membership is a local virtual edge."
+      },
+      "models": [
+        "LOCAL",
+        "CONGEST",
+        "Anonymous"
+      ],
+      "conditions": [
+        "Use universe V and the set N[v] for each candidate vertex v, with the candidate’s cost. A chosen set corresponds to choosing its vertex, so integral OPT is unchanged.",
+        "Each real vertex hosts its two virtual copies. Precompute both outgoing message sets at a virtual round’s start, then deliver the set-copy and element-copy messages in two physical phases. This gives the displayed 2T schedule, including T=0.",
+        "The maximum set size and element frequency are both at most Δ+1. Any source theorem’s initial labels and global parameter knowledge must be supplied or their setup cost added.",
+        "Apply graph-class assumptions to the transformed incidence graph. Planarity is not preserved: planar K4 has closed-neighborhood incidence graph K4,4.",
+        "The displayed CONGEST simulation is per-edge. Additional broadcast or stronger anonymity conventions must be checked for the particular algorithm.",
+        "The transformed closed-neighborhood incidence graph has exactly n+2m edges: n self-incidences and two incidences for every original edge."
+      ],
+      "summary": "A dominating-set instance becomes integral set cover; the communication representation changes.",
+      "source": {
+        "title": "Kuhn and Wattenhofer, Constant-time distributed dominating set approximation",
+        "url": "https://disco.ethz.ch/publications/distcomp05.pdf#page=2",
+        "location": "Section 4; the incidence simulation is specified here"
+      },
+      "relation": {
+        "special": "dominating-set",
+        "general": "set-cover"
+      },
+      "examples": [
+        {
+          "resultId": "gen-as10-setcover",
+          "notes": "For vertex weights at most W, substituting set size and frequency Δ+1 yields a weighted (Δ+1)-approximation in O((Δ+1)^4+(Δ+1)^2 log* W) rounds; anonymity conditions remain."
+        }
+      ],
+      "engine": {
+        "mode": "simulation",
+        "sourceScopes": [
+          "set-cover"
+        ],
+        "graphMap": {
+          "incidence": "general",
+          "bounded-incidence": "general",
+          "general": "general"
+        },
+        "substitutions": {
+          "n": "2n",
+          "Δ": "Δ+1",
+          "f": "Δ+1",
+          "k": "Δ+1",
+          "m": "n+2m"
+        },
+        "cost": "2T",
+        "factor": "identity",
+        "targetVariant": "preserve",
+        "upper": true,
+        "lower": false,
+        "assumptions": [
+          "Closed-neighborhood incidence network; each processor hosts a set-copy and an element-copy. Two role phases simulate one source round.",
+          "Both set size and element frequency are at most Δ+1. Global algorithm inputs and stronger broadcast conventions require the source assumptions.",
+          "Planar-incidence source algorithms are excluded: planar K4 transforms to K4,4."
+        ]
+      }
+    },
+    {
+      "id": "vertex-cover-to-set-cover",
+      "title": "Edges as universe elements",
+      "from": "vertex-cover",
+      "to": "set-cover",
+      "kind": "simulation",
+      "status": "conditional",
+      "runtime": "T + 1",
+      "guarantee": "α → α",
+      "instance": {
+        "graph": "Inc(E,V)",
+        "vertices": "n + m",
+        "degree": "max{Δ,2}",
+        "description": "The vertex–edge incidence graph, obtained by subdividing each original edge once. Original-vertex processors have degree at most Δ; edge processors have degree two."
+      },
+      "models": [
+        "LOCAL",
+        "CONGEST"
+      ],
+      "conditions": [
+        "Use universe E and one set of incident edges for each vertex, with the same vertex cost. Every element has frequency two, and each set has size at most Δ.",
+        "A one-round identifier exchange lets endpoints agree on ownership and unique identifiers for virtual edge processors. One incidence round can then be simulated in one physical round, with local messages at the owner delivered locally. If the necessary endpoint identifiers are initially known, the setup can be omitted.",
+        "The source theorem’s global instance-size or degree information must also be supplied; obtaining it is not hidden in T+1.",
+        "Subdividing edges preserves planarity, but arbitrary incidence-network and minor promises still need checking. A generic per-edge simulation does not preserve a broadcast-only restriction.",
+        "Anonymous broadcast algorithms can sometimes avoid identifier-based ownership; such a specialized simulation is not certified by this generic recipe.",
+        "The displayed maximum degree max{Δ,2} applies when G has at least one edge. An edgeless instance is handled locally with the empty output; it is not passed to the incidence algorithm.",
+        "The edge-subdivision incidence graph has exactly 2m edges, with two incidences for each original edge."
+      ],
+      "summary": "Vertex cover is set cover of the edges; its incidence graph is an edge subdivision.",
+      "source": {
+        "title": "Åstrand and Suomela, Fast distributed approximation algorithms for vertex cover and set cover in anonymous networks",
+        "url": "https://jukkasuomela.fi/doc/vc-sc.pdf",
+        "location": "Sections 1 and 5; edge-processor simulation specified here"
+      },
+      "relation": {
+        "special": "vertex-cover",
+        "general": "set-cover"
+      },
+      "examples": [
+        {
+          "resultId": "gen-asw26-setcover",
+          "notes": "On planar G, edge subdivision supplies a planar incidence graph; retain bounded costs and use the ordinary CONGEST simulation, without inferring a broadcast implementation."
+        }
+      ],
+      "engine": {
+        "mode": "simulation",
+        "sourceScopes": [
+          "set-cover"
+        ],
+        "graphMap": {
+          "incidence": "general",
+          "bounded-incidence": "general",
+          "planar-incidence": "planar",
+          "general": "general"
+        },
+        "substitutions": {
+          "n": "n+m",
+          "Δ": "max{Δ,2}",
+          "f": "2",
+          "k": "Δ",
+          "m": "2m"
+        },
+        "cost": "T+1",
+        "factor": "identity",
+        "targetVariant": "preserve",
+        "upper": true,
+        "lower": false,
+        "assumptions": [
+          "Universe E with one incident-edge set per original vertex; the incidence graph subdivides every edge.",
+          "One identifier-exchange setup round assigns virtual edge processors. Source global algorithm inputs must already be supplied or separately obtained.",
+          "For the simulated algorithm, G has at least one edge. Edgeless instances have an empty optimal output handled locally."
+        ]
+      }
+    },
+    {
+      "id": "fractional-domination-to-covering-lp",
+      "title": "Closed-neighborhood covering matrix",
+      "from": "fractional-dominating-set",
+      "to": "covering-lp",
+      "kind": "simulation",
+      "status": "conditional",
+      "runtime": "2T",
+      "guarantee": "α → α",
+      "instance": {
+        "graph": "Inc(N[G])",
+        "vertices": "2n",
+        "degree": "Δ + 1",
+        "description": "One variable/set copy and one request/element copy per vertex, with a virtual edge for membership in a closed neighborhood. Self-membership is a local virtual edge."
+      },
+      "models": [
+        "LOCAL",
+        "CONGEST"
+      ],
+      "conditions": [
+        "Use A_uv=1 when u belongs to N[v], and zero otherwise, with one covering constraint per original vertex. Variables remain fractional.",
+        "Host variable and constraint copies at each real vertex and simulate a virtual round in two role phases. The objective is preserved after any required cost normalization.",
+        "The source algorithm’s coefficient, precision, normalization and initial-information assumptions must hold; these are not consequences of graph inclusion.",
+        "In the unweighted 0–1 instance, maximum row and column sums are both Δ+1. Planarity of G does not imply planarity of this incidence graph.",
+        "The transformed closed-neighborhood incidence graph has exactly n+2m edges: n self-incidences and two incidences for every original edge."
+      ],
+      "summary": "The fractional domination relaxation is a positive covering LP on a doubled incidence network.",
+      "source": {
+        "title": "Li, Ouyang and Wang, A Simple Distributed Algorithm for Sparse Fractional Covering and Packing Problems",
+        "url": "https://arxiv.org/html/2409.16168v1#S1",
+        "location": "Section 1 (positive LPs and incidence communication); Theorem 2.1"
+      },
+      "examples": [
+        {
+          "resultId": "gen-low24-cover",
+          "notes": "For unit costs, Γd=Γp=Δ+1 gives O((Δ+1) log(Δ+1)/ε²) simulated rounds, with logarithms interpreted as in the source."
+        }
+      ],
+      "engine": {
+        "mode": "simulation",
+        "sourceScopes": [
+          "covering-lp"
+        ],
+        "graphMap": {
+          "incidence": "general",
+          "general": "general"
+        },
+        "substitutions": {
+          "n": "2n",
+          "Δ": "Δ+1",
+          "Γd": "Δ+1",
+          "Γₚ": "Δ+1",
+          "Γp": "Δ+1",
+          "Amax": "1",
+          "m": "n+2m"
+        },
+        "cost": "2T",
+        "factor": "identity",
+        "targetVariant": "Unweighted",
+        "upper": true,
+        "lower": false,
+        "assumptions": [
+          "Use the unweighted 0–1 closed-neighborhood covering matrix, with Γd=Γp=Δ+1; retain fractional output.",
+          "Source normalized-coefficient, precision, bit-encoding and supplied-parameter assumptions remain."
+        ]
+      }
+    },
+    {
+      "id": "fractional-vertex-cover-to-covering-lp",
+      "title": "Edge constraints",
+      "from": "fractional-vertex-cover",
+      "to": "covering-lp",
+      "kind": "simulation",
+      "status": "conditional",
+      "runtime": "T + 1",
+      "guarantee": "α → α",
+      "instance": {
+        "graph": "Inc(E,V)",
+        "vertices": "n + m",
+        "degree": "max{Δ,2}",
+        "description": "The vertex–edge incidence graph, obtained by subdividing each original edge once. Original-vertex processors have degree at most Δ; edge processors have degree two."
+      },
+      "models": [
+        "LOCAL",
+        "CONGEST"
+      ],
+      "conditions": [
+        "Use one variable x_v per vertex and the inequality x_u+x_v≥1 for every edge uv. The positive objective uses the original vertex costs.",
+        "Use identifier-based edge-processor ownership with at most one setup round, as in the vertex-cover incidence simulation. Any extra global algorithm input must be supplied separately.",
+        "For unit costs, each row has sum two and each column has sum at most Δ. Weighted normalization must meet the chosen LP algorithm’s coefficient and encoding requirements.",
+        "The output is fractional. Integral vertex cover requires a separate rounding step, such as the threshold recipe.",
+        "The displayed maximum degree max{Δ,2} applies when G has at least one edge. An edgeless instance is handled locally with the empty output; it is not passed to the incidence algorithm.",
+        "The edge-subdivision incidence graph has exactly 2m edges, with two incidences for each original edge."
+      ],
+      "summary": "Fractional vertex cover is a row-sparse positive covering LP on the vertex–edge incidence graph.",
+      "source": {
+        "title": "Li, Ouyang and Wang, A Simple Distributed Algorithm for Sparse Fractional Covering and Packing Problems",
+        "url": "https://arxiv.org/html/2409.16168v1#S1",
+        "location": "Section 1 (positive LPs and incidence communication); Theorem 2.1"
+      },
+      "examples": [
+        {
+          "resultId": "gen-low24-cover",
+          "notes": "For the unweighted matrix, Γd=2 and Γp≤Δ; the source bound becomes O(log Δ/ε²) plus setup, with truncated logarithms."
+        }
+      ],
+      "engine": {
+        "mode": "simulation",
+        "sourceScopes": [
+          "covering-lp"
+        ],
+        "graphMap": {
+          "incidence": "general",
+          "planar-incidence": "planar",
+          "general": "general"
+        },
+        "substitutions": {
+          "n": "n+m",
+          "Δ": "max{Δ,2}",
+          "Γd": "2",
+          "Γₚ": "Δ",
+          "Γp": "Δ",
+          "Amax": "1",
+          "m": "2m"
+        },
+        "cost": "T+1",
+        "factor": "identity",
+        "targetVariant": "Unweighted",
+        "upper": true,
+        "lower": false,
+        "assumptions": [
+          "Use the unweighted 0–1 matrix A with one row per edge and one column per vertex; Γd=2 and Γp≤Δ.",
+          "One identifier-exchange setup round assigns edge-constraint processors; preserve the source normalization, precision, encoding and global-input assumptions.",
+          "For the simulated algorithm, G has at least one edge. Edgeless instances have an empty optimal output handled locally."
+        ]
+      }
+    },
+    {
+      "id": "fractional-matching-to-packing-lp",
+      "title": "Vertex-capacity packing constraints",
+      "from": "fractional-matching",
+      "to": "packing-lp",
+      "kind": "simulation",
+      "status": "conditional",
+      "runtime": "O(T + 1)",
+      "guarantee": "α → α",
+      "instance": {
+        "graph": "Inc(E,V)",
+        "vertices": "n + m",
+        "degree": "max{Δ,2}",
+        "description": "The vertex–edge incidence graph, obtained by subdividing each original edge once. Original-vertex processors have degree at most Δ; edge processors have degree two."
+      },
+      "models": [
+        "LOCAL",
+        "CONGEST"
+      ],
+      "conditions": [
+        "Use one nonnegative variable per edge, with incident-variable sum at most one at each vertex. The objective is matching cardinality or the supplied edge weights.",
+        "Host an edge-variable processor at an endpoint agreed by an identifier exchange; one incidence round then takes one physical round. A final output notification lets both endpoints learn their edge value. Setup and notification give O(T+1); any extra source parameter knowledge must be supplied separately.",
+        "For unit edge weights, write the algorithm’s dual as max 1ᵀy subject to Aᵀy≤1, with A the edge-by-vertex 0–1 incidence matrix. Then Γd=2 and Γp≤Δ. The selected packing theorem’s normalization and bit encoding must hold.",
+        "Fractional degree constraints do not enforce integral matching on nonbipartite graphs. No rounding or odd-set constraints are included.",
+        "The displayed maximum degree max{Δ,2} applies when G has at least one edge. An edgeless instance is handled locally with the empty output; it is not passed to the incidence algorithm.",
+        "The edge-subdivision incidence graph has exactly 2m edges, with two incidences for each original edge."
+      ],
+      "summary": "Fractional matching is a packing LP; this does not turn fractional solutions into edge sets.",
+      "source": {
+        "title": "Li, Ouyang and Wang, A Simple Distributed Algorithm for Sparse Fractional Covering and Packing Problems",
+        "url": "https://arxiv.org/html/2409.16168v1#S1",
+        "location": "Section 1 (positive LPs and incidence communication); Theorem 2.1"
+      },
+      "relation": {
+        "special": "fractional-matching",
+        "general": "packing-lp"
+      },
+      "examples": [
+        {
+          "resultId": "gen-low24-pack",
+          "notes": "In the source convention A has one row per edge and one column per vertex: Γd=2 and Γp≤Δ. The feasible fractional value is at least OPT/(1+ε), in O(log Δ/ε²+1) simulated rounds, with truncated logarithms."
+        }
+      ],
+      "engine": {
+        "mode": "simulation",
+        "sourceScopes": [
+          "packing-lp"
+        ],
+        "graphMap": {
+          "incidence": "general",
+          "planar-incidence": "planar",
+          "general": "general"
+        },
+        "substitutions": {
+          "n": "n+m",
+          "Δ": "max{Δ,2}",
+          "Γd": "2",
+          "Γₚ": "Δ",
+          "Γp": "Δ",
+          "Amax": "1",
+          "m": "2m"
+        },
+        "cost": "O(T+1)",
+        "factor": "identity",
+        "targetVariant": "Unweighted",
+        "upper": true,
+        "lower": false,
+        "assumptions": [
+          "Use the unweighted 0–1 matrix A=edge×vertex in the source dual form max 1ᵀy subject to Aᵀy≤1, so Γd=2 and Γp≤Δ.",
+          "Setup assigns an edge-variable host; output notification makes the edge value known at both endpoints. Retain all source precision, encoding and global-input assumptions.",
+          "For the simulated algorithm, G has at least one edge. Edgeless instances have an empty optimal output handled locally."
+        ]
+      }
+    },
+    {
+      "id": "edge-domination-to-domination",
+      "title": "Domination on the line graph",
+      "from": "edge-dominating-set",
+      "to": "dominating-set",
+      "kind": "simulation",
+      "status": "conditional",
+      "runtime": "O(T + 1)",
+      "guarantee": "α → α",
+      "instance": {
+        "graph": "L(G)",
+        "vertices": "m",
+        "degree": "Δ_L",
+        "description": "There is one virtual vertex per original edge. Two virtual vertices are adjacent exactly when their original edges share an endpoint. Here m=|E(G)| and Δ_L=max over uv∈E(G) of (deg(u)+deg(v)−2); Δ_L≤2Δ−2 when the graph has an edge. Edgeless inputs return the empty set locally."
+      },
+      "models": [
+        "LOCAL"
+      ],
+      "conditions": [
+        "A selected vertex of L(G) corresponds to the original edge. Feasibility and cardinality OPT agree; weighted transfer additionally requires an algorithm accepting the corresponding vertex weights.",
+        "Assign each virtual edge-node to an endpoint. With unrestricted LOCAL messages, a virtual round routes through shared endpoints in at most two physical rounds; constant setup and output notification give O(T+1).",
+        "The source algorithm must accept the line graph’s n′, Δ′, IDs and any supplied parameters. Obtaining global information is not free.",
+        "A line graph can be much denser and need not preserve planarity: the line graph of a star is a clique.",
+        "This recipe claims LOCAL only. Arbitrary different messages along virtual adjacencies can create congestion at physical edges, so an O(T) CONGEST simulation is not inferred.",
+        "Exact algorithm substitutions use n′=m and Δ′=Δ_L, where Δ_L=max_{uv∈E(G)}(deg(u)+deg(v)−2). The displayed 2Δ−2 is an upper bound, not an exact substitution in a nonmonotone theorem.",
+        "For simple G, m_L=sum_v binom(deg(v),2) is the exact number of edges of L(G). It is retained symbolically rather than replaced by a monotone upper bound."
+      ],
+      "summary": "Edge domination is ordinary domination after replacing edges by line-graph vertices.",
+      "source": {
+        "title": "Suomela, Distributed Algorithms for Edge Dominating Sets",
+        "url": "https://jukkasuomela.fi/doc/eds.pdf#page=1",
+        "location": "Section 1.1 (line-graph correspondence); LOCAL simulation specified here"
+      },
+      "relation": {
+        "special": "edge-dominating-set",
+        "general": "dominating-set"
+      },
+      "engine": {
+        "mode": "simulation",
+        "sourceScopes": [
+          "dominating-set"
+        ],
+        "graphMap": {
+          "general": "general"
+        },
+        "substitutions": {
+          "n": "m",
+          "Δ": "Δ_L",
+          "m": "m_L"
+        },
+        "cost": "O(T+1)",
+        "factor": "identity",
+        "targetVariant": "preserve",
+        "upper": true,
+        "lower": false,
+        "assumptions": [
+          "Apply the dominating-set algorithm to L(G); generic transfer is certified only from unrestricted general-graph LOCAL algorithms.",
+          "Virtual line-graph rounds route through shared endpoints in at most two physical rounds. Retain global-input assumptions; setup and output notification are included.",
+          "Here m=|E(G)| and Δ_L=max over uv∈E(G) of (deg(u)+deg(v)−2), the exact maximum degree of L(G); Δ_L≤2Δ−2. If m=0, return the empty edge set locally.",
+          "For simple G, m_L=sum_v binom(deg(v),2) is the exact number of edges of L(G). It is retained symbolically rather than replaced by a monotone upper bound."
+        ]
+      }
+    },
+    {
+      "id": "matching-to-f-matching",
+      "title": "Unit simple capacities",
+      "from": "maximum-matching",
+      "to": "f-matching",
+      "kind": "specialization",
+      "status": "conditional",
+      "runtime": "T",
+      "guarantee": "α → α",
+      "instance": {
+        "graph": "G",
+        "vertices": "n",
+        "degree": "Δ",
+        "description": "The original communication graph and its structural parameters are unchanged."
+      },
+      "models": [
+        "LOCAL",
+        "CONGEST",
+        "Anonymous",
+        "SUPPORTED"
+      ],
+      "conditions": [
+        "Set every vertex capacity f(v)=1. Then every feasible f-matching is an ordinary matching, with the same cardinality OPT.",
+        "The indexed f-matching theorem is unweighted; no weighted guarantee is inferred unless the source algorithm explicitly supports weights.",
+        "Source expansion bounds, identifiers and any supplied structural parameters remain required. Choosing unit capacities does not remove them."
+      ],
+      "summary": "Ordinary cardinality matching is the unit-capacity case of simple f-matching.",
+      "source": {
+        "title": "Czygrinow, Hańćkowiak and Witkowski, Distributed Approximations of f-Matchings and b-Matchings",
+        "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol212-isaac2021/LIPIcs.ISAAC.2021.59/LIPIcs.ISAAC.2021.59.pdf#page=1",
+        "location": "Section 1 (unit-capacity specializations)"
+      },
+      "relation": {
+        "special": "maximum-matching",
+        "general": "f-matching"
+      },
+      "examples": [
+        {
+          "resultId": "pic-sublog-fmatching",
+          "notes": "Set f(v)=1 while retaining the source sub-logarithmic-expansion and input assumptions."
+        }
+      ],
+      "engine": {
+        "mode": "parameters",
+        "sourceScopes": [
+          "f-matching"
+        ],
+        "graphMap": "same",
+        "substitutions": {
+          "f": "1"
+        },
+        "cost": "T",
+        "factor": "identity",
+        "targetVariant": "preserve",
+        "upper": true,
+        "lower": false,
+        "assumptions": [
+          "Set the capacity function f(v)=1 everywhere. The source objective, weight support and structural-input assumptions remain."
+        ]
+      }
+    },
+    {
+      "id": "matching-to-b-matching",
+      "title": "Unit multiplicity capacities",
+      "from": "maximum-matching",
+      "to": "b-matching",
+      "kind": "specialization",
+      "status": "conditional",
+      "runtime": "T",
+      "guarantee": "α → α",
+      "instance": {
+        "graph": "G",
+        "vertices": "n",
+        "degree": "Δ",
+        "description": "The original communication graph and its structural parameters are unchanged."
+      },
+      "models": [
+        "LOCAL",
+        "CONGEST",
+        "Anonymous",
+        "SUPPORTED"
+      ],
+      "conditions": [
+        "Set b(v)=1 at every vertex. This forces every edge multiplicity to be zero or one, and the feasible solutions and cardinality optimum equal ordinary matching.",
+        "Unit capacities satisfy the source Lipschitz condition with L=1; supply that value if the algorithm requires it.",
+        "The indexed result is unweighted and its expansion, identifiers and structural-parameter assumptions remain. No arbitrary weighted version is inferred."
+      ],
+      "summary": "The integer-multiplicity formulation reduces to ordinary matching at unit capacities.",
+      "source": {
+        "title": "Czygrinow, Hańćkowiak and Witkowski, Distributed Approximations of f-Matchings and b-Matchings",
+        "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol212-isaac2021/LIPIcs.ISAAC.2021.59/LIPIcs.ISAAC.2021.59.pdf#page=1",
+        "location": "Section 1 (unit-capacity specializations)"
+      },
+      "relation": {
+        "special": "maximum-matching",
+        "general": "b-matching"
+      },
+      "examples": [
+        {
+          "resultId": "pic-sublog-bmatching",
+          "notes": "Instantiate b≡1 and the known Lipschitz value L=1; keep the remaining source assumptions."
+        }
+      ],
+      "engine": {
+        "mode": "parameters",
+        "sourceScopes": [
+          "b-matching"
+        ],
+        "graphMap": "same",
+        "substitutions": {
+          "b": "1",
+          "L": "1"
+        },
+        "cost": "T",
+        "factor": "identity",
+        "targetVariant": "preserve",
+        "upper": true,
+        "lower": false,
+        "assumptions": [
+          "Set b(v)=1 everywhere and supply L=1 where the source asks for a Lipschitz bound. The source objective, weight support and structural-input assumptions remain."
+        ]
+      }
+    },
+    {
+      "id": "mds-to-fractional-domination",
+      "title": "Drop integrality",
+      "from": "dominating-set",
+      "to": "fractional-dominating-set",
+      "kind": "relaxation",
+      "status": "relaxation",
+      "runtime": "Rounding required",
+      "guarantee": "No integral guarantee",
+      "instance": {
+        "graph": "G",
+        "vertices": "n",
+        "degree": "Δ",
+        "description": "The original communication graph and its structural parameters are unchanged."
+      },
+      "models": [
+        "LOCAL",
+        "CONGEST"
+      ],
+      "conditions": [
+        "Binary vertex choices are replaced by nonnegative values satisfying all closed-neighborhood constraints. The fractional optimum can be strictly smaller.",
+        "An α-approximate fractional vector is not itself an integral dominating set. A rounding theorem must supply both its approximation loss and additional rounds.",
+        "The displayed link records the relaxation only; it imports neither an integral upper bound nor an integral-output lower bound."
+      ],
+      "summary": "Covering-LP solutions relate to domination through a relaxation, not an automatic integral algorithm.",
+      "source": {
+        "title": "Kuhn and Wattenhofer, Constant-time distributed dominating set approximation",
+        "url": "https://disco.ethz.ch/publications/distcomp05.pdf#page=2",
+        "location": "Section 4; the incidence simulation is specified here"
+      },
+      "relation": {
+        "special": "dominating-set",
+        "general": "fractional-dominating-set"
+      }
+    },
+    {
+      "id": "vertex-cover-to-fractional-cover-rounding",
+      "title": "Threshold at one half",
+      "from": "vertex-cover",
+      "to": "fractional-vertex-cover",
+      "kind": "rounding",
+      "status": "conditional",
+      "runtime": "T",
+      "guarantee": "α → 2α",
+      "instance": {
+        "graph": "G",
+        "vertices": "n",
+        "degree": "Δ",
+        "description": "The original communication graph and its structural parameters are unchanged."
+      },
+      "models": [
+        "LOCAL",
+        "CONGEST",
+        "Anonymous",
+        "SUPPORTED"
+      ],
+      "conditions": [
+        "The algorithm returns a feasible fractional vertex cover x on the original graph, and each vertex knows its own coordinate. Let D contain exactly the vertices with x_v≥1/2.",
+        "Every edge has an endpoint in D because x_u+x_v≥1. For nonnegative vertex costs, cost(D) is at most twice the fractional solution cost, hence at most 2α times integral OPT.",
+        "Thresholding is local and needs no extra communication. If the fractional algorithm runs on a separate incidence network, its simulation cost must be added before using this recipe.",
+        "This recipe changes the factor from α to 2α and is therefore separate from the unrounded relaxation link; it is not an approximation-preserving automatic import."
+      ],
+      "summary": "A feasible fractional vertex cover has a deterministic local rounding with a factor-two loss.",
+      "source": {
+        "title": "Kuhn, Moscibroda and Wattenhofer, Local Computation: Lower and Upper Bounds",
+        "url": "https://disco.ethz.ch/courses/fs11/podc/readingAssignment/localComputationJACM.pdf#page=31",
+        "location": "Section 5.1 (threshold rounding of fractional vertex cover)"
+      },
+      "relation": {
+        "special": "vertex-cover",
+        "general": "fractional-vertex-cover"
+      },
+      "engine": {
+        "mode": "rounding",
+        "sourceScopes": [
+          "fractional-vertex-cover"
+        ],
+        "graphMap": "same",
+        "substitutions": {},
+        "cost": "T",
+        "factor": "double",
+        "targetVariant": "preserve",
+        "upper": true,
+        "lower": false,
+        "assumptions": [
+          "The source provides a feasible fractional vertex cover on the physical input graph, with x_v locally known. Select v exactly when x_v≥1/2.",
+          "This local operation multiplies a minimization approximation factor by two and preserves the source weight assumptions."
+        ]
+      }
+    },
+    {
+      "id": "mds-via-connected-domination",
+      "title": "Reuse a connected dominating set",
+      "from": "dominating-set",
+      "to": "connected-dominating-set",
+      "kind": "approximation",
+      "status": "conditional",
+      "runtime": "T",
+      "guarantee": "α → 3α",
+      "instance": {
+        "graph": "G",
+        "vertices": "n",
+        "degree": "Δ",
+        "description": "The same connected input graph, restricted to unit vertex costs. All source algorithm inputs remain required."
+      },
+      "models": [
+        "LOCAL",
+        "CONGEST",
+        "Anonymous",
+        "SUPPORTED"
+      ],
+      "conditions": [
+        "On a nonempty connected graph with unit vertex costs, run the source connected-dominating-set algorithm and return exactly its selected vertices as an ordinary dominating set.",
+        "OPT_MDS ≤ OPT_CDS ≤ 3 OPT_MDS − 2. Thus an α-approximation against integral OPT_CDS gives a 3α-approximation against integral OPT_MDS, with no additional communication.",
+        "The optimum comparison is unweighted. On a three-vertex path with costs (1,M,1), ordinary domination costs at most 2 while every connected dominating set costs at least M.",
+        "The target remains restricted to connected inputs. Do not extend a connected-input algorithm to disconnected networks without checking component-wise operation, termination and global inputs.",
+        "No fractional-MDS benchmark or lower-bound transfer is inferred by this factor-changing rule."
+      ],
+      "summary": "Reuse a connected dominating set without extra rounds; comparing the unweighted optima costs a factor of at most three.",
+      "source": {
+        "title": "Caro, West and Yuster, Connected Domination and Spanning Trees with Many Leaves",
+        "url": "https://math.haifa.ac.il/raphy/papers/conndom.pdf#page=4",
+        "location": "Lemma 2.1, Duchet–Meyniel inequality; zero-round output reuse is a direct consequence."
+      },
+      "relation": {
+        "special": "dominating-set",
+        "general": "connected-dominating-set"
+      },
+      "engine": {
+        "mode": "rounding",
+        "sourceScopes": [
+          "connected-dominating-set"
+        ],
+        "graphMap": "same",
+        "substitutions": {},
+        "cost": "T",
+        "factor": "multiply",
+        "multiplier": {
+          "default": {
+            "label": "3",
+            "tex": "3"
+          },
+          "graphBounds": []
+        },
+        "targetVariant": "Unweighted",
+        "sourceGuards": {
+          "objective": "min",
+          "weightCondition": "weights-unweighted",
+          "outputKind": "integral-vertex-set",
+          "benchmarks": [
+            "integral"
+          ]
+        },
+        "targetBenchmark": "integral",
+        "targetInputConditions": [
+          "input-connected"
+        ],
+        "upper": true,
+        "lower": false,
+        "assumptions": [
+          "Connected unweighted input. Preserve source randomness, identifiers, parameter knowledge and initial-input conventions. The displayed target benchmark is integral OPT."
+        ]
+      }
+    },
+    {
+      "id": "connected-domination-via-mds",
+      "title": "Connect a dominating set locally",
+      "from": "connected-dominating-set",
+      "to": "dominating-set",
+      "kind": "approximation",
+      "status": "conditional",
+      "runtime": "T + 4",
+      "guarantee": "α → (1 + 2∇₁)α",
+      "instance": {
+        "graph": "G",
+        "vertices": "n",
+        "degree": "Δ",
+        "description": "The same connected input graph, restricted to unit vertex costs. All source algorithm inputs remain required."
+      },
+      "models": [
+        "LOCAL"
+      ],
+      "parameterDefinitions": [
+        {
+          "symbol": "∇₁",
+          "tex": "\\nabla_1",
+          "description": "Maximum |E(H)|/|V(H)| over depth-one shallow minors H of the input graph; needed only for the size analysis"
+        }
+      ],
+      "conditions": [
+        "The input is nonempty, connected and unweighted, and nodes have distinct identifiers. Run the source MDS algorithm on this same graph first.",
+        "Three LOCAL rounds reveal radius-three neighborhoods including dominating-set flags. Nearest-dominator clusters, with identifier tie-breaking, have radius one; contracting them produces a connected depth-one minor H with |D| vertices.",
+        "For each adjacent cluster pair choose one canonical dominator-to-dominator path of length at most three. In one more round its endpoints notify its at most two internal vertices. Return D and all selected internal vertices.",
+        "The checked size count is |D′|≤|D|+2|E(H)|≤(1+2∇₁)|D|. As OPT_f(MDS)≤OPT_MDS≤OPT_CDS, integral or fractional MDS benchmarks can seed an integral-OPT_CDS guarantee; the original benchmark stays in source provenance.",
+        "Planar shallow minors have density at most 3, giving multiplier 7. Forest and pseudoforest shallow minors have density at most 1, giving multiplier 3. These bounds also apply through the graph-class inclusion network.",
+        "This connector uses unrestricted LOCAL messages. A CONGEST or Anonymous source algorithm can seed it in LOCAL with the necessary identifiers; the derived algorithm is labelled LOCAL. No four-round CONGEST/anonymous connector or lower-bound transfer is inferred.",
+        "Clarification pending: preprint Lemma 16 states the stronger size bound 2d|D|. On P9, D={2,5,8} and valid depth-one density bound d=1 give 6, but every connected dominating set has size at least 7. The atlas therefore uses the independently checked 1+2∇₁ count. This example concerns the size lemma and does not itself refute Theorem 17’s approximation ratio."
+      ],
+      "summary": "Connect a dominating set in four extra LOCAL rounds with checked multiplier 1+2∇₁: 7 on planar graphs, 3 on pseudoforests.",
+      "source": {
+        "title": "Amiri, Ossona de Mendez, Rabinovich and Siebertz, Distributed Domination on Graph Classes of Bounded Expansion",
+        "url": "https://arxiv.org/html/1702.02848v2#S5",
+        "location": "Section 5, Lemmas 14–16 and Theorem 17. Construction and 3r+1 schedule at r=1; conservative size count independently checked."
+      },
+      "relation": {
+        "special": "connected-dominating-set",
+        "general": "dominating-set"
+      },
+      "engine": {
+        "mode": "rounding",
+        "sourceScopes": [
+          "dominating-set"
+        ],
+        "graphMap": "same",
+        "substitutions": {},
+        "cost": "T+4",
+        "factor": "multiply",
+        "multiplier": {
+          "default": {
+            "label": "1 + 2∇₁",
+            "tex": "1+2\\nabla_1"
+          },
+          "graphBounds": [
+            {
+              "graph": "forest",
+              "label": "3",
+              "tex": "3",
+              "certificate": "Forests are minor-closed and their edge density is at most one."
+            },
+            {
+              "graph": "pseudoforest",
+              "label": "3",
+              "tex": "3",
+              "certificate": "Pseudoforests are minor-closed and their edge density is at most one."
+            },
+            {
+              "graph": "planar",
+              "label": "7",
+              "tex": "7",
+              "certificate": "Planarity is minor-closed and planar minors have edge density at most three."
+            }
+          ]
+        },
+        "targetVariant": "Unweighted",
+        "sourceGuards": {
+          "objective": "min",
+          "weightCondition": "weights-unweighted",
+          "outputKind": "integral-vertex-set",
+          "benchmarks": [
+            "integral",
+            "fractional"
+          ]
+        },
+        "targetBenchmark": "integral",
+        "targetInputConditions": [
+          "input-connected",
+          "input-distinct-ids"
+        ],
+        "upper": true,
+        "lower": false,
+        "assumptions": [
+          "Connected unweighted input. Preserve source randomness, identifiers, parameter knowledge and initial-input conventions. The displayed target benchmark is integral OPT."
+        ]
+      }
+    }
+  ]
+}

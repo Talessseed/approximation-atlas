@@ -1,0 +1,490 @@
+{
+  "expressions": {
+    "O_Δ,ε(1)": [
+      {
+        "symbol": "Δ",
+        "name": "max degree"
+      },
+      {
+        "symbol": "ε",
+        "name": "accuracy"
+      }
+    ],
+    "O_ε(1)": [
+      {
+        "symbol": "ε",
+        "name": "accuracy"
+      }
+    ],
+    "O_𝒞,ε(1)": [
+      {
+        "symbol": "𝒞",
+        "name": "graph class"
+      },
+      {
+        "symbol": "ε",
+        "name": "accuracy"
+      }
+    ],
+    "O_g,η(1)": [
+      {
+        "symbol": "g",
+        "name": "Euler genus"
+      },
+      {
+        "symbol": "η",
+        "name": "approximation slack"
+      }
+    ],
+    "O_d,∇₁,ε(1)": [
+      {
+        "symbol": "d",
+        "name": "max average degree"
+      },
+      {
+        "symbol": "∇₁",
+        "name": "depth-one density"
+      },
+      {
+        "symbol": "ε",
+        "name": "accuracy"
+      }
+    ],
+    "O_g,ε(1)": [
+      {
+        "symbol": "g",
+        "name": "Euler genus"
+      },
+      {
+        "symbol": "ε",
+        "name": "accuracy"
+      }
+    ],
+    "f(g, ε)": [
+      {
+        "symbol": "g",
+        "name": "Euler genus"
+      },
+      {
+        "symbol": "ε",
+        "name": "accuracy"
+      }
+    ],
+    "Oₐ(1)": [
+      {
+        "symbol": "a",
+        "name": "minor density"
+      }
+    ],
+    "Oₑ(1)": [
+      {
+        "symbol": "e",
+        "name": "Euler genus"
+      }
+    ],
+    "Oᵦ,ε(1)": [
+      {
+        "symbol": "b",
+        "name": "maximum input cost"
+      },
+      {
+        "symbol": "ε",
+        "name": "accuracy"
+      }
+    ],
+    "Oρ,ᵦ,δ(1)": [
+      {
+        "symbol": "ρ",
+        "name": "minor density"
+      },
+      {
+        "symbol": "b",
+        "name": "maximum input cost"
+      },
+      {
+        "symbol": "δ",
+        "name": "accuracy"
+      }
+    ],
+    "Oρ,ᵦ,ε(1)": [
+      {
+        "symbol": "ρ",
+        "name": "minor density"
+      },
+      {
+        "symbol": "b",
+        "name": "maximum input cost"
+      },
+      {
+        "symbol": "ε",
+        "name": "accuracy"
+      }
+    ],
+    "Oₜ(1)": [
+      {
+        "symbol": "t",
+        "name": "excluded minor size"
+      }
+    ],
+    "C(g,a,ε)": [
+      {
+        "symbol": "g",
+        "name": "Euler genus"
+      },
+      {
+        "symbol": "a",
+        "name": "apex count"
+      },
+      {
+        "symbol": "ε",
+        "name": "accuracy"
+      }
+    ],
+    "C(d,g,r)": [
+      {
+        "symbol": "d",
+        "name": "asymptotic dimension"
+      },
+      {
+        "symbol": "g",
+        "name": "local genus"
+      },
+      {
+        "symbol": "r",
+        "name": "radius"
+      }
+    ],
+    "C(g,k)": [
+      {
+        "symbol": "g",
+        "name": "Euler genus"
+      },
+      {
+        "symbol": "k",
+        "name": "domination multiplicity"
+      }
+    ],
+    "C(g)": [
+      {
+        "symbol": "g",
+        "name": "Euler genus"
+      }
+    ],
+    "C(d,g,a,r)": [
+      {
+        "symbol": "d",
+        "name": "asymptotic dimension"
+      },
+      {
+        "symbol": "g",
+        "name": "Euler genus"
+      },
+      {
+        "symbol": "a",
+        "name": "apex count"
+      },
+      {
+        "symbol": "r",
+        "name": "radius"
+      }
+    ]
+  },
+  "results": {
+    "sparse-expansion-constant": [
+      {
+        "symbol": "∇₁",
+        "name": "depth-one density"
+      }
+    ],
+    "sparse-planar-eleven": [
+      {
+        "symbol": "ε",
+        "name": "accuracy"
+      }
+    ],
+    "supported-client-planar": [
+      {
+        "symbol": "ε",
+        "name": "accuracy"
+      }
+    ],
+    "czygrinow-topological-dom": [
+      {
+        "symbol": "h",
+        "name": "excluded minor size"
+      }
+    ],
+    "pic-girth-cover-dom": [
+      {
+        "symbol": "r",
+        "name": "radius"
+      },
+      {
+        "symbol": "class",
+        "name": "expansion function"
+      }
+    ],
+    "pic-girth-cover-connected-dom": [
+      {
+        "symbol": "r",
+        "name": "radius"
+      },
+      {
+        "symbol": "class",
+        "name": "expansion function"
+      }
+    ],
+    "pic-girth-cover-vc": [
+      {
+        "symbol": "r",
+        "name": "radius"
+      },
+      {
+        "symbol": "class",
+        "name": "expansion function"
+      }
+    ],
+    "pic-girth-cover-connected-vc": [
+      {
+        "symbol": "r",
+        "name": "radius"
+      },
+      {
+        "symbol": "class",
+        "name": "expansion function"
+      }
+    ],
+    "pic-girth-sublinear-lower": [
+      {
+        "symbol": "k",
+        "name": "radius"
+      },
+      {
+        "symbol": "class",
+        "name": "expansion bound"
+      }
+    ],
+    "gen-ghs12-eds": [
+      {
+        "symbol": "Δ",
+        "name": "max degree"
+      }
+    ],
+    "gen-as26-power-lower": [
+      {
+        "symbol": "r",
+        "name": "power radius"
+      },
+      {
+        "symbol": "ε",
+        "name": "accuracy"
+      }
+    ],
+    "pic-thesis-pathpower-lower": [
+      {
+        "symbol": "t",
+        "name": "power radius"
+      }
+    ],
+    "pic-thesis-pathwidth-lower": [
+      {
+        "symbol": "H",
+        "name": "excluded minor"
+      },
+      {
+        "symbol": "ε",
+        "name": "accuracy"
+      }
+    ],
+    "pic-thesis-pw2-dom": [
+      {
+        "symbol": "H",
+        "name": "excluded minor"
+      }
+    ],
+    "pic-thesis-genus-distance-dom": [
+      {
+        "symbol": "g",
+        "name": "Euler genus"
+      },
+      {
+        "symbol": "k",
+        "name": "radius"
+      }
+    ]
+  },
+  "symbols": {
+    "Euler genus": "g",
+    "accuracy": "ε",
+    "approximation slack": "ε"
+  },
+  "parameterRoles": {
+    "pic-girth-cycle-lower": [
+      {
+        "name": "accuracy",
+        "symbol": "δ"
+      }
+    ]
+  },
+  "approximationResults": {
+    "pic-genus-broadcast-historical": [
+      {
+        "symbol": "g",
+        "name": "orientable genus"
+      }
+    ],
+    "pic-distance-k2t-constant": [
+      {
+        "symbol": "k",
+        "name": "radius"
+      },
+      {
+        "symbol": "t",
+        "name": "excluded minor size"
+      }
+    ],
+    "sparse-expansion-constant": [
+      {
+        "symbol": "∇₁",
+        "name": "depth-one density"
+      }
+    ],
+    "kublenz-expansion": [
+      {
+        "symbol": "∇₁",
+        "name": "depth-one density"
+      }
+    ],
+    "czygrinow-topological-dom": [
+      {
+        "symbol": "h",
+        "name": "excluded minor size"
+      }
+    ],
+    "amiri-distance": [
+      {
+        "symbol": "r",
+        "name": "radius"
+      },
+      {
+        "symbol": "class",
+        "name": "expansion function"
+      }
+    ],
+    "amiri-connected-distance": [
+      {
+        "symbol": "r",
+        "name": "radius"
+      },
+      {
+        "symbol": "class",
+        "name": "expansion function"
+      }
+    ],
+    "pic-girth-cover-dom": [
+      {
+        "symbol": "r",
+        "name": "radius"
+      },
+      {
+        "symbol": "class",
+        "name": "expansion function"
+      }
+    ],
+    "pic-girth-cover-connected-dom": [
+      {
+        "symbol": "r",
+        "name": "radius"
+      },
+      {
+        "symbol": "class",
+        "name": "expansion function"
+      }
+    ],
+    "pic-girth-cover-vc": [
+      {
+        "symbol": "r",
+        "name": "radius"
+      },
+      {
+        "symbol": "class",
+        "name": "expansion function"
+      }
+    ],
+    "pic-girth-cover-connected-vc": [
+      {
+        "symbol": "r",
+        "name": "radius"
+      },
+      {
+        "symbol": "class",
+        "name": "expansion function"
+      }
+    ],
+    "pic-kdom-genus-constant": [
+      {
+        "symbol": "g",
+        "name": "orientable genus"
+      },
+      {
+        "symbol": "k",
+        "name": "domination multiplicity"
+      }
+    ],
+    "pic-kdom-linkless-constant": [
+      {
+        "symbol": "k",
+        "name": "domination multiplicity"
+      }
+    ]
+  },
+  "parameterRounds": [
+    "amiri-genus-constant",
+    "pic-girth-dom-2019",
+    "pic-girth-cycle-lower",
+    "pic-distance-k2t-constant",
+    "pic-girth-pruning",
+    "pic-girth-sublinear",
+    "pic-girth-time-lower",
+    "pic-thesis-degeneracy-vc",
+    "pic-thesis-planar-distance-dom",
+    "pic-thesis-path-excluded-exact"
+  ],
+  "universalConstants": {
+    "approximation": [
+      "amiri-planar-connected",
+      "unitdisk-fractional-domination",
+      "pic-kdom-topological44"
+    ],
+    "rounds": [
+      "heydt-planar-twenty",
+      "outerplanar-five",
+      "outerplanar-five-lower",
+      "kublenz-expansion",
+      "amiri-locally-embeddable",
+      "amiri-planar-connected",
+      "planar-two-dom-six",
+      "wawrzyniak-anonymous-694",
+      "wawrzyniak-planar-52",
+      "planar-two-dom-seven",
+      "planar-two-dom-lower",
+      "planar-k-dom-lower",
+      "planar-seven-lower",
+      "lenzen-planar-130",
+      "alipour-trianglefree-32",
+      "alipour-trianglefree-total-16",
+      "alipour-fourcycle-18",
+      "gen-w25-dom",
+      "gen-asw26-planar",
+      "gen-asw26-trianglefree",
+      "pic-kdom-topological44",
+      "pic-kdom-genus-constant",
+      "pic-kdom-linkless-constant",
+      "gen-aprsu10-dom"
+    ]
+  },
+  "fractionalBenchmarks": [
+    "gen-low24-cover",
+    "unitdisk-fractional-domination"
+  ]
+}

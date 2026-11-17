@@ -1,0 +1,55 @@
+Universal constants and parameter-dependent bounds — audit, 2026-11-16
+
+PODC 2016: Amiri, Schmid and Siebertz
+https://schmiste.github.io/podc16.pdf#page=6
+Theorem 15 gives 24g + O(1) approximation and 12g + O(1) rounds. The catalog now states these explicit bounds on orientable-genus-at-most-g inputs, rather than collapsing either to O(1). The earlier abstract-level record hid both dependencies.
+
+TALG extension: locally embeddable graphs
+https://schmiste.github.io/talg19ds.pdf#page=11
+Algorithm 1 and Lemma 3.8 give 6c^2 t + (2t+5)c + 4, where c bounds depth-one minor edge density and K_{3,t} is excluded as a depth-one minor. c changes a local-computation threshold; t appears in the analysis. The LOCAL communication phases have fixed radii and a universal count. Theorem 3.9 independently states a universal constant-round O(g^2) genus algorithm; the preprocessing algorithm in Theorem 3.11 has a different, genus-dependent round count. Do not infer runtime dependence from the approximation factor alone.
+
+Kublenz–Siebertz–Vigny, corrected v3
+https://arxiv.org/html/2012.02701v3#S6
+The approximation depends on depth-one density (Theorem 1.1), while Section 6 implements a fixed number of bounded-radius LOCAL exchanges. The catalog shows f(depth-one density) for the factor and Constant for the rounds.
+
+Heydt et al. 2022
+https://arxiv.org/pdf/2207.02669#page=5
+Theorem 2.1 and its following discussion explicitly retain depth-one-density dependence in the factor and runtime. Both fields now show f(depth-one density).
+
+Amiri et al. distance domination, 2017/2018
+https://arxiv.org/html/1702.02848v2#S4
+The distance-r and connected-distance-r approximation factors depend on the expansion function and r. The catalog preserves the stated O(r^2 log n) bound with the fixed-class assumptions, and makes the factor's dependencies visible. These are separate papers from PODC 2016.
+
+Other coarse factors
+The excluded-topological-minor factor depends on h. The four high-girth distance-cover factors depend on radius and expansion. Their raw O(1) statements remain in source fields, while their displayed factors retain these parameters.
+
+Lower bounds
+https://jukkasuomela.fi/doc/linear-order.pdf#page=4
+https://arxiv.org/html/2610.09618v2#S8.SS4
+https://timothepicavet.fr/others/thesis.pdf#page=146
+The GHS edge-domination bound permits arbitrary degree-dependent locality. The path-power results permit arbitrary functions of their fixed power/radius and approximation-gap parameters. The thesis minor/pathwidth result excludes n-independent round bounds after fixing H and epsilon. These are excluded budgets, not achieved runtimes or fabricated Omega functions. Named lower budgets explicitly say “rounds ruled out”. The high-girth sublinear lower bound also retains radius and expansion-bound dependence.
+
+Implementation and SOTA
+Approximation and runtime dependencies are independently curated in round-labels.json. Bare O(1) fields require a field-specific universalConstants review; otherwise the build rejects a new result. Named and explicit variable n-independent round bounds enter the parameter regime, immediately after universal constants. Source formulas, original regimes and semantic parameter metadata remain available in data/CSV exports. Reduction substitutions preserve both fields independently.
+
+No historical Amiri record was marked SOTA before this audit; the misleading Constant approximation labels and shared regime were the primary problems. Seventeen SOTA descriptions now state the full parameter dependence and distinguish optimal coefficients or fixed-parameter n-dependence from unknown joint parameter optimality. Dominance descriptions distinguish universal round bounds from f(epsilon). The planar a=3 certificate remains valid because it checks the same protocol and fixed solver parameters, rather than assuming arbitrary parameter functions equal a universal constant.
+
+
+Follow-up: explicit round counts (2026-11-16)
+The complete universal-constant algorithm audit now lives in
+explicit-round-counts-2026-11-16.json and dist/data/round-counts.json.
+Nineteen source entries were checked; thirteen now display a numerical count
+or a conservative numerical upper bound. Six retain Constant because the
+complete count is not stated or the matching full algorithm is unavailable.
+
+Correction to the earlier runtime classification: the genus and linkless
+outside-k-domination procedures in ICTCS2017 use at most two universal
+communication rounds. Their genus/multiplicity parameters affect thresholds
+and approximation factors, not the number of broadcasts. The factors retain
+their parameter dependence. Do not infer runtime dependence from thresholds.
+
+Counts reconstructed from communication phases use the ≤ sign and an explicit
+schedule in the result details. They are not optimality or minimum-round
+claims. Source O(1) expressions remain unchanged in the original fields.
+Unrelated unspecified constants cannot suppress an audited numerical budget.
+The universal lower-bound budgets are not replaced by fixed algorithm counts.

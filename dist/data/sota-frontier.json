@@ -1,0 +1,332 @@
+{
+  "checked": "2026-11-16",
+  "description": "Certified dominance comparisons for literature-based SOTA frontiers. A better result must be no worse in every recorded dimension and strictly better in at least one, on the explicit parameter domain. Comparisons are global and do not depend on active filters. Missing comparisons mean unknown or incomparable, not SOTA. Universal constant bounds are compared only at their advertised asymptotic level; parameter-dependent bounds retain their full functions. Parameter substitutions require an explicit certificate. No certificate discards an exact round count or an unresolved parameter-dependent tradeoff.",
+  "dimensions": [
+    "problem",
+    "graphClass",
+    "approximation",
+    "rounds",
+    "model",
+    "randomness",
+    "benchmark",
+    "assumptions"
+  ],
+  "dominance": [
+    {
+      "better": "gen-asw26-planar",
+      "worse": "heydt-planar-twenty",
+      "strict": [
+        "approximation"
+      ],
+      "conditions": {
+        "problem": "Both solve unweighted minimum dominating set and output an integral vertex set.",
+        "graphClass": "Both guarantees hold on all planar graphs; no graph-class strengthening is inferred.",
+        "approximation": "The exact coefficient 7 is strictly smaller than 20.",
+        "rounds": "Both cataloged statements give a universal constant round complexity. This comparison concerns the stated asymptotic round complexity, not unknown absolute round counts.",
+        "model": "The newer algorithm uses broadcast CONGEST and therefore also works in LOCAL; message restrictions are stronger, not an extra graph or input requirement.",
+        "randomness": "Both algorithms are deterministic.",
+        "benchmark": "The newer integral output is bounded against fractional OPT, which is at most integral OPT; it therefore also satisfies the older integral-OPT convention.",
+        "assumptions": "Use the standard unique O(log n)-bit identifier convention. Neither statement requires an embedding, a maximum-degree bound, or an externally supplied solution. This certificate does not apply to variants with a different initial-information convention."
+      },
+      "evidenceUrl": "https://arxiv.org/pdf/2611.02057",
+      "reason": "Exact factor 7 replaces the 20 planar guarantee within the advertised unspecified constant-round regime. The source introduction traces the constant-factor improvements; Theorem C(i) gives the new guarantee."
+    },
+    {
+      "better": "gen-asw26-planar",
+      "worse": "sparse-planar-eleven",
+      "strict": [
+        "approximation"
+      ],
+      "conditions": {
+        "problem": "Both solve unweighted minimum dominating set and output an integral vertex set.",
+        "graphClass": "Both guarantees hold on all planar graphs; no graph-class strengthening is inferred.",
+        "approximation": "The exact coefficient 7 is strictly smaller than 11 + ε for every ε > 0.",
+        "rounds": "The newer round complexity is a universal constant, independent of ε. The older bound is f(ε), with its accuracy dependence retained. At the advertised asymptotic level the universal O(1) bound has no accuracy-dependent overhead. This does not compare unknown numerical round counts or identify f(ε) with a universal constant.",
+        "model": "The newer algorithm uses broadcast CONGEST and therefore also works in LOCAL; message restrictions are stronger, not an extra graph or input requirement.",
+        "randomness": "Both algorithms are deterministic.",
+        "benchmark": "The newer integral output is bounded against fractional OPT, which is at most integral OPT; it therefore also satisfies the older integral-OPT convention.",
+        "assumptions": "Use the standard unique O(log n)-bit identifier convention. Neither statement requires an embedding, a maximum-degree bound, or an externally supplied solution. This certificate does not apply to variants with a different initial-information convention."
+      },
+      "evidenceUrl": "https://arxiv.org/pdf/2611.02057",
+      "reason": "Exact factor 7 replaces the 11 + ε planar guarantee using a universal constant round complexity, while the earlier round complexity depends on ε. The source introduction traces the constant-factor improvements; Theorem C(i) gives the new guarantee."
+    },
+    {
+      "better": "gen-asw26-planar",
+      "worse": "gen-w26-planar-dom",
+      "strict": [
+        "approximation"
+      ],
+      "conditions": {
+        "problem": "Both solve unweighted minimum dominating set and output an integral vertex set.",
+        "graphClass": "Both guarantees hold on all planar graphs; no graph-class strengthening is inferred.",
+        "approximation": "The exact coefficient 7 is strictly smaller than 8 + ε for every ε > 0.",
+        "rounds": "The newer round complexity is a universal constant, independent of ε. The older bound is f(ε), with its accuracy dependence retained. At the advertised asymptotic level the universal O(1) bound has no accuracy-dependent overhead. This does not compare unknown numerical round counts or identify f(ε) with a universal constant.",
+        "model": "The newer algorithm uses broadcast CONGEST and therefore also works in LOCAL; message restrictions are stronger, not an extra graph or input requirement.",
+        "randomness": "Both algorithms are deterministic.",
+        "benchmark": "The newer integral output is bounded against fractional OPT, which is at most integral OPT; it therefore also satisfies the older integral-OPT convention.",
+        "assumptions": "Use the standard unique O(log n)-bit identifier convention. Neither statement requires an embedding, a maximum-degree bound, or an externally supplied solution. This certificate does not apply to variants with a different initial-information convention."
+      },
+      "evidenceUrl": "https://arxiv.org/pdf/2611.02057",
+      "reason": "Exact factor 7 replaces the 8 + ε planar guarantee using a universal constant round complexity, while the earlier round complexity depends on ε. The source introduction traces the constant-factor improvements; Theorem C(i) gives the new guarantee."
+    },
+    {
+      "better": "gen-asw26-planar",
+      "worse": "gen-as26-planar",
+      "strict": [
+        "approximation"
+      ],
+      "conditions": {
+        "problem": "Both solve unweighted minimum dominating set and output an integral vertex set.",
+        "graphClass": "Both guarantees hold on all planar graphs; no graph-class strengthening is inferred.",
+        "approximation": "The exact coefficient 7 is strictly smaller than 7 + ε for every ε > 0.",
+        "rounds": "The newer round complexity is a universal constant, independent of ε. The older bound is f(ε), with its accuracy dependence retained. At the advertised asymptotic level the universal O(1) bound has no accuracy-dependent overhead. This does not compare unknown numerical round counts or identify f(ε) with a universal constant.",
+        "model": "The newer algorithm uses broadcast CONGEST and therefore also works in LOCAL; message restrictions are stronger, not an extra graph or input requirement.",
+        "randomness": "Both algorithms are deterministic.",
+        "benchmark": "Both guarantees apply against fractional OPT.",
+        "assumptions": "Use the standard unique O(log n)-bit identifier convention. Neither statement requires an embedding, a maximum-degree bound, or an externally supplied solution. This certificate does not apply to variants with a different initial-information convention."
+      },
+      "evidenceUrl": "https://arxiv.org/pdf/2611.02057",
+      "reason": "Exact factor 7 replaces the 7 + ε planar guarantee using a universal constant round complexity, while the earlier round complexity depends on ε. The source introduction traces the constant-factor improvements; Theorem C(i) gives the new guarantee."
+    },
+    {
+      "better": "folklore-degree-mds",
+      "worse": "folklore-star-minor-mds",
+      "strict": [
+        "graphClass"
+      ],
+      "parameterDomain": "For every integer t ≥ 2, instantiate the general degree guarantee on the class of graphs with maximum degree Δ ≤ t−1.",
+      "comparisonGraphClass": {
+        "node": "degree",
+        "label": "Maximum degree ≤ t−1"
+      },
+      "conditions": {
+        "problem": "Both solve unweighted minimum dominating set by selecting every vertex.",
+        "graphClass": "Every K1,t-minor-free graph has maximum degree at most t−1. The larger comparison class is maximum degree ≤ t−1, not all general graphs with a uniform factor t. For t ≥ 4 the containment is strict: a subcubic tree with t leaves contains K1,t as a minor while its degree is at most t−1. For t=2 or t=3 the two classes coincide.",
+        "approximation": "On maximum-degree-(t−1) graphs, the general Δ+1 bound is at most t, matching the excluded-star guarantee.",
+        "rounds": "Both use exactly zero communication rounds, with no parameter-dependent overhead.",
+        "model": "Both are valid in CONGEST and use no messages or identifiers.",
+        "randomness": "Both algorithms are deterministic.",
+        "benchmark": "Both output integral dominating sets measured against integral OPT.",
+        "assumptions": "Both are unweighted and need no degree or parameter knowledge. The parameter substitution is a property of the graph class, not extra information supplied to processors."
+      },
+      "evidenceUrl": "https://dept-info.labri.fr/~gavoille/article/BGPW25.pdf#page=3",
+      "reason": "The excluded-star zero-round baseline is a specialization of the zero-round maximum-degree baseline. It has no separate frontier advantage for t ≥ 4 once the larger maximum-degree class is instantiated at Δ ≤ t−1. At t=2 or t=3 the classes coincide, so this is equivalence rather than strict dominance.",
+      "domainGuard": "t ≥ 4"
+    },
+    {
+      "better": "gen-asw26-minordensity",
+      "worse": "gen-asw26-planar",
+      "strict": [
+        "graphClass"
+      ],
+      "parameterSubstitution": "a=3",
+      "comparisonGraphClass": {
+        "node": "minor",
+        "label": "Every minor H has |E(H)| ≤ 3|V(H)|"
+      },
+      "conditions": {
+        "problem": "Both return an integral unweighted dominating set.",
+        "graphClass": "Every planar graph satisfies minor density at most 3. This class strictly contains the planar graphs: K5 also satisfies the bound for all its minors.",
+        "approximation": "At a=3, the general coefficient 2a+1 equals the planar coefficient 7.",
+        "rounds": "Sections 5.4 and 7.2 use the same protocol at a=3: degree-six defects, the same initial set F and candidate costs, algorithm parameters ρ=3, maximum candidate cost 7 and accuracy ε=1/294, followed by the same W, R and H broadcasts. The general instance adds no rounds or parameter overhead to the planar construction.",
+        "model": "Both use broadcast CONGEST with O(log n)-bit messages.",
+        "randomness": "Both algorithms are deterministic.",
+        "benchmark": "Both integral outputs are bounded against the same fractional dominating-set optimum.",
+        "assumptions": "Both use distinct O(log n)-bit identifiers and need no embedding, orientation, initial cover, degree bound or knowledge of n. The fixed substitution a=3 is hard-coded and valid for every planar input."
+      },
+      "evidenceUrl": "https://arxiv.org/pdf/2611.02057#page=50",
+      "reason": "The planar factor-seven algorithm is the a=3 instance of the integer-density construction, with identical algorithm accuracy and broadcasts. The same guarantee and round complexity therefore hold on a strictly larger graph class."
+    },
+    {
+      "better": "gen-beks18-full-eps",
+      "worse": "gen-beks18-eps",
+      "strict": [
+        "assumptions"
+      ],
+      "parameterSubstitution": "ε=(log Δ)^−c for fixed c≥1",
+      "conditions": {
+        "problem": "Both solve minimum-weight vertex cover and return an integral vertex set.",
+        "graphClass": "Both work on general graphs.",
+        "approximation": "Substituting ε=(log Δ)^−c gives exactly the corollary’s ratio 2+(log Δ)^−c.",
+        "rounds": "This is the same Algorithm 1, not a comparison of unrelated hidden constants. In Theorem 2 the substitution makes log(1/ε)=c log log Δ and yields O(log Δ/log log Δ) for fixed c; the bounded-degree cases use the same protocol.",
+        "model": "Both use the same deterministic CONGEST implementation.",
+        "randomness": "Both are deterministic.",
+        "benchmark": "Both compare the integral cover cost with weighted integral OPT.",
+        "assumptions": "Both require positive polynomially bounded integer weights and known Δ or a polynomial upper bound. The full theorem permits every ε∈(0,1); the narrower inverse-polylogarithmic accuracy restriction is unnecessary."
+      },
+      "evidenceUrl": "https://arxiv.org/pdf/1804.01308v3#page=6",
+      "reason": "The special accuracy point is already contained in the full Theorem 2 family, with identical algorithm, guarantee and round complexity after substitution and a strictly larger accuracy domain."
+    },
+    {
+      "better": "gen-beks19-full-eps",
+      "worse": "gen-beks18-full-eps",
+      "strict": [
+        "rounds",
+        "assumptions"
+      ],
+      "conditions": {
+        "problem": "Both return an integral minimum-weight vertex-cover approximation on the original graph.",
+        "graphClass": "Both apply to all general graphs.",
+        "approximation": "The approximation ratio is identical for every allowed accuracy value; the exact-2 comparison has no additive loss.",
+        "rounds": "Write x=log Δ and L=log(2/ε). The newer bound is O(x/log x+L+min{x,L x^0.001}); the older is O(x/log x+L x/(log x)^2). For sufficiently large x, x^0.001≤x/(log x)^2, so the new bound is no worse uniformly. For Δ=n and ε=1/n it is O(log n) instead of O(log² n/log² log n), giving a strict joint-parameter improvement. Bounded-degree cases are O(L) in both.",
+        "model": "Both are deterministic CONGEST algorithms. The rank-two edge processors of the newer protocol are simulated with constant overhead.",
+        "randomness": "Both are deterministic.",
+        "benchmark": "The newer guarantee is at least as strong as the older integral-OPT benchmark. In the approximate case its proof also bounds cost against fractional OPT.",
+        "assumptions": "Both use positive polynomially bounded integer weights. The older algorithm requires global Δ or a polynomial upper bound; the newer one can use local edge-degree bounds. No additional global input is introduced."
+      },
+      "evidenceUrl": "https://arxiv.org/pdf/1902.09377v2#page=9",
+      "reason": "The 2019 full-accuracy family improves the 2018 joint round function, and removes the global-degree-knowledge requirement."
+    },
+    {
+      "better": "gen-beks19-exact2",
+      "worse": "gen-beks18-exact2",
+      "strict": [
+        "rounds",
+        "assumptions"
+      ],
+      "conditions": {
+        "problem": "Both return an integral minimum-weight vertex-cover approximation on the original graph.",
+        "graphClass": "Both apply to all general graphs.",
+        "approximation": "The approximation ratio is identical for every allowed accuracy value; the exact-2 comparison has no additive loss.",
+        "rounds": "O(log n) is no worse than O(log n·log Δ/log² log Δ), with truncated logarithms. The improvement is strict when Δ grows, for example Δ=n. Both statements specify asymptotic round complexities. The comparison concerns their dependence on n and Δ.",
+        "model": "Both are deterministic CONGEST algorithms. The rank-two edge processors of the newer protocol are simulated with constant overhead.",
+        "randomness": "Both are deterministic.",
+        "benchmark": "The newer guarantee is at least as strong as the older integral-OPT benchmark. In the approximate case its proof also bounds cost against fractional OPT.",
+        "assumptions": "Both use positive polynomially bounded integer weights and a common polynomial bound B≥nW for the small-accuracy integrality step. The older implementation also needs global Δ; the newer one does not."
+      },
+      "evidenceUrl": "https://arxiv.org/pdf/1902.09377v2#page=9",
+      "reason": "The 2019 rank-two corollary gives exact factor 2 in logarithmic rounds, superseding the older extra degree-dependent factor without stronger input assumptions."
+    },
+    {
+      "better": "wawrzyniak-planar-52",
+      "worse": "lenzen-planar-130",
+      "strict": [
+        "approximation"
+      ],
+      "conditions": {
+        "problem": "Both return an integral approximation for unweighted minimum dominating set.",
+        "graphClass": "Both algorithms apply to all planar graphs.",
+        "approximation": "Factor 52 is strictly smaller than 130.",
+        "rounds": "The 2014 result reanalyzes the same protocol. Lemma 6.1 of Lenzen–Pignolet–Wattenhofer explicitly itemizes rounds 1–6; the reanalysis changes no communication.",
+        "model": "Both use LOCAL with unrestricted message size and local computation.",
+        "randomness": "Both algorithms are deterministic.",
+        "benchmark": "Both approximation guarantees are measured against the integral optimum.",
+        "assumptions": "Both use distinct identifiers and require no embedding, degree bound or externally supplied dominating set. Unbounded local computation is allowed in LOCAL."
+      },
+      "evidenceUrl": "https://www.sciencedirect.com/science/article/abs/pii/S0020019013002767",
+      "reason": "The improved analysis proves factor 52 for the unchanged six-round protocol that originally had factor 130."
+    },
+    {
+      "better": "wawrzyniak-planar-52",
+      "worse": "pic-thesis-planar-205",
+      "strict": [
+        "approximation"
+      ],
+      "conditions": {
+        "problem": "Both return an integral approximation for unweighted minimum dominating set.",
+        "graphClass": "Both algorithms apply to all planar graphs.",
+        "approximation": "Factor 52 is strictly smaller than 205.",
+        "rounds": "Both provide six-round LOCAL implementations. The 52 result uses the Lenzen–Pignolet–Wattenhofer schedule in Lemma 6.1; Proposition 3.1 of the cuttable-problems paper explicitly gives six rounds for factor 205. No comparison of unrelated unspecified constants is used.",
+        "model": "Both use LOCAL with unrestricted message size and local computation.",
+        "randomness": "Both algorithms are deterministic.",
+        "benchmark": "Both approximation guarantees are measured against the integral optimum.",
+        "assumptions": "Both use distinct identifiers and require no embedding, degree bound or externally supplied dominating set. Unbounded local computation is allowed in LOCAL."
+      },
+      "evidenceUrl": "https://jukkasuomela.fi/doc/cuttable-distributed-problems.pdf#page=5",
+      "reason": "The six-round factor-52 algorithm has a strictly stronger guarantee than the six-round factor-205 algorithm under the same graph, model and identifier assumptions."
+    },
+    {
+      "better": "pic-thesis-pw2-dom",
+      "worse": "pic-large-50-dom",
+      "kind": "family-extension",
+      "algorithmSpecialization": "algorithm5-k2t-specialization",
+      "strict": [
+        "graphClass"
+      ],
+      "parameterSubstitution": "H=K₂,t",
+      "conditions": {
+        "problem": "The same unweighted minimum dominating-set output and minimization objective.",
+        "graphClass": "The broader parameterized theorem permits every fixed excluded H with pw(H)≤2; H=K₂,t recovers the original setting for every t≥2. Strictness concerns the family of allowed excluded-minor settings, not an arbitrary pair of fixed H and t. For example, H=C₅ has pathwidth two and its minor-free class contains K₂,s for arbitrarily large s; it is not contained in any fixed K₂,t-minor-free class.",
+        "approximation": "The same factor 50, independent of the excluded graph parameter.",
+        "rounds": "On H=K₂,t use the certified identical Algorithm 5 configuration and original O(t) communication schedule. The generic H-dependent proof bound is not compared with that schedule.",
+        "model": "The same LOCAL communication model.",
+        "randomness": "The same deterministic procedure.",
+        "benchmark": "The same integral optimum.",
+        "assumptions": "The same distinct identifiers and fixed excluded-minor setting; the original control function and radii are used on the mapped branch."
+      },
+      "evidenceUrl": "https://timothepicavet.fr/others/thesis.pdf#page=204",
+      "reason": "Covered by the broader theorem: the K₂,t setting is the H=K₂,t branch of the same Algorithm 5 family, with the same O(t) implementation. The improvement is the larger family of excluded-minor settings, not faster rounds."
+    }
+  ],
+  "scopeTransfers": [
+    {
+      "resultId": "gen-asw26-minordensity",
+      "graph": "planar",
+      "scopeLabel": "Planar · a=3",
+      "setting": "Planar unweighted MDS; a=3 gives exact factor 7 against fractional OPT, with the same constant-round broadcast CONGEST protocol as the planar corollary.",
+      "reason": "The planar specialization is certified by the identical algorithm and parameters in Sections 5.4 and 7.2. The broader all-minor-density-three class contains the planar graphs.",
+      "evidenceUrl": "https://arxiv.org/pdf/2611.02057#page=50",
+      "approximation": {
+        "substitutions": {
+          "a": "3"
+        },
+        "factor": "7"
+      }
+    },
+    {
+      "resultId": "folklore-tree-mds",
+      "graph": "forest",
+      "scopeLabel": "Forests · one round",
+      "setting": "Unweighted MDS on trees or forests; exact factor 3 in one round, with initial local degree knowledge and no identifiers.",
+      "reason": "Forests are contained in pseudoforests. The same non-leaf construction is documented in Observation A.1, and the constant-round factor-three barrier already holds on paths.",
+      "evidenceUrl": "https://arxiv.org/pdf/2206.05174#page=17"
+    },
+    {
+      "resultId": "gen-asw26-cover-det",
+      "graph": "planar",
+      "problem": "dominating-set",
+      "scopeLabel": "Planar MDS · log-star",
+      "setting": "Planar unweighted MDS; instantiate local covering with requests V, C(v)=N[v], unit costs and minor-density bound ρ=3. Deterministic broadcast CONGEST gives ratio 1+ε in the stated parameter-dependent log-star bound, with the known common polynomial ID bound.",
+      "reason": "Theorem D(ii) supplies this specialization. Proposition C.1 makes the dependence on n optimal already on cycles. Full accuracy dependence and the supplied ID-bound convention remain part of the tradeoff.",
+      "evidenceUrl": "https://arxiv.org/pdf/2611.02057#page=51"
+    },
+    {
+      "resultId": "pic-thesis-pw2-dom",
+      "graph": "k2t",
+      "algorithmSpecialization": "algorithm5-k2t-specialization",
+      "scopeLabel": "K₂,t-minor-free; t ≥ 49",
+      "setting": "Unweighted K₂,t-minor-free MDS; H=K₂,t with fixed t≥2; deterministic LOCAL; factor 50 against integral OPT. Use the original Algorithm 5 configuration and its O(t) runtime. The SOTA review is for t≥49.",
+      "reason": "Theorem VIII.1.1 extends the original Algorithm 5 to all fixed excluded minors of pathwidth at most two. The certified H=K₂,t branch uses the original linear-in-t implementation. Its uniform factor-50 SOTA scope retains t≥49, while the algorithm itself applies for every t≥2. The original paper remains linked as the source of this specialized algorithm.",
+      "evidenceUrl": "https://timothepicavet.fr/others/thesis.pdf#page=204"
+    }
+  ],
+  "algorithmSpecializations": [
+    {
+      "id": "algorithm5-k2t-specialization",
+      "resultId": "pic-thesis-pw2-dom",
+      "sourceResultId": "pic-large-50-dom",
+      "graph": "k2t",
+      "parameterBindings": {
+        "excluded-minor": "K₂,t"
+      },
+      "reason": "For H=K₂,t, use the original Algorithm 5 with its K₂,t class control function, local-cut radii and residual exploration. The thesis reuses the same procedure, so the original O(t) implementation and runtime apply to this branch of the broader family. Generic H-dependent thresholds are retained elsewhere; no speedup or comparison of the generic diameter bound is asserted.",
+      "evidence": [
+        {
+          "url": "https://timothepicavet.fr/others/thesis.pdf#page=204",
+          "title": "Timothé Picavet’s doctoral thesis",
+          "location": "Theorem VIII.1.1 and the following same-Algorithm-5 statement"
+        },
+        {
+          "url": "https://timothepicavet.fr/others/thesis.pdf#page=218",
+          "title": "Timothé Picavet’s doctoral thesis",
+          "location": "Final paragraph of Chapter VIII, reusing Algorithm 5 and Lemmas IV.2.1–IV.2.2"
+        },
+        {
+          "url": "https://timothepicavet.fr/others/thesis.pdf#page=125",
+          "title": "Timothé Picavet’s doctoral thesis",
+          "location": "Original Algorithm 5 control function and O(t) implementation"
+        }
+      ]
+    }
+  ]
+}

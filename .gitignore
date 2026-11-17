@@ -3,3 +3,9 @@ __pycache__/
 research/*.pdf
 research/*.tar*
 .site-local/
+
+# Generated local reports, bundles and hosting-specific state.
+/qa/
+/approximation-atlas-static.zip
+/.openai/
+node_modules/

@@ -1,0 +1,869 @@
+{
+  "version": 1,
+  "checked": "2026-11-16",
+  "description": "Problem relations distinguish exact formulations from fractional relaxations. An arrow runs from a special problem to a more general formulation. Only certified same-graph, objective-preserving edges enable automatic upper- or lower-bound transfer; all other arrows support structural browsing only. A fractional benchmark does not make an integral output fractional. Model, input, cost, radius, capacity, and graph-class assumptions remain attached to every result.",
+  "nodes": [
+    {
+      "id": "dominating-set",
+      "label": "Dominating set",
+      "aliases": [
+        "MDS",
+        "Minimum dominating set",
+        "Ordinary domination",
+        "Domination"
+      ],
+      "description": "Choose a minimum-cost vertex set meeting every closed neighborhood. Output is an integral set, including in results measured against fractional OPT.",
+      "outputKind": "integral-vertex-set",
+      "benchmarkKind": "result-specific"
+    },
+    {
+      "id": "total-dominating-set",
+      "label": "Total dominating set",
+      "aliases": [
+        "MTDS",
+        "Minimum total dominating set",
+        "Total domination",
+        "TDS"
+      ],
+      "description": "Every vertex, including a selected vertex, needs a selected neighbor. Isolated vertices make the unrestricted demand instance infeasible.",
+      "outputKind": "integral-vertex-set",
+      "benchmarkKind": "result-specific"
+    },
+    {
+      "id": "client-dominating-set",
+      "label": "Client dominating set",
+      "aliases": [
+        "Minimum client dominating set",
+        "Client domination",
+        "Prescribed-demand domination"
+      ],
+      "description": "Only a prescribed client set must be dominated. The SUPPORTED result additionally permits preprocessing of the support topology.",
+      "outputKind": "integral-vertex-set",
+      "benchmarkKind": "integral-optimum"
+    },
+    {
+      "id": "distance-dominating-set",
+      "label": "Distance-k dominating set",
+      "aliases": [
+        "Distance-r dominating set",
+        "Distance dominating set",
+        "Distance domination",
+        "Distance-r domination",
+        "r-dominating set"
+      ],
+      "description": "Every vertex is within graph distance k of a selected vertex. The radius is an input or fixed parameter of the particular theorem; entries retain r when that is the symbol in their bounds.",
+      "outputKind": "integral-vertex-set",
+      "benchmarkKind": "integral-optimum",
+      "parameter": {
+        "symbol": "k",
+        "name": "distance radius",
+        "template": "Distance-{parameter} dominating set",
+        "values": [
+          "k",
+          "r"
+        ]
+      }
+    },
+    {
+      "id": "connected-dominating-set",
+      "label": "Connected dominating set",
+      "aliases": [
+        "MCDS",
+        "Minimum connected dominating set",
+        "Connected domination",
+        "CDS"
+      ],
+      "description": "An ordinary dominating set whose selected vertices induce a connected subgraph. Connectivity changes both feasibility and OPT.",
+      "outputKind": "integral-vertex-set",
+      "benchmarkKind": "integral-optimum"
+    },
+    {
+      "id": "connected-distance-dominating-set",
+      "label": "Connected distance-r dominating set",
+      "aliases": [
+        "Connected distance dominating set",
+        "Distance-r connected domination",
+        "Connected distance-r domination"
+      ],
+      "description": "A distance-r dominating set inducing a connected subgraph of the original graph, rather than merely of its power graph.",
+      "outputKind": "integral-vertex-set",
+      "benchmarkKind": "integral-optimum",
+      "parameter": {
+        "symbol": "r",
+        "name": "distance radius",
+        "template": "Connected distance-{parameter} dominating set",
+        "values": [
+          "r"
+        ]
+      }
+    },
+    {
+      "id": "outside-k-domination",
+      "label": "k-domination (outside the solution)",
+      "aliases": [
+        "k-tuple dominating set",
+        "k-domination",
+        "kMDS",
+        "Outside-k domination",
+        "k neighbors outside the solution",
+        "2-domination"
+      ],
+      "description": "Every vertex outside D needs at least k neighbors in D; selected vertices are exempt. This is the definition in the indexed k-tuple papers, and differs from demanding k selected vertices in every closed neighborhood.",
+      "outputKind": "integral-vertex-set",
+      "benchmarkKind": "integral-optimum",
+      "parameter": {
+        "symbol": "k",
+        "name": "required neighbors outside the solution",
+        "template": "{parameter}-domination (outside the solution)",
+        "values": [
+          "k",
+          "2"
+        ]
+      }
+    },
+    {
+      "id": "vertex-cover",
+      "label": "Vertex cover",
+      "aliases": [
+        "MVC",
+        "Minimum vertex cover",
+        "Minimum weight vertex cover",
+        "VC"
+      ],
+      "description": "Choose vertices meeting every edge. Distance-r and connected variants have separate problem nodes.",
+      "outputKind": "integral-vertex-set",
+      "benchmarkKind": "result-specific"
+    },
+    {
+      "id": "distance-vertex-cover",
+      "label": "Distance-r vertex cover",
+      "aliases": [
+        "Distance vertex cover",
+        "Distance-r VC"
+      ],
+      "description": "In the indexed source, each edge uv has a selected vertex within distance r of both u and v. This is not vertex cover on the power graph. Retain the source's high-girth assumption.",
+      "outputKind": "integral-vertex-set",
+      "benchmarkKind": "integral-optimum",
+      "parameter": {
+        "symbol": "r",
+        "name": "distance radius",
+        "template": "Distance-{parameter} vertex cover",
+        "values": [
+          "r"
+        ]
+      }
+    },
+    {
+      "id": "connected-distance-vertex-cover",
+      "label": "Distance-r connected vertex cover",
+      "aliases": [
+        "Connected distance-r vertex cover",
+        "Connected distance vertex cover",
+        "Connected distance-r VC"
+      ],
+      "description": "The source's distance-r vertex cover with the additional requirement that the selected vertices induce a connected subgraph of the original graph.",
+      "outputKind": "integral-vertex-set",
+      "benchmarkKind": "integral-optimum",
+      "parameter": {
+        "symbol": "r",
+        "name": "distance radius",
+        "template": "Distance-{parameter} connected vertex cover",
+        "values": [
+          "r"
+        ]
+      }
+    },
+    {
+      "id": "set-cover",
+      "label": "Set cover",
+      "aliases": [
+        "Minimum set cover",
+        "Weighted set cover",
+        "Hitting set",
+        "Red-blue domination"
+      ],
+      "description": "Choose sets covering a universe. Distributed results use the set-element incidence graph; hitting set exchanges its two sides. Incidence planarity is a requirement on that communication graph.",
+      "outputKind": "integral-set-selection",
+      "benchmarkKind": "result-specific"
+    },
+    {
+      "id": "local-covering",
+      "label": "Integral local covering",
+      "aliases": [
+        "Local covering",
+        "Local cover",
+        "Integral local cover"
+      ],
+      "description": "On the physical graph G, prescribed requests r must each have a selected candidate in a locally known nonempty C(r) contained in N[r]. Costs and their bounds follow the result.",
+      "outputKind": "integral-vertex-set",
+      "benchmarkKind": "integral-optimum"
+    },
+    {
+      "id": "integral-covering",
+      "label": "Covering integer program",
+      "aliases": [
+        "Covering ILP",
+        "Integral covering",
+        "Integer covering program",
+        "Covering integer LP"
+      ],
+      "description": "A nonnegative covering formulation with integral variables. General covering integer programs and their reductions are not interchangeable with fractional covering LPs.",
+      "outputKind": "integral-vector",
+      "benchmarkKind": "integral-optimum"
+    },
+    {
+      "id": "fractional-local-covering",
+      "label": "Fractional local covering",
+      "aliases": [
+        "Local covering LP",
+        "Fractional local cover",
+        "Local fractional covering"
+      ],
+      "description": "Minimize the cost of a nonnegative vector with sum over C(r) at least one, where each C(r) is contained in the request's physical closed neighborhood. Output is fractional.",
+      "outputKind": "fractional-vector",
+      "benchmarkKind": "fractional-optimum"
+    },
+    {
+      "id": "covering-lp",
+      "label": "Fractional covering LP",
+      "aliases": [
+        "Covering LP",
+        "Fractional covering",
+        "Positive covering LP",
+        "FCP"
+      ],
+      "description": "A positive linear program min c^T x subject to Ax >= b and x >= 0. In the generic indexed algorithm, communication takes place on the variable-constraint incidence graph.",
+      "outputKind": "fractional-vector",
+      "benchmarkKind": "fractional-optimum"
+    },
+    {
+      "id": "fractional-dominating-set",
+      "label": "Fractional dominating set",
+      "aliases": [
+        "Fractional MDS",
+        "Fractional domination",
+        "Dominating set LP",
+        "Domination LP"
+      ],
+      "description": "Nonnegative vertex weights whose sum in each closed neighborhood is at least one. A fractional vector alone does not select a dominating vertex set.",
+      "outputKind": "fractional-vector",
+      "benchmarkKind": "fractional-optimum"
+    },
+    {
+      "id": "fractional-vertex-cover",
+      "label": "Fractional vertex cover",
+      "aliases": [
+        "Fractional MVC",
+        "Fractional VC",
+        "Vertex cover LP"
+      ],
+      "description": "Minimize the cost of nonnegative vertex values satisfying x_u + x_v >= 1 for every edge uv.",
+      "outputKind": "fractional-vector",
+      "benchmarkKind": "fractional-optimum"
+    },
+    {
+      "id": "fractional-set-cover",
+      "label": "Fractional set cover",
+      "aliases": [
+        "Set cover LP",
+        "Set cover relaxation"
+      ],
+      "description": "Assign nonnegative values to sets so that each universe element has total incident value at least one.",
+      "outputKind": "fractional-vector",
+      "benchmarkKind": "fractional-optimum"
+    },
+    {
+      "id": "maximum-matching",
+      "label": "Maximum matching",
+      "aliases": [
+        "Matching",
+        "Maximum cardinality matching",
+        "Maximum weight matching",
+        "MWM",
+        "MCM"
+      ],
+      "description": "Choose edges sharing no endpoints, maximizing cardinality or the supplied edge weights. Fractional and capacitated variants have separate nodes.",
+      "outputKind": "integral-edge-set",
+      "benchmarkKind": "integral-optimum"
+    },
+    {
+      "id": "fractional-matching",
+      "label": "Fractional matching",
+      "aliases": [
+        "Fractional maximum matching",
+        "Fractional weighted matching",
+        "Matching LP",
+        "Fractional edge packing"
+      ],
+      "description": "Nonnegative edge values with incident sum at most one at each vertex. The degree-constraint relaxation can have larger OPT than integral matching on nonbipartite graphs.",
+      "outputKind": "fractional-vector",
+      "benchmarkKind": "fractional-optimum"
+    },
+    {
+      "id": "f-matching",
+      "label": "Maximum f-matching",
+      "aliases": [
+        "f-matching",
+        "Simple b-matching",
+        "Capacitated matching without multiplicities"
+      ],
+      "description": "Choose each edge at most once, with at most f(v) chosen incident edges per vertex. The indexed result maximizes cardinality.",
+      "outputKind": "integral-edge-set",
+      "benchmarkKind": "integral-optimum",
+      "parameter": {
+        "symbol": "f",
+        "name": "vertex-capacity function",
+        "template": "Maximum {parameter}-matching",
+        "values": [
+          "f"
+        ]
+      }
+    },
+    {
+      "id": "b-matching",
+      "label": "Maximum b-matching",
+      "aliases": [
+        "b-matching",
+        "Matching with edge multiplicities"
+      ],
+      "description": "Assign nonnegative integer multiplicities to edges with incident sum bounded by b(v). The indexed result requires a supplied Lipschitz bound on b.",
+      "outputKind": "integer-edge-multiplicities",
+      "benchmarkKind": "integral-optimum",
+      "parameter": {
+        "symbol": "b",
+        "name": "vertex-capacity function",
+        "template": "Maximum {parameter}-matching",
+        "values": [
+          "b"
+        ]
+      }
+    },
+    {
+      "id": "integral-packing",
+      "label": "Packing integer program",
+      "aliases": [
+        "Packing ILP",
+        "Integral packing",
+        "Integer packing program",
+        "Packing integer LP"
+      ],
+      "description": "Maximize a nonnegative objective under nonnegative packing constraints with integer or binary variables. Variable bounds and the incidence representation are part of the instance.",
+      "outputKind": "integral-vector",
+      "benchmarkKind": "integral-optimum"
+    },
+    {
+      "id": "packing-lp",
+      "label": "Fractional packing LP",
+      "aliases": [
+        "Packing LP",
+        "Fractional packing",
+        "Positive packing LP",
+        "FPP"
+      ],
+      "description": "A positive linear program maximizing a nonnegative linear objective under nonnegative packing constraints. A solution is fractional unless an additional integrality or rounding theorem applies.",
+      "outputKind": "fractional-vector",
+      "benchmarkKind": "fractional-optimum"
+    },
+    {
+      "id": "independent-set",
+      "label": "Independent set",
+      "aliases": [
+        "Maximum independent set",
+        "Maximum weight independent set",
+        "MIS",
+        "MWIS"
+      ],
+      "description": "Choose pairwise nonadjacent vertices maximizing size or supplied weights. Here MIS denotes the maximum optimization problem, not the maximality task.",
+      "outputKind": "integral-vertex-set",
+      "benchmarkKind": "integral-optimum"
+    },
+    {
+      "id": "other-packing",
+      "label": "Vertex-disjoint H-packing",
+      "aliases": [
+        "Subgraph packing",
+        "Other packing",
+        "Vertex-disjoint H-packing",
+        "H-packing"
+      ],
+      "description": "The current category contains vertex-disjoint copies of a fixed pattern H. An occurrence-incidence packing formulation changes the communication representation.",
+      "outputKind": "integral-subgraph-family",
+      "benchmarkKind": "integral-optimum",
+      "parameter": {
+        "symbol": "H",
+        "name": "fixed pattern graph",
+        "template": "Vertex-disjoint {parameter}-packing",
+        "values": [
+          "H"
+        ]
+      }
+    },
+    {
+      "id": "edge-dominating-set",
+      "label": "Edge dominating set",
+      "aliases": [
+        "Minimum edge dominating set",
+        "Edge domination",
+        "EDS"
+      ],
+      "description": "Choose edges so that every edge is selected or shares an endpoint with a selected edge. This is domination on the line graph, whose structural parameters may differ from the original graph.",
+      "outputKind": "integral-edge-set",
+      "benchmarkKind": "integral-optimum"
+    },
+    {
+      "id": "local-density",
+      "label": "Local density",
+      "aliases": [
+        "Local-density estimation",
+        "Per-vertex local density"
+      ],
+      "description": "Estimate a per-vertex density parameter. This estimation task is kept separate from covering and packing optimization problems.",
+      "outputKind": "estimate",
+      "benchmarkKind": "result-specific"
+    }
+  ],
+  "edges": [
+    {
+      "special": "dominating-set",
+      "general": "local-covering",
+      "kind": "special-case",
+      "upper": true,
+      "lower": true,
+      "reason": "Use all vertices as requests and C(v)=N[v] on the same graph. Setting every cost to one preserves unweighted OPT; weighted transfer retains the source cost restrictions.",
+      "reference": "asw26"
+    },
+    {
+      "special": "total-dominating-set",
+      "general": "local-covering",
+      "kind": "special-case",
+      "upper": true,
+      "lower": true,
+      "reason": "Use all vertices as requests and C(v)=N(v) on the same graph. Nonempty candidate sets require an isolate-free instance; costs and input assumptions remain required.",
+      "reference": "asw26"
+    },
+    {
+      "special": "client-dominating-set",
+      "general": "local-covering",
+      "kind": "special-case",
+      "upper": true,
+      "lower": false,
+      "reason": "Use prescribed clients as requests and their closed neighborhoods as candidates on the same graph. Broadcasting client membership initializes the local covering incidences in one extra round unless these flags are supplied initially. The source model and preprocessing conventions remain required. Exact lower bounds need an explicit one-round shift and are not transferred automatically.",
+      "reference": "asw26"
+    },
+    {
+      "special": "fractional-dominating-set",
+      "general": "fractional-local-covering",
+      "kind": "special-case",
+      "upper": true,
+      "lower": true,
+      "reason": "Use all vertices as requests and C(v)=N[v]; the fractional variables, objective, graph, and feasible solutions are unchanged. Costs must satisfy the chosen algorithm's assumptions.",
+      "reference": "asw26"
+    },
+    {
+      "special": "dominating-set",
+      "general": "set-cover",
+      "kind": "special-case",
+      "upper": false,
+      "lower": false,
+      "reason": "The universe is V and the set for candidate v is N[v]. Simulation needs separate request/candidate copies. The incidence graph need not preserve planarity or minor bounds: planar K4 produces K4,4. Structural browsing only.",
+      "reference": "kw05"
+    },
+    {
+      "special": "total-dominating-set",
+      "general": "set-cover",
+      "kind": "special-case",
+      "upper": false,
+      "lower": false,
+      "reason": "Use open-neighborhood sets N(v) on the vertex universe. This preserves the set-cover objective but changes to an incidence representation, and feasible instances exclude isolates. No generic graph-class transfer is asserted.",
+      "reference": "asw26"
+    },
+    {
+      "special": "vertex-cover",
+      "general": "set-cover",
+      "kind": "special-case",
+      "upper": false,
+      "lower": false,
+      "reason": "Use universe E and one set of incident edges per vertex: frequency is two and maximum set size is maximum degree. Its incidence graph subdivides edges; simulating the processors and preserving a message model require a separate certified reduction.",
+      "reference": "as10"
+    },
+    {
+      "special": "local-covering",
+      "general": "set-cover",
+      "kind": "special-case",
+      "upper": false,
+      "lower": false,
+      "reason": "Use requests as universe elements and the requests covered by each candidate as its set. The abstract objective agrees, but a distributed set-cover theorem may assume a different incidence communication graph. Structural browsing only.",
+      "reference": "as10"
+    },
+    {
+      "special": "set-cover",
+      "general": "integral-covering",
+      "kind": "special-case",
+      "upper": false,
+      "lower": false,
+      "reason": "The binary incidence formulation has one covering inequality per element and a binary selection variable per set. General integer-program reductions have representation and parameter costs, so this relation alone does not establish a round complexity.",
+      "reference": "beks19"
+    },
+    {
+      "special": "outside-k-domination",
+      "general": "integral-covering",
+      "kind": "special-case",
+      "upper": false,
+      "lower": false,
+      "reason": "An exact binary formulation is k*x_v + sum over neighbors u of x_u >= k. The coefficient on x_v exempts selected vertices. This is not ordinary unit-demand set cover; a distributed ILP algorithm needs its own parameter and representation checks.",
+      "reference": "chsw14"
+    },
+    {
+      "special": "dominating-set",
+      "general": "outside-k-domination",
+      "kind": "special-case",
+      "upper": false,
+      "lower": false,
+      "reason": "Ordinary domination is exactly the case k=1. Indexed algorithms for fixed k>=2 cannot be specialized without checking that their theorems permit k=1; parameter matching is deliberately not automatic.",
+      "reference": "chsw14"
+    },
+    {
+      "special": "dominating-set",
+      "general": "client-dominating-set",
+      "kind": "special-case",
+      "upper": false,
+      "lower": false,
+      "reason": "Making every vertex a client recovers ordinary domination, but this structural relation does not discard the preprocessing and online-round conventions of the indexed SUPPORTED theorem.",
+      "reference": "aapr22"
+    },
+    {
+      "special": "dominating-set",
+      "general": "distance-dominating-set",
+      "kind": "special-case",
+      "upper": false,
+      "lower": false,
+      "reason": "Radius r=1 gives ordinary domination. Results for a specified radius, or a girth threshold depending on that radius, require explicit parameter matching before a bound can be specialized.",
+      "reference": "amors18"
+    },
+    {
+      "special": "connected-dominating-set",
+      "general": "connected-distance-dominating-set",
+      "kind": "special-case",
+      "upper": false,
+      "lower": false,
+      "reason": "Radius r=1 gives ordinary connected domination, with connectivity measured in the original graph. A theorem's allowed radii and graph assumptions must be checked explicitly.",
+      "reference": "amors18"
+    },
+    {
+      "special": "dominating-set",
+      "general": "fractional-dominating-set",
+      "kind": "relaxation",
+      "upper": false,
+      "lower": false,
+      "reason": "Relaxing binary selection to nonnegative vertex values changes feasibility and OPT. A fractional solution requires an additional rounding theorem to become an integral dominating set; integral lower bounds need not apply to the LP.",
+      "reference": "kw05"
+    },
+    {
+      "special": "vertex-cover",
+      "general": "fractional-vertex-cover",
+      "kind": "relaxation",
+      "upper": false,
+      "lower": false,
+      "reason": "Replace binary vertex selections by nonnegative values. The fractional optimum can differ, and no integrality or rounding factor is supplied by this edge.",
+      "reference": "low24"
+    },
+    {
+      "special": "set-cover",
+      "general": "fractional-set-cover",
+      "kind": "relaxation",
+      "upper": false,
+      "lower": false,
+      "reason": "Allow fractional set values in place of binary selections. This does not provide an integral set cover or transfer an integral-output lower bound.",
+      "reference": "as10"
+    },
+    {
+      "special": "local-covering",
+      "general": "fractional-local-covering",
+      "kind": "relaxation",
+      "upper": false,
+      "lower": false,
+      "reason": "The covering sets stay local, but dropping integrality changes the feasible solutions and benchmark. Integral algorithms measured against fractional OPT still belong to the integral-output problem.",
+      "reference": "asw26"
+    },
+    {
+      "special": "integral-covering",
+      "general": "covering-lp",
+      "kind": "relaxation",
+      "upper": false,
+      "lower": false,
+      "reason": "Dropping the integer restrictions gives a positive fractional covering LP. The LP algorithm supplies fractional values, not a solution of the covering integer program.",
+      "reference": "beks19"
+    },
+    {
+      "special": "fractional-local-covering",
+      "general": "covering-lp",
+      "kind": "special-case",
+      "upper": false,
+      "lower": false,
+      "reason": "Its candidate matrix is a positive covering LP. A generic algorithm communicates on a variable-constraint incidence graph, whereas the local algorithm communicates on the original graph. This representation change needs an explicit simulation.",
+      "reference": "low24"
+    },
+    {
+      "special": "fractional-dominating-set",
+      "general": "fractional-set-cover",
+      "kind": "special-case",
+      "upper": false,
+      "lower": false,
+      "reason": "Use the vertex universe and closed-neighborhood sets. Fractional OPT agrees, but the set-cover incidence graph is a different graph and may not preserve the target graph class.",
+      "reference": "kw05"
+    },
+    {
+      "special": "fractional-vertex-cover",
+      "general": "fractional-set-cover",
+      "kind": "special-case",
+      "upper": false,
+      "lower": false,
+      "reason": "The edge universe and incident-edge sets give frequency two. The variable-constraint network subdivides the original edges, so model and simulation details remain separate from this structural relation.",
+      "reference": "as10"
+    },
+    {
+      "special": "fractional-set-cover",
+      "general": "covering-lp",
+      "kind": "special-case",
+      "upper": false,
+      "lower": false,
+      "reason": "The binary incidence matrix is a positive covering LP. Coefficient encoding, normalization, variable-constraint ownership, and parameter bounds must match the selected theorem before applying it.",
+      "reference": "low24"
+    },
+    {
+      "special": "maximum-matching",
+      "general": "fractional-matching",
+      "kind": "relaxation",
+      "upper": false,
+      "lower": false,
+      "reason": "Relax edge indicators to nonnegative values satisfying the degree constraints. Odd cycles can separate fractional and integral OPT; this edge contains no rounding algorithm.",
+      "reference": "low24"
+    },
+    {
+      "special": "fractional-matching",
+      "general": "packing-lp",
+      "kind": "special-case",
+      "upper": false,
+      "lower": false,
+      "reason": "Use edge variables and one incident-sum constraint per vertex. A generic packing algorithm operates on the incidence network and must be simulated on the original graph with its coefficient and message-size assumptions.",
+      "reference": "low24"
+    },
+    {
+      "special": "maximum-matching",
+      "general": "f-matching",
+      "kind": "special-case",
+      "upper": false,
+      "lower": false,
+      "reason": "Unit vertex capacities f(v)=1 recover cardinality matching on the same graph. The indexed f-matching theorem has its own capacity and supplied-expansion assumptions; a unit-capacity specialization is not inferred automatically.",
+      "reference": "chw21"
+    },
+    {
+      "special": "maximum-matching",
+      "general": "b-matching",
+      "kind": "special-case",
+      "upper": false,
+      "lower": false,
+      "reason": "Unit capacities b(v)=1 force edge multiplicities to be zero or one, recovering cardinality matching. Capacity and supplied Lipschitz-bound assumptions must be instantiated explicitly.",
+      "reference": "chw21"
+    },
+    {
+      "special": "independent-set",
+      "general": "integral-packing",
+      "kind": "special-case",
+      "upper": false,
+      "lower": false,
+      "reason": "Use binary vertex variables with x_u+x_v<=1 on every edge and x_v<=1 for every vertex, including isolates. This exact integer formulation does not certify communication on its constraint incidence graph.",
+      "reference": "low24"
+    },
+    {
+      "special": "other-packing",
+      "general": "integral-packing",
+      "kind": "special-case",
+      "upper": false,
+      "lower": false,
+      "reason": "Exact occurrence formulation: one binary variable per candidate copy of H and a sum-at-most-one constraint per physical vertex. This follows from vertex-disjointness; occurrence enumeration and incidence-network simulation need separate analysis.",
+      "reference": "chw08"
+    },
+    {
+      "special": "maximum-matching",
+      "general": "integral-packing",
+      "kind": "special-case",
+      "upper": false,
+      "lower": false,
+      "reason": "Use binary edge variables and sum of incident variables at most one at each vertex. This objective-preserving formulation alone does not certify a distributed integer-program simulation.",
+      "reference": "chw21"
+    },
+    {
+      "special": "f-matching",
+      "general": "integral-packing",
+      "kind": "special-case",
+      "upper": false,
+      "lower": false,
+      "reason": "Use binary edge variables with each incident sum bounded by f(v). Integer capacities and the original graph representation remain essential; this structural formulation supplies no simulation theorem.",
+      "reference": "chw21"
+    },
+    {
+      "special": "b-matching",
+      "general": "integral-packing",
+      "kind": "special-case",
+      "upper": false,
+      "lower": false,
+      "reason": "Use nonnegative integer edge variables with incident sum bounded by b(v). Multiplicities are allowed. This formulation does not remove the indexed algorithm's supplied Lipschitz-bound assumption.",
+      "reference": "chw21"
+    },
+    {
+      "special": "integral-packing",
+      "general": "packing-lp",
+      "kind": "relaxation",
+      "upper": false,
+      "lower": false,
+      "reason": "Dropping integer or binary requirements leaves the positive packing LP, including any explicit variable upper bounds. Fractional feasibility and fractional OPT do not provide an integral output without additional rounding.",
+      "reference": "low24"
+    },
+    {
+      "special": "edge-dominating-set",
+      "general": "dominating-set",
+      "kind": "special-case",
+      "upper": false,
+      "lower": false,
+      "reason": "Edges of G become vertices of the line graph L(G), with adjacency when the original edges meet. Dominating sets correspond exactly, but graph classes, degrees, process ownership, and message-model simulations can change. Structural browsing only.",
+      "reference": "suomela10eds"
+    },
+    {
+      "special": "distance-vertex-cover",
+      "general": "set-cover",
+      "kind": "special-case",
+      "upper": false,
+      "lower": false,
+      "reason": "Use universe E and, for each candidate w, the set of edges uv for which both d(w,u)<=r and d(w,v)<=r. This is an exact reformulation of the source definition; its incidence network and communication distances change, so no bound transfers automatically.",
+      "reference": "aw22"
+    },
+    {
+      "special": "dominating-set",
+      "general": "connected-dominating-set",
+      "kind": "approximation-reduction",
+      "upper": false,
+      "lower": false,
+      "reason": "A connected dominating set remains feasible for ordinary domination. On connected unweighted inputs, comparing integral optima gives factor 3 with the same round complexity.",
+      "reference": "cwy00",
+      "reductions": [
+        "mds-via-connected-domination"
+      ]
+    },
+    {
+      "special": "connected-dominating-set",
+      "general": "dominating-set",
+      "kind": "approximation-reduction",
+      "upper": false,
+      "lower": false,
+      "reason": "Connect a dominating set in four extra LOCAL rounds on connected unweighted inputs with distinct identifiers. The checked multiplier is 1+2∇₁ (7 on planar graphs, 3 on pseudoforests); see the recipe for the source size-bound clarification.",
+      "reference": "amors18",
+      "reductions": [
+        "connected-domination-via-mds"
+      ]
+    }
+  ],
+  "references": {
+    "asw26": {
+      "title": "Amiri, Siebertz and Wawrzyniak (2026), Paying for Fractional Error, Section 6.6 and Appendix D",
+      "url": "https://arxiv.org/pdf/2611.02057"
+    },
+    "kw05": {
+      "title": "Kuhn and Wattenhofer (2005), Constant-time distributed dominating set approximation, Section 3",
+      "url": "https://disco.ethz.ch/publications/distcomp05.pdf"
+    },
+    "as10": {
+      "title": "Åstrand and Suomela (2010), Fast distributed approximation algorithms for vertex cover and set cover in anonymous networks, Sections 1 and 5",
+      "url": "https://jukkasuomela.fi/doc/vc-sc.pdf"
+    },
+    "beks19": {
+      "title": "Ben-Basat, Even, Kawarabayashi and Schwartzman (2019), Optimal Distributed Covering Algorithms",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.DISC.2019.5"
+    },
+    "chsw14": {
+      "title": "Czygrinow et al. (2014), Distributed Local Approximation of the Minimum k-Tuple Dominating Set in Planar Graphs",
+      "url": "https://link.springer.com/chapter/10.1007/978-3-319-14472-6_4"
+    },
+    "aapr22": {
+      "title": "Agrawal et al. (2022), Recurrent Problems in the LOCAL model",
+      "url": "https://arxiv.org/abs/2212.14542"
+    },
+    "amors18": {
+      "title": "Amiri et al. (2018), Distributed Domination on Graph Classes of Bounded Expansion",
+      "url": "https://arxiv.org/abs/1702.02848"
+    },
+    "low24": {
+      "title": "Li, Ouyang and Wang (2024), A Simple Distributed Algorithm for Sparse Fractional Covering and Packing Problems, Section 1 and Theorem 2.1",
+      "url": "https://arxiv.org/html/2409.16168v1"
+    },
+    "chw21": {
+      "title": "Czygrinow, Hanćkowiak and Witkowski (2021), Distributed Approximations of f-Matchings and b-Matchings, Section 1",
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol212-isaac2021/LIPIcs.ISAAC.2021.59/LIPIcs.ISAAC.2021.59.pdf"
+    },
+    "aw22": {
+      "title": "Amiri and Wiederhake (2022), Distributed distance-r covering problems on sparse high-girth graphs, Section 2",
+      "url": "https://publikationen.sulb.uni-saarland.de/bitstream/20.500.11880/34562/1/1-s2.0-S0304397522000081-main.pdf"
+    },
+    "chw08": {
+      "title": "Czygrinow, Hanckowiak and Wawrzyniak (2008), Distributed packing in planar graphs; occurrence formulation inferred from vertex-disjoint packing",
+      "url": "https://asu.elsevierpure.com/en/publications/distributed-packing-in-planar-graphs/"
+    },
+    "suomela10eds": {
+      "title": "Suomela (2010), Distributed Algorithms for Edge Dominating Sets, Section 1.1",
+      "url": "https://jukkasuomela.fi/doc/eds.pdf"
+    },
+    "w26transfer": {
+      "title": "Wawrzyniak (2026), Almost Lossless Transfer for Cuttable Distributed Problems, Section 8 (outside-solution definition of 2-domination)",
+      "url": "https://arxiv.org/html/2610.15596v1#S8"
+    },
+    "cwy00": {
+      "title": "Caro, West and Yuster, Connected Domination and Spanning Trees with Many Leaves, Lemma 2.1",
+      "url": "https://math.haifa.ac.il/raphy/papers/conndom.pdf#page=4"
+    }
+  },
+  "scopes": {
+    "Dominating set": "dominating-set",
+    "Total dominating set": "total-dominating-set",
+    "Distance dominating set": "distance-dominating-set",
+    "Connected dominating set": "connected-dominating-set",
+    "k-tuple dominating set": "outside-k-domination",
+    "Vertex cover": "vertex-cover",
+    "Set cover": "set-cover",
+    "Local covering": "local-covering",
+    "Covering LP": "covering-lp",
+    "Maximum matching": "maximum-matching",
+    "Packing LP": "packing-lp",
+    "Independent set": "independent-set",
+    "Other packing": "other-packing",
+    "Edge dominating set": "edge-dominating-set",
+    "Local density": "local-density",
+    "Distance-r vertex cover": "distance-vertex-cover",
+    "Distance-r connected vertex cover": "connected-distance-vertex-cover",
+    "Connected distance-r vertex cover": "connected-distance-vertex-cover"
+  },
+  "overrides": {
+    "alipour-trianglefree-total-16": "total-dominating-set",
+    "supported-client-planar": "client-dominating-set",
+    "unitdisk-fractional-domination": "fractional-dominating-set",
+    "gen-asw26-fractional": "fractional-local-covering",
+    "gen-ako18-fractional": "fractional-matching",
+    "amiri-connected-distance": "connected-distance-dominating-set",
+    "pic-girth-cover-connected-dom": "connected-distance-dominating-set",
+    "pic-sublog-fmatching": "f-matching",
+    "pic-sublog-bmatching": "b-matching",
+    "gen-w26-2dom": "outside-k-domination"
+  },
+  "resultParameters": {
+    "amiri-distance": "r",
+    "pic-girth-dom-2019": "r",
+    "pic-girth-cycle-lower": "r",
+    "pic-girth-cover-dom": "r",
+    "planar-two-dom-six": "2",
+    "planar-two-dom-seven": "2",
+    "planar-two-dom-lower": "2",
+    "gen-w26-2dom": "2",
+    "pic-kdom-topological44": "2",
+    "pic-thesis-planar-distance-dom": "k",
+    "pic-thesis-genus-distance-dom": "k"
+  }
+}

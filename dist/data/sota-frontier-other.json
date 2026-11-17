@@ -1,0 +1,117 @@
+{
+  "checked": "2026-11-16",
+  "entries": [
+    {
+      "resultId": "gen-as10-vc",
+      "scopeLabel": "General · exact factor 2 · degree/weight dependent",
+      "setting": "Deterministic anonymous port numbering; weighted vertex cover on general graphs; positive integer weights at most W; O(Δ + log* W) rounds, independent of n.",
+      "reason": "Theorem 1 yields exact factor 2. This retains a tradeoff independent of n, absent from the faster-in-Δ polylogarithmic-n exact-2 result. Factor 2 is optimal for deterministic local algorithms when auxiliary parameters are fixed; optimal dependence on Δ and W is not claimed.",
+      "evidenceUrl": "https://jukkasuomela.fi/doc/vc-sc.pdf"
+    },
+    {
+      "resultId": "gen-as10-setcover",
+      "scopeLabel": "Bounded incidence · anonymous broadcast · f ≤ k",
+      "setting": "Weighted set cover on its incidence network; set size at most k, element frequency at most f ≤ k and positive integer weights at most W; deterministic anonymous broadcast; O(f²k² + fk log* W) rounds.",
+      "reason": "Section 4 gives factor f without identifiers or port numbering. Section 6 proves the lower barrier min{f,k}; hence factor f is optimal in the certified range f ≤ k. For f > k, the trivial k-approximation is stronger, so this annotation does not certify that range. Exact running-time optimality is not claimed.",
+      "evidenceUrl": "https://jukkasuomela.fi/doc/vc-sc.pdf"
+    },
+    {
+      "resultId": "gen-beks18-exact2",
+      "scopeLabel": "General · exact factor 2 · polylogarithmic",
+      "setting": "Deterministic CONGEST; weighted vertex cover on general graphs; positive integer weights W≤n^O(1); Δ or a polynomial-in-Δ upper bound known; a common polynomial-in-n bound B≥nW permits internal ε<1/B; exact factor 2 in O(log n · log Δ / log² log Δ) rounds.",
+      "reason": "The paper supplies the exact-2 point of the weighted-VC tradeoff, improving prior deterministic exact-2 complexity. A 2+ε guarantee, even with fewer rounds, does not dominate exact factor 2; the anonymous n-independent exact-2 algorithm has a different Δ/weight tradeoff. No matching running-time lower bound is claimed.",
+      "evidenceUrl": "https://arxiv.org/pdf/1804.01308v3"
+    },
+    {
+      "resultId": "gen-beks18-eps",
+      "scopeLabel": "General · inverse-polylog accuracy · degree dependent",
+      "setting": "Deterministic CONGEST; weighted vertex cover on general graphs; positive integer weights W≤n^O(1); Δ or a polynomial-in-Δ upper bound known; fixed c≥1 and accuracy ε=(log Δ)^−c; O(log Δ / log log Δ) rounds. This annotation uses the known-degree instantiation, not the separate Section 4 variants.",
+      "reason": "Theorem 2 gives the degree-optimal round dependence in this accuracy range, matching the KMW lower bound for constant or polylogarithmic factors. Exact factor 2 requires a different round tradeoff. This annotation is restricted to the stated relation between ε and Δ.",
+      "evidenceUrl": "https://arxiv.org/pdf/1804.01308v3#page=6"
+    },
+    {
+      "resultId": "gen-hs22-mwm",
+      "scopeLabel": "General · weighted matching · fully polynomial scheme",
+      "setting": "Deterministic CONGEST; maximum-weight matching on general graphs; weights use the source message encoding; arbitrary 0 < ε < 1; retained weight at least (1−ε) OPT in poly(1/ε, log n) rounds.",
+      "reason": "Theorem 1.1 supplies the fully polynomial CONGEST scheme for weighted matching on general graphs, replacing the earlier exponential-in-1/ε dependency. Later cardinality-only matching improvements do not dominate this weighted guarantee. The annotation does not assert optimal polynomial exponents.",
+      "evidenceUrl": "https://arxiv.org/pdf/2212.14425v2#page=4"
+    },
+    {
+      "resultId": "gen-low24-cover",
+      "scopeLabel": "Incidence network · sparse fractional covering · accuracy tradeoff",
+      "setting": "Deterministic CONGEST; normalized fractional covering LP on its variable–constraint incidence network; nonzero coefficients at least 1 with the source encodings; ratio 1+ε and O(Γd log Γp / ε²) rounds.",
+      "reason": "Theorem 2.1 gives the ε^−2 accuracy point. Its linear Γd dependence trades against the earlier logarithmic-Γd, ε^−4 bound; neither family uniformly dominates the other. For bounded sparsity and coefficients this improves the prior accuracy dependence. No integral-output or graph-preserving reduction is inferred.",
+      "evidenceUrl": "https://arxiv.org/html/2409.16168v1#S2"
+    },
+    {
+      "resultId": "gen-low24-pack",
+      "scopeLabel": "Incidence network · sparse fractional packing · accuracy tradeoff",
+      "setting": "Deterministic CONGEST; the dual normalized fractional packing LP on its variable–constraint incidence network; source coefficient/encoding conditions; feasible value at least OPT/(1+ε) in O(Γd log Γp / ε²) rounds.",
+      "reason": "Theorem 2.1 supplies the dual ε^−2 point with the same sparsity/coefficient tradeoff as covering. Earlier ε^−4 algorithms have better Γd dependence, so the full parameter functions must be compared. A fractional packing guarantee is kept separate from integral matching and packing.",
+      "evidenceUrl": "https://arxiv.org/html/2409.16168v1#S2"
+    },
+    {
+      "resultId": "gen-fk25-arboricity-fast",
+      "scopeLabel": "Bounded arboricity · weighted IS · log-star",
+      "setting": "Deterministic CONGEST; maximum-weight independent set on graphs of arboricity β≥1; source weight encodings and supplied graph parameters; weight at least (1−ε)w(V)/(4β) in O(log²(β/ε)/ε + log* n) rounds.",
+      "reason": "Theorem 1.2 improves the known bounded-arboricity weighted-IS tradeoff to log-star dependence on n for fixed β and ε. The stronger total-weight guarantee of Theorem 1.3 uses logarithmic n rounds, so it does not dominate this faster point. The benchmark remains total input weight w(V), rather than being silently replaced by OPT.",
+      "evidenceUrl": "https://arxiv.org/html/2506.10845v1#S1.SS4.SSS2"
+    },
+    {
+      "resultId": "gen-fk25-arboricity-better",
+      "scopeLabel": "Bounded arboricity · weighted IS · logarithmic",
+      "setting": "Deterministic CONGEST; maximum-weight independent set on graphs of arboricity β>1; source weight encodings and supplied graph parameters; weight at least (1−ε)w(V)/(2β+1) with the stated β, ε and logarithmic-n round dependence.",
+      "reason": "Theorem 1.3 improves the logarithmic-round guarantee and its dependence on β in the stated parameter range. Its larger retained fraction trades against Theorem 1.2’s faster log-star n dependence. The total-weight benchmark and complete parameter dependence are part of this frontier point; no exact optimality claim is made.",
+      "evidenceUrl": "https://arxiv.org/html/2506.10845v1#S1.SS4.SSS2"
+    },
+    {
+      "resultId": "gen-ffk21-vc-bip",
+      "scopeLabel": "Bipartite · weighted VC · polylogarithmic scheme",
+      "setting": "Deterministic CONGEST; minimum-weight vertex cover on bipartite graphs; source weight encodings; every ε∈(0,1]; factor 1+ε in poly(log n/ε) rounds.",
+      "reason": "Theorem 1.1 gives the weighted bipartite approximation-scheme point. General-graph factor-2 or 2+ε bounds do not dominate its stronger guarantee. The paper proves an Ω(log n/ε) LOCAL lower bound already on degree-three bipartite graphs; this does not establish optimal polylogarithmic exponents.",
+      "evidenceUrl": "https://arxiv.org/pdf/2111.10577#page=4"
+    },
+    {
+      "resultId": "gen-ghs12-eds",
+      "scopeLabel": "Bounded degree · deterministic local lower bound",
+      "setting": "Deterministic LOCAL; unweighted edge dominating set on graphs of maximum degree Δ≥2; for any round complexity depending only on Δ, approximation factors below 4−1/floor(Δ/2) are impossible.",
+      "reason": "Theorem 1.6 explicitly proves that the same factor is achievable by a deterministic local algorithm whose round complexity may depend on Δ. The lower bound remains valid with unique identifiers. This certifies the coefficient for algorithms with rounds independent of n, not optimal dependence on Δ.",
+      "evidenceUrl": "https://jukkasuomela.fi/doc/linear-order.pdf#page=6"
+    },
+    {
+      "resultId": "folklore-regular-vc",
+      "scopeLabel": "Positive-degree regular · zero rounds",
+      "setting": "Unweighted vertex cover on positive-degree regular graphs; deterministic CONGEST; zero rounds; no identifiers or degree knowledge required; factor 2.",
+      "reason": "The zero-round construction attains factor 2, and zero communication is minimal. The deterministic constant-locality factor-2 lower bound already applies to cycles, which are regular. General-graph exact-2 algorithms with degree-dependent or polylogarithmic round complexities do not dominate this zero-round point.",
+      "evidenceUrl": "https://jukkasuomela.fi/doc/linear-order.pdf#page=4"
+    },
+    {
+      "resultId": "gen-aprsu10-matching",
+      "scopeLabel": "Properly 2-colored bipartite · rounds independent of n",
+      "setting": "Deterministic LOCAL; unweighted matching with a proper 2-coloring supplied as input and fixed maximum degree Δ; fixed ε>0; retained fraction 1/(1+ε) in f(Δ,ε) rounds independent of n.",
+      "reason": "Theorem 9 supplies an approximation scheme in f(Δ, ε) rounds under this extra symmetry-breaking input. The limiting ratio is optimal; optimal dependence on Δ or ε is not claimed. Algorithms using log-star rounds without a supplied coloring do not dominate this guarantee independent of n.",
+      "evidenceUrl": "https://jukkasuomela.fi/doc/weakly-coloured.pdf#page=12"
+    },
+    {
+      "resultId": "gen-beks18-full-eps",
+      "scopeLabel": "General · full accuracy tradeoff",
+      "setting": "Deterministic CONGEST; weighted vertex cover on general graphs; positive integer weights W≤n^O(1); known Δ or a polynomial upper bound; every ε∈(0,1), with all logarithms truncated as in the source. The complete Δ and ε round expression is retained.",
+      "reason": "Theorem 2 gives the full logarithmic dependence on inverse accuracy and includes the inverse-polylogarithmic-accuracy corollary as the same protocol. Exact factor 2 and the anonymous n-independent weighted algorithm remain distinct tradeoffs; no optimal joint dependence on Δ and ε is claimed.",
+      "evidenceUrl": "https://arxiv.org/pdf/1804.01308v3#page=6"
+    },
+    {
+      "resultId": "gen-beks19-full-eps",
+      "scopeLabel": "General · full accuracy / degree tradeoff",
+      "setting": "Weighted vertex cover on general graphs; deterministic CONGEST; positive polynomially bounded integer weights; every ε∈(0,1). Rank f=2 uses a constant-overhead incidence simulation. The full displayed Δ and ε function is retained; a global degree bound is unnecessary.",
+      "reason": "Theorem 4.9 improves the previous joint degree/accuracy tradeoff. For fixed accuracy it matches the degree lower bound. The complete function retains its tradeoff with anonymous exact-2 algorithms and with the separate logarithmic-round exact-2 point; no optimality for every accuracy exponent is asserted.",
+      "evidenceUrl": "https://arxiv.org/pdf/1902.09377v2#page=9"
+    },
+    {
+      "resultId": "gen-beks19-exact2",
+      "scopeLabel": "General · exact factor 2 · logarithmic",
+      "setting": "Weighted vertex cover on general graphs; deterministic CONGEST; exact ratio 2 in O(log n) rounds; positive polynomially bounded integer weights and a common polynomial bound B≥nW for the integrality step. Rank f=2 uses a constant-overhead incidence simulation.",
+      "reason": "Corollary 4.10 gives the logarithmic-round exact-2 point, improving the 2018 bound by removing its additional degree-dependent factor. Faster 2+ε guarantees do not dominate exact factor 2; anonymous degree/weight-dependent exact-2 algorithms remain a different tradeoff.",
+      "evidenceUrl": "https://arxiv.org/pdf/1902.09377v2#page=9"
+    }
+  ]
+}

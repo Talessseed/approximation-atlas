@@ -1,0 +1,55 @@
+K2,t-minor-free minimum dominating set: factor-50 SOTA audit
+Checked 2026-11-16
+
+Reported issue
+The source row pic-large-50-dom was already indexed, but had no reviewed SOTA
+annotation. It was therefore hidden by SOTA only. This was a curation omission,
+not a certified dominance comparison. Bare K2t was also missing as a search
+alias. The record correctly belongs to Parameter dependent, not Constant.
+
+Primary sources
+1. Bonamy, Gavoille, Picavet and Wesolek (PODC 2025):
+   https://arxiv.org/html/2504.01091v2
+   https://dept-info.labri.fr/~gavoille/article/BGPW25.pdf
+   Theorem 4.1 gives factor 50 in O_t(1) rounds, displayed f(t), for t >= 2.
+   The approximation factor is independent of t. Do not read the subscript t
+   as a multiplicative O(t) runtime. Theorem 4.4 separately gives factor 2t-1
+   in exactly three rounds. Neither point is removed by an uncertified
+   comparison between its full round dependence and that of the other.
+
+2. Amiri and Siebertz (October 2026), Table 2 and Section 8.4:
+   https://arxiv.org/html/2610.09618v2#S8.SS4
+   Explicitly retains the approximation envelope min{t+2+epsilon, 2t-1, 50}.
+
+3. Amiri, Siebertz and Wawrzyniak (November 2026), Theorem C(i):
+   https://arxiv.org/pdf/2611.02057
+   The factor 2a+1 against the fractional optimum, with minor density
+   a=(t+1)/2, gives t+2 in parameter-dependent broadcast CONGEST rounds.
+   The related-work discussion still records the factor-50 result.
+
+4. Chudnovsky, Reed and Seymour, The edge-density for K2,t minors,
+   Theorem 1.1 (author manuscript, PDF page 3):
+   https://web.math.princeton.edu/~mchudnov/K2t.pdf
+   For every integer t >= 2, every simple n-vertex K2,t-minor-free graph
+   satisfies |E| <= (t+1)(n-1)/2. The class is minor closed, so every minor
+   has density at most (t+1)/2. Substituting this rational value into ASW26
+   Theorem C(i) gives t+2 for every t >= 2; there is no threshold at 8.
+   ASW26 Corollary 1.1 and Appendix B restrict the different coefficient
+   2t-3 on K_t-minor-free graphs to 3 <= t <= 9. These graph classes and
+   parameter ranges must not be conflated.
+
+Annotation decision
+Add pic-large-50-dom as a best-known uniform-in-t approximation tradeoff,
+with the conservative visible scope "Ratio independent of t; t >= 49".
+For t <= 25 the three-round factor 2t-1 is smaller. The newer generic bound
+has factor below 50 for t <= 47; at t=48 it ties 50 with a stronger fractional
+benchmark and broadcast CONGEST model. These observations motivate the
+annotation's restricted domain, not a global dominance edge: the unspecified
+round functions have not been certified comparable on every parameter.
+No matching lower bound, tightness, or optimal parameter dependence is claimed.
+The original theorem and its t >= 2 applicability remain unchanged.
+
+Discovery and display
+Add bare K2t, K2,t and TeX K_{2,t} aliases. Canonicalize the display label to
+K₂,t-minor-free; preserve the source spelling in graphClassSource. No graph
+inclusion or problem reduction is added by this change.

@@ -1,0 +1,179 @@
+{
+  "checked": "2026-11-16",
+  "question": "Does the factor-50 theorem for H-minor-free graphs with pw(H) at most two certify dominance over the original K2,t-minor-free factor-50 result, including its round complexity?",
+  "results": [
+    "pic-large-50-dom",
+    "pic-thesis-pw2-dom"
+  ],
+  "conclusion": {
+    "graphSpecializationCertified": true,
+    "parameterMap": "H = K_{2,t}, t >= 2",
+    "algorithmIdentityCertified": true,
+    "originalRuntimeIsExplicitAsymptotically": true,
+    "originalRuntime": "O(t)",
+    "genericHRuntimeNoSlowerThanOriginalCertified": false,
+    "summary": "The thesis explicitly reuses the same Algorithm 5. With H=K2,t, the original class control function, local-cut radii and component-exploration schedule give literally the original algorithm, whose O(t) analysis remains valid. A family implementing this original schedule on the mapped H=K2,t branch and the generic Chapter VIII schedule elsewhere covers the original result with strictness in the parameterized family of excluded-minor settings. No generic Chapter VIII diameter-threshold comparison is needed outside the mapped subfamily because the original theorem supplies no guarantee there. This does not assert faster rounds, a strict runtime improvement, or that every fixed H of pathwidth at most two defines a superclass of every K2,t-minor-free class.",
+    "recommendedTreatment": "An explicit same-algorithm/configuration certificate justifies marking the original theorem covered by the broader theorem, strictly in parameterized graph-family scope, while retaining its original citation as provenance. The certificate must preserve O(t) on H=K2,t and retain generic f(H) elsewhere. Mere graph inclusion plus the strings f(H),f(t) would not justify this comparison; the source-backed mapped identical-runtime certificate supplies the missing premise.",
+    "mappedFamilyCoverageCertified": true,
+    "strictDimension": "parameterized excluded-minor family scope",
+    "runtimeComparisonOnMappedSubfamily": "Identical implementation and O(t) guarantee under H=K2,t, using the original control function, local-cut radii, and residual exploration schedule."
+  },
+  "findings": [
+    {
+      "id": "graph-inclusion",
+      "claim": "K2,t has pathwidth two for every t>=2. Choosing H=K2,t specializes Theorem VIII.1.1 exactly to K2,t-minor-free input graphs. This concerns the excluded graph, not the pathwidth of the input graph.",
+      "basis": "stated",
+      "evidence": [
+        {
+          "url": "https://timothepicavet.fr/others/thesis.pdf#page=204",
+          "title": "Timothé Picavet's doctoral thesis",
+          "location": "Chapter VIII.1, immediately before Theorem VIII.1.1, PDF p. 204"
+        }
+      ]
+    },
+    {
+      "id": "same-algorithm",
+      "claim": "The Chapter VIII generalization uses the same Algorithm 5 from Chapter IV. It changes the structural analysis establishing bounded residual-component diameter, rather than supplying a new pseudocode or a new communication procedure.",
+      "basis": "stated",
+      "evidence": [
+        {
+          "url": "https://timothepicavet.fr/others/thesis.pdf#page=204",
+          "title": "Timothé Picavet's doctoral thesis",
+          "location": "Paragraph immediately following Theorem VIII.1.1: same Algorithm 5, further analysis, and replacement for Lemma IV.3.2, PDF p. 204"
+        },
+        {
+          "url": "https://timothepicavet.fr/others/thesis.pdf#page=218",
+          "title": "Timothé Picavet's doctoral thesis",
+          "location": "Final paragraph of Chapter VIII, explicitly reusing Algorithm 5 and Lemmas IV.2.1–IV.2.2, PDF p. 218"
+        },
+        {
+          "url": "https://timothepicavet.fr/others/thesis.pdf#page=124",
+          "title": "Timothé Picavet's doctoral thesis",
+          "location": "Algorithm 5: true-twin removal, local 1-cuts, interesting local 2-cuts, and brute-force residual domination, PDF p. 124"
+        }
+      ]
+    },
+    {
+      "id": "original-runtime-composition",
+      "claim": "The original paper explicitly gives the runtime composition 3 max{F_t(5)+2,F_t(11)+5}+g(t)+3. Here F_t is a control function of the K2,t-minor-free class, and g is the linear function from Ding's Lemma 6.3. The theorem states O_t(1), but the following paragraph contains this more informative expression.",
+      "formula": "3 max{F_t(5)+2, F_t(11)+5} + g(t) + 3",
+      "tex": "3\\max\\{F_t(5)+2,F_t(11)+5\\}+g(t)+3",
+      "basis": "stated",
+      "evidence": [
+        {
+          "url": "https://arxiv.org/html/2504.01091v2",
+          "title": "Local Constant Approximation for Dominating Set on Graphs Excluding Large Minors",
+          "location": "Theorem 4.1, Lemma 4.2, and the runtime paragraph immediately after Lemma 4.2 (HTML line 277 in the checked rendering)"
+        },
+        {
+          "url": "https://timothepicavet.fr/others/thesis.pdf#page=125",
+          "title": "Timothé Picavet's doctoral thesis",
+          "location": "Theorem IV.3.1, Lemma IV.3.2 and displayed runtime expression, PDF p. 125"
+        }
+      ]
+    },
+    {
+      "id": "linear-runtime-in-t",
+      "claim": "The thesis makes the control function explicit: F_t(r)=(5r+18)t suffices, citing BBE+24 Lemma 7.1, and states that the running time is linear in t. Thus O(t) is source-supported for the original factor-50 algorithm. This corrects the earlier audit's claim that no closed asymptotic dependence on t was available.",
+      "formula": "O(t)",
+      "tex": "O(t)",
+      "basis": "stated",
+      "partialIntegerExpression": "219t + g(t) + 18, with g linear but its numerical coefficients not extracted in this audit",
+      "partialIntegerDerivation": "F_t(5)+2=43t+2 and F_t(11)+5=73t+5. For t>=2 the latter is larger; substituting it into the printed runtime composition gives 219t+g(t)+18. This is not a fully specified exact integer runtime because the coefficients of g are not supplied here.",
+      "evidence": [
+        {
+          "url": "https://timothepicavet.fr/others/thesis.pdf#page=125",
+          "title": "Timothé Picavet's doctoral thesis",
+          "location": "Paragraph following the displayed runtime, explicitly choosing f(r)=(5r+18)t and stating linear running time, PDF p. 125"
+        }
+      ]
+    },
+    {
+      "id": "generic-proof-budget-not-compared",
+      "claim": "Chapter VIII derives a residual-diameter threshold through the universal ladder L_k, with k=|V(H)|, a recursive almost-ladder bound, and a final additive four. No statement compares that generic threshold at H=K2,t with the earlier Ding-based linear threshold. The much larger proof expression is an upper bound and does not show that the actual same algorithm runs more slowly on K2,t inputs.",
+      "basis": "source-inspection",
+      "evidence": [
+        {
+          "url": "https://timothepicavet.fr/others/thesis.pdf#page=205",
+          "title": "Timothé Picavet's doctoral thesis",
+          "location": "Proposition VIII.1.2 (H minor of L_k for k=|V(H)|) and Theorem VIII.1.3, PDF p. 205"
+        },
+        {
+          "url": "https://timothepicavet.fr/others/thesis.pdf#page=212",
+          "title": "Timothé Picavet's doctoral thesis",
+          "location": "Lemma VIII.3.3, recursive and closed-form d_{VIII.3.3}(r,l,k), PDF p. 212"
+        },
+        {
+          "url": "https://timothepicavet.fr/others/thesis.pdf#page=216",
+          "title": "Timothé Picavet's doctoral thesis",
+          "location": "Theorem VIII.4.3 composes the almost-ladder diameter threshold; Theorem VIII.5.1 adds four, PDF pp. 216–218"
+        }
+      ]
+    },
+    {
+      "id": "mapped-family-coverage",
+      "claim": "A family-wide implementation can use the original Algorithm 5 schedule for H=K2,t and the generic Chapter VIII schedule for other H. Since the mapped branch has the same approximation guarantee, problem/model/weights and O(t) schedule as the original, the broader parameterized theorem covers the old result. Strictness lies in the range of excluded-minor families, not in faster runtime on K2,t. A comparison of the generic ladder threshold with the old Ding threshold is neither claimed nor required on settings outside the old theorem’s domain.",
+      "basis": "derived-same-algorithm-specialization",
+      "evidence": [
+        {
+          "url": "https://timothepicavet.fr/others/thesis.pdf#page=204",
+          "title": "Timothé Picavet's doctoral thesis",
+          "location": "Theorem VIII.1.1 and explicit same-Algorithm-5 statement, PDF p. 204"
+        },
+        {
+          "url": "https://timothepicavet.fr/others/thesis.pdf#page=125",
+          "title": "Timothé Picavet's doctoral thesis",
+          "location": "Theorem IV.3.1 and linear-in-t runtime analysis, PDF p. 125"
+        },
+        {
+          "url": "https://timothepicavet.fr/others/thesis.pdf#page=218",
+          "title": "Timothé Picavet's doctoral thesis",
+          "location": "Final proof paragraph explicitly reusing Algorithm 5, PDF p. 218"
+        }
+      ]
+    }
+  ],
+  "certificateConditions": [
+    "The problem is unweighted minimum dominating set with the integral benchmark, in deterministic LOCAL.",
+    "Instantiate the excluded graph H as K2,t, for fixed integer t>=2.",
+    "Use the same Algorithm 5, including the same true-twin reduction and residual domination implementation.",
+    "Use the K2,t class control function and local-cut radii from the original construction; the thesis supplies F_t(r)=(5r+18)t.",
+    "Use the original Chapter IV runtime analysis to retain O(t) on this specialization; do not infer a comparison of arbitrary unspecified f(H) and f(t) functions.",
+    "Keep any parameter restriction attached to the separate SOTA claim, such as the existing t>=49 review domain. Neither Theorem IV.3.1 nor VIII.1.1 itself requires t>=49."
+  ],
+  "limitations": [
+    "The live thesis URL was not accessible through web extraction in this turn. Its already-downloaded primary-source PDF and pdftotext output were inspected locally at the cited PDF pages.",
+    "No numerical coefficients for Ding's linear function g(t) were audited, and no exact optimal round count is asserted.",
+    "The generic H-dependent runtime is not shown to improve the original parameter tradeoff. Same-algorithm identity under the stated configuration is stronger than mere class inclusion, but must be recorded as an explicit certificate rather than guessed from symbolic runtime labels."
+  ],
+  "vertexCoverRuntimeFollowup": {
+    "resultId": "pic-large-50-vc",
+    "formula": "O(t)",
+    "tex": "O(t)",
+    "status": "explicit",
+    "basis": "derived-from-stated-extension",
+    "explanation": "The source explicitly extends both Theorems 4.1 and 4.3 to minimum vertex cover. It says it suffices to select all m2(C_t)-local 2-cuts instead of only the interesting vertices, using the same radius, together with the analogous simpler counting argument. The thesis repeats the extension immediately after the preceding page’s linear-in-t runtime analysis. This modification adds no larger inspection radius or iterative communication phase; the local-cut and bounded-residual-component approach therefore retains the O(t) asymptotic upper bound. The source does not separately print the string O(t) for vertex cover, so this is a bound derived from its stated extension and linear-radius analysis.",
+    "notClaimed": [
+      "The exact integer expression 219t+g(t)+18 is not separately certified for the vertex-cover implementation.",
+      "No extension of the Chapter VIII pathwidth-two theorem to vertex cover is inferred by this runtime check.",
+      "No faster rounds or optimality of O(t) is claimed."
+    ],
+    "evidence": [
+      {
+        "url": "https://arxiv.org/html/2504.01091v2",
+        "title": "Local Constant Approximation for Dominating Set on Graphs Excluding Large Minors",
+        "location": "Runtime paragraph after Lemma 4.2 and vertex-cover extension immediately after Theorem 4.3 (HTML lines 277, 296–297 in the checked rendering)"
+      },
+      {
+        "url": "https://timothepicavet.fr/others/thesis.pdf#page=125",
+        "title": "Timothé Picavet's doctoral thesis",
+        "location": "Linear control function F_t(r)=(5r+18)t and linear-in-t runtime statement, PDF p. 125"
+      },
+      {
+        "url": "https://timothepicavet.fr/others/thesis.pdf#page=126",
+        "title": "Timothé Picavet's doctoral thesis",
+        "location": "Vertex-cover extension of Theorems IV.3.1 and IV.3.3, keeping m_IV.2.2(C_t), PDF p. 126"
+      }
+    ]
+  }
+}

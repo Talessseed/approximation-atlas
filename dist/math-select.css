@@ -1,0 +1,19 @@
+.math-select{display:inline-block;position:relative;max-width:100%;min-width:0;vertical-align:middle}
+.math-select-trigger{display:flex;align-items:center;justify-content:space-between;gap:.666667rem;width:100%;min-height:2.4rem;max-width:100%;padding:.533333rem .666667rem;background:var(--surface);border:.066667rem solid var(--line);border-radius:.266667rem;color:var(--text);font:inherit;text-align:left;line-height:1.5}
+.math-select-trigger:hover,.math-select-trigger[aria-expanded=true]{border-color:var(--green);color:var(--text)}
+.math-select-value{display:block;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.math-select-chevron{width:.4rem;height:.4rem;border-right:.1rem solid currentColor;border-bottom:.1rem solid currentColor;transform:rotate(45deg);flex-shrink:0;margin:0 .133333rem .2rem 0}
+.math-select-trigger[aria-expanded=true] .math-select-chevron{transform:rotate(225deg);margin-top:.2rem;margin-bottom:0}
+.math-select [data-tex],.math-select-popup [data-tex]{font-size:1em;color:inherit}
+.math-select-popup{position:fixed;display:block;overflow-y:auto;overflow-x:hidden;z-index:1000;max-width:calc(100vw - 1.333333rem);padding:.266667rem 0;border:.066667rem solid var(--line);border-radius:.266667rem;background:var(--surface);color:var(--text);box-shadow:0 .4rem 1.333333rem #0007;overscroll-behavior:contain;touch-action:pan-y;scrollbar-color:var(--line) var(--surface)}
+.math-select-option{display:block;position:relative;padding:.466667rem 1.8rem .466667rem .666667rem;border-left:.133333rem solid transparent;font-size:.8rem;line-height:1.5;cursor:pointer;overflow-wrap:break-word}
+.math-select-option[aria-selected=true]{color:var(--green);border-left-color:var(--green)}
+.math-select-option[aria-selected=true]::after{content:'✓';position:absolute;right:.6rem;top:.466667rem;font-size:.866667rem}
+.math-select-option.is-active{background:#06d6a018;color:var(--green)}
+.math-select-option[aria-disabled=true]{opacity:.45;cursor:default}
+.filter-block .math-select{display:block;width:100%;font-size:.8rem}
+.filter-block .math-select-trigger{height:2.4rem;padding-left:.533333rem}
+.network-controls .math-select{width:21.333333rem;max-width:100%;font-size:.8rem}
+@media(max-width:1020px){.filter-block .math-select{font-size:.733333rem}}
+@media(max-width:624px){.network-controls .math-select{width:100%;display:block;margin-top:.4rem}}
+@media print{.math-select-popup{display:none!important}}

@@ -1,0 +1,1526 @@
+{
+  "version": 1,
+  "checked": "2026-11-16",
+  "description": "Certified inclusions between graph families with fixed auxiliary parameters. Upper bounds restrict to subclasses. Only edges with lower=true are used for lower bounds; unspecified excluded-minor choices are not transferred backwards. Other theorem assumptions and instance domains remain in force.",
+  "nodes": [
+    {
+      "id": "general",
+      "label": "General",
+      "aliases": [
+        "general",
+        "arbitrary graphs",
+        "General graphs"
+      ],
+      "description": "All finite graphs; other theorem assumptions still apply.",
+      "search": true
+    },
+    {
+      "id": "density",
+      "label": "Bounded arboricity",
+      "aliases": [
+        "bounded degeneracy",
+        "degenerate graphs",
+        "bounded maximum average degree",
+        "arboricity",
+        "degeneracy",
+        "d-degenerate",
+        "degeneracy at most d"
+      ],
+      "description": "Equivalent boundedness families: bounded arboricity, degeneracy and maximum average degree, with parameter changes. A numerical bound is retained in the source.",
+      "search": true
+    },
+    {
+      "id": "depth-one",
+      "label": "Bounded depth-one density",
+      "aliases": [
+        "depth-one density"
+      ],
+      "description": "Bounded maximum average degree and depth-one shallow-minor density.",
+      "search": true
+    },
+    {
+      "id": "expansion",
+      "label": "Bounded expansion",
+      "aliases": [
+        "bounded-expansion"
+      ],
+      "description": "A fixed expansion function bounds shallow-minor density at each depth.",
+      "search": true
+    },
+    {
+      "id": "sublog",
+      "label": "Sub-logarithmic expansion",
+      "aliases": [
+        "sublogarithmic expansion",
+        "sub-log expansion"
+      ],
+      "description": "Expansion f(r)=o(log r); this includes every fixed-minor-free family.",
+      "search": true
+    },
+    {
+      "id": "minor",
+      "label": "Minor-free",
+      "aliases": [
+        "fixed minor-free",
+        "h-minor-free",
+        "excluded minor",
+        "minor-free graphs"
+      ],
+      "description": "Algorithms here quantify over every fixed excluded minor H. An inclusion may require choosing H; lower bounds are not universal in arbitrary H.",
+      "search": true
+    },
+    {
+      "id": "minor-pw2",
+      "label": "H-minor-free; pw(H) ≤ 2",
+      "aliases": [
+        "H-minor-free with excluded minor of pathwidth at most 2",
+        "excluded minor pathwidth at most 2",
+        "pw(H) <= 2 minor-free",
+        "H-minor-free; pw(H) <= 2"
+      ],
+      "description": "Graphs excluding a fixed graph H whose pathwidth is at most 2. The pathwidth condition is on the excluded minor H, not on the input graph; the input graph can have arbitrarily large pathwidth.",
+      "search": true
+    },
+    {
+      "id": "path-minor",
+      "label": "Pₜ-minor-free",
+      "aliases": [
+        "Pt-minor-free",
+        "P_t-minor-free",
+        "P_{t}-minor-free",
+        "excluded path minor",
+        "path-minor-free"
+      ],
+      "description": "Graphs excluding the path on t vertices as a minor, for fixed t. Every connected component has bounded diameter; disconnected inputs are handled componentwise.",
+      "search": true
+    },
+    {
+      "id": "topological",
+      "label": "Excluded topological minor",
+      "aliases": [
+        "topological-minor-free"
+      ],
+      "description": "A fixed excluded clique subdivision; the bound may depend on its size.",
+      "search": true
+    },
+    {
+      "id": "euler",
+      "label": "Euler genus ≤ g",
+      "aliases": [
+        "bounded genus",
+        "euler genus",
+        "Bounded Euler genus"
+      ],
+      "description": "A fixed Euler-genus bound g, including nonorientable surfaces.",
+      "search": true
+    },
+    {
+      "id": "orientable",
+      "label": "Bounded orientable genus",
+      "aliases": [
+        "orientable genus"
+      ],
+      "description": "A fixed orientable-genus bound; kept distinct from Euler genus.",
+      "search": true
+    },
+    {
+      "id": "local-embedding",
+      "label": "Locally embeddable",
+      "aliases": [
+        "locally embeddable"
+      ],
+      "description": "Bounded depth-one density and exclusion of a depth-one K3,t minor, as defined in the source.",
+      "search": true
+    },
+    {
+      "id": "local-genus",
+      "label": "Asymptotic dimension d; radius-r balls of Euler genus ≤ g",
+      "aliases": [
+        "locally nice",
+        "locally bounded genus",
+        "Locally nice genus",
+        "Asymptotic dimension d; r-locally Euler genus ≤ g",
+        "Asymptotic dimension d; sufficiently large-radius neighborhoods of Euler genus ≤ g"
+      ],
+      "description": "Graph classes of asymptotic dimension d with a fixed control function, where every induced radius-r ball has Euler genus at most g for a sufficiently large fixed radius r.",
+      "search": true
+    },
+    {
+      "id": "local-apex",
+      "label": "Asymptotic dimension d; radius-r balls of Euler genus ≤ g with at most a apices",
+      "aliases": [
+        "locally bounded genus with apices",
+        "locally apex genus",
+        "local apex-genus",
+        "Asymptotic dimension d; r-locally Euler genus ≤ g with at most a apices"
+      ],
+      "description": "Graph classes of asymptotic dimension at most d with a fixed dimensional control function, where deleting at most a vertices from each induced radius-r ball leaves Euler genus at most g, for a sufficiently large fixed radius r. This is a local condition and does not assert global minor exclusion.",
+      "search": true
+    },
+    {
+      "id": "apex",
+      "label": "Bounded genus with apices",
+      "aliases": [
+        "apex graphs"
+      ],
+      "description": "Bounded Euler genus after deleting a bounded number of apex vertices.",
+      "search": true
+    },
+    {
+      "id": "planar-clique",
+      "label": "Planar with an attached clique",
+      "aliases": [
+        "planar plus clique"
+      ],
+      "description": "A planar graph with a clique glued at one vertex; includes the trivial one-vertex clique.",
+      "search": true
+    },
+    {
+      "id": "planar",
+      "label": "Planar",
+      "aliases": [
+        "planar graphs"
+      ],
+      "description": "Graphs admitting a crossing-free drawing in the plane.",
+      "search": true
+    },
+    {
+      "id": "outerplanar",
+      "label": "Outerplanar",
+      "aliases": [
+        "outerplanar graphs"
+      ],
+      "description": "Planar graphs admitting an embedding with every vertex on the outer face.",
+      "search": true
+    },
+    {
+      "id": "triangle-planar",
+      "label": "Triangle-free planar",
+      "aliases": [
+        "triangle free planar"
+      ],
+      "description": "Planar graphs with no triangles.",
+      "search": true
+    },
+    {
+      "id": "fourcycle-planar",
+      "label": "Planar without 4-cycles",
+      "aliases": [
+        "4-cycle-free planar"
+      ],
+      "description": "Planar graphs without cycles of length four.",
+      "search": true
+    },
+    {
+      "id": "forest",
+      "label": "Trees / forests",
+      "aliases": [
+        "trees",
+        "forests",
+        "tree",
+        "forest"
+      ],
+      "description": "Acyclic graphs. Connectivity is retained where required by a theorem.",
+      "search": true
+    },
+    {
+      "id": "path",
+      "label": "Paths",
+      "aliases": [
+        "paths",
+        "path"
+      ],
+      "description": "Simple paths, without a supplied orientation.",
+      "search": true
+    },
+    {
+      "id": "oriented-path",
+      "label": "Oriented paths",
+      "aliases": [
+        "oriented paths"
+      ],
+      "description": "Paths with a supplied orientation; retain that additional information in lower-bound statements.",
+      "search": true
+    },
+    {
+      "id": "cycle",
+      "label": "Cycles",
+      "aliases": [
+        "cycles",
+        "cycle"
+      ],
+      "description": "Simple cycles.",
+      "search": true
+    },
+    {
+      "id": "long-cycle",
+      "label": "Long cycles",
+      "aliases": [
+        "long cycles"
+      ],
+      "description": "Cycles satisfying the theorem’s length threshold.",
+      "search": true
+    },
+    {
+      "id": "degree",
+      "label": "Bounded degree",
+      "aliases": [
+        "bounded maximum degree"
+      ],
+      "description": "Maximum degree is bounded by a fixed auxiliary parameter.",
+      "search": true
+    },
+    {
+      "id": "degree-forest",
+      "label": "Bounded-degree trees",
+      "aliases": [
+        "bounded degree trees"
+      ],
+      "description": "Trees with a bounded maximum degree.",
+      "search": true
+    },
+    {
+      "id": "bipartite",
+      "label": "Bipartite",
+      "aliases": [
+        "bipartite graphs"
+      ],
+      "description": "Graphs admitting a proper two-coloring; the coloring is not automatically supplied as input.",
+      "search": true
+    },
+    {
+      "id": "degree-bipartite",
+      "label": "Degree-3 bipartite",
+      "aliases": [
+        "degree-three bipartite"
+      ],
+      "description": "Bipartite graphs of maximum degree at most three.",
+      "search": true
+    },
+    {
+      "id": "weak-colored",
+      "label": "Weakly 2-colored",
+      "aliases": [
+        "weakly 2-coloured",
+        "weakly 2-colored"
+      ],
+      "description": "Graphs with a supplied weak two-coloring and the source’s isolate restriction.",
+      "search": true
+    },
+    {
+      "id": "unit-disk",
+      "label": "Unit-disk",
+      "aliases": [
+        "unit disk graphs",
+        "unit-disk graphs"
+      ],
+      "description": "Intersection graphs of equal-radius disks in the plane; density can be unbounded.",
+      "search": true
+    },
+    {
+      "id": "independence-growth",
+      "label": "Polynomial neighborhood-independence growth",
+      "aliases": [
+        "polynomially bounded growth",
+        "bounded growth / independence",
+        "neighborhood independence",
+        "Polynomial independence growth"
+      ],
+      "description": "Polynomial growth of independent sets in neighborhoods, rather than vertex-volume growth.",
+      "search": true
+    },
+    {
+      "id": "k2t",
+      "label": "K₂,t-minor-free",
+      "aliases": [
+        "k2t-minor-free",
+        "K2t",
+        "K2,t",
+        "K_{2,t}",
+        "K_{2,t}-minor-free"
+      ],
+      "description": "Graphs excluding K₂,t as a minor for a fixed integer t≥2. Since pw(K₂,t)=2, these are included in the H-minor-free family with pw(H)≤2 by taking H=K₂,t.",
+      "search": true
+    },
+    {
+      "id": "minor-domination",
+      "label": "Minor-free with domination constraint",
+      "aliases": [],
+      "description": "Excluded clique minor plus the theorem’s γ₁(G) ≤ Cγₖ(G) condition.",
+      "search": false
+    },
+    {
+      "id": "linkless",
+      "label": "Linklessly embeddable",
+      "aliases": [
+        "linklessly embeddable"
+      ],
+      "description": "Graphs with a linkless embedding in three dimensions.",
+      "search": true
+    },
+    {
+      "id": "no-k44",
+      "label": "No K₄,₄ subdivision",
+      "aliases": [
+        "no k4,4 subdivision"
+      ],
+      "description": "Graphs containing no subdivision of K4,4.",
+      "search": true
+    },
+    {
+      "id": "triangle-genus",
+      "label": "Triangle-free; Euler genus ≤ g",
+      "aliases": [
+        "triangle-free bounded genus",
+        "Triangle-free Euler genus"
+      ],
+      "description": "Triangle-free graphs of Euler genus at most g.",
+      "search": true
+    },
+    {
+      "id": "girth-expansion",
+      "label": "High-girth bounded expansion",
+      "aliases": [
+        "high-girth bounded expansion"
+      ],
+      "description": "Bounded expansion together with the source’s girth ≥ 4r+2 or 4r+3 threshold.",
+      "search": true
+    },
+    {
+      "id": "girth-hop",
+      "label": "High-girth k-hop expansion",
+      "aliases": [
+        "high-girth k-hop expansion"
+      ],
+      "description": "The source’s k-hop expansion bound and girth ≥4k+3, including connectivity where stated.",
+      "search": true
+    },
+    {
+      "id": "odd-girth",
+      "label": "No short odd cycles",
+      "aliases": [
+        "no short odd cycles"
+      ],
+      "description": "No odd cycles of lengths 3,5,…,2k−1 for the stated k.",
+      "search": true
+    },
+    {
+      "id": "path-powers",
+      "label": "Powers of paths",
+      "aliases": [
+        "powers of paths",
+        "path powers"
+      ],
+      "description": "r-th powers of paths for fixed r. The whole parameterized family is not planar.",
+      "search": true
+    },
+    {
+      "id": "path-powers-leaves",
+      "label": "Path powers with endpoint leaves",
+      "aliases": [
+        "path powers with endpoint leaves"
+      ],
+      "description": "Path powers with additional leaves at one endpoint, as in the thesis construction.",
+      "search": true
+    },
+    {
+      "id": "arboricity-two",
+      "label": "Arboricity at most 2",
+      "aliases": [
+        "arboricity 2"
+      ],
+      "description": "The fixed arboricity-two family; it contains nonplanar graphs.",
+      "search": true
+    },
+    {
+      "id": "incidence",
+      "label": "Incidence graphs",
+      "aliases": [
+        "incidence graphs"
+      ],
+      "description": "Variable–constraint or set–element incidence graphs; an instance-domain restriction.",
+      "search": true
+    },
+    {
+      "id": "planar-incidence",
+      "label": "Planar incidence graphs",
+      "aliases": [
+        "planar incidence graph"
+      ],
+      "description": "Planar incidence graphs; the graph is also bipartite.",
+      "search": true
+    },
+    {
+      "id": "bounded-incidence",
+      "label": "Bounded set size and frequency",
+      "aliases": [],
+      "description": "Incidence instances with bounded set size and element frequency.",
+      "search": false
+    },
+    {
+      "id": "treewidth",
+      "label": "Bounded treewidth",
+      "aliases": [
+        "treewidth"
+      ],
+      "description": "Graphs of bounded treewidth; the parameter remains fixed.",
+      "search": true
+    },
+    {
+      "id": "pathwidth",
+      "label": "Bounded pathwidth",
+      "aliases": [
+        "pathwidth"
+      ],
+      "description": "Graphs of bounded pathwidth; the parameter remains fixed.",
+      "search": true
+    },
+    {
+      "id": "star-minor",
+      "label": "K₁,ₜ-minor-free",
+      "aliases": [
+        "K1,t-minor-free",
+        "star-minor-free"
+      ],
+      "description": "Graphs excluding the fixed star K1,t as a minor. Their maximum degree is at most t−1; bounded degree alone does not exclude a large star minor.",
+      "search": true
+    },
+    {
+      "id": "regular",
+      "label": "Regular",
+      "aliases": [
+        "regular graphs"
+      ],
+      "description": "Every vertex has the same degree. A result may additionally require a positive degree; the degree need not be bounded independently of n.",
+      "search": true
+    },
+    {
+      "id": "pseudoforest",
+      "label": "Pseudoforests",
+      "aliases": [
+        "pseudoforest"
+      ],
+      "description": "Every connected component has at most one cycle. Forests are a proper subclass; each pseudoforest is outerplanar.",
+      "search": true
+    }
+  ],
+  "edges": [
+    {
+      "subset": "path",
+      "superset": "forest",
+      "reason": "Every path is a tree.",
+      "lower": true
+    },
+    {
+      "subset": "oriented-path",
+      "superset": "path",
+      "reason": "Forgetting a supplied orientation gives a path. Algorithms do not gain the orientation automatically.",
+      "lower": true
+    },
+    {
+      "subset": "forest",
+      "superset": "outerplanar",
+      "reason": "Every forest has an outerplanar embedding.",
+      "lower": true
+    },
+    {
+      "subset": "forest",
+      "superset": "bipartite",
+      "reason": "Forests admit a proper two-coloring; the coloring is not necessarily supplied.",
+      "lower": true
+    },
+    {
+      "subset": "outerplanar",
+      "superset": "planar",
+      "reason": "Every outerplanar embedding is planar.",
+      "lower": true
+    },
+    {
+      "subset": "outerplanar",
+      "superset": "treewidth",
+      "reason": "Outerplanar graphs have treewidth at most 2.",
+      "lower": false,
+      "reference": "width"
+    },
+    {
+      "subset": "cycle",
+      "superset": "planar",
+      "reason": "Every cycle is planar.",
+      "lower": true
+    },
+    {
+      "subset": "cycle",
+      "superset": "degree",
+      "reason": "Cycles have maximum degree 2.",
+      "lower": false,
+      "reference": "width"
+    },
+    {
+      "subset": "long-cycle",
+      "superset": "cycle",
+      "reason": "A length restriction selects a subclass of cycles.",
+      "lower": true
+    },
+    {
+      "subset": "triangle-planar",
+      "superset": "planar",
+      "reason": "Drop the triangle-free restriction.",
+      "lower": true
+    },
+    {
+      "subset": "fourcycle-planar",
+      "superset": "planar",
+      "reason": "Drop the restriction excluding 4-cycles.",
+      "lower": true
+    },
+    {
+      "subset": "triangle-planar",
+      "superset": "triangle-genus",
+      "reason": "Set Euler genus to zero.",
+      "lower": true
+    },
+    {
+      "subset": "triangle-genus",
+      "superset": "euler",
+      "reason": "Drop the triangle-free restriction.",
+      "lower": true
+    },
+    {
+      "subset": "planar",
+      "superset": "euler",
+      "reason": "Set Euler genus to zero. Planar graphs lie in every nonnegative Euler-genus bound.",
+      "lower": true
+    },
+    {
+      "subset": "planar",
+      "superset": "orientable",
+      "reason": "Set orientable genus to zero.",
+      "lower": true
+    },
+    {
+      "subset": "orientable",
+      "superset": "euler",
+      "reason": "Orientable genus h implies Euler genus g ≤ 2h; parameter bounds must be compatible.",
+      "lower": false
+    },
+    {
+      "subset": "euler",
+      "superset": "minor",
+      "reason": "Choose an excluded clique large enough for the fixed genus bound. This does not hold for every prescribed excluded H.",
+      "lower": false,
+      "reference": "expansion"
+    },
+    {
+      "subset": "euler",
+      "superset": "local-embedding",
+      "reason": "Fixed-genus families meet the local embeddability parameters.",
+      "lower": false,
+      "reference": "local-embedding"
+    },
+    {
+      "subset": "euler",
+      "superset": "local-genus",
+      "reason": "Bounded Euler genus has asymptotic dimension at most 2 and the required local genus bound.",
+      "lower": false,
+      "reference": "local-genus"
+    },
+    {
+      "subset": "euler",
+      "superset": "apex",
+      "reason": "Allow zero apex vertices.",
+      "lower": false
+    },
+    {
+      "subset": "planar",
+      "superset": "planar-clique",
+      "reason": "Use an attached clique consisting of one vertex.",
+      "lower": false
+    },
+    {
+      "subset": "planar",
+      "superset": "linkless",
+      "reason": "A planar drawing gives a linkless spatial embedding.",
+      "lower": true
+    },
+    {
+      "subset": "planar",
+      "superset": "no-k44",
+      "reason": "A subdivision of nonplanar K4,4 cannot occur as a subgraph of a planar graph.",
+      "lower": true
+    },
+    {
+      "subset": "no-k44",
+      "superset": "topological",
+      "reason": "A subdivision of K8 contains a subdivision of K4,4; exclude K8.",
+      "lower": false
+    },
+    {
+      "subset": "minor",
+      "superset": "sublog",
+      "reason": "Fixed-minor-free families have constant shallow-minor density, hence o(log r) expansion.",
+      "lower": false,
+      "reference": "expansion"
+    },
+    {
+      "subset": "minor",
+      "superset": "topological",
+      "reason": "A fixed H-minor-free family excludes a sufficiently large clique subdivision.",
+      "lower": false,
+      "reference": "expansion"
+    },
+    {
+      "subset": "topological",
+      "superset": "expansion",
+      "reason": "Excluding a fixed topological minor yields bounded expansion.",
+      "lower": false,
+      "reference": "expansion"
+    },
+    {
+      "subset": "sublog",
+      "superset": "expansion",
+      "reason": "Sub-logarithmic expansion is a bounded expansion function.",
+      "lower": true,
+      "reference": "expansion"
+    },
+    {
+      "subset": "expansion",
+      "superset": "depth-one",
+      "reason": "Take the depth-one value of the expansion function.",
+      "lower": true,
+      "reference": "expansion"
+    },
+    {
+      "subset": "depth-one",
+      "superset": "density",
+      "reason": "Depth-one density bounds depth-zero density, hence maximum average degree and arboricity.",
+      "lower": true,
+      "reference": "expansion"
+    },
+    {
+      "subset": "local-embedding",
+      "superset": "depth-one",
+      "reason": "Bounded depth-one density is part of the local embeddability definition.",
+      "lower": true,
+      "reference": "local-embedding"
+    },
+    {
+      "subset": "degree",
+      "superset": "expansion",
+      "reason": "A fixed maximum degree D bounds depth-r density by D^(r+1).",
+      "lower": false,
+      "reference": "expansion-survey"
+    },
+    {
+      "subset": "degree-forest",
+      "superset": "forest",
+      "reason": "Drop the maximum-degree restriction.",
+      "lower": true
+    },
+    {
+      "subset": "degree-forest",
+      "superset": "degree",
+      "reason": "Drop the acyclicity restriction.",
+      "lower": true
+    },
+    {
+      "subset": "degree-bipartite",
+      "superset": "bipartite",
+      "reason": "Drop the degree-three restriction.",
+      "lower": true
+    },
+    {
+      "subset": "degree-bipartite",
+      "superset": "degree",
+      "reason": "Maximum degree is at most three.",
+      "lower": false
+    },
+    {
+      "subset": "bipartite",
+      "superset": "odd-girth",
+      "reason": "Bipartite graphs have no odd cycles, for every fixed forbidden-length threshold.",
+      "lower": true
+    },
+    {
+      "subset": "unit-disk",
+      "superset": "independence-growth",
+      "reason": "Packing bounds give polynomial neighborhood-independence growth for unit-disk graphs.",
+      "lower": true,
+      "reference": "growth"
+    },
+    {
+      "subset": "k2t",
+      "superset": "minor",
+      "reason": "Choose H=K2,t as the fixed excluded minor.",
+      "lower": false
+    },
+    {
+      "subset": "minor-domination",
+      "superset": "minor",
+      "reason": "Drop the domination-number relation; it is an extra source assumption.",
+      "lower": false
+    },
+    {
+      "subset": "girth-expansion",
+      "superset": "expansion",
+      "reason": "Drop the girth threshold.",
+      "lower": true
+    },
+    {
+      "subset": "forest",
+      "superset": "girth-expansion",
+      "reason": "Forests have no cycles and constant expansion; every fixed girth threshold is satisfied.",
+      "lower": false,
+      "reference": "expansion"
+    },
+    {
+      "subset": "arboricity-two",
+      "superset": "density",
+      "reason": "Arboricity at most two is bounded arboricity.",
+      "lower": true
+    },
+    {
+      "subset": "incidence",
+      "superset": "bipartite",
+      "reason": "Incidence communication graphs are bipartite; the instance formulation is retained.",
+      "lower": true
+    },
+    {
+      "subset": "planar-incidence",
+      "superset": "incidence",
+      "reason": "Drop planarity, keeping the incidence formulation.",
+      "lower": true
+    },
+    {
+      "subset": "planar-incidence",
+      "superset": "planar",
+      "reason": "Drop the incidence-domain restriction.",
+      "lower": true
+    },
+    {
+      "subset": "bounded-incidence",
+      "superset": "incidence",
+      "reason": "Drop the set-size and frequency bounds.",
+      "lower": true
+    },
+    {
+      "subset": "pathwidth",
+      "superset": "treewidth",
+      "reason": "Treewidth is at most pathwidth.",
+      "lower": false,
+      "reference": "width"
+    },
+    {
+      "subset": "treewidth",
+      "superset": "minor",
+      "reason": "Treewidth at most k excludes K_(k+2) as a minor.",
+      "lower": false,
+      "reference": "width"
+    },
+    {
+      "subset": "path-powers",
+      "superset": "pathwidth",
+      "reason": "The r-th power of a path has pathwidth at most r.",
+      "lower": false,
+      "reference": "width"
+    },
+    {
+      "subset": "path-powers-leaves",
+      "superset": "treewidth",
+      "reason": "Endpoint leaves preserve a bound depending on the fixed path-power exponent.",
+      "lower": false
+    },
+    {
+      "subset": "density",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "depth-one",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "expansion",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "sublog",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "minor",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "topological",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "euler",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "orientable",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "local-embedding",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "local-genus",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "apex",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "planar-clique",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "planar",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "outerplanar",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "triangle-planar",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "fourcycle-planar",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "forest",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "path",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "oriented-path",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "cycle",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "long-cycle",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "degree",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "degree-forest",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "bipartite",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "degree-bipartite",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "weak-colored",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "unit-disk",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "independence-growth",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "k2t",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "minor-domination",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "linkless",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "no-k44",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "triangle-genus",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "girth-expansion",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "girth-hop",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "odd-girth",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "path-powers",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "path-powers-leaves",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "arboricity-two",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "incidence",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "planar-incidence",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "bounded-incidence",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "treewidth",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "pathwidth",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "star-minor",
+      "superset": "degree",
+      "reason": "A vertex with t neighbors contains K1,t as a subgraph, hence as a minor. Exclusion implies maximum degree at most t−1.",
+      "lower": false,
+      "reference": "folklore-bgpw25"
+    },
+    {
+      "subset": "star-minor",
+      "superset": "minor",
+      "reason": "Choose the fixed excluded minor H=K1,t. This does not give every prescribed excluded-minor condition.",
+      "lower": false,
+      "reference": "folklore-bgpw25"
+    },
+    {
+      "subset": "star-minor",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "regular",
+      "superset": "general",
+      "reason": "Every regular graph is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "forest",
+      "superset": "pseudoforest",
+      "reason": "Every forest has no cycles in any component. Cycles show that the containment is strict.",
+      "lower": true
+    },
+    {
+      "subset": "pseudoforest",
+      "superset": "outerplanar",
+      "reason": "A component is a tree or a single cycle with trees attached, and therefore has an outerplanar embedding.",
+      "lower": true
+    },
+    {
+      "subset": "pseudoforest",
+      "superset": "general",
+      "reason": "Every pseudoforest is a finite graph.",
+      "lower": true
+    },
+    {
+      "subset": "k2t",
+      "superset": "minor-pw2",
+      "reason": "Instantiate the fixed excluded graph as H=K₂,t, for t≥2. Bags {u,v,w_i}, one for each vertex w_i in the t-side, give pathwidth at most two; the 4-cycle minor gives equality. This is a specialization of excluded-minor settings, not a bound on the input graph’s pathwidth.",
+      "lower": false,
+      "reference": "thesis-minor-pw2",
+      "parameterBindings": {
+        "excluded-minor": "K₂,t"
+      }
+    },
+    {
+      "subset": "path-minor",
+      "superset": "minor-pw2",
+      "reason": "Choose the fixed excluded minor H=Pₜ. A path has pathwidth at most 1, hence at most 2.",
+      "lower": false,
+      "reference": "thesis-path-minor"
+    },
+    {
+      "subset": "minor-pw2",
+      "superset": "minor",
+      "reason": "Drop the restriction pw(H) ≤ 2 on the fixed excluded graph H. This inclusion does not instantiate an arbitrary prescribed excluded minor for a lower bound.",
+      "lower": false,
+      "reference": "thesis-minor-pw2"
+    },
+    {
+      "subset": "local-genus",
+      "superset": "local-apex",
+      "reason": "Use a=0 in every induced radius-r ball, with the same asymptotic-dimension bound and fixed control function.",
+      "lower": false,
+      "reference": "cuttable-local-apex"
+    },
+    {
+      "subset": "apex",
+      "superset": "local-apex",
+      "reason": "For fixed g and a, every radius-r ball inherits the Euler-genus-g plus a-apex condition. This global class excludes K_{3+a,2g+3+a}, so it has asymptotic dimension at most d=2 with a class-fixed control function. Retain the same fixed g, a and a sufficiently large r.",
+      "lower": false,
+      "reference": "cuttable-local-apex"
+    },
+    {
+      "subset": "local-apex",
+      "superset": "general",
+      "reason": "Every graph in this family is a finite graph.",
+      "lower": true
+    }
+  ],
+  "references": {
+    "expansion": {
+      "title": "Nešetřil and Ossona de Mendez: Classes of bounded expansion",
+      "url": "https://arxiv.org/pdf/math/0508323"
+    },
+    "expansion-survey": {
+      "title": "Nešetřil, Ossona de Mendez and Wood, §2",
+      "url": "https://iti.mff.cuni.cz/series/2009/435.pdf"
+    },
+    "width": {
+      "title": "Bodlaender: A partial k-arboretum of graphs with bounded treewidth",
+      "url": "https://cgi.di.uoa.gr/~sgk/teaching/GT/Bodlaender98-bt.pdf"
+    },
+    "local-embedding": {
+      "title": "Amiri, Schmid and Siebertz: Distributed Dominating Set Approximations beyond Planar Graphs",
+      "url": "https://schmiste.github.io/talg19ds.pdf"
+    },
+    "local-genus": {
+      "title": "Bonamy, Gavoille, Picavet and Wesolek: Locally nice graphs",
+      "url": "https://arxiv.org/html/2507.04960v1#S3"
+    },
+    "growth": {
+      "title": "Kuhn, Moscibroda, Nieberg and Wattenhofer: Local approximation schemes",
+      "url": "https://www.microsoft.com/en-us/research/wp-content/uploads/2017/01/DIALM2005a.pdf"
+    },
+    "folklore-bgpw25": {
+      "title": "Bonamy, Gavoille, Picavet and Wesolek (PODC 2025), introduction and Table 1",
+      "url": "https://dept-info.labri.fr/~gavoille/article/BGPW25.pdf"
+    },
+    "thesis-minor-pw2": {
+      "title": "Picavet, PhD thesis, Theorem VIII.1.1 (PDF p. 204)",
+      "url": "https://timothepicavet.fr/others/thesis.pdf#page=204"
+    },
+    "thesis-path-minor": {
+      "title": "Picavet, PhD thesis, Chapter IV introduction (PDF p. 120)",
+      "url": "https://timothepicavet.fr/others/thesis.pdf#page=120"
+    },
+    "cuttable-local-apex": {
+      "title": "Bonamy, Das, Gavoille, Picavet, Suomela and Wesolek, Corollary 4.4 and following apex extension (PDF p. 10)",
+      "url": "https://jukkasuomela.fi/doc/cuttable-distributed-problems.pdf#page=10"
+    }
+  },
+  "scopes": {
+    "General": {
+      "node": "general"
+    },
+    "General graphs": {
+      "node": "general"
+    },
+    "Arboricity ≤ α": {
+      "node": "density",
+      "note": "Use compatible fixed arboricity bounds; planar inputs permit an arboricity bound of 3."
+    },
+    "Arboricity β > 1": {
+      "node": "density",
+      "note": "Use compatible fixed arboricity bounds; planar inputs permit an arboricity bound of 3."
+    },
+    "Arboricity β ≥ 1": {
+      "node": "density",
+      "note": "Use compatible fixed arboricity bounds; planar inputs permit an arboricity bound of 3."
+    },
+    "Bounded arboricity": {
+      "node": "density",
+      "note": "Use compatible fixed arboricity bounds; planar inputs permit an arboricity bound of 3."
+    },
+    "Arboricity 2": {
+      "node": "arboricity-two"
+    },
+    "Bounded expansion": {
+      "node": "expansion"
+    },
+    "Sub-logarithmic expansion f(r) = o(log r)": {
+      "node": "sublog"
+    },
+    "Sub-logarithmic expansion g(r) = o(log r)": {
+      "node": "sublog"
+    },
+    "Excluded fixed minor": {
+      "node": "minor",
+      "note": "The excluded minor or minor-density bound is a fixed parameter; instantiate it compatibly with the target class."
+    },
+    "Excluded Kₕ minor": {
+      "node": "minor",
+      "note": "The excluded minor or minor-density bound is a fixed parameter; instantiate it compatibly with the target class."
+    },
+    "Proper minor-closed classes": {
+      "node": "minor",
+      "note": "The excluded minor or minor-density bound is a fixed parameter; instantiate it compatibly with the target class."
+    },
+    "H-minor-free graphs": {
+      "node": "minor",
+      "note": "The excluded minor or minor-density bound is a fixed parameter; instantiate it compatibly with the target class."
+    },
+    "Every minor H satisfies |E(H)| ≤ a|V(H)|": {
+      "node": "minor",
+      "note": "The excluded minor or minor-density bound is a fixed parameter; instantiate it compatibly with the target class."
+    },
+    "Every minor H satisfies |E(H)| ≤ ρ|V(H)|": {
+      "node": "minor",
+      "note": "The excluded minor or minor-density bound is a fixed parameter; instantiate it compatibly with the target class."
+    },
+    "Isolate-free; every minor H has |E(H)| ≤ a|V(H)|": {
+      "node": "minor",
+      "note": "Requires an isolate-free instance, as appropriate for total domination."
+    },
+    "Excluded topological Kₕ": {
+      "node": "topological"
+    },
+    "Bounded Euler genus": {
+      "node": "euler",
+      "note": "Retain any connectivity condition stated by the source."
+    },
+    "Connected graphs of Euler genus ≤ g": {
+      "node": "euler",
+      "note": "Retain any connectivity condition stated by the source."
+    },
+    "Euler genus ≤ e": {
+      "node": "euler",
+      "note": "Retain any connectivity condition stated by the source."
+    },
+    "Euler genus ≤ g": {
+      "node": "euler",
+      "note": "Retain any connectivity condition stated by the source."
+    },
+    "Bounded genus": {
+      "node": "orientable",
+      "note": "The historical record does not establish applicability to every bounded Euler-genus family."
+    },
+    "Bounded orientable genus g": {
+      "node": "orientable",
+      "note": "The historical record does not establish applicability to every bounded Euler-genus family."
+    },
+    "Orientable genus ≤ g": {
+      "node": "orientable",
+      "note": "The historical record does not establish applicability to every bounded Euler-genus family."
+    },
+    "Locally embeddable": {
+      "node": "local-embedding"
+    },
+    "Asymptotic dimension d; r-locally Euler genus ≤ g": {
+      "node": "local-genus",
+      "note": "Asymptotic dimension, its control function and sufficiently large local radius remain fixed prerequisites."
+    },
+    "Asymptotic dimension d; sufficiently large-radius neighborhoods of Euler genus ≤ g": {
+      "node": "local-genus",
+      "note": "Asymptotic dimension, its control function and sufficiently large local radius remain fixed prerequisites."
+    },
+    "Euler genus ≤ g plus at most a apices": {
+      "node": "apex"
+    },
+    "Planar graph with a clique attached at one vertex": {
+      "node": "planar-clique"
+    },
+    "Planar": {
+      "node": "planar"
+    },
+    "Planar graphs": {
+      "node": "planar"
+    },
+    "Outerplanar": {
+      "node": "outerplanar"
+    },
+    "Triangle-free planar": {
+      "node": "triangle-planar"
+    },
+    "Triangle-free planar graphs": {
+      "node": "triangle-planar"
+    },
+    "Planar without 4-cycles": {
+      "node": "fourcycle-planar"
+    },
+    "Triangle-free bounded Euler genus": {
+      "node": "triangle-genus"
+    },
+    "Trees": {
+      "node": "forest"
+    },
+    "Trees, including unrooted trees": {
+      "node": "forest"
+    },
+    "Trees of maximum degree Δ": {
+      "node": "degree-forest"
+    },
+    "Oriented paths": {
+      "node": "oriented-path",
+      "note": "Orientation is supplied to the lower-bound algorithm."
+    },
+    "Cycles": {
+      "node": "cycle"
+    },
+    "Cycles of length at least 4r + 3": {
+      "node": "long-cycle"
+    },
+    "Graphs of maximum degree Δ": {
+      "node": "degree"
+    },
+    "Bipartite graphs": {
+      "node": "bipartite"
+    },
+    "Bipartite graphs, Δ ≤ 3": {
+      "node": "degree-bipartite"
+    },
+    "Weakly 2-coloured graphs": {
+      "node": "weak-colored",
+      "note": "Requires a supplied weak two-coloring and no isolated vertices."
+    },
+    "Unit-disk": {
+      "node": "unit-disk"
+    },
+    "Polynomially bounded growth": {
+      "node": "independence-growth",
+      "note": "Growth refers to independent sets in neighborhoods, not vertex counts."
+    },
+    "K₂,ₜ-minor-free": {
+      "node": "k2t"
+    },
+    "Kₜ-minor-free; γ₁(G) ≤ Cγₖ(G)": {
+      "node": "minor-domination",
+      "note": "Requires the stated relation between domination numbers."
+    },
+    "Linklessly embeddable": {
+      "node": "linkless"
+    },
+    "No subdivision of K₄,₄": {
+      "node": "no-k44"
+    },
+    "Bounded expansion; girth ≥ 4r + 2": {
+      "node": "girth-expansion",
+      "note": "The girth threshold remains required for the stated distance parameter."
+    },
+    "Expansion f; girth ≥ 4r + 3": {
+      "node": "girth-expansion",
+      "note": "The girth threshold remains required for the stated distance parameter."
+    },
+    "Connected; k-hop expansion ≤ f(k); girth ≥ 4k + 3": {
+      "node": "girth-hop",
+      "note": "Retains connectivity, the precise k-hop expansion definition, and girth threshold."
+    },
+    "No odd cycles of lengths 3, 5, …, 2k − 1": {
+      "node": "odd-girth"
+    },
+    "r-th powers of paths": {
+      "node": "path-powers"
+    },
+    "t-th powers of paths with endpoint leaves": {
+      "node": "path-powers-leaves"
+    },
+    "General incidence graphs": {
+      "node": "incidence",
+      "note": "The communication graph is the variable–constraint incidence graph."
+    },
+    "Planar incidence graph": {
+      "node": "planar-incidence",
+      "note": "Planarity is required of the incidence graph."
+    },
+    "Incidence graphs; set size ≤ k, frequency ≤ f": {
+      "node": "bounded-incidence",
+      "note": "The set-size and frequency bounds remain required."
+    },
+    "Bounded maximum average degree and depth-one density": {
+      "node": "depth-one"
+    },
+    "Trees / forests": {
+      "node": "forest"
+    },
+    "K₁,ₜ-minor-free": {
+      "node": "star-minor"
+    },
+    "Regular; degree ≥ 1": {
+      "node": "regular",
+      "note": "The vertex-cover baseline assumes a positive regular degree. It does not select all vertices of a nonempty edgeless graph."
+    },
+    "Pseudoforests": {
+      "node": "pseudoforest",
+      "note": "The one-round non-leaf construction extends to this class by the elementary star-assignment proof in the result details."
+    },
+    "H-minor-free; pw(H) ≤ 2": {
+      "node": "minor-pw2",
+      "note": "H is a fixed excluded minor with pw(H) ≤ 2; the input graph need not have pathwidth at most 2."
+    },
+    "Pₜ-minor-free": {
+      "node": "path-minor",
+      "note": "t is the fixed number of vertices of the excluded path. Bounds apply separately to each connected component."
+    },
+    "Asymptotic dimension d; radius-r balls of Euler genus ≤ g with at most a apices": {
+      "node": "local-apex",
+      "note": "Retain fixed d, g, a, a sufficiently large radius r, and the class-dimensional control function; the deletion set of at most a apices may differ between balls."
+    },
+    "Degeneracy ≤ d": {
+      "node": "density",
+      "note": "Retain the stated numerical degeneracy bound d. Boundedness is equivalent to bounded arboricity, but their numerical parameters are not identified."
+    }
+  },
+  "prerequisites": {
+    "gen-aprsu10-matching": "Supplied proper 2-coloring",
+    "gen-aprsu10-dom": "Supplied weak 2-coloring; no isolates",
+    "pic-sublog-bmatching": "Known Lipschitz capacity bound",
+    "pic-ass-sublog-refine": "Supplied c-approximate dominating set; seed cost additional",
+    "unitdisk-fractional-domination": "Geometric distances supplied",
+    "pic-sublog-fmatching": "Expansion bounds supplied",
+    "gen-emr14-cardinality": "Known n and Δ",
+    "gen-emr14-weighted": "Known n and Δ",
+    "gen-af26-dom": "Known Δ",
+    "gen-fk25-tree": "Known n, Δ and graph parameters",
+    "gen-fk25-arboricity-fast": "Known n, Δ and graph parameters",
+    "gen-fk25-arboricity-better": "Known n, Δ and graph parameters",
+    "gen-asw26-cover-det": "Known common polynomial ID bound",
+    "pic-distance-k2t-constant": "Connected; diameter ≥ 4k",
+    "pic-distance-k2t-ptas": "Connected; diameter ≥ 4k",
+    "pic-distance-minor-ptas": "Known C, k, t; domination constraint",
+    "folklore-regular-vc": "Positive regular degree",
+    "gen-beks18-exact2": "Known Δ and a common polynomial bound B ≥ nW",
+    "gen-beks18-eps": "Known Δ or a polynomial upper bound",
+    "gen-beks18-full-eps": "Known Δ or a polynomial upper bound",
+    "gen-beks19-exact2": "Common polynomial bound B ≥ nW"
+  },
+  "displayAliases": {
+    "Planar graphs": "Planar",
+    "Triangle-free planar graphs": "Triangle-free planar",
+    "General graphs": "General",
+    "Bipartite graphs": "Bipartite",
+    "Bipartite graphs, Δ ≤ 3": "Bipartite; Δ ≤ 3",
+    "General incidence graphs": "Incidence graphs",
+    "Planar incidence graph": "Planar incidence graphs",
+    "Trees, including unrooted trees": "Trees",
+    "Graphs of maximum degree Δ": "Maximum degree ≤ Δ",
+    "Trees of maximum degree Δ": "Trees; maximum degree ≤ Δ",
+    "Bounded orientable genus g": "Orientable genus ≤ g",
+    "Connected graphs of Euler genus ≤ g": "Connected; Euler genus ≤ g",
+    "Euler genus ≤ g plus at most a apices": "Euler genus ≤ g; at most a apices",
+    "Polynomially bounded growth": "Polynomial neighborhood-independence growth",
+    "Weakly 2-coloured graphs": "Weakly 2-colored",
+    "No subdivision of K₄,₄": "No K₄,₄ subdivision",
+    "Planar graph with a clique attached at one vertex": "Planar with a clique attached at one vertex",
+    "Bounded Euler genus": "Euler genus ≤ g",
+    "Euler genus ≤ e": "Euler genus ≤ g",
+    "Triangle-free bounded Euler genus": "Triangle-free; Euler genus ≤ g",
+    "Asymptotic dimension d; r-locally Euler genus ≤ g": "Asymptotic dimension d; radius-r balls of Euler genus ≤ g",
+    "Asymptotic dimension d; sufficiently large-radius neighborhoods of Euler genus ≤ g": "Asymptotic dimension d; radius-r balls of Euler genus ≤ g",
+    "K₂,ₜ-minor-free": "K₂,t-minor-free"
+  }
+}

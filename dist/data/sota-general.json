@@ -1,0 +1,83 @@
+{
+  "checked": "2026-11-16",
+  "entries": [
+    {
+      "resultId": "gen-asw26-planar",
+      "setting": "Deterministic constant-round broadcast CONGEST; unweighted planar dominating set; integral output measured against fractional OPT.",
+      "reason": "Theorem C and Corollary 1.1 give exact factor 7, matching a LOCAL lower bound even against integral OPT. Thus the coefficient is optimal in this setting.",
+      "evidenceUrl": "https://arxiv.org/pdf/2611.02057"
+    },
+    {
+      "resultId": "gen-asw26-trianglefree",
+      "setting": "Deterministic constant-round broadcast CONGEST; unweighted triangle-free planar dominating set; integral output measured against fractional OPT.",
+      "reason": "Theorem C and Corollary 1.1 give exact factor 5 with a matching deterministic LOCAL lower bound. This is an optimal coefficient.",
+      "evidenceUrl": "https://arxiv.org/pdf/2611.02057"
+    },
+    {
+      "resultId": "gen-asw26-genus",
+      "setting": "Deterministic broadcast CONGEST in f(g) rounds; unweighted dominating set on graphs of Euler genus at most g; integral OPT; no embedding supplied.",
+      "reason": "Theorem E gives exact factor 7 with genus-dependent round complexity. Planar lower bounds prove coefficient optimality. The benchmark remains integral OPT on arbitrary fixed surfaces. Optimal dependence on g is not claimed.",
+      "evidenceUrl": "https://arxiv.org/pdf/2611.02057"
+    },
+    {
+      "resultId": "gen-asw26-setcover",
+      "setting": "Deterministic broadcast CONGEST in f(b, ε) rounds; feasible set cover on planar incidence graphs; each set has a positive integer cost at most b; ε > 0; integral output against fractional OPT.",
+      "reason": "Corollary H.1 achieves 4+ε; Theorem H.2 excludes every coefficient below 4 even in LOCAL. This certifies the optimal limiting coefficient, not an exact factor-4 algorithm or optimal dependence on b and ε.",
+      "evidenceUrl": "https://arxiv.org/pdf/2611.02057"
+    },
+    {
+      "resultId": "gen-asw26-fractional",
+      "setting": "Deterministic broadcast CONGEST in f(ρ, b, ε) rounds; local covering LP with candidates in closed neighborhoods; minor-density bound ρ; each candidate has a positive integer cost at most b; fractional output; ε > 0.",
+      "reason": "Theorem A supplies an approximation scheme with limiting ratio 1 and round complexity depending on ρ, b and ε. Optimal parameter dependence and exact optimization are not claimed.",
+      "evidenceUrl": "https://arxiv.org/pdf/2611.02057"
+    },
+    {
+      "resultId": "gen-asw26-cover-random",
+      "setting": "Randomized broadcast CONGEST in f(ρ, b, ε) rounds; integral local covering; minor-density bound ρ; each candidate has a positive integer cost at most b; always feasible output; expected cost ≤ (1+ε) integral OPT for ε > 0.",
+      "reason": "Theorem D(i) attains an approximation scheme with round complexity depending on ρ, b and ε. Ratio 1 is the limiting optimum; the cost guarantee is in expectation. Optimal parameter dependence is not claimed.",
+      "evidenceUrl": "https://arxiv.org/pdf/2611.02057"
+    },
+    {
+      "resultId": "gen-asw26-cover-det",
+      "setting": "Deterministic broadcast CONGEST; integral local covering on graphs of minor density at most ρ; positive integer candidate costs at most b; 0 < ε < 1/4; known common polynomial ID bound; O(log* n) rounds with a multiplicative constant depending on ρ, b and ε.",
+      "reason": "Theorem D(ii) approaches integral OPT within 1+ε. Proposition C.1 proves Ω(log* n) already for cycles, so the dependence on n is optimal for fixed ρ, b and ε. Optimal dependence on those parameters is not claimed.",
+      "evidenceUrl": "https://arxiv.org/pdf/2611.02057"
+    },
+    {
+      "resultId": "gen-asw26-cycle-lower",
+      "setting": "Deterministic LOCAL; unweighted minimum dominating set on cycles; fixed 0 < ε < 1/4; ratio 1+ε against integral OPT; known n and IDs {1,…,n} allowed.",
+      "reason": "Proposition C.1 gives Ω(log* n), matched by Theorem D(ii), even using broadcast CONGEST for the upper bound. This lower bound is tight.",
+      "evidenceUrl": "https://arxiv.org/pdf/2611.02057"
+    },
+    {
+      "resultId": "gen-fk25-tree",
+      "setting": "Deterministic CONGEST; maximum-weight independent set on arbitrary unrooted trees; log(n)/n < ε < 1; retained weight ≥ (1−ε) OPT; weights fit one message.",
+      "reason": "Theorem 1.1 proves tight Θ(log* n/ε) complexity; the lower bound holds even for unweighted oriented paths in LOCAL.",
+      "evidenceUrl": "https://arxiv.org/html/2506.10845v1"
+    },
+    {
+      "resultId": "gen-fk25-path-lower",
+      "setting": "Deterministic LOCAL; maximum-cardinality independent set on oriented paths; log(n)/n < ε < 1; retained cardinality ≥ (1−ε) OPT.",
+      "reason": "Theorem 1.1 proves Ω(log* n/ε), matched by its CONGEST upper bound for all trees. Both n and ε dependence are tight in the stated range.",
+      "evidenceUrl": "https://arxiv.org/html/2506.10845v1"
+    },
+    {
+      "resultId": "gen-dp26-matching",
+      "setting": "Randomized LOCAL; maximum-cardinality matching on general graphs with no degree bound; fixed 0 < ε < 1 and δ > 0; ratio 1/(2+ε); success ≥ 1−ε⁻¹ exp(−Ω(log¹⁻δ n)); n-only round complexity.",
+      "reason": "Theorem 1 improves the previous n-dependent bound by a log log n factor to O(log n/log² log n). Current primary-source audit found no later improvement with this guarantee; optimality remains open.",
+      "evidenceUrl": "https://arxiv.org/html/2605.13264v1"
+    },
+    {
+      "resultId": "gen-dp26-cover",
+      "setting": "Randomized LOCAL; minimum-weight vertex cover on general graphs with no degree bound; fixed 0 < ε < 1; factor 2+ε with high probability in n; n-only round complexity.",
+      "reason": "Theorem 2 gives O(log n/log² log n) for fixed ε and explicitly improves the prior n-dependent best. Current primary-source audit found no later improvement; the lower-bound gap remains open.",
+      "evidenceUrl": "https://arxiv.org/html/2605.13264v1"
+    },
+    {
+      "resultId": "gen-iky25-matching",
+      "setting": "Deterministic CONGEST; maximum-cardinality matching on general graphs without a degree bound; retained fraction 1−ε; fully polynomial dependence on 1/ε and polylogarithmic n; MM(N) denotes deterministic maximal-matching cost.",
+      "reason": "Theorem 1.2 gives O(ε⁻⁴ MM(ε⁻²n)), improving the prior Õ(ε⁻¹⁰ MM(n)) bound. Current primary-source audit found no later improvement to this general tradeoff; no optimality claim.",
+      "evidenceUrl": "https://arxiv.org/html/2511.08210v1"
+    }
+  ]
+}

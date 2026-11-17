@@ -25,6 +25,14 @@ jobs:
     steps:
       - name: Check out source
         uses: actions/checkout@v6
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
       - name: Validate and build the static catalog
         run: npm run check
       - name: Check interactions at a GitHub Pages subpath
@@ -33,6 +41,9 @@ jobs:
           ATLAS_JSDOM="$RUNNER_TEMP/atlas-qa/node_modules/jsdom" \
           ATLAS_TEST_URL="https://example.github.io/atlas/" \
           node scripts/dom-smoke.cjs
+          ATLAS_JSDOM="$RUNNER_TEMP/atlas-qa/node_modules/jsdom" node scripts/math-smoke.cjs
+          ATLAS_JSDOM="$RUNNER_TEMP/atlas-qa/node_modules/jsdom" \
+          ATLAS_TEST_URL="file://$PWD/dist/index.html" node scripts/math-smoke.cjs
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload static files
